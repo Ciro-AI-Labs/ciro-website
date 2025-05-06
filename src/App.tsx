@@ -14,25 +14,30 @@ import NewDesign from "./pages/NewDesign";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/use-cases" element={<UseCases />} />
-          <Route path="/products/ai-analytics" element={<AIAnalytics />} />
-          <Route path="/products/vision" element={<Vision />} />
-          <Route path="/new-design" element={<NewDesign />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+const App = () => {
+  // Clear any saved language preferences
+  localStorage.removeItem('i18nextLng');
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/use-cases" element={<UseCases />} />
+            <Route path="/products/ai-analytics" element={<AIAnalytics />} />
+            <Route path="/products/vision" element={<Vision />} />
+            <Route path="/new-design" element={<NewDesign />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+};
 
 export default App;
