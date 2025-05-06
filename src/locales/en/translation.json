@@ -1,0 +1,188 @@
+{
+  "menu": {
+    "home": "Home",
+    "products": "Products",
+    "useCases": "Use Cases",
+    "about": "About",
+    "newDesign": "New Design",
+    "bookDemo": "Book a Demo",
+    "language": "Language"
+  },
+  "hero": {
+    "title": "Where Industrial Data Becomes Real-Time Action",
+    "subtitle": "Ciro Labs unifies your plant's data and vision streams into a single AI command center—predict, automate, and optimize operations in milliseconds."
+  },
+  "about": {
+    "title": "About Ciro Labs",
+    "subtitle": "We're building the AI Engine for Industry 4.0",
+    "mission": "Our Mission",
+    "missionText": "Ciro Labs builds intelligent platforms that turn fragmented streams of industrial data into automated decisions, helping manufacturers and logistics operators achieve real-time operational excellence."
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Schedule a demo or reach out with any questions about Ciro Labs.",
+    "cta": "Ready to See Ciro in Action?",
+    "ctaText": "Experience the power of real-time industrial AI in your operations. Schedule a personalized demo with our team."
+  },
+  "communication": {
+    "title": "Ask Ciro",
+    "subtitle": "Get real-time insights with natural language",
+    "inputPlaceholder": "Ask a question about your data...",
+    "askButton": "Ask",
+    "questions": {
+      "deliveryRate": "What was our on-time delivery rate last quarter?",
+      "downtimes": "Show me production line downtimes by cause this month",
+      "defectRates": "Where are our highest quality defect rates?",
+      "safetyIncidents": "Show recent workplace safety incidents"
+    },
+    "answers": {
+      "deliveryRate": "94.3% on-time delivery rate in Q3, up 5.7% from previous quarter.",
+      "downtimes": "SELECT cause, SUM(duration) FROM downtimes WHERE date >= '2023-10-01' GROUP BY cause ORDER BY SUM(duration) DESC",
+      "defectRates": "Facility #3 has the highest defect rate at 2.7%, which is 0.9% above average.",
+      "safetyIncidents": "3 minor incidents reported in September, all in Zone B. 0 major incidents this quarter."
+    },
+    "chart": {
+      "deliveryRate": "On-time Delivery Rate",
+      "lastQuarters": "Last 4 Quarters",
+      "forecast": "Forecast",
+      "prodLineDowntimes": "Production Line Downtimes",
+      "october": "October 2023",
+      "equipment": "Equipment",
+      "material": "Material",
+      "staff": "Staff",
+      "other": "Other",
+      "defectRatesByFacility": "Quality Defect Rates by Facility",
+      "currentMonth": "Current Month",
+      "facility": "Facility",
+      "avgAllFacilities": "Avg. All Facilities",
+      "safetyIncidentsByZone": "Safety Incidents by Zone",
+      "zoneA": "Zone A",
+      "zoneB": "Zone B",
+      "zoneC": "Zone C",
+      "zoneD": "Zone D",
+      "noIncidents": "0 incidents",
+      "minorIncidents": "{{count}} minor incident",
+      "minorIncidents_plural": "{{count}} minor incidents"
+    }
+  },
+  "products": {
+    "title": "Our Products",
+    "subtitle": "Powerful AI solutions for industrial intelligence",
+    "capabilitiesTitle": "Capabilities",
+    "aiAnalytics": "AI Analytics Engine",
+    "aiAnalyticsDesc": "Connect your data systems for real-time visibility, insights, and automated workflows",
+    "nlAnalytics": "Natural-Language Analytics",
+    "nlAnalyticsDesc": "Ask questions (or speak them) and CIRO instantly scans billions of rows, returning answers, KPIs, or SQL you can tweak.",
+    "aiAgents": "Autonomous AI Agents",
+    "aiAgentsDesc": "Continuous anomaly detection, predictive models, and maintenance triggers that fire workflows in Slack, Teams, or WhatsApp—before issues escalate.",
+    "aiAgentsActive": "AI Agents Active",
+    "workflowAutomation": "workflow_automation",
+    "rtDashboards": "Real-Time Dashboards",
+    "rtDashboardsDesc": "Drag charts into live, multi-tab boards; connect Power BI or Looker; and watch every metric update the moment your data changes.",
+    "vision": "Vision AI Platform",
+    "visionDesc": "Turn security cameras into 24/7 industrial monitors that detect events, safety issues, and opportunities",
+    "capabilities": {
+      "visualizations": {
+        "title": "Advanced Visualizations",
+        "description": "Generate bar, heat-map, or geospatial charts from a single prompt—then polish them in CIRO Studio à la Canva."
+      },
+      "templates": {
+        "title": "Template Gallery",
+        "description": "Kick-start storytelling with pre-built KPI boards and industry templates you can inject with your own data in seconds."
+      },
+      "alerts": {
+        "title": "Omnichannel Alerts",
+        "description": "Insight triggers push to email, SMS, Slack, Teams, webhooks—anywhere your team lives—so nothing slips through the cracks."
+      },
+      "dataScience": {
+        "title": "Data Science & Forecasts",
+        "description": "Run cleaning, feature engineering, and time-series forecasts without writing Python; export models or schedule automated reports."
+      }
+    }
+  },
+  "dataHub": {
+    "iot": "IoT",
+    "cloud": "Cloud",
+    "supply": "Supply",
+    "agri": "Agri",
+    "food": "Food",
+    "vision": "Vision",
+    "db": "DB",
+    "docs": "Docs"
+  },
+  "dashboard": {
+    "businessOverview": "Business Overview",
+    "supplyChain": "Supply Chain",
+    "financialKPIs": "Financial KPIs",
+    "marketing": "Marketing",
+    "live": "Live",
+    "revenue": "Revenue",
+    "newUsers": "New Users",
+    "avgSession": "Avg. Session",
+    "bounceRate": "Bounce Rate",
+    "revenueTrend": "Revenue Trend (7-day)",
+    "salesByCategory": "Sales by Category",
+    "hardware": "Hardware",
+    "software": "Software",
+    "services": "Services",
+    "other": "Other",
+    "trafficSources": "Traffic Sources",
+    "organic": "Organic",
+    "direct": "Direct",
+    "referral": "Referral",
+    "social": "Social",
+    "recentActivity": "Recent Activity",
+    "viewAll": "View all",
+    "activities": {
+      "createdDashboard": "created a new dashboard",
+      "updatedForecast": "updated sales forecast",
+      "triggeredAlert": "triggered alert: Server CPU > 90%",
+      "sharedReport": "shared report with Finance team"
+    },
+    "timeAgo": {
+      "minutes": "{{count}} min ago",
+      "hours": "{{count}} hour ago",
+      "hours_plural": "{{count}} hours ago"
+    }
+  },
+  "days": {
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday",
+    "saturday": "Saturday",
+    "sunday": "Sunday"
+  },
+  "howItWorks": {
+    "title": "How Ciro Delivers Real-Time Intelligence",
+    "subtitle": "From data ingestion to automated action, see how our platform functions under the hood.",
+    "dataIntegration": "Data Integration",
+    "aiProcessing": "AI Processing",
+    "insightsEngine": "Insights Engine",
+    "automatedAction": "Automated Action"
+  },
+  "testimonials": {
+    "title": "What Our Clients Say",
+    "subtitle": "Learn how Ciro is transforming operations for industry leaders",
+    "metrics": {
+      "manualTasks": "Manual Tasks",
+      "outputQuality": "Output Quality",
+      "savings": "Savings"
+    }
+  },
+  "footer": {
+    "company": "Company",
+    "products": "Products",
+    "resources": "Resources",
+    "legal": "Legal",
+    "copyright": "© 2024 Ciro Labs, Inc. All rights reserved.",
+    "address": "San Francisco, CA"
+  },
+  "notFound": {
+    "title": "404",
+    "subtitle": "Page Not Found",
+    "message": "The page you are looking for doesn't exist or has been moved.",
+    "action": "Return to Home"
+  }
+} 

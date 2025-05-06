@@ -1,0 +1,188 @@
+{
+  "menu": {
+    "home": "Inicio",
+    "products": "Productos",
+    "useCases": "Casos de Uso",
+    "about": "Acerca de",
+    "newDesign": "Nuevo Diseño",
+    "bookDemo": "Reservar Demo",
+    "language": "Idioma"
+  },
+  "hero": {
+    "title": "Donde los Datos Industriales se Convierten en Acción en Tiempo Real",
+    "subtitle": "Ciro Labs unifica los flujos de datos y visión de su planta en un único centro de comando con IA—predice, automatiza y optimiza operaciones en milisegundos."
+  },
+  "about": {
+    "title": "Acerca de Ciro Labs",
+    "subtitle": "Estamos construyendo el Motor de IA para la Industria 4.0",
+    "mission": "Nuestra Misión",
+    "missionText": "Ciro Labs crea plataformas inteligentes que transforman flujos fragmentados de datos industriales en decisiones automatizadas, ayudando a fabricantes y operadores logísticos a lograr excelencia operativa en tiempo real."
+  },
+  "contact": {
+    "title": "Contáctenos",
+    "subtitle": "Programe una demo o comuníquese con cualquier pregunta sobre Ciro Labs.",
+    "cta": "¿Listo para Ver Ciro en Acción?",
+    "ctaText": "Experimente el poder de la IA industrial en tiempo real en sus operaciones. Programe una demo personalizada con nuestro equipo."
+  },
+  "communication": {
+    "title": "Pregunta a Ciro",
+    "subtitle": "Obtén insights en tiempo real con lenguaje natural",
+    "inputPlaceholder": "Haz una pregunta sobre tus datos...",
+    "askButton": "Preguntar",
+    "questions": {
+      "deliveryRate": "¿Cuál fue nuestra tasa de entrega a tiempo el último trimestre?",
+      "downtimes": "Muéstrame los tiempos de inactividad por causa este mes",
+      "defectRates": "¿Dónde están nuestras tasas más altas de defectos de calidad?",
+      "safetyIncidents": "Muestra incidentes recientes de seguridad laboral"
+    },
+    "answers": {
+      "deliveryRate": "94.3% de tasa de entrega a tiempo en Q3, un aumento del 5.7% desde el trimestre anterior.",
+      "downtimes": "SELECT causa, SUM(duracion) FROM paradas WHERE fecha >= '2023-10-01' GROUP BY causa ORDER BY SUM(duracion) DESC",
+      "defectRates": "La Instalación #3 tiene la tasa de defectos más alta con 2.7%, que es 0.9% por encima del promedio.",
+      "safetyIncidents": "3 incidentes menores reportados en septiembre, todos en Zona B. 0 incidentes mayores este trimestre."
+    },
+    "chart": {
+      "deliveryRate": "Tasa de Entrega a Tiempo",
+      "lastQuarters": "Últimos 4 Trimestres",
+      "forecast": "Pronóstico",
+      "prodLineDowntimes": "Tiempos de Inactividad de Línea",
+      "october": "Octubre 2023",
+      "equipment": "Equipo",
+      "material": "Material",
+      "staff": "Personal",
+      "other": "Otros",
+      "defectRatesByFacility": "Tasas de Defectos por Instalación",
+      "currentMonth": "Mes Actual",
+      "facility": "Instalación",
+      "avgAllFacilities": "Prom. Todas Instal.",
+      "safetyIncidentsByZone": "Incidentes de Seguridad por Zona",
+      "zoneA": "Zona A",
+      "zoneB": "Zona B",
+      "zoneC": "Zona C",
+      "zoneD": "Zona D",
+      "noIncidents": "0 incidentes",
+      "minorIncidents": "{{count}} incidente menor",
+      "minorIncidents_plural": "{{count}} incidentes menores"
+    }
+  },
+  "products": {
+    "title": "Nuestros Productos",
+    "subtitle": "Potentes soluciones de IA para inteligencia industrial",
+    "capabilitiesTitle": "Capacidades",
+    "aiAnalytics": "Motor de Análisis IA",
+    "aiAnalyticsDesc": "Conecte sus sistemas de datos para visibilidad en tiempo real, información y flujos de trabajo automatizados",
+    "nlAnalytics": "Análisis en Lenguaje Natural",
+    "nlAnalyticsDesc": "Haga preguntas (o háblelas) y CIRO escanea instantáneamente miles de millones de filas, devolviendo respuestas, KPIs o SQL que puede ajustar.",
+    "aiAgents": "Agentes Autónomos de IA",
+    "aiAgentsDesc": "Detección continua de anomalías, modelos predictivos y activadores de mantenimiento que disparan flujos de trabajo en Slack, Teams o WhatsApp—antes de que los problemas escalen.",
+    "aiAgentsActive": "Agentes IA Activos",
+    "workflowAutomation": "automatización_flujos",
+    "rtDashboards": "Tableros en Tiempo Real",
+    "rtDashboardsDesc": "Arrastre gráficos a tableros en vivo de múltiples pestañas; conecte Power BI o Looker; y vea cada métrica actualizarse en el momento en que cambian sus datos.",
+    "vision": "Plataforma de Visión IA",
+    "visionDesc": "Convierta cámaras de seguridad en monitores industriales 24/7 que detectan eventos, problemas de seguridad y oportunidades",
+    "capabilities": {
+      "visualizations": {
+        "title": "Visualizaciones Avanzadas",
+        "description": "Genere gráficos de barras, mapas de calor o geoespaciales con un simple comando—luego perfeccione en CIRO Studio al estilo Canva."
+      },
+      "templates": {
+        "title": "Galería de Plantillas",
+        "description": "Inicie su narrativa con tableros KPI preconfigurados y plantillas industriales en las que puede inyectar sus propios datos en segundos."
+      },
+      "alerts": {
+        "title": "Alertas Omnicanal",
+        "description": "Los disparadores de información se envían a email, SMS, Slack, Teams, webhooks—donde sea que esté su equipo—para que nada se escape."
+      },
+      "dataScience": {
+        "title": "Ciencia de Datos y Pronósticos",
+        "description": "Ejecute limpieza, ingeniería de características y pronósticos de series temporales sin escribir Python; exporte modelos o programe informes automatizados."
+      }
+    }
+  },
+  "dataHub": {
+    "iot": "IoT",
+    "cloud": "Nube",
+    "supply": "Sumin",
+    "agri": "Agri",
+    "food": "Alim",
+    "vision": "Visión",
+    "db": "BD",
+    "docs": "Docs"
+  },
+  "dashboard": {
+    "businessOverview": "Resumen de Negocio",
+    "supplyChain": "Cadena de Suministro",
+    "financialKPIs": "KPIs Financieros",
+    "marketing": "Marketing",
+    "live": "En Vivo",
+    "revenue": "Ingresos",
+    "newUsers": "Nuevos Usuarios",
+    "avgSession": "Sesión Prom.",
+    "bounceRate": "Tasa Rebote",
+    "revenueTrend": "Tendencia Ingresos (7 días)",
+    "salesByCategory": "Ventas por Categoría",
+    "hardware": "Hardware",
+    "software": "Software",
+    "services": "Servicios",
+    "other": "Otros",
+    "trafficSources": "Fuentes de Tráfico",
+    "organic": "Orgánico",
+    "direct": "Directo",
+    "referral": "Referencia",
+    "social": "Social",
+    "recentActivity": "Actividad Reciente",
+    "viewAll": "Ver todo",
+    "activities": {
+      "createdDashboard": "creó un nuevo tablero",
+      "updatedForecast": "actualizó previsión de ventas",
+      "triggeredAlert": "alerta activada: CPU Servidor > 90%",
+      "sharedReport": "compartió informe con equipo Finanzas"
+    },
+    "timeAgo": {
+      "minutes": "hace {{count}} min",
+      "hours": "hace {{count}} hora",
+      "hours_plural": "hace {{count}} horas"
+    }
+  },
+  "days": {
+    "monday": "Lunes",
+    "tuesday": "Martes",
+    "wednesday": "Miércoles",
+    "thursday": "Jueves",
+    "friday": "Viernes",
+    "saturday": "Sábado",
+    "sunday": "Domingo"
+  },
+  "howItWorks": {
+    "title": "Cómo Ciro Ofrece Inteligencia en Tiempo Real",
+    "subtitle": "Desde la ingesta de datos hasta la acción automatizada, vea cómo funciona nuestra plataforma internamente.",
+    "dataIntegration": "Integración de Datos",
+    "aiProcessing": "Procesamiento IA",
+    "insightsEngine": "Motor de Conocimientos",
+    "automatedAction": "Acción Automatizada"
+  },
+  "testimonials": {
+    "title": "Lo Que Dicen Nuestros Clientes",
+    "subtitle": "Conozca cómo Ciro está transformando las operaciones para líderes de la industria",
+    "metrics": {
+      "manualTasks": "Tareas Manuales",
+      "outputQuality": "Calidad de Salida",
+      "savings": "Ahorro"
+    }
+  },
+  "footer": {
+    "company": "Empresa",
+    "products": "Productos",
+    "resources": "Recursos",
+    "legal": "Legal",
+    "copyright": "© 2024 Ciro Labs, Inc. Todos los derechos reservados.",
+    "address": "San Francisco, CA"
+  },
+  "notFound": {
+    "title": "404",
+    "subtitle": "Página No Encontrada",
+    "message": "La página que está buscando no existe o ha sido movida.",
+    "action": "Volver al Inicio"
+  }
+} 
