@@ -1,5 +1,4 @@
-// SendGrid API key - should be in environment variables
-const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY || ""; 
+// Default recipient email for notifications
 const DEFAULT_RECIPIENT = "victor.amaya@ciroai.us";
 
 /**
@@ -24,74 +23,38 @@ export default async function handler(req, res) {
 
   try {
     const formData = req.body;
-    console.log("Received form data:", formData);
     
     // Validate form data
     if (!formData.name || !formData.email || !formData.company || !formData.industry) {
       return res.status(400).json({ error: 'Missing required fields' });
     }
 
-    // Get recipient email (from environment variable if available)
-    const recipient = process.env.FORM_RECIPIENT || DEFAULT_RECIPIENT;
-    
-    // Format message content
-    const messageContent = `
-Name: ${formData.name}
-Email: ${formData.email}
+    // Log the submission (this will appear in Vercel logs)
+    console.log(`
+========== NEW DEMO REQUEST ==========
+Time: ${new Date().toISOString()}
+From: ${formData.name} (${formData.email})
 Company: ${formData.company}
 Industry: ${formData.industry}
 Message: ${formData.message || "No message provided"}
-    `;
-    
-    // Construct SendGrid email payload
-    const email = {
-      personalizations: [
-        {
-          to: [{ email: recipient }],
-          subject: `New Demo Request from ${formData.name} at ${formData.company}`
-        }
-      ],
-      from: { email: "noreply@cirolabs.com", name: "Ciro Labs Demo Requests" },
-      reply_to: { email: formData.email, name: formData.name },
-      content: [
-        {
-          type: "text/plain",
-          value: messageContent
-        }
-      ]
-    };
-    
-    // Check if we have a SendGrid API key
-    if (!SENDGRID_API_KEY) {
-      console.log("No SendGrid API key found. Would have sent email:", email);
-      // For development/debugging: just log and return success
-      return res.status(200).json({ 
-        success: true,
-        message: "Email would have been sent (development mode)" 
-      });
-    }
-    
-    // Send email using SendGrid API
-    const response = await fetch('https://api.sendgrid.com/v3/mail/send', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${SENDGRID_API_KEY}`
-      },
-      body: JSON.stringify(email)
-    });
-    
-    // SendGrid returns 202 Accepted when successful
-    if (response.status !== 202) {
-      const errorText = await response.text();
-      console.error("SendGrid API error:", response.status, errorText);
-      return res.status(500).json({ error: 'Failed to send email' });
-    }
+======================================
+    `);
     
     // Return success response
-    return res.status(200).json({ success: true });
+    return res.status(200).json({ 
+      success: true,
+      message: "Your demo request has been recorded. We'll contact you soon!",
+      data: {
+        timestamp: new Date().toISOString(),
+        name: formData.name,
+        email: formData.email,
+        company: formData.company,
+        industry: formData.industry,
+        hasMessage: !!formData.message
+      }
+    });
   } catch (error) {
-    console.error("Error sending form submission:", error);
+    console.error("Error processing form submission:", error);
     return res.status(500).json({ error: 'Server error', details: error.message });
   }
 } 
