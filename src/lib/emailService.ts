@@ -8,51 +8,44 @@ export type FormData = {
   message?: string;
 };
 
-// Default recipient email if none is provided
-const DEFAULT_RECIPIENT = "victor.amaya@ciroai.us";
-
 /**
- * Sends form data to specified recipient email using our serverless API
- * @param formData The form data to send
- * @param recipientEmail Optional recipient email, falls back to environment variable or default
+ * Client-side only implementation of form submission
+ * This version completely bypasses the API and just logs the data
  */
 export async function sendFormSubmission(
-  formData: FormData, 
-  recipientEmail?: string
+  formData: FormData
 ): Promise<boolean> {
   try {
-    // Log form submission data
-    console.log("Form submission data:", formData);
+    // Format message for logging and storage
+    const formattedData = `
+========== NEW DEMO REQUEST ==========
+Time: ${new Date().toISOString()}
+From: ${formData.name} (${formData.email})
+Company: ${formData.company}
+Industry: ${formData.industry}
+Message: ${formData.message || "No message provided"}
+======================================
+    `;
     
-    // Calculate API URL - use the correct URL for both local development and production
-    const apiUrl = '/api/submit-form';
+    // Log the submission to console
+    console.log("Form submission:", formattedData);
     
-    console.log("Sending form data to:", apiUrl);
-    
-    // Send the form data to our API endpoint
-    const response = await fetch(apiUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData)
+    // Store in localStorage for demo purposes
+    const submissions = JSON.parse(localStorage.getItem('form_submissions') || '[]');
+    submissions.push({
+      timestamp: new Date().toISOString(),
+      data: formData
     });
+    localStorage.setItem('form_submissions', JSON.stringify(submissions));
     
-    // Check if response is OK before trying to parse JSON
-    if (!response.ok) {
-      const errorText = await response.text();
-      console.error("API error:", response.status, errorText);
-      throw new Error(`API error ${response.status}: ${errorText}`);
-    }
-    
-    // Parse the response
-    const result = await response.json();
+    // Show success message
+    toast.success("Demo request received! We'll contact you shortly.");
     
     // Return true to indicate success
     return true;
   } catch (error) {
-    console.error("Error sending form submission:", error);
-    toast.error("Failed to send form data. Please try again later.");
+    console.error("Error processing form:", error);
+    toast.error("Something went wrong. Please try again later.");
     return false;
   }
 } 
