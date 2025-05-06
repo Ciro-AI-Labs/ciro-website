@@ -2,10 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,54 +54,52 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-6">
             <Link
               to="/"
               className="text-foreground/80 hover:text-foreground transition-colors"
             >
-              Home
+              {t('menu.home')}
             </Link>
             <Link
               to="/products"
               className="text-foreground/80 hover:text-foreground transition-colors"
             >
-              Products
+              {t('menu.products')}
             </Link>
             <Link
               to="/use-cases"
               className="text-foreground/80 hover:text-foreground transition-colors"
             >
-              Use Cases
+              {t('menu.useCases')}
             </Link>
             <Link
               to="/about"
               className="text-foreground/80 hover:text-foreground transition-colors"
             >
-              About
+              {t('menu.about')}
             </Link>
-            <Link
-              to="/new-design"
-              className="text-foreground/80 hover:text-foreground transition-colors"
-            >
-              New Design
-            </Link>
+            <LanguageSwitcher />
             <Button variant="default" asChild>
-              <Link to="/contact">Book a Demo</Link>
+              <Link to="/contact">{t('menu.bookDemo')}</Link>
             </Button>
           </nav>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-foreground relative z-[60]"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
-          </button>
+          {/* Mobile Menu Button and Language Switcher */}
+          <div className="md:hidden flex items-center gap-2">
+            <LanguageSwitcher />
+            <button
+              className="text-foreground relative z-[60]"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu - solid background with multiple layers */}
@@ -122,35 +123,28 @@ const Navbar = () => {
                     className="py-3 text-white hover:text-purple-300 border-b border-gray-800"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    Home
+                    {t('menu.home')}
                   </Link>
                   <Link
                     to="/products"
                     className="py-3 text-white hover:text-purple-300 border-b border-gray-800"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    Products
+                    {t('menu.products')}
                   </Link>
                   <Link
                     to="/use-cases"
                     className="py-3 text-white hover:text-purple-300 border-b border-gray-800"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    Use Cases
+                    {t('menu.useCases')}
                   </Link>
                   <Link
                     to="/about"
                     className="py-3 text-white hover:text-purple-300 border-b border-gray-800"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    About
-                  </Link>
-                  <Link
-                    to="/new-design"
-                    className="py-3 text-white hover:text-purple-300 border-b border-gray-800"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    New Design
+                    {t('menu.about')}
                   </Link>
                 </div>
                 
@@ -162,7 +156,7 @@ const Navbar = () => {
                     onClick={() => setMobileMenuOpen(false)}
                     asChild
                   >
-                    <Link to="/contact">Book a Demo</Link>
+                    <Link to="/contact">{t('menu.bookDemo')}</Link>
                   </Button>
                 </div>
               </div>
