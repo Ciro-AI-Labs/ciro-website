@@ -314,9 +314,14 @@ export default function ParticlesBackground() {
               connectedParticle.x, connectedParticle.y
             );
             
-            const purpleColor = 'rgba(168, 85, 247, ' + opacity + ')';
-            const blueColor = 'rgba(59, 130, 246, ' + opacity + ')';
-            const whiteColor = 'rgba(255, 255, 255, ' + (opacity * 0.7) + ')';
+            // Ensure opacity is a valid number
+            const safeOpacity = isNaN(opacity) ? 0.1 : opacity;
+            const safeOpacityLower = isNaN(opacity) ? 0.07 : opacity * 0.7;
+            const safeOpacityLowest = isNaN(opacity) ? 0.02 : opacity * 0.2;
+            
+            const purpleColor = 'rgba(168, 85, 247, ' + safeOpacity + ')';
+            const blueColor = 'rgba(59, 130, 246, ' + safeOpacity + ')';
+            const whiteColor = 'rgba(255, 255, 255, ' + safeOpacityLower + ')';
             
             if (particle.color === '#a855f7' || connectedParticle.color === '#a855f7') {
               gradient.addColorStop(0, whiteColor);
@@ -325,8 +330,8 @@ export default function ParticlesBackground() {
               gradient.addColorStop(0, whiteColor);
               gradient.addColorStop(1, blueColor);
             } else {
-              gradient.addColorStop(0, 'rgba(255, 255, 255, ' + (opacity * 0.5) + ')');
-              gradient.addColorStop(1, 'rgba(255, 255, 255, ' + (opacity * 0.2) + ')');
+              gradient.addColorStop(0, 'rgba(255, 255, 255, ' + safeOpacityLower + ')');
+              gradient.addColorStop(1, 'rgba(255, 255, 255, ' + safeOpacityLowest + ')');
             }
             
             ctx.strokeStyle = gradient;
