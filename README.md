@@ -70,3 +70,4 @@ For questions about this website or Ciro AI, please contact us at [victor.amaya@
 ---
 
 © 2024 Ciro AI. All rights reserved.
+# Trigger Vercel deployment with latest Ciro AI branding
