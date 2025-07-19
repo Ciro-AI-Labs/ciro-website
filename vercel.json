@@ -2,5 +2,7 @@
   "version": 2,
   "env": {
     "FORM_RECIPIENT": "victor.amaya@ciroai.us"
-  }
+  },
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist"
 } 
