@@ -35,12 +35,26 @@ const Hero = () => {
   // Dashboard data points with animated values
   const chartData = [40, 25, 35, 30, 32, 38, 42, 45, 35, 38, 50, 55];
   
-  // Text animation variants
+  // Enhanced text animation variants with staggered children
   const headlineVariants = {
     hidden: { opacity: 0, y: 100 },
     visible: { 
       opacity: 1, 
       y: 0,
+      transition: { 
+        duration: 1.2, 
+        ease: [0.22, 1, 0.36, 1],
+        staggerChildren: 0.1
+      }
+    }
+  };
+  
+  const headlineChildVariants = {
+    hidden: { opacity: 0, y: 50, scale: 0.95 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      scale: 1,
       transition: { 
         duration: 0.8, 
         ease: [0.22, 1, 0.36, 1]
@@ -54,44 +68,49 @@ const Hero = () => {
       opacity: 1, 
       y: 0,
       transition: { 
-        duration: 0.6, 
-        delay: 0.3,
-        ease: "easeOut" 
-      }
-    }
-  };
-  
-  const buttonVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { 
-        duration: 0.5, 
-        delay: 0.5
-      }
-    }
-  };
-  
-  const dashboardVariants = {
-    hidden: { opacity: 0, scale: 0.9, y: 40 },
-    visible: { 
-      opacity: 1, 
-      scale: 1, 
-      y: 0,
-      transition: {
-        duration: 1,
-        delay: 0.2,
+        duration: 0.8, 
+        delay: 0.4,
         ease: [0.22, 1, 0.36, 1]
       }
     }
   };
   
-  // Floating animation for dashboard
+  const buttonVariants = {
+    hidden: { opacity: 0, y: 20, scale: 0.95 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      scale: 1,
+      transition: { 
+        duration: 0.6, 
+        delay: 0.8,
+        ease: [0.22, 1, 0.36, 1]
+      }
+    }
+  };
+  
+  const dashboardVariants = {
+    hidden: { opacity: 0, scale: 0.85, y: 60, rotateY: -15 },
+    visible: { 
+      opacity: 1, 
+      scale: 1, 
+      y: 0,
+      rotateY: 0,
+      transition: {
+        duration: 1.4,
+        delay: 0.3,
+        ease: [0.22, 1, 0.36, 1]
+      }
+    }
+  };
+  
+  // Enhanced floating animation for dashboard with subtle rotation
   const floatingAnimation = {
-    y: [0, -10, 0],
+    y: [0, -8, 0],
+    rotateY: [0, 2, 0],
+    rotateX: [0, -1, 0],
     transition: {
-      duration: 6,
+      duration: 8,
       repeat: Infinity,
       repeatType: "reverse" as const,
       ease: "easeInOut"
@@ -162,11 +181,11 @@ const Hero = () => {
               }}
             />
             
-            {/* Reduced font sizes, added leading-tight for better elegance */}
+            {/* Subtle orange accents */}
             <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6">
-              {/* Animated Gradient Span */}
+              {/* Animated Gradient Span with subtle orange */}
               <motion.span 
-                className="block bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500"
+                className="block bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-orange-500 to-blue-500"
                 animate={{
                   backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
                 }}
@@ -194,6 +213,7 @@ const Hero = () => {
                     <defs>
                       <linearGradient id="underline-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
                         <stop offset="0%" stopColor="#a855f7" /> {/* Purple */}
+                        <stop offset="50%" stopColor="#f97316" /> {/* Orange */}
                         <stop offset="100%" stopColor="#3b82f6" /> {/* Blue */}
                       </linearGradient>
                     </defs>
@@ -211,9 +231,19 @@ const Hero = () => {
                 </span>
               </span>
             </h1>
-            <p className="max-w-xl mx-auto text-lg sm:text-xl text-foreground/80 md:max-w-2xl mb-10">
-              CIRO connects to your data systems, delivers live insights, and automates critical workflows—using applied AI to help your entire organization move faster, work smarter, and stay in control.
-            </p>
+            <div className="max-w-2xl mx-auto md:mx-0 space-y-4 mb-10">
+              <p className="text-xl sm:text-2xl text-gray-300 font-medium">
+                What if the next industrial breakthrough isn't about{' '}
+                <span className="text-orange-400 font-semibold">more data</span>...
+              </p>
+              <p className="text-xl sm:text-2xl text-transparent bg-gradient-to-r from-purple-400 via-orange-400 to-blue-400 bg-clip-text font-bold">
+                But about faster decisions?
+              </p>
+              <p className="text-lg text-gray-400 mt-6">
+                Every factory has the same challenge: <span className="text-orange-400 font-semibold">too much information, not enough action.</span> 
+                Sensors firing, cameras recording, ERPs logging thousands of events—yet most decisions still happen on gut instinct.
+              </p>
+            </div>
 
             {/* Corner Decorator: Bottom Right */}
             <motion.div
@@ -281,11 +311,11 @@ const Hero = () => {
               size="lg" 
               variant="outline" 
               asChild 
-              className="group border-slate-500 hover:border-purple-500 transition-colors duration-300 w-full sm:w-auto"
+              className="group border-slate-500 hover:border-orange-400 transition-colors duration-300 w-full sm:w-auto"
             >
               <Link to="/about" className="flex items-center justify-center gap-2">
                 <motion.svg 
-                  className="w-5 h-5 text-purple-500 group-hover:text-white transition-colors duration-300" 
+                  className="w-5 h-5 text-purple-500 group-hover:text-orange-400 transition-colors duration-300" 
                   fill="currentColor" 
                   viewBox="0 0 20 20"
                   animate={{ scale: [1, 1.2, 1] }}
@@ -311,47 +341,55 @@ const Hero = () => {
             className="relative"
             animate={floatingAnimation}
           >
-            {/* Floating Icons */}
+            {/* Enhanced Floating Icons */}
             <motion.div
               className="absolute -top-4 -left-6 z-10 text-purple-400/80 text-3xl"
               animate={{ 
-                y: [-3, 3, -3], 
-                rotate: [-5, 5, -5], 
-                scale: [1, 1.1, 1] 
+                y: [-4, 4, -4], 
+                rotate: [-8, 8, -8], 
+                scale: [1, 1.15, 1],
+                opacity: [0.7, 1, 0.7]
               }}
-              transition={{ duration: 5, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.5 }}
+              transition={{ duration: 6, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.5 }}
+              whileHover={{ scale: 1.3, rotate: 15 }}
             >
               <FaCamera />
             </motion.div>
             <motion.div
               className="absolute -top-2 right-4 z-10 text-blue-400/80 text-2xl"
               animate={{ 
-                y: [2, -2, 2], 
-                scale: [1, 1.05, 1] 
+                y: [3, -3, 3], 
+                scale: [1, 1.1, 1],
+                opacity: [0.8, 1, 0.8]
               }}
-              transition={{ duration: 4, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 1 }}
+              transition={{ duration: 5, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 1 }}
+              whileHover={{ scale: 1.4, y: -5 }}
             >
               <FaCommentDots />
             </motion.div>
              <motion.div
               className="absolute -bottom-4 -right-5 z-10 text-green-400/80 text-3xl"
               animate={{ 
-                y: [-2, 2, -2], 
-                rotate: [3, -3, 3],
-                scale: [1, 1.08, 1] 
+                y: [-3, 3, -3], 
+                rotate: [5, -5, 5],
+                scale: [1, 1.12, 1],
+                opacity: [0.7, 1, 0.7]
               }}
-              transition={{ duration: 6, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.8 }}
+              transition={{ duration: 7, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.8 }}
+              whileHover={{ scale: 1.3, rotate: -15 }}
             >
               <FaMapMarkerAlt />
             </motion.div>
              <motion.div
               className="absolute bottom-8 -left-8 z-10 text-teal-400/70 text-4xl"
               animate={{ 
-                y: [4, -4, 4],
-                scale: [1, 1.15, 1],
-                opacity: [0.6, 0.9, 0.6]
+                y: [5, -5, 5],
+                scale: [1, 1.2, 1],
+                opacity: [0.6, 1, 0.6],
+                rotate: [0, 10, 0]
               }}
-              transition={{ duration: 7, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
+              transition={{ duration: 8, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
+              whileHover={{ scale: 1.4, rotate: 20 }}
             >
               <FaEye />
             </motion.div>
@@ -386,7 +424,11 @@ const Hero = () => {
                         className="h-full bg-gradient-to-r from-green-500 to-emerald-400 rounded-full"
                         initial={{ width: "0%" }}
                         animate={{ width: "98%" }}
-                        transition={{ delay: 1.5, duration: 1.5, ease: "easeOut" }}
+                        transition={{ 
+                          delay: 1.5, 
+                          duration: 2, 
+                          ease: [0.22, 1, 0.36, 1]
+                        }}
                       />
                     </div>
                   </div>
@@ -406,7 +448,11 @@ const Hero = () => {
                         className="h-full bg-gradient-to-r from-green-500 to-emerald-400 rounded-full" 
                         initial={{ width: "0%" }}
                         animate={{ width: "90%" }}
-                        transition={{ delay: 1.6, duration: 1.5, ease: "easeOut" }}
+                        transition={{ 
+                          delay: 1.6, 
+                          duration: 2, 
+                          ease: [0.22, 1, 0.36, 1]
+                        }}
                       />
                     </div>
                   </div>
@@ -418,15 +464,19 @@ const Hero = () => {
                     {chartData.map((h, i) => (
                       <motion.div
                         key={i}
-                        initial={{ height: 0 }}
-                        animate={{ height: `${h}%` }}
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: `${h}%`, opacity: 1 }}
                         transition={{ 
-                          duration: 1.2, 
-                          delay: 1.7 + (i * 0.05),
+                          duration: 1.4, 
+                          delay: 1.7 + (i * 0.08),
                           ease: [0.22, 1, 0.36, 1]
                         }}
-                        className="bg-gradient-to-t from-purple-600 to-purple-400 hover:from-purple-500 hover:to-purple-300 w-full rounded-sm transition-all duration-200"
-                        whileHover={{ y: -5 }}
+                        className="bg-gradient-to-t from-purple-600 to-purple-400 hover:from-purple-500 hover:to-purple-300 w-full rounded-sm transition-all duration-300"
+                        whileHover={{ 
+                          y: -8, 
+                          scale: 1.05,
+                          transition: { duration: 0.2 }
+                        }}
                       />
                     ))}
                   </div>
@@ -500,22 +550,29 @@ const Hero = () => {
         </motion.div>
       </div>
       
-      {/* Interactive mouse scroll indicator - hidden on small screens */}
+      {/* Enhanced Interactive mouse scroll indicator - hidden on small screens */}
       <motion.div 
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden sm:block"
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 2, duration: 1 }}
+        initial={{ opacity: 0, y: -10, scale: 0.8 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ delay: 2.5, duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
       >
         <motion.div 
-          className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center"
-          animate={{ y: [0, 5, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
+          className="w-6 h-10 border-2 border-white/40 rounded-full flex justify-center backdrop-blur-sm"
+          animate={{ 
+            y: [0, 8, 0],
+            borderColor: ["rgba(255,255,255,0.4)", "rgba(255,255,255,0.8)", "rgba(255,255,255,0.4)"]
+          }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          whileHover={{ scale: 1.1, borderColor: "rgba(255,255,255,1)" }}
         >
           <motion.div 
-            className="w-1.5 h-1.5 bg-white/60 rounded-full mt-2"
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
+            className="w-1.5 h-1.5 bg-white/80 rounded-full mt-2"
+            animate={{ 
+              y: [0, 12, 0],
+              opacity: [0.6, 1, 0.6]
+            }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           />
         </motion.div>
       </motion.div>
