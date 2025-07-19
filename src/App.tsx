@@ -2,7 +2,9 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { useEffect } from "react";
+import { logVisitorEvent } from "@/lib/analytics";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Contact from "./pages/contact/Contact";
@@ -22,6 +24,17 @@ import Admin from "./pages/Admin";
 
 const queryClient = new QueryClient();
 
+// Analytics tracking component
+const AnalyticsTracker = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    logVisitorEvent({ event_type: "page_view" });
+  }, [location.pathname]);
+
+  return null;
+};
+
 const App = () => {
   // Clear any saved language preferences
   localStorage.removeItem('i18nextLng');
@@ -32,6 +45,7 @@ const App = () => {
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <AnalyticsTracker />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/contact" element={<Contact />} />

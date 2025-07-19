@@ -21,6 +21,7 @@ import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { toast } from "sonner";
 import { EmailService } from "@/lib/emailService";
+import { logVisitorEvent } from "@/lib/analytics";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -41,8 +42,14 @@ const Footer = () => {
       // Subscribe to newsletter using Supabase
       const result = await EmailService.subscribeToNewsletter(email);
       
+      // Log analytics event
+      await logVisitorEvent({
+        event_type: "newsletter_signup",
+        email: email
+      });
+      
       // Show success message
-      toast.success(result.message || "Successfully subscribed to newsletter!");
+      toast.success("Successfully subscribed to newsletter!");
       setEmail("");
       
     } catch (error) {

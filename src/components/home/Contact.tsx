@@ -35,6 +35,7 @@ import {
 } from "lucide-react";
 import HubSpotMeetingScheduler from "./HubSpotMeetingScheduler";
 import { EmailService } from "@/lib/emailService";
+import { logVisitorEvent } from "@/lib/analytics";
 
 // Type declarations for Calendly
 declare global {
@@ -143,6 +144,19 @@ const Contact = () => {
         industry: values.industry,
         message: values.message,
         type: 'contact'
+      });
+      
+      // Log analytics event
+      await logVisitorEvent({
+        event_type: "form_submission",
+        email: values.email,
+        name: values.name,
+        form_data: {
+          type: 'contact',
+          company: values.company,
+          industry: values.industry,
+          message: values.message
+        }
       });
       
       // Show success message

@@ -23,6 +23,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Contact from "@/components/home/Contact";
 import { EmailService } from "@/lib/emailService";
+import { logVisitorEvent } from "@/lib/analytics";
 import { Link } from "react-router-dom";
 
 const News = () => {
@@ -40,6 +41,15 @@ const News = () => {
     try {
       // Subscribe to newsletter using Supabase
       const result = await EmailService.subscribeToNewsletter(email);
+      
+      // Log analytics event
+      await logVisitorEvent({
+        event_type: "newsletter_signup",
+        email: email,
+        form_data: {
+          type: 'news_newsletter'
+        }
+      });
       
       // Show success message
       toast.success("Successfully subscribed to news newsletter!");

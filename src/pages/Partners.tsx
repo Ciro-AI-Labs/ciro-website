@@ -36,6 +36,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Contact from "@/components/home/Contact";
 import { EmailService } from "@/lib/emailService";
+import { logVisitorEvent } from "@/lib/analytics";
 
 const Partners = () => {
   const handlePartnershipInquiry = async (e: React.FormEvent) => {
@@ -58,6 +59,20 @@ const Partners = () => {
         industry,
         message: `Partnership Type: ${partnershipType}\n\n${message}`,
         type: 'partnership'
+      });
+      
+      // Log analytics event
+      await logVisitorEvent({
+        event_type: "form_submission",
+        email: email,
+        name: name,
+        form_data: {
+          type: 'partnership',
+          company: company,
+          industry: industry,
+          partnershipType: partnershipType,
+          message: message
+        }
       });
       
       // Show success message

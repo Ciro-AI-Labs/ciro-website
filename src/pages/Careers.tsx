@@ -38,6 +38,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Contact from "@/components/home/Contact";
 import { EmailService } from "@/lib/emailService";
+import { logVisitorEvent } from "@/lib/analytics";
 
 const Careers = () => {
   const [selectedJob, setSelectedJob] = useState<string>("");
@@ -68,6 +69,19 @@ const Careers = () => {
         industry: department,
         message: `Position: ${selectedJob}\nDepartment: ${department}\n\nCover Letter:\n${coverLetter}`,
         type: 'career'
+      });
+      
+      // Log analytics event
+      await logVisitorEvent({
+        event_type: "form_submission",
+        email: email,
+        name: name,
+        form_data: {
+          type: 'career',
+          position: selectedJob,
+          department: department,
+          coverLetter: coverLetter
+        }
       });
       
       // Show success message
