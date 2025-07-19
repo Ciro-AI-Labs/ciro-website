@@ -1,51 +1,111 @@
-import { toast } from "sonner";
+import { supabase, EmailSubmission, NewsletterSubscription } from './supabase'
 
-export type FormData = {
-  name: string;
-  email: string;
-  company: string;
-  industry: string;
-  message?: string;
-};
+export class EmailService {
+  // Submit a general email (contact form, partnership inquiry, etc.)
+  static async submitEmail(submission: Omit<EmailSubmission, 'id' | 'created_at'>) {
+    try {
+      const { data, error } = await supabase
+        .from('email_submissions')
+        .insert([submission])
+        .select()
 
-/**
- * Client-side only implementation of form submission
- * This version completely bypasses the API and just logs the data
- */
-export async function sendFormSubmission(
-  formData: FormData
-): Promise<boolean> {
-  try {
-    // Format message for logging and storage
-    const formattedData = `
-========== NEW DEMO REQUEST ==========
-Time: ${new Date().toISOString()}
-From: ${formData.name} (${formData.email})
-Company: ${formData.company}
-Industry: ${formData.industry}
-Message: ${formData.message || "No message provided"}
-======================================
-    `;
-    
-    // Log the submission to console
-    console.log("Form submission:", formattedData);
-    
-    // Store in localStorage for demo purposes
-    const submissions = JSON.parse(localStorage.getItem('form_submissions') || '[]');
-    submissions.push({
-      timestamp: new Date().toISOString(),
-      data: formData
-    });
-    localStorage.setItem('form_submissions', JSON.stringify(submissions));
-    
-    // Show success message
-    toast.success("Demo request received! We'll contact you shortly.");
-    
-    // Return true to indicate success
-    return true;
-  } catch (error) {
-    console.error("Error processing form:", error);
-    toast.error("Something went wrong. Please try again later.");
-    return false;
+      if (error) {
+        console.error('Error submitting email:', error)
+        throw new Error(error.message)
+      }
+
+      return { success: true, data }
+    } catch (error) {
+      console.error('Email submission failed:', error)
+      throw error
+    }
+  }
+
+  // Subscribe to newsletter
+  static async subscribeToNewsletter(email: string) {
+    try {
+      // Use upsert to handle both new subscriptions and reactivations
+      const { data, error } = await supabase
+        .from('newsletter_subscriptions')
+        .upsert(
+          [{ email, status: 'active' }],
+          { 
+            onConflict: 'email',
+            ignoreDuplicates: false 
+          }
+        )
+        .select()
+
+      if (error) {
+        console.error('Error subscribing to newsletter:', error)
+        throw new Error(error.message)
+      }
+
+      return { success: true, data }
+    } catch (error) {
+      console.error('Newsletter subscription failed:', error)
+      throw error
+    }
+  }
+
+  // Unsubscribe from newsletter
+  static async unsubscribeFromNewsletter(email: string) {
+    try {
+      const { error } = await supabase
+        .from('newsletter_subscriptions')
+        .update({ status: 'unsubscribed' })
+        .eq('email', email)
+
+      if (error) {
+        console.error('Error unsubscribing from newsletter:', error)
+        throw new Error(error.message)
+      }
+
+      return { success: true }
+    } catch (error) {
+      console.error('Newsletter unsubscription failed:', error)
+      throw error
+    }
+  }
+
+  // Get all email submissions (for admin purposes)
+  static async getEmailSubmissions() {
+    try {
+      const { data, error } = await supabase
+        .from('email_submissions')
+        .select('*')
+        .order('created_at', { ascending: false })
+
+      if (error) {
+        console.error('Error fetching email submissions:', error)
+        throw new Error(error.message)
+      }
+
+      return data
+    } catch (error) {
+      console.error('Failed to fetch email submissions:', error)
+      throw error
+    }
+  }
+
+  // Get newsletter subscribers (for admin purposes)
+  static async getNewsletterSubscribers() {
+    try {
+      const { data, error } = await supabase
+        .from('newsletter_subscriptions')
+        .select('*')
+        .eq('status', 'active')
+        .order('created_at', { ascending: false })
+
+      if (error) {
+        console.error('Error fetching newsletter subscribers:', error)
+        throw new Error(error.message)
+      }
+
+      return data
+    } catch (error) {
+      console.error('Failed to fetch newsletter subscribers:', error)
+      throw error
+    }
   }
 } 

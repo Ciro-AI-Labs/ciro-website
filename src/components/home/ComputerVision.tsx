@@ -175,14 +175,14 @@ const ComputerVision = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <button className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2">
+              <a href="/contact" className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2">
                 <span>Schedule a Demo</span>
                 <Camera className="w-4 h-4" />
-              </button>
-              <button className="border border-purple-500/30 hover:border-purple-400 text-gray-300 hover:text-purple-400 font-semibold py-3 px-8 rounded-lg transition-all duration-300 flex items-center gap-2">
+              </a>
+              <a href="/products/vision" className="border border-purple-500/30 hover:border-purple-400 text-gray-300 hover:text-purple-400 font-semibold py-3 px-8 rounded-lg transition-all duration-300 flex items-center gap-2">
                 <span>Learn More</span>
                 <Eye className="w-4 h-4" />
-              </button>
+              </a>
             </div>
           </div>
         </div>

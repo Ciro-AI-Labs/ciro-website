@@ -564,11 +564,11 @@ const Products = () => {
               
               {/* Enhanced CIRO AI Button */}
               <div className="flex justify-center">
-                <button className="bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-semibold py-2 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 flex items-center gap-2 group">
+                <a href="/contact" className="bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-semibold py-2 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 flex items-center gap-2 group">
                   <span className="text-yellow-300 group-hover:scale-110 transition-transform duration-300">✨</span>
                   Ask CIRO AI
                   <div className="w-1 h-1 bg-white rounded-full animate-pulse"></div>
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -691,15 +691,15 @@ const Products = () => {
               
               {/* Dashboard Controls */}
               <div className="flex justify-center gap-2">
-                <button className="bg-purple-600 hover:bg-purple-700 text-white text-xs px-3 py-1 rounded-lg transition-colors duration-300">
+                <a href="/products" className="bg-purple-600 hover:bg-purple-700 text-white text-xs px-3 py-1 rounded-lg transition-colors duration-300">
                   Add Chart
-                </button>
-                <button className="bg-indigo-600 hover:bg-indigo-700 text-white text-xs px-3 py-1 rounded-lg transition-colors duration-300">
+                </a>
+                <a href="/contact" className="bg-indigo-600 hover:bg-indigo-700 text-white text-xs px-3 py-1 rounded-lg transition-colors duration-300">
                   Export
-                </button>
-                <button className="bg-blue-600 hover:bg-blue-700 text-white text-xs px-3 py-1 rounded-lg transition-colors duration-300">
+                </a>
+                <a href="/partners" className="bg-blue-600 hover:bg-blue-700 text-white text-xs px-3 py-1 rounded-lg transition-colors duration-300">
                   Share
-                </button>
+                </a>
               </div>
             </div>
           </div>

@@ -286,12 +286,12 @@ const Testimonials = () => {
                 Join industry leaders who are already achieving breakthrough results with CIRO's intelligent automation platform.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="px-8 py-3 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl">
+                <a href="/contact" className="px-8 py-3 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl">
                   Schedule a Demo
-                </button>
-                <button className="px-8 py-3 bg-card/50 border border-border/30 text-gray-300 hover:text-white hover:bg-card/70 rounded-lg font-semibold transition-all duration-300">
+                </a>
+                <a href="/use-cases" className="px-8 py-3 bg-card/50 border border-border/30 text-gray-300 hover:text-white hover:bg-card/70 rounded-lg font-semibold transition-all duration-300">
                   View Case Studies
-                </button>
+                </a>
               </div>
             </div>
           </div>

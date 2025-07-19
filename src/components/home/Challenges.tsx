@@ -243,14 +243,14 @@ const Challenges = () => {
             
             {/* CTA */}
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <button className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2">
+              <a href="/contact" className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2">
                 <span>See CIRO in Action</span>
                 <TrendingUp className="w-4 h-4" />
-              </button>
-              <button className="border border-gray-600 hover:border-green-500 text-gray-300 hover:text-green-400 font-semibold py-3 px-8 rounded-lg transition-all duration-300 flex items-center gap-2">
+              </a>
+              <a href="/contact" className="border border-gray-600 hover:border-green-500 text-gray-300 hover:text-green-400 font-semibold py-3 px-8 rounded-lg transition-all duration-300 flex items-center gap-2">
                 <span>Calculate Your ROI</span>
                 <DollarSign className="w-4 h-4" />
-              </button>
+              </a>
             </div>
           </div>
         </div>

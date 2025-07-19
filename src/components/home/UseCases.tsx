@@ -179,14 +179,14 @@ const UseCases = () => {
             {/* CTA */}
             <div className="text-center">
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <button className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2">
+                <a href="/use-cases" className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2">
                   <span>See More Success Stories</span>
                   <TrendingUp className="w-4 h-4" />
-                </button>
-                <button className="border border-green-500/30 hover:border-green-400 text-gray-300 hover:text-green-400 font-semibold py-3 px-8 rounded-lg transition-all duration-300 flex items-center gap-2">
+                </a>
+                <a href="/contact" className="border border-green-500/30 hover:border-green-400 text-gray-300 hover:text-green-400 font-semibold py-3 px-8 rounded-lg transition-all duration-300 flex items-center gap-2">
                   <span>Calculate Your Impact</span>
                   <DollarSign className="w-4 h-4" />
-                </button>
+                </a>
               </div>
             </div>
           </div>

@@ -314,7 +314,7 @@ const Hero = () => {
               asChild 
               className="group border-slate-500 hover:border-orange-400 transition-colors duration-300 w-full sm:w-auto"
             >
-              <Link to="/about" className="flex items-center justify-center gap-2">
+              <Link to="/use-cases" className="flex items-center justify-center gap-2">
                 <motion.svg 
                   className="w-5 h-5 text-purple-500 group-hover:text-orange-400 transition-colors duration-300" 
                   fill="currentColor" 

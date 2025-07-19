@@ -12,6 +12,13 @@ import Products from "./pages/Products";
 import AIAnalytics from "./pages/products/AIAnalytics";
 import Vision from "./pages/products/Vision";
 import NewDesign from "./pages/NewDesign";
+import Careers from "./pages/Careers";
+import Partners from "./pages/Partners";
+import News from "./pages/News";
+import NewsPost from "./pages/NewsPost";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
+import Admin from "./pages/Admin";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +41,13 @@ const App = () => {
             <Route path="/products/ai-analytics" element={<AIAnalytics />} />
             <Route path="/products/vision" element={<Vision />} />
             <Route path="/new-design" element={<NewDesign />} />
+            <Route path="/careers" element={<Careers />} />
+            <Route path="/partners" element={<Partners />} />
+            <Route path="/news" element={<News />} />
+            <Route path="/news/:slug" element={<NewsPost />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/admin" element={<Admin />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

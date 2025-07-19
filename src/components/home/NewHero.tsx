@@ -44,7 +44,7 @@ export default function NewHero() {
               Book a Demo
             </Link>
             <Link
-              to="/about"
+              to="/use-cases"
               className="rounded-2xl border border-slate-600 px-8 py-3 text-lg font-semibold flex items-center gap-2 transition hover:border-primary-500 hover:text-primary-400"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M6 4l10 6-10 6V4z"/></svg>

@@ -27,7 +27,6 @@ import {
   Clock, 
   Users, 
   Mail, 
-  Phone, 
   CheckCircle,
   ArrowRight,
   Play,
@@ -35,6 +34,7 @@ import {
   Database
 } from "lucide-react";
 import HubSpotMeetingScheduler from "./HubSpotMeetingScheduler";
+import { EmailService } from "@/lib/emailService";
 
 // Type declarations for Calendly
 declare global {
@@ -135,27 +135,18 @@ const Contact = () => {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      // For now, we'll create a mailto link with the form data
-      // This is a simple solution that works without a backend
-      const subject = encodeURIComponent(`Demo Request from ${values.name} at ${values.company}`);
-      const body = encodeURIComponent(`
-Name: ${values.name}
-Email: ${values.email}
-Company: ${values.company}
-Industry: ${values.industry}
-Message: ${values.message || "No message provided"}
-
-Please contact me to schedule a demo.
-      `);
-      
-      // Create mailto link
-      const mailtoLink = `mailto:hola@ciroai.us?subject=${subject}&body=${body}`;
-      
-      // Open email client
-      window.open(mailtoLink, '_blank');
+      // Submit to Supabase
+      await EmailService.submitEmail({
+        email: values.email,
+        name: values.name,
+        company: values.company,
+        industry: values.industry,
+        message: values.message,
+        type: 'contact'
+      });
       
       // Show success message
-      toast.success("Demo request prepared! Please send the email that opened in your email client.");
+      toast.success("Demo request submitted successfully! We'll contact you within one business day.");
       form.reset();
       
       // Show Calendly after form submission
@@ -163,7 +154,7 @@ Please contact me to schedule a demo.
       
     } catch (error) {
       console.error('Submission error:', error);
-      toast.error("Something went wrong. Please email us directly at hola@ciroai.us");
+      toast.error("Something went wrong. Please try again later.");
     }
   }
 
@@ -484,18 +475,6 @@ Please contact me to schedule a demo.
                         className="text-purple-400 hover:text-purple-300 font-medium"
                       >
                         hola@ciroai.us
-                      </a>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Phone className="w-5 h-5 text-purple-400" />
-                    <div>
-                      <p className="text-gray-300 text-sm">Call us</p>
-                      <a 
-                        href="tel:+1-555-123-4567" 
-                        className="text-purple-400 hover:text-purple-300 font-medium"
-                      >
-                        +1 (555) 123-4567
                       </a>
                     </div>
                   </div>

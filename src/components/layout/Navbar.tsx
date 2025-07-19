@@ -48,9 +48,16 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center relative z-[60]">
-            <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500">
-              CIRO LABS
-            </span>
+            <div className="flex items-center gap-2">
+              <img 
+                src="/images/Ciro Blanco.png" 
+                alt="CIRO Logo" 
+                className="h-8 w-auto"
+              />
+              <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500">
+                CIRO LABS
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}

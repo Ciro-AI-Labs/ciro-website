@@ -160,14 +160,14 @@ const AboutUs = () => {
             </p>
             
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <button className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2">
+              <a href="/blog" className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2">
                 <span>Explore Our Research</span>
                 <Beaker className="w-4 h-4" />
-              </button>
-              <button className="border border-purple-500/30 hover:border-purple-400 text-gray-300 hover:text-purple-400 font-semibold py-3 px-8 rounded-lg transition-all duration-300 flex items-center gap-2">
+              </a>
+              <a href="/careers" className="border border-purple-500/30 hover:border-purple-400 text-gray-300 hover:text-purple-400 font-semibold py-3 px-8 rounded-lg transition-all duration-300 flex items-center gap-2">
                 <span>Join Our Team</span>
                 <Users className="w-4 h-4" />
-              </button>
+              </a>
             </div>
           </div>
         </div>
