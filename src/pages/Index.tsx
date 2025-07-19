@@ -2,10 +2,12 @@ import React from "react";
 import Hero from "@/components/home/Hero";
 import LogoCloud from "@/components/home/LogoCloud";
 import Products from "@/components/home/Products";
+import ComputerVision from "@/components/home/ComputerVision";
 import UseCases from "@/components/home/UseCases";
 import Testimonials from "@/components/home/Testimonials";
 import Challenges from "@/components/home/Challenges";
 import HowItWorks from "@/components/home/HowItWorks";
+import AboutUs from "@/components/home/AboutUs";
 import Contact from "@/components/home/Contact";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -18,9 +20,11 @@ const Index = () => {
         <Hero />
         <LogoCloud />
         <Products />
+        <ComputerVision />
         <Challenges />
         <UseCases />
         <HowItWorks />
+        <AboutUs />
         <Testimonials />
         <Contact />
       </main>

@@ -41,7 +41,9 @@
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
-  
+}
+
+@layer base {
   * {
     @apply border-border;
   }
@@ -70,4 +72,119 @@
       background-position: right;
     }
   }
+}
+
+/* HubSpot Form Styling for Dark Theme */
+.hubspot-form-container {
+  background: transparent;
+}
+
+.hubspot-form-container .hs-form {
+  background: transparent !important;
+  color: white !important;
+}
+
+.hubspot-form-container .hs-form-field {
+  margin-bottom: 1rem !important;
+}
+
+.hubspot-form-container .hs-form-field label {
+  color: #d1d5db !important;
+  font-weight: 500 !important;
+  margin-bottom: 0.5rem !important;
+  display: block !important;
+}
+
+.hubspot-form-container .hs-form-field input,
+.hubspot-form-container .hs-form-field textarea,
+.hubspot-form-container .hs-form-field select {
+  background: rgba(30, 41, 59, 0.5) !important;
+  border: 1px solid rgba(75, 85, 99, 0.5) !important;
+  color: white !important;
+  padding: 0.75rem !important;
+  border-radius: 0.5rem !important;
+  width: 100% !important;
+  font-size: 0.875rem !important;
+}
+
+.hubspot-form-container .hs-form-field input:focus,
+.hubspot-form-container .hs-form-field textarea:focus,
+.hubspot-form-container .hs-form-field select:focus {
+  outline: none !important;
+  border-color: #8b5cf6 !important;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1) !important;
+}
+
+.hubspot-form-container .hs-form-field input::placeholder,
+.hubspot-form-container .hs-form-field textarea::placeholder {
+  color: #9ca3af !important;
+}
+
+.hubspot-form-container .hs-button {
+  background: linear-gradient(to right, #8b5cf6, #3b82f6) !important;
+  color: white !important;
+  padding: 0.75rem 1.5rem !important;
+  border: none !important;
+  border-radius: 0.5rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  width: 100% !important;
+  margin-top: 1rem !important;
+}
+
+.hubspot-form-container .hs-button:hover {
+  background: linear-gradient(to right, #7c3aed, #2563eb) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3) !important;
+}
+
+.hubspot-form-container .hs-error-msgs {
+  color: #ef4444 !important;
+  font-size: 0.75rem !important;
+  margin-top: 0.25rem !important;
+}
+
+.hubspot-form-container .hs-error-msgs label {
+  color: #ef4444 !important;
+}
+
+.hubspot-form-container .hs-form-required {
+  color: #ef4444 !important;
+}
+
+/* HubSpot Meeting Scheduler Styling for Dark Theme */
+.hubspot-meeting-scheduler {
+  background: transparent;
+}
+
+.hubspot-meeting-scheduler iframe {
+  background: transparent !important;
+}
+
+/* Calendly Widget Styling */
+.calendly-inline-widget {
+  background: transparent !important;
+}
+
+.calendly-inline-widget iframe {
+  background: transparent !important;
+}
+
+/* Custom scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
 }

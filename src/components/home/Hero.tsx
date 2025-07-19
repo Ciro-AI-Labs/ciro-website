@@ -155,13 +155,13 @@ const Hero = () => {
       />
 
       {/* Container with proper mobile positioning - added pt-16 for mobile to push content below navbar */}
-      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col md:flex-row items-center px-6 md:px-12 pt-16 md:pt-0">
+      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col xl:flex-row items-center px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 pt-20 sm:pt-24 md:pt-20 lg:pt-16 xl:pt-16 2xl:pt-16">
         {/* Left: Enhanced Text Block with sequential animations - Increased max-width */}
-        <div className="max-w-2xl text-center md:text-left order-1 md:order-1 mt-10 sm:mt-16 md:mt-0">
+        <div className="max-w-2xl text-center xl:text-left order-1 xl:order-1 mt-8 sm:mt-10 lg:mt-12 xl:mt-0">
           <div className="flex flex-col relative z-10">
             {/* Corner Decorator: Top Left */}
             <motion.div
-              className="absolute -top-3 -left-3 w-6 h-6 border-l-2 border-t-2 border-purple-500/50 hidden md:block"
+              className="absolute -top-3 -left-3 w-6 h-6 border-l-2 border-t-2 border-purple-500/50 hidden xl:block"
               initial={{ opacity: 0, x: -10, y: -10 }}
               animate={{ opacity: 1, x: 0, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
@@ -169,7 +169,7 @@ const Hero = () => {
             
             {/* Decorative Dot 1 (Top Left) */}
             <motion.div 
-              className="absolute -top-4 -left-4 w-3 h-3 bg-purple-500 rounded-full opacity-50 blur-sm hidden md:block"
+              className="absolute -top-4 -left-4 w-3 h-3 bg-purple-500 rounded-full opacity-50 blur-sm hidden xl:block"
               animate={{
                 scale: [1, 1.3, 1],
                 opacity: [0.3, 0.6, 0.3],
@@ -182,7 +182,7 @@ const Hero = () => {
             />
             
             {/* Subtle orange accents */}
-            <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-4xl 2xl:text-5xl font-extrabold tracking-tight leading-tight mb-4 sm:mb-6">
               {/* Animated Gradient Span with subtle orange */}
               <motion.span 
                 className="block bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-orange-500 to-blue-500"
@@ -231,15 +231,15 @@ const Hero = () => {
                 </span>
               </span>
             </h1>
-            <div className="max-w-2xl mx-auto md:mx-0 space-y-4 mb-10">
-              <p className="text-xl sm:text-2xl text-gray-300 font-medium">
+            <div className="max-w-2xl mx-auto xl:mx-0 space-y-3 sm:space-y-4 mb-6 sm:mb-10">
+              <p className="text-lg sm:text-xl md:text-2xl lg:text-lg xl:text-lg 2xl:text-xl text-gray-300 font-medium">
                 What if the next industrial breakthrough isn't about{' '}
                 <span className="text-orange-400 font-semibold">more data</span>...
               </p>
-              <p className="text-xl sm:text-2xl text-transparent bg-gradient-to-r from-purple-400 via-orange-400 to-blue-400 bg-clip-text font-bold">
+              <p className="text-lg sm:text-xl md:text-2xl lg:text-lg xl:text-lg 2xl:text-xl text-transparent bg-gradient-to-r from-purple-400 via-orange-400 to-blue-400 bg-clip-text font-bold">
                 But about faster decisions?
               </p>
-              <p className="text-lg text-gray-400 mt-6">
+              <p className="text-base sm:text-lg md:text-xl lg:text-base xl:text-base 2xl:text-lg text-gray-400 mt-4 sm:mt-6">
                 Every factory has the same challenge: <span className="text-orange-400 font-semibold">too much information, not enough action.</span> 
                 Sensors firing, cameras recording, ERPs logging thousands of events—yet most decisions still happen on gut instinct.
               </p>
@@ -247,7 +247,7 @@ const Hero = () => {
 
             {/* Corner Decorator: Bottom Right */}
             <motion.div
-              className="absolute -bottom-6 -right-3 w-6 h-6 border-r-2 border-b-2 border-blue-500/50 hidden md:block"
+              className="absolute -bottom-6 -right-3 w-6 h-6 border-r-2 border-b-2 border-blue-500/50 hidden xl:block"
               initial={{ opacity: 0, x: 10, y: 10 }}
               animate={{ opacity: 1, x: 0, y: 0 }}
               transition={{ duration: 0.8, delay: 1.0, ease: "easeOut" }}
@@ -255,7 +255,7 @@ const Hero = () => {
 
             {/* Decorative Dot 2 (Bottom Right near paragraph) */}
             <motion.div 
-              className="absolute -bottom-4 -right-4 w-2.5 h-2.5 bg-blue-500 rounded-full opacity-60 blur-sm hidden md:block"
+              className="absolute -bottom-4 -right-4 w-2.5 h-2.5 bg-blue-500 rounded-full opacity-60 blur-sm hidden xl:block"
               animate={{
                 scale: [1, 1.4, 1],
                 opacity: [0.4, 0.7, 0.4],
@@ -274,6 +274,7 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.6 }}
+            className="mb-6 sm:mb-8"
           >
             <AnimatedStats />
           </motion.div>
@@ -282,7 +283,7 @@ const Hero = () => {
             variants={buttonVariants}
             initial="hidden"
             animate={controls}
-            className="mt-8 flex flex-col items-center gap-4 md:flex-row md:justify-start"
+            className="mt-6 sm:mt-8 flex flex-col items-center gap-3 sm:gap-4 xl:flex-row xl:justify-start"
           >
             <Button 
               size="lg" 
@@ -334,7 +335,7 @@ const Hero = () => {
           variants={dashboardVariants}
           initial="hidden"
           animate={controls}
-          className="mb-12 mt-10 md:mt-0 md:mb-0 md:ml-12 w-full max-w-md lg:max-w-lg order-2 md:order-1"
+          className="mb-8 sm:mb-12 mt-8 sm:mt-10 lg:mt-16 xl:mt-0 xl:mb-0 xl:ml-12 w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-md xl:max-w-lg 2xl:max-w-xl order-2 xl:order-1"
         >
           {/* Container for floating dashboard and icons */}
           <motion.div 

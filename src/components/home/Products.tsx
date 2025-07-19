@@ -84,17 +84,66 @@ const Products = () => {
         <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-600/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12 md:mb-16">
-           <span className="inline-block px-3 py-1 text-xs font-medium leading-none text-center text-blue-400 bg-blue-400/10 rounded-full mb-2">
-            Capabilities
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            Unlock Insights & Automate Action with CIRO
+      <div className="container mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16">
+        <div className="text-center mb-12 md:mb-16 relative">
+          {/* Enhanced background elements */}
+          <div className="absolute inset-0 -z-10">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 left-1/4 w-24 h-24 bg-purple-500/10 rounded-full blur-2xl"></div>
+            <div className="absolute top-1/2 right-1/4 w-20 h-20 bg-emerald-500/10 rounded-full blur-2xl"></div>
+          </div>
+
+          {/* Enhanced badge with animation */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-blue-400 bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-full mb-6 hover:border-blue-400/40 transition-all duration-300 group">
+            <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
+            <span>Capabilities</span>
+            <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+          </div>
+
+          {/* Enhanced title with gradient and animation */}
+          <h2 className="text-4xl md:text-5xl lg:text-4xl xl:text-4xl 2xl:text-5xl font-bold mb-6 leading-tight">
+            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent">
+              Unlock Insights
+            </span>
+            <br />
+            <span className="bg-gradient-to-r from-emerald-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+              & Automate Action
+            </span>
+            <br />
+            <span className="text-white">
+              with CIRO
+            </span>
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-            Integrate scattered data, ask questions in plain English, and let AI agents drive real-time decisions across your organization.
-          </p>
+
+          {/* Enhanced subtitle with better typography */}
+          <div className="max-w-4xl mx-auto">
+            <p className="text-lg md:text-xl lg:text-lg xl:text-lg 2xl:text-xl text-gray-300 mb-6 leading-relaxed">
+              Integrate scattered data, ask questions in plain English, and let AI agents drive real-time decisions across your organization.
+            </p>
+            
+            {/* Feature highlights */}
+            <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-400">
+              <div className="flex items-center gap-2">
+                <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
+                <span>Natural Language Queries</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-1.5 h-1.5 bg-purple-400 rounded-full"></div>
+                <span>Real-time Analytics</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div>
+                <span>AI-Powered Automation</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Decorative elements */}
+          <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+            <div className="absolute top-1/4 left-1/4 w-1 h-1 bg-blue-400 rounded-full animate-ping"></div>
+            <div className="absolute top-3/4 right-1/4 w-1 h-1 bg-purple-400 rounded-full animate-ping" style={{ animationDelay: '1s' }}></div>
+            <div className="absolute top-1/2 left-1/2 w-1 h-1 bg-emerald-400 rounded-full animate-ping" style={{ animationDelay: '2s' }}></div>
+          </div>
         </div>
 
         {/* Bottom Row of 4 - MOVED UP */}
@@ -111,15 +160,15 @@ const Products = () => {
             </p>
           </div>
 
-          {/* Template Gallery */}
-           <div className="bg-card/50 border border-border/20 rounded-lg p-5 text-center flex flex-col items-center">
-             <div className="mb-3 w-10 h-10 bg-indigo-500/10 rounded-lg flex items-center justify-center">
-               <ViewColumnsIcon className="w-5 h-5 text-indigo-500" />
+          {/* Computer Vision Intelligence */}
+          <div className="bg-card/50 border border-border/20 rounded-lg p-5 text-center flex flex-col items-center">
+            <div className="mb-3 w-10 h-10 bg-purple-500/10 rounded-lg flex items-center justify-center">
+               <CameraIcon className="w-5 h-5 text-purple-500" />
             </div>
-             {/* B ▸ Template Gallery */}
-            <h4 className="font-semibold mb-1 text-sm">Template Gallery</h4>
+             {/* B ▸ Computer Vision */}
+            <h4 className="font-semibold mb-1 text-sm">Computer Vision</h4>
             <p className="text-muted-foreground text-xs">
-            Kick-start storytelling with pre-built KPI boards and industry templates you can inject with your own data in seconds.
+            Transform cameras into intelligent sensors for defect detection, quality control, and process monitoring in real-time.
             </p>
           </div>
 
@@ -308,54 +357,350 @@ const Products = () => {
             </div>
           </div>
 
-          {/* Smart Communication */}
-          <div className="bg-card border border-border/30 rounded-xl p-6 shadow-lg hover:shadow-blue-500/10 transition-shadow duration-300 flex flex-col justify-between">
-             <div>
-              {/* 2 ▸ Natural-Language Analytics */}
-              <h3 className="text-xl font-semibold mb-2">Natural-Language Analytics</h3>
-              <p className="text-muted-foreground mb-4 text-sm">
-              Ask questions (or speak them) and CIRO instantly scans billions of rows, returning answers, KPIs, or SQL you can tweak.
+          {/* Enhanced Natural-Language Analytics */}
+          <div className="bg-gradient-to-br from-blue-900/20 to-purple-900/20 border border-blue-500/30 rounded-xl p-6 shadow-lg hover:shadow-blue-500/20 transition-all duration-300 flex flex-col justify-between group">
+            <div>
+              {/* Enhanced header with icon */}
+              <div className="flex items-center gap-3 mb-3">
+                <div className="p-2 bg-blue-500/20 rounded-lg group-hover:bg-blue-500/30 transition-colors duration-300">
+                  <ChatBubbleLeftRightIcon className="w-5 h-5 text-blue-400" />
+                </div>
+                <h3 className="text-xl font-semibold text-white">Natural-Language Analytics</h3>
+              </div>
+              
+              {/* Enhanced description */}
+              <p className="text-gray-300 mb-4 text-sm leading-relaxed">
+                Ask questions (or speak them) and CIRO instantly scans billions of rows, returning answers, KPIs, or SQL you can tweak.
               </p>
+              
+              {/* Feature highlights */}
+              <div className="flex flex-wrap gap-2 mb-4">
+                <span className="inline-flex items-center gap-1 px-2 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full text-xs text-blue-300">
+                  <div className="w-1 h-1 bg-blue-400 rounded-full"></div>
+                  Voice Queries
+                </span>
+                <span className="inline-flex items-center gap-1 px-2 py-1 bg-purple-500/10 border border-purple-500/20 rounded-full text-xs text-purple-300">
+                  <div className="w-1 h-1 bg-purple-400 rounded-full"></div>
+                  Instant SQL
+                </span>
+                <span className="inline-flex items-center gap-1 px-2 py-1 bg-emerald-500/10 border border-emerald-500/20 rounded-full text-xs text-emerald-300">
+                  <div className="w-1 h-1 bg-emerald-400 rounded-full"></div>
+                  Real-time KPIs
+                </span>
+              </div>
             </div>
-             {/* Placeholder for visual */}
-            <div className="h-32 bg-muted/30 rounded-md border border-border/30 flex items-center justify-center text-muted-foreground text-xs mt-4">
-              Communication Visual Placeholder
+            
+            {/* Enhanced Interactive Demo */}
+            <div className="bg-gradient-to-r from-blue-900/40 to-purple-900/40 border border-blue-500/30 rounded-lg p-4 mt-4 backdrop-blur-sm">
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
+                  <span className="text-sm font-medium text-white">🗺️ Live Query Demo</span>
+                </div>
+                <div className="text-xs text-blue-400 bg-blue-500/10 px-2 py-1 rounded-full">
+                  Processing
+                </div>
+              </div>
+              
+              {/* Query Input */}
+              <div className="bg-gray-800/50 border border-gray-600/50 rounded-lg p-3 mb-3">
+                <div className="text-xs text-gray-400 mb-1">User Query:</div>
+                <div className="text-sm text-white font-mono">
+                  "Show me production facilities by efficiency across regions"
+                </div>
+              </div>
+              
+              {/* Enhanced Map Visualization */}
+              <div className="relative bg-gray-800 rounded-lg h-28 overflow-hidden border border-gray-600/50">
+                {/* Map Background with Grid */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 to-green-900/30"></div>
+                <div className="absolute inset-0 opacity-20">
+                  <div className="h-full w-full" style={{
+                    backgroundImage: `
+                      linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
+                    `,
+                    backgroundSize: '15px 15px'
+                  }}></div>
+                </div>
+                
+                {/* Animated Facility Markers */}
+                <div className="absolute w-3 h-3 bg-green-500 rounded-full border-2 border-white shadow-lg animate-pulse" style={{ left: '20%', top: '30%' }}>
+                  <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-green-500 text-white text-xs px-1.5 py-0.5 rounded text-[8px] font-medium">
+                    North Plant<br/>98.5%
+                  </div>
+                </div>
+                <div className="absolute w-3 h-3 bg-yellow-500 rounded-full border-2 border-white shadow-lg animate-pulse" style={{ left: '70%', top: '40%', animationDelay: '0.5s' }}>
+                  <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-yellow-500 text-black text-xs px-1.5 py-0.5 rounded text-[8px] font-medium">
+                    East Plant<br/>87.2%
+                  </div>
+                </div>
+                <div className="absolute w-3 h-3 bg-red-500 rounded-full border-2 border-white shadow-lg animate-pulse" style={{ left: '40%', top: '70%', animationDelay: '1s' }}>
+                  <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-red-500 text-white text-xs px-1.5 py-0.5 rounded text-[8px] font-medium">
+                    South Plant<br/>72.1%
+                  </div>
+                </div>
+                <div className="absolute w-3 h-3 bg-blue-500 rounded-full border-2 border-white shadow-lg animate-pulse" style={{ left: '80%', top: '70%', animationDelay: '1.5s' }}>
+                  <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white text-xs px-1.5 py-0.5 rounded text-[8px] font-medium">
+                    West Plant<br/>94.8%
+                  </div>
+                </div>
+                
+                {/* Legend */}
+                <div className="absolute bottom-1 left-1 bg-black/60 rounded px-2 py-1">
+                  <div className="flex items-center gap-2 text-xs">
+                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span className="text-white">High</span>
+                    <div className="w-2 h-2 bg-yellow-500 rounded-full ml-1"></div>
+                    <span className="text-white">Medium</span>
+                    <div className="w-2 h-2 bg-red-500 rounded-full ml-1"></div>
+                    <span className="text-white">Low</span>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Enhanced Metrics */}
+              <div className="flex justify-between items-center mt-3">
+                <div className="flex items-center gap-3">
+                  <div className="text-xs text-gray-400">
+                    <span className="text-green-400 font-medium">4 facilities</span> detected
+                  </div>
+                  <div className="text-xs text-blue-400">
+                    <span className="font-medium">45ms</span> response time
+                  </div>
+                </div>
+                <div className="flex items-center gap-1">
+                  <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></div>
+                  <span className="text-xs text-green-400">Live</span>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* AI Teammate */}
-          <div className="bg-card border border-border/30 rounded-xl p-6 shadow-lg hover:shadow-blue-500/10 transition-shadow duration-300 flex flex-col justify-between">
+          {/* Enhanced AI Teammate */}
+          <div className="bg-gradient-to-br from-emerald-900/20 to-green-900/20 border border-emerald-500/30 rounded-xl p-6 shadow-lg hover:shadow-emerald-500/20 transition-all duration-300 flex flex-col justify-between group">
             <div>
-              {/* 3 ▸ Autonomous AI Agents */}
-              <h3 className="text-xl font-semibold mb-2">Autonomous AI Agents</h3>
-              <p className="text-muted-foreground mb-4 text-sm">
-              Continuous anomaly detection, predictive models, and maintenance triggers that fire workflows in Slack, Teams, or WhatsApp—before issues escalate.
+              {/* Enhanced header with icon */}
+              <div className="flex items-center gap-3 mb-3">
+                <div className="p-2 bg-emerald-500/20 rounded-lg group-hover:bg-emerald-500/30 transition-colors duration-300">
+                  <CpuChipIcon className="w-5 h-5 text-emerald-400" />
+                </div>
+                <h3 className="text-xl font-semibold text-white">Autonomous AI Agents</h3>
+              </div>
+              
+              {/* Enhanced description */}
+              <p className="text-gray-300 mb-4 text-sm leading-relaxed">
+                Continuous anomaly detection, predictive models, and maintenance triggers that fire workflows in Slack, Teams, or WhatsApp—before issues escalate.
               </p>
+              
+              {/* Feature highlights */}
+              <div className="flex flex-wrap gap-2 mb-4">
+                <span className="inline-flex items-center gap-1 px-2 py-1 bg-emerald-500/10 border border-emerald-500/20 rounded-full text-xs text-emerald-300">
+                  <div className="w-1 h-1 bg-emerald-400 rounded-full"></div>
+                  Anomaly Detection
+                </span>
+                <span className="inline-flex items-center gap-1 px-2 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full text-xs text-blue-300">
+                  <div className="w-1 h-1 bg-blue-400 rounded-full"></div>
+                  Predictive Models
+                </span>
+                <span className="inline-flex items-center gap-1 px-2 py-1 bg-purple-500/10 border border-purple-500/20 rounded-full text-xs text-purple-300">
+                  <div className="w-1 h-1 bg-purple-400 rounded-full"></div>
+                  Auto Workflows
+                </span>
+              </div>
             </div>
-            {/* Placeholder for visual - simplified button */}
-             <div className="mt-4 flex justify-center">
-               <button className="bg-gradient-to-r from-green-400 to-blue-500 text-white font-semibold py-2 px-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center gap-2">
-                 <span className="text-yellow-300">✨</span> Ask Aurix AI
-               </button>
-             </div>
-             {/* Placeholder for visual */}
-            <div className="h-20 bg-muted/30 rounded-md border border-border/30 flex items-center justify-center text-muted-foreground text-xs mt-4">
-              AI Assistant Placeholder
+            
+            {/* Enhanced AI Agent Demo */}
+            <div className="bg-gradient-to-r from-emerald-900/40 to-green-900/40 border border-emerald-500/30 rounded-lg p-4 mt-4 backdrop-blur-sm">
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                  <span className="text-sm font-medium text-white">🤖 CIRO AI Agent</span>
+                </div>
+                <div className="text-xs text-emerald-400 bg-emerald-500/10 px-2 py-1 rounded-full">
+                  Active
+                </div>
+              </div>
+              
+              {/* Agent Activity Feed */}
+              <div className="space-y-2 mb-4">
+                <div className="flex items-center gap-2 text-xs bg-emerald-500/10 border border-emerald-500/20 rounded-lg p-2">
+                  <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></div>
+                  <span className="text-emerald-300">Monitoring 12 production lines</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs bg-yellow-500/10 border border-yellow-500/20 rounded-lg p-2">
+                  <div className="w-1.5 h-1.5 bg-yellow-400 rounded-full animate-pulse"></div>
+                  <span className="text-yellow-300">Anomaly detected in Production Line 3</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs bg-red-500/10 border border-red-500/20 rounded-lg p-2">
+                  <div className="w-1.5 h-1.5 bg-red-400 rounded-full animate-pulse"></div>
+                  <span className="text-red-300">Alert sent to Slack #operations</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs bg-blue-500/10 border border-blue-500/20 rounded-lg p-2">
+                  <div className="w-1.5 h-1.5 bg-blue-400 rounded-full animate-pulse"></div>
+                  <span className="text-blue-300">Maintenance scheduled for tomorrow</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs bg-purple-500/10 border border-purple-500/20 rounded-lg p-2">
+                  <div className="w-1.5 h-1.5 bg-purple-400 rounded-full animate-pulse"></div>
+                  <span className="text-purple-300">Predictive model updated</span>
+                </div>
+              </div>
+              
+              {/* Enhanced Metrics */}
+              <div className="flex justify-between items-center mb-3">
+                <div className="flex items-center gap-3">
+                  <div className="text-xs text-gray-400">
+                    <span className="text-emerald-400 font-medium">12 lines</span> monitored
+                  </div>
+                  <div className="text-xs text-blue-400">
+                    <span className="font-medium">3 alerts</span> today
+                  </div>
+                </div>
+                <div className="flex items-center gap-1">
+                  <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></div>
+                  <span className="text-xs text-emerald-400">Live</span>
+                </div>
+              </div>
+              
+              {/* Enhanced CIRO AI Button */}
+              <div className="flex justify-center">
+                <button className="bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-semibold py-2 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 flex items-center gap-2 group">
+                  <span className="text-yellow-300 group-hover:scale-110 transition-transform duration-300">✨</span>
+                  Ask CIRO AI
+                  <div className="w-1 h-1 bg-white rounded-full animate-pulse"></div>
+                </button>
+              </div>
             </div>
           </div>
 
-          {/* Simple Task Tracking */}
-          <div className="bg-card border border-border/30 rounded-xl p-6 shadow-lg hover:shadow-blue-500/10 transition-shadow duration-300 flex flex-col justify-between">
+          {/* Enhanced Real-Time Dashboards */}
+          <div className="bg-gradient-to-br from-purple-900/20 to-indigo-900/20 border border-purple-500/30 rounded-xl p-6 shadow-lg hover:shadow-purple-500/20 transition-all duration-300 flex flex-col justify-between group">
             <div>
-              {/* 4 ▸ Real-Time Dashboards */}
-              <h3 className="text-xl font-semibold mb-2">Real-Time Dashboards</h3>
-              <p className="text-muted-foreground mb-4 text-sm">
-              Drag charts into live, multi-tab boards; connect Power BI or Looker; and watch every metric update the moment your data changes.
+              {/* Enhanced header with icon */}
+              <div className="flex items-center gap-3 mb-3">
+                <div className="p-2 bg-purple-500/20 rounded-lg group-hover:bg-purple-500/30 transition-colors duration-300">
+                  <PresentationChartLineIcon className="w-5 h-5 text-purple-400" />
+                </div>
+                <h3 className="text-xl font-semibold text-white">Real-Time Dashboards</h3>
+              </div>
+              
+              {/* Enhanced description */}
+              <p className="text-gray-300 mb-4 text-sm leading-relaxed">
+                Drag charts into live, multi-tab boards; connect Power BI or Looker; and watch every metric update the moment your data changes.
               </p>
+              
+              {/* Feature highlights */}
+              <div className="flex flex-wrap gap-2 mb-4">
+                <span className="inline-flex items-center gap-1 px-2 py-1 bg-purple-500/10 border border-purple-500/20 rounded-full text-xs text-purple-300">
+                  <div className="w-1 h-1 bg-purple-400 rounded-full"></div>
+                  Live Updates
+                </span>
+                <span className="inline-flex items-center gap-1 px-2 py-1 bg-indigo-500/10 border border-indigo-500/20 rounded-full text-xs text-indigo-300">
+                  <div className="w-1 h-1 bg-indigo-400 rounded-full"></div>
+                  Multi-tab Boards
+                </span>
+                <span className="inline-flex items-center gap-1 px-2 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full text-xs text-blue-300">
+                  <div className="w-1 h-1 bg-blue-400 rounded-full"></div>
+                  Power BI Integration
+                </span>
+              </div>
             </div>
-            {/* Placeholder for visual */}
-            <div className="h-32 bg-muted/30 rounded-md border border-border/30 flex items-center justify-center text-muted-foreground text-xs mt-4">
-              Task Tracking Visual Placeholder
+            
+            {/* Enhanced Dashboard Demo */}
+            <div className="bg-gradient-to-r from-purple-900/40 to-indigo-900/40 border border-purple-500/30 rounded-lg p-4 mt-4 backdrop-blur-sm">
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
+                  <span className="text-sm font-medium text-white">📊 Live Dashboard</span>
+                </div>
+                <div className="text-xs text-purple-400 bg-purple-500/10 px-2 py-1 rounded-full">
+                  Real-time
+                </div>
+              </div>
+              
+              {/* Enhanced Mini Dashboard */}
+              <div className="grid grid-cols-2 gap-3 mb-4">
+                <div className="bg-gray-800/50 border border-gray-600/50 rounded-lg p-3 hover:border-green-500/50 transition-colors duration-300 group">
+                  <div className="flex items-center justify-between mb-1">
+                    <div className="text-lg font-bold text-green-400 group-hover:scale-105 transition-transform duration-300">
+                      94.2%
+                    </div>
+                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                  </div>
+                  <div className="text-xs text-gray-400">Efficiency</div>
+                  <div className="w-full bg-gray-700 rounded-full h-1 mt-2">
+                    <div className="bg-gradient-to-r from-green-500 to-emerald-400 h-1 rounded-full transition-all duration-1000" style={{ width: '94.2%' }}></div>
+                  </div>
+                </div>
+                
+                <div className="bg-gray-800/50 border border-gray-600/50 rounded-lg p-3 hover:border-blue-500/50 transition-colors duration-300 group">
+                  <div className="flex items-center justify-between mb-1">
+                    <div className="text-lg font-bold text-blue-400 group-hover:scale-105 transition-transform duration-300">
+                      1,247
+                    </div>
+                    <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+                  </div>
+                  <div className="text-xs text-gray-400">Units/hr</div>
+                  <div className="w-full bg-gray-700 rounded-full h-1 mt-2">
+                    <div className="bg-gradient-to-r from-blue-500 to-cyan-400 h-1 rounded-full transition-all duration-1000" style={{ width: '87%' }}></div>
+                  </div>
+                </div>
+                
+                <div className="bg-gray-800/50 border border-gray-600/50 rounded-lg p-3 hover:border-yellow-500/50 transition-colors duration-300 group">
+                  <div className="flex items-center justify-between mb-1">
+                    <div className="text-lg font-bold text-yellow-400 group-hover:scale-105 transition-transform duration-300">
+                      98.7%
+                    </div>
+                    <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+                  </div>
+                  <div className="text-xs text-gray-400">Quality</div>
+                  <div className="w-full bg-gray-700 rounded-full h-1 mt-2">
+                    <div className="bg-gradient-to-r from-yellow-500 to-orange-400 h-1 rounded-full transition-all duration-1000" style={{ width: '98.7%' }}></div>
+                  </div>
+                </div>
+                
+                <div className="bg-gray-800/50 border border-gray-600/50 rounded-lg p-3 hover:border-purple-500/50 transition-colors duration-300 group">
+                  <div className="flex items-center justify-between mb-1">
+                    <div className="text-lg font-bold text-purple-400 group-hover:scale-105 transition-transform duration-300">
+                      $2.4M
+                    </div>
+                    <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse" style={{ animationDelay: '1.5s' }}></div>
+                  </div>
+                  <div className="text-xs text-gray-400">Revenue</div>
+                  <div className="w-full bg-gray-700 rounded-full h-1 mt-2">
+                    <div className="bg-gradient-to-r from-purple-500 to-pink-400 h-1 rounded-full transition-all duration-1000" style={{ width: '92%' }}></div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Enhanced Metrics and Controls */}
+              <div className="flex justify-between items-center mb-3">
+                <div className="flex items-center gap-3">
+                  <div className="text-xs text-gray-400">
+                    <span className="text-green-400 font-medium">Live</span> updating
+                  </div>
+                  <div className="text-xs text-blue-400">
+                    <span className="font-medium">4 tabs</span> active
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 bg-purple-400 rounded-full animate-pulse"></div>
+                  <span className="text-xs text-purple-400">Power BI</span>
+                </div>
+              </div>
+              
+              {/* Dashboard Controls */}
+              <div className="flex justify-center gap-2">
+                <button className="bg-purple-600 hover:bg-purple-700 text-white text-xs px-3 py-1 rounded-lg transition-colors duration-300">
+                  Add Chart
+                </button>
+                <button className="bg-indigo-600 hover:bg-indigo-700 text-white text-xs px-3 py-1 rounded-lg transition-colors duration-300">
+                  Export
+                </button>
+                <button className="bg-blue-600 hover:bg-blue-700 text-white text-xs px-3 py-1 rounded-lg transition-colors duration-300">
+                  Share
+                </button>
+              </div>
             </div>
           </div>
         </div>

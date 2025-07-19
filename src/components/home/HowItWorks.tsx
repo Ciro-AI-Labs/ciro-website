@@ -1,38 +1,69 @@
 
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+import { 
+  Database, 
+  BarChart3, 
+  Brain, 
+  Zap, 
+  ArrowRight, 
+  ArrowLeft,
+  CheckCircle,
+  TrendingUp,
+  AlertTriangle,
+  Settings
+} from "lucide-react";
 
 const steps = [
   {
     id: 1,
     title: "Connect Your Data",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
-      </svg>
-    ),
-    description: "Ciro connects to your existing systems – IoT sensors, machines, databases, ERP – over 50+ connectors. It ingests millions of events in real time (up to 500k events/sec) with <12ms latency, creating a live unified data stream.",
+    subtitle: "Seamless Integration",
+    icon: Database,
+    iconBg: "bg-purple-500/20",
+    iconColor: "text-purple-400",
+    gradient: "from-purple-600/20 to-blue-600/20",
+    description: "Transform your fragmented data landscape into a unified intelligence hub. CIRO seamlessly connects to 50+ enterprise systems including IoT sensors, industrial machines, databases, ERP systems, and cloud platforms. Our intelligent data ingestion engine processes up to 500,000 events per second with sub-12ms latency, creating a real-time unified data stream that becomes your single source of truth.",
+    features: [
+      "50+ Enterprise Connectors",
+      "Sub-12ms Latency",
+      "500k Events/Second",
+      "Zero-Downtime Integration"
+    ],
     visual: (
-      <div className="relative h-full w-full bg-card border border-border/50 rounded-lg p-4 overflow-hidden shadow-sm">
-        <div className="grid grid-cols-3 gap-2">
+      <div className="relative h-full w-full bg-card/50 border border-border/50 rounded-xl p-6 overflow-hidden shadow-lg">
+        {/* Data Sources */}
+        <div className="grid grid-cols-3 gap-3 mb-6">
           {["ERP", "IoT", "MES"].map((source, idx) => (
-            <div key={idx} className="bg-muted/30 p-2 rounded text-center text-sm">
-              {source}
+            <div key={idx} className="bg-gradient-to-br from-purple-500/10 to-blue-500/10 border border-purple-500/20 p-3 rounded-lg text-center">
+              <div className="text-sm font-semibold text-purple-400 mb-1">{source}</div>
+              <div className="w-2 h-2 bg-green-400 rounded-full mx-auto animate-pulse"></div>
             </div>
           ))}
         </div>
-        <div className="my-4 flex justify-center">
-          <div className="animate-pulse w-full max-w-[80%] h-2 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full"></div>
-        </div>
-        <div className="bg-muted/30 p-3 rounded text-center flex items-center justify-center">
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-            <span className="text-sm font-medium">Ciro Data Stream</span>
+        
+        {/* Data Stream */}
+        <div className="relative mb-6">
+          <div className="h-3 bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 rounded-full overflow-hidden">
+            <div className="h-full w-full bg-gradient-to-r from-purple-500/20 via-blue-500/20 to-cyan-500/20 animate-pulse"></div>
+          </div>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="bg-black/20 backdrop-blur-sm px-3 py-1 rounded-full">
+              <span className="text-white text-sm font-semibold">Ciro Data Stream</span>
+            </div>
           </div>
         </div>
-        <div className="text-xs text-muted-foreground mt-3 text-center">
-          &lt;12ms latency • 500k events/sec
+        
+        {/* Performance Metrics */}
+        <div className="grid grid-cols-2 gap-4">
+          <div className="bg-green-500/10 border border-green-500/20 rounded-lg p-3 text-center">
+            <div className="text-lg font-bold text-green-400">12ms</div>
+            <div className="text-xs text-gray-400">Latency</div>
+          </div>
+          <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-3 text-center">
+            <div className="text-lg font-bold text-blue-400">500k</div>
+            <div className="text-xs text-gray-400">Events/sec</div>
+          </div>
         </div>
       </div>
     )
@@ -40,42 +71,56 @@ const steps = [
   {
     id: 2,
     title: "Monitor & Analyze in Real-Time",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-      </svg>
-    ),
-    description: "As data flows in, Ciro's dashboard updates instantly. AI algorithms analyze patterns on the fly, and a live dashboard displays KPIs, trends, and anomalies with zero delay. Interactive charts and heatmaps let you deep-dive into any metric in real time.",
+    subtitle: "Live Intelligence",
+    icon: BarChart3,
+    iconBg: "bg-blue-500/20",
+    iconColor: "text-blue-400",
+    gradient: "from-blue-600/20 to-cyan-600/20",
+    description: "Experience true real-time intelligence as CIRO's advanced analytics engine processes your data stream with zero delay. Our AI algorithms continuously analyze patterns, detect anomalies, and identify trends across all your systems simultaneously. The live dashboard updates instantly, providing actionable insights through interactive visualizations, heatmaps, and predictive analytics that let you make informed decisions in milliseconds.",
+    features: [
+      "Zero-Delay Analytics",
+      "AI Pattern Detection",
+      "Interactive Visualizations",
+      "Predictive Insights"
+    ],
     visual: (
-      <div className="relative h-full w-full bg-card border border-border/50 rounded-lg p-4 overflow-hidden shadow-sm">
-        <div className="border-b border-border/50 mb-3 pb-2 flex justify-between items-center">
-          <span className="font-medium">Production Dashboard</span>
-          <span className="text-green-500 text-xs">Live</span>
-        </div>
-        <div className="grid grid-cols-2 gap-3 mb-3">
-          <div className="bg-muted/30 p-2 rounded">
-            <div className="text-xs text-muted-foreground mb-1">Machine Efficiency</div>
-            <div className="text-lg font-medium">93.2%</div>
-            <div className="h-1.5 w-full bg-muted rounded-full mt-1 overflow-hidden">
-              <div className="h-full bg-green-500 rounded-full" style={{ width: "93%" }}></div>
-            </div>
-          </div>
-          <div className="bg-muted/30 p-2 rounded">
-            <div className="text-xs text-muted-foreground mb-1">Quality Rate</div>
-            <div className="text-lg font-medium">98.7%</div>
-            <div className="h-1.5 w-full bg-muted rounded-full mt-1 overflow-hidden">
-              <div className="h-full bg-blue-500 rounded-full" style={{ width: "99%" }}></div>
-            </div>
+      <div className="relative h-full w-full bg-card/50 border border-border/50 rounded-xl p-6 overflow-hidden shadow-lg">
+        {/* Dashboard Header */}
+        <div className="border-b border-border/30 mb-4 pb-3 flex justify-between items-center">
+          <span className="font-semibold text-white">Production Dashboard</span>
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+            <span className="text-green-400 text-sm font-medium">Live</span>
           </div>
         </div>
-        <div className="bg-muted/30 p-2 rounded">
-          <div className="text-xs text-muted-foreground mb-1">Real-Time Production</div>
-          <div className="flex items-end h-12 gap-1">
+        
+        {/* KPI Cards */}
+        <div className="grid grid-cols-2 gap-4 mb-4">
+          <div className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 border border-green-500/20 p-3 rounded-lg">
+            <div className="text-xs text-gray-400 mb-1">Machine Efficiency</div>
+            <div className="text-xl font-bold text-green-400">93.2%</div>
+            <div className="h-2 w-full bg-gray-700 rounded-full mt-2 overflow-hidden">
+              <div className="h-full bg-gradient-to-r from-green-500 to-emerald-500 rounded-full animate-pulse" style={{ width: "93%" }}></div>
+            </div>
+          </div>
+          <div className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border border-blue-500/20 p-3 rounded-lg">
+            <div className="text-xs text-gray-400 mb-1">Quality Rate</div>
+            <div className="text-xl font-bold text-blue-400">98.7%</div>
+            <div className="h-2 w-full bg-gray-700 rounded-full mt-2 overflow-hidden">
+              <div className="h-full bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full animate-pulse" style={{ width: "99%" }}></div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Real-time Chart */}
+        <div className="bg-gradient-to-br from-purple-500/10 to-blue-500/10 border border-purple-500/20 p-3 rounded-lg">
+          <div className="text-xs text-gray-400 mb-2">Real-Time Production</div>
+          <div className="flex items-end h-16 gap-1">
             {[30, 45, 38, 50, 42, 60, 55, 45, 65, 60].map((h, i) => (
               <div
                 key={i}
-                className="h-[var(--h)] bg-purple-500/80 w-full rounded-sm"
-                style={{ "--h": `${h}%` } as React.CSSProperties}
+                className="bg-gradient-to-t from-purple-500 to-blue-500 w-full rounded-sm animate-pulse"
+                style={{ height: `${h}%` }}
               />
             ))}
           </div>
@@ -86,32 +131,42 @@ const steps = [
   {
     id: 3,
     title: "AI Insights & Alerts",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-      </svg>
-    ),
-    description: "Ciro's AI engine continuously learns from your data. It can predict issues (like equipment failures) before they happen, and it powers an 'Ask Ciro' conversational assistant that lets you query your data in plain English.",
+    subtitle: "Predictive Intelligence",
+    icon: Brain,
+    iconBg: "bg-emerald-500/20",
+    iconColor: "text-emerald-400",
+    gradient: "from-emerald-600/20 to-green-600/20",
+    description: "Unlock the power of predictive intelligence with CIRO's advanced AI engine. Our machine learning algorithms continuously learn from your operational data, identifying patterns that humans might miss. Predict equipment failures before they happen, optimize production schedules, and get instant answers to complex questions through our conversational AI assistant. CIRO doesn't just report what happened – it tells you what will happen next.",
+    features: [
+      "Predictive Analytics",
+      "Conversational AI",
+      "Continuous Learning",
+      "Proactive Alerts"
+    ],
     visual: (
-      <div className="relative h-full w-full bg-card border border-border/50 rounded-lg p-4 overflow-hidden shadow-sm">
-        <div className="border-b border-border/50 mb-3 pb-2">
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded-full bg-purple-500/20 flex items-center justify-center">
-              <div className="w-3 h-3 rounded-full bg-purple-500"></div>
+      <div className="relative h-full w-full bg-card/50 border border-border/50 rounded-xl p-6 overflow-hidden shadow-lg">
+        {/* AI Assistant Header */}
+        <div className="border-b border-border/30 mb-4 pb-3">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-500 to-green-500 flex items-center justify-center">
+              <Brain className="w-4 h-4 text-white" />
             </div>
-            <span className="font-medium">Ask Ciro</span>
+            <span className="font-semibold text-white">Ask Ciro</span>
+            <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
           </div>
         </div>
+        
+        {/* Chat Interface */}
         <div className="space-y-3">
-          <div className="bg-muted/30 p-2 rounded-lg text-sm">
+          <div className="bg-gray-700/50 p-3 rounded-lg text-sm border border-gray-600/30">
             Which production line will likely slow down next month?
           </div>
-          <div className="bg-purple-500/10 p-2 rounded-lg text-sm flex flex-col gap-1">
-            <p>Based on pattern analysis, <strong>Line B</strong> is predicted to slow down by <strong>8-12%</strong> next month.</p>
-            <p className="text-xs text-muted-foreground">Factors: Maintenance schedule, historical performance, vibration anomalies</p>
+          <div className="bg-gradient-to-br from-emerald-500/10 to-green-500/10 p-3 rounded-lg text-sm border border-emerald-500/20">
+            <p className="text-white mb-2">Based on pattern analysis, <strong className="text-emerald-400">Line B</strong> is predicted to slow down by <strong className="text-emerald-400">8-12%</strong> next month.</p>
+            <p className="text-xs text-gray-400">Factors: Maintenance schedule, historical performance, vibration anomalies</p>
           </div>
-          <div className="flex items-center gap-1 text-xs text-muted-foreground">
-            <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
+          <div className="flex items-center gap-2 text-xs text-emerald-400">
+            <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div>
             <span>AI prediction with 94% confidence</span>
           </div>
         </div>
@@ -121,43 +176,59 @@ const steps = [
   {
     id: 4,
     title: "Automated Action",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-      </svg>
-    ),
-    description: "Ciro doesn't just visualize – it acts. Define intelligent workflows that trigger actions in milliseconds based on events. If a threshold is crossed or an anomaly is detected, Ciro's Workflow Engine might send an alert, adjust a machine, or create a ticket immediately, reducing manual work by up to 70%.",
+    subtitle: "Intelligent Workflows",
+    icon: Zap,
+    iconBg: "bg-orange-500/20",
+    iconColor: "text-orange-400",
+    gradient: "from-orange-600/20 to-red-600/20",
+    description: "Transform insights into immediate action with CIRO's intelligent workflow automation. Define sophisticated workflows that trigger actions in milliseconds based on real-time events, AI predictions, or threshold violations. When anomalies are detected, CIRO automatically sends alerts, adjusts machine parameters, creates tickets, or initiates corrective actions – reducing manual intervention by up to 70% and ensuring your operations run at peak efficiency 24/7.",
+    features: [
+      "Intelligent Workflows",
+      "Millisecond Response",
+      "70% Manual Work Reduction",
+      "24/7 Automation"
+    ],
     visual: (
-      <div className="relative h-full w-full bg-card border border-border/50 rounded-lg p-4 overflow-hidden shadow-sm">
-        <div className="border-b border-border/50 mb-3 pb-2 flex justify-between items-center">
-          <span className="font-medium">Workflow Automation</span>
-          <span className="text-green-500 text-xs">Active</span>
+      <div className="relative h-full w-full bg-card/50 border border-border/50 rounded-xl p-6 overflow-hidden shadow-lg">
+        {/* Workflow Header */}
+        <div className="border-b border-border/30 mb-4 pb-3 flex justify-between items-center">
+          <span className="font-semibold text-white">Workflow Automation</span>
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+            <span className="text-green-400 text-sm font-medium">Active</span>
+          </div>
         </div>
-        <div className="space-y-3">
-          <div className="bg-muted/30 p-2 rounded flex items-center justify-between">
-            <div className="text-sm">Temperature Threshold</div>
-            <div className="text-sm font-medium text-yellow-500">Triggered</div>
+        
+        {/* Trigger Event */}
+        <div className="bg-gradient-to-br from-orange-500/10 to-red-500/10 border border-orange-500/20 p-3 rounded-lg mb-4 flex items-center justify-between">
+          <div className="text-sm text-white">Temperature Threshold</div>
+          <div className="text-sm font-semibold text-orange-400 flex items-center gap-2">
+            <AlertTriangle className="w-4 h-4" />
+            Triggered
           </div>
-          <div className="flex items-center">
-            <div className="h-0.5 bg-yellow-500 w-full"></div>
-            <svg className="h-6 w-6 text-yellow-500" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z" />
-            </svg>
+        </div>
+        
+        {/* Action Flow */}
+        <div className="flex items-center mb-4">
+          <div className="h-1 bg-gradient-to-r from-orange-500 to-red-500 w-full rounded-full"></div>
+          <ArrowRight className="h-5 w-5 text-orange-400 ml-2" />
+        </div>
+        
+        {/* Actions */}
+        <div className="grid grid-cols-2 gap-3">
+          <div className="bg-gradient-to-br from-purple-500/10 to-blue-500/10 p-3 rounded-lg text-center border border-purple-500/20">
+            <div className="text-xs text-gray-400 mb-1">Alert Sent</div>
+            <div className="font-semibold text-purple-400">Technician</div>
           </div>
-          <div className="grid grid-cols-2 gap-2">
-            <div className="bg-purple-500/10 p-2 rounded text-center text-sm">
-              <div className="text-xs text-muted-foreground mb-1">Alert Sent</div>
-              <div className="font-medium">Technician</div>
-            </div>
-            <div className="bg-purple-500/10 p-2 rounded text-center text-sm">
-              <div className="text-xs text-muted-foreground mb-1">Ticket Created</div>
-              <div className="font-medium">High Priority</div>
-            </div>
+          <div className="bg-gradient-to-br from-purple-500/10 to-blue-500/10 p-3 rounded-lg text-center border border-purple-500/20">
+            <div className="text-xs text-gray-400 mb-1">Ticket Created</div>
+            <div className="font-semibold text-purple-400">High Priority</div>
           </div>
-          <div className="text-xs text-muted-foreground text-center">
-            Response time: &lt;500ms
-          </div>
+        </div>
+        
+        {/* Response Time */}
+        <div className="text-center mt-4">
+          <div className="text-xs text-gray-400">Response time: <span className="text-orange-400 font-semibold">&lt;500ms</span></div>
         </div>
       </div>
     )
@@ -170,101 +241,175 @@ const HowItWorks = () => {
   const currentStep = steps.find((step) => step.id === activeStep);
 
   return (
-    <section className="py-16 md:py-24">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            How Ciro{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500">
-              Delivers Real-Time Intelligence
-            </span>
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            From data ingestion to automated action, see how our platform functions under the hood.
-          </p>
-        </div>
+    <section className="py-16 md:py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-purple-600/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-purple-600/3 via-blue-600/3 to-cyan-600/3 rounded-full blur-3xl" />
+      </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div>
-            <div className="mb-6">
-              <div className="flex flex-col gap-2">
+      <div className="container mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 relative z-10">
+        <div className="max-w-6xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-purple-400 bg-gradient-to-r from-purple-500/10 to-blue-500/10 border border-purple-500/20 rounded-full mb-6">
+              <Settings className="w-4 h-4" />
+              <span>Platform Architecture</span>
+            </div>
+            
+            <h2 className="text-4xl md:text-5xl lg:text-4xl xl:text-4xl 2xl:text-5xl font-bold mb-6 leading-tight">
+              <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                How Ciro Delivers
+              </span>
+              <br />
+              <span className="text-white">
+                Real-Time Intelligence
+              </span>
+            </h2>
+            
+            <p className="text-lg md:text-xl lg:text-lg xl:text-lg 2xl:text-xl text-gray-300 mb-6 leading-relaxed max-w-4xl mx-auto">
+              From data ingestion to automated action, discover how our intelligent platform transforms 
+              your operations with real-time analytics, predictive insights, and automated workflows.
+            </p>
+            
+            <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-400">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                <span>Real-time Processing</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                <span>AI-Powered Insights</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                <span>Automated Actions</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Main Content */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+            {/* Left: Steps Navigation */}
+            <div className="lg:col-span-1">
+              <div className="space-y-3">
                 {steps.map((step) => (
                   <button
                     key={step.id}
                     className={cn(
-                      "flex items-center gap-4 text-left p-4 rounded-lg transition-all",
+                      "w-full group relative overflow-hidden rounded-xl p-6 text-left transition-all duration-500",
                       activeStep === step.id
-                        ? "bg-card border border-border shadow-sm"
-                        : "hover:bg-muted/30"
+                        ? "bg-gradient-to-r from-purple-500/20 to-blue-500/20 border border-purple-500/30 shadow-lg shadow-purple-500/10"
+                        : "bg-card/50 border border-border/30 hover:bg-card/70 hover:border-purple-500/20"
                     )}
                     onClick={() => setActiveStep(step.id)}
                   >
-                    <div
-                      className={cn(
-                        "w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0",
-                        activeStep === step.id
-                          ? "bg-purple-500 text-white"
-                          : "bg-muted text-muted-foreground"
-                      )}
-                    >
-                      {activeStep === step.id ? step.icon : step.id}
+                    {/* Background Gradient */}
+                    <div className={cn(
+                      "absolute inset-0 opacity-0 transition-opacity duration-500",
+                      activeStep === step.id ? "opacity-100" : "group-hover:opacity-50"
+                    )}>
+                      <div className={`w-full h-full bg-gradient-to-r ${step.gradient}`}></div>
                     </div>
-                    <div>
-                      <h3 className="font-medium">{step.title}</h3>
-                      {activeStep === step.id && (
-                        <p className="text-sm text-muted-foreground mt-1 hidden md:block">
-                          Click to view details
-                        </p>
-                      )}
+                    
+                    {/* Content */}
+                    <div className="relative z-10">
+                      <div className="flex items-start gap-4">
+                        <div className={cn(
+                          "w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300",
+                          activeStep === step.id
+                            ? "bg-purple-500 text-white shadow-lg shadow-purple-500/50"
+                            : "bg-card/80 text-gray-400 group-hover:text-purple-400"
+                        )}>
+                          <step.icon className="w-6 h-6" />
+                        </div>
+                        <div className="flex-1">
+                          <div className="flex items-center gap-2 mb-2">
+                            <span className="text-sm font-semibold text-purple-400">Step {step.id}</span>
+                            {activeStep === step.id && (
+                              <CheckCircle className="w-4 h-4 text-green-400" />
+                            )}
+                          </div>
+                          <h3 className="text-lg font-bold text-white mb-1">{step.title}</h3>
+                          <p className="text-sm text-gray-400 mb-3">{step.subtitle}</p>
+                          {activeStep === step.id && (
+                            <p className="text-xs text-purple-300">Click to view details</p>
+                          )}
+                        </div>
+                      </div>
                     </div>
                   </button>
                 ))}
               </div>
             </div>
-          </div>
 
-          <div className="lg:col-span-2">
-            <div className="bg-card border border-border rounded-lg p-6 shadow-sm">
-              <div className="flex items-start gap-4 mb-6">
-                <div className="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center flex-shrink-0">
-                  <div className="w-6 h-6 text-purple-500">{currentStep?.icon}</div>
+            {/* Right: Content Panel */}
+            <div className="lg:col-span-2">
+              <div className="bg-card/80 border border-border/50 rounded-2xl p-8 shadow-xl relative overflow-hidden">
+                {/* Content Header */}
+                <div className="flex items-start gap-6 mb-8">
+                  <div className={`w-16 h-16 ${currentStep?.iconBg} rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg`}>
+                    {currentStep && <currentStep.icon className={`w-8 h-8 ${currentStep.iconColor}`} />}
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3 mb-2">
+                      <h3 className="text-2xl font-bold text-white">{currentStep?.title}</h3>
+                      <span className="text-sm text-gray-400">•</span>
+                      <span className="text-sm text-gray-400">{currentStep?.subtitle}</span>
+                    </div>
+                    <p className="text-gray-300 leading-relaxed">{currentStep?.description}</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold mb-2">{currentStep?.title}</h3>
-                  <p className="text-muted-foreground">{currentStep?.description}</p>
-                </div>
-              </div>
 
-              <div className="aspect-video w-full h-auto bg-background border border-border/50 rounded-lg overflow-hidden">
-                {currentStep?.visual}
-              </div>
-
-              <div className="mt-6 flex flex-col md:flex-row items-center justify-center md:justify-between gap-4">
-                <Button
-                  variant="outline"
-                  onClick={() => setActiveStep(activeStep > 1 ? activeStep - 1 : 4)}
-                  className="w-full md:w-auto"
-                >
-                  Previous Step
-                </Button>
-                <div className="flex justify-center gap-2">
-                  {steps.map((step) => (
-                    <button
-                      key={step.id}
-                      className={cn(
-                        "w-2.5 h-2.5 rounded-full",
-                        activeStep === step.id ? "bg-purple-500" : "bg-muted"
-                      )}
-                      onClick={() => setActiveStep(step.id)}
-                    />
+                {/* Features Grid */}
+                <div className="grid grid-cols-2 gap-3 mb-8">
+                  {currentStep?.features.map((feature, index) => (
+                    <div key={index} className="flex items-center gap-2 p-3 bg-card/50 rounded-lg border border-border/30">
+                      <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0" />
+                      <span className="text-sm text-gray-300">{feature}</span>
+                    </div>
                   ))}
                 </div>
-                <Button
-                  onClick={() => setActiveStep(activeStep < 4 ? activeStep + 1 : 1)}
-                  className="w-full md:w-auto"
-                >
-                  Next Step
-                </Button>
+
+                {/* Visual Demo */}
+                <div className="aspect-video w-full bg-background/50 border border-border/30 rounded-xl overflow-hidden shadow-lg">
+                  {currentStep?.visual}
+                </div>
+
+                {/* Navigation */}
+                <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+                  <button
+                    onClick={() => setActiveStep(activeStep > 1 ? activeStep - 1 : 4)}
+                    className="flex items-center gap-2 px-6 py-3 bg-card/50 border border-border/30 rounded-lg text-gray-300 hover:text-white hover:bg-card/70 transition-all duration-300"
+                  >
+                    <ArrowLeft className="w-4 h-4" />
+                    <span>Previous Step</span>
+                  </button>
+                  
+                  <div className="flex gap-2">
+                    {steps.map((step) => (
+                      <button
+                        key={step.id}
+                        className={cn(
+                          "w-3 h-3 rounded-full transition-all duration-300",
+                          activeStep === step.id 
+                            ? "bg-purple-500 shadow-lg shadow-purple-500/50" 
+                            : "bg-gray-600 hover:bg-gray-500"
+                        )}
+                        onClick={() => setActiveStep(step.id)}
+                      />
+                    ))}
+                  </div>
+                  
+                  <button
+                    onClick={() => setActiveStep(activeStep < 4 ? activeStep + 1 : 1)}
+                    className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+                  >
+                    <span>Next Step</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                </div>
               </div>
             </div>
           </div>
