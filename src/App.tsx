@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound";
 import Contact from "./pages/contact/Contact";
 import About from "./pages/about/About";
 import UseCases from "./pages/use-cases/UseCases";
+import Products from "./pages/Products";
 import AIAnalytics from "./pages/products/AIAnalytics";
 import Vision from "./pages/products/Vision";
 import NewDesign from "./pages/NewDesign";
@@ -29,6 +30,7 @@ const App = () => {
             <Route path="/contact" element={<Contact />} />
             <Route path="/about" element={<About />} />
             <Route path="/use-cases" element={<UseCases />} />
+            <Route path="/products" element={<Products />} />
             <Route path="/products/ai-analytics" element={<AIAnalytics />} />
             <Route path="/products/vision" element={<Vision />} />
             <Route path="/new-design" element={<NewDesign />} />

@@ -166,7 +166,7 @@ const Hero = () => {
             <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6">
               {/* Animated Gradient Span */}
               <motion.span 
-                className="block bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500"
+                className="block bg-clip-text text-transparent bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500"
                 animate={{
                   backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
                 }}
@@ -179,12 +179,12 @@ const Hero = () => {
                   backgroundSize: "200% 100%" // Larger background size for animation
                 }}
               >
-                Real-Time AI for Smarter Decisions,
+                The Real Cost
               </motion.span>
-              <span className="block">Streamlined Operations, and Scalable{' '}
-                {/* Wrapper for Automation + Underline */}
+              <span className="block mb-2">of{' '}
+                {/* Wrapper for Latency + Underline */}
                 <span className="relative inline-block">
-                  Automation
+                  Latency
                   {/* Animated SVG Underline */}
                   <motion.svg 
                     className="absolute bottom-[-6px] left-[-2px] w-[calc(100%+4px)] h-[15px] overflow-visible pointer-events-none"
@@ -193,8 +193,8 @@ const Hero = () => {
                   >
                     <defs>
                       <linearGradient id="underline-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stopColor="#a855f7" /> {/* Purple */}
-                        <stop offset="100%" stopColor="#3b82f6" /> {/* Blue */}
+                        <stop offset="0%" stopColor="#ef4444" /> {/* Red */}
+                        <stop offset="100%" stopColor="#f97316" /> {/* Orange */}
                       </linearGradient>
                     </defs>
                     <motion.path
@@ -211,9 +211,19 @@ const Hero = () => {
                 </span>
               </span>
             </h1>
-            <p className="max-w-xl mx-auto text-lg sm:text-xl text-foreground/80 md:max-w-2xl mb-10">
-              CIRO connects to your data systems, delivers live insights, and automates critical workflows—using applied AI to help your entire organization move faster, work smarter, and stay in control.
-            </p>
+            <div className="max-w-2xl mx-auto md:mx-0 space-y-4 mb-10">
+              <p className="text-xl sm:text-2xl text-gray-300 font-medium">
+                What if the next industrial disaster isn't caused by 
+                <span className="text-red-400 font-semibold"> fire, flood, or fraud</span>...
+              </p>
+              <p className="text-xl sm:text-2xl text-transparent bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text font-bold">
+                But by silence?
+              </p>
+              <p className="text-lg text-gray-400 mt-6">
+                Every factory has the same problem: <span className="text-orange-400 font-semibold">too much data, not enough clarity.</span> 
+                Sensors firing, cameras recording, ERPs logging thousands of events—yet most decisions still happen on gut instinct.
+              </p>
+            </div>
 
             {/* Corner Decorator: Bottom Right */}
             <motion.div
