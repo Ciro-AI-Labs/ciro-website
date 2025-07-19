@@ -22,11 +22,18 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { EmailService } from "@/lib/emailService";
 import { logVisitorEvent } from "@/lib/analytics";
+import { CookieManager } from "@/lib/cookieManager";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleCookieSettings = () => {
+    // Clear current consent to trigger the cookie banner again
+    localStorage.removeItem('ciro_cookie_consent');
+    window.location.reload();
+  };
 
   const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -286,36 +293,24 @@ const Footer = () => {
             </div>
             
             <div className="flex flex-wrap gap-6 text-sm">
-              <a 
-                href="/privacy" 
+              <Link 
+                to="/privacy-policy" 
                 className="text-gray-400 hover:text-purple-400 transition-colors"
               >
                 Privacy Policy
-              </a>
-              <a 
-                href="/terms" 
+              </Link>
+              <Link 
+                to="/cookie-policy" 
                 className="text-gray-400 hover:text-purple-400 transition-colors"
               >
-                Terms of Service
-              </a>
-              <a 
-                href="/security" 
+                Cookie Policy
+              </Link>
+              <button
+                onClick={handleCookieSettings}
                 className="text-gray-400 hover:text-purple-400 transition-colors"
               >
-                Security
-              </a>
-              <a 
-                href="/compliance" 
-                className="text-gray-400 hover:text-purple-400 transition-colors"
-              >
-                Compliance
-              </a>
-              <a 
-                href="/status" 
-                className="text-gray-400 hover:text-purple-400 transition-colors"
-              >
-                System Status
-              </a>
+                Cookie Settings
+              </button>
             </div>
           </div>
         </div>

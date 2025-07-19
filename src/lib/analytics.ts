@@ -1,4 +1,5 @@
 import { supabase } from './supabase';
+import { CookieManager } from './cookieManager';
 
 // Helper functions for enhanced analytics
 function getUTMParams() {
@@ -79,34 +80,49 @@ export async function logVisitorEvent({
   clicks_count?: number;
   conversion_value?: number;
 }) {
-  const { utm_source, utm_medium, utm_campaign, utm_term, utm_content } = getUTMParams();
-  const referrer = document.referrer || undefined;
-  const user_agent = navigator.userAgent;
-  const session_id = getSessionId();
-  const deviceInfo = getDeviceInfo();
+  // Check if analytics cookies are consented to
+  const consent = CookieManager.getConsent();
+  if (!consent || !consent.analytics) {
+    console.log('Analytics logging skipped - no consent for analytics cookies');
+    return;
+  }
 
-  await supabase.from('visitors').insert([
-    {
-      event_type,
-      page: page || window.location.pathname,
-      referrer,
-      user_agent,
-      email,
-      name,
-      form_data: form_data ? JSON.stringify(form_data) : undefined,
-      utm_source,
-      utm_medium,
-      utm_campaign,
-      utm_term,
-      utm_content,
-      session_id,
-      timestamp: new Date().toISOString(),
-      ...deviceInfo,
-      time_on_page,
-      scroll_depth,
-      clicks_count,
-      conversion_value,
-      conversion_currency: conversion_value ? 'USD' : undefined,
-    },
-  ]);
+  try {
+    const { utm_source, utm_medium, utm_campaign, utm_term, utm_content } = getUTMParams();
+    const referrer = document.referrer || undefined;
+    const user_agent = navigator.userAgent;
+    const session_id = getSessionId();
+    const deviceInfo = getDeviceInfo();
+
+    const { error } = await supabase.from('visitors').insert([
+      {
+        event_type,
+        page: page || window.location.pathname,
+        referrer,
+        user_agent,
+        email,
+        name,
+        form_data: form_data ? JSON.stringify(form_data) : undefined,
+        utm_source,
+        utm_medium,
+        utm_campaign,
+        utm_term,
+        utm_content,
+        session_id,
+        timestamp: new Date().toISOString(),
+        ...deviceInfo,
+        time_on_page,
+        scroll_depth,
+        clicks_count,
+        conversion_value,
+        conversion_currency: conversion_value ? 'USD' : undefined,
+      },
+    ]);
+
+    if (error) {
+      console.error('Analytics logging error:', error);
+    }
+  } catch (error) {
+    console.error('Failed to log analytics event:', error);
+  }
 } 

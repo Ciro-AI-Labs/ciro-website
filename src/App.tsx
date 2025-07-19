@@ -21,6 +21,9 @@ import NewsPost from "./pages/NewsPost";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Admin from "./pages/Admin";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import CookiePolicy from "./pages/CookiePolicy";
+import { CookieBanner } from "./components/CookieBanner";
 
 const queryClient = new QueryClient();
 
@@ -46,6 +49,7 @@ const App = () => {
         <Sonner />
         <BrowserRouter>
           <AnalyticsTracker />
+          <CookieBanner />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/contact" element={<Contact />} />
@@ -62,6 +66,8 @@ const App = () => {
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/admin" element={<Admin />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/cookie-policy" element={<CookiePolicy />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
