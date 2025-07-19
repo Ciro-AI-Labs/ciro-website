@@ -9,7 +9,6 @@ import HowItWorks from "@/components/home/HowItWorks";
 import Contact from "@/components/home/Contact";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import VisitorNotifications from "@/components/VisitorNotifications";
 
 const Index = () => {
   return (
@@ -26,7 +25,6 @@ const Index = () => {
         <Contact />
       </main>
       <Footer />
-      <VisitorNotifications />
     </div>
   );
 };
