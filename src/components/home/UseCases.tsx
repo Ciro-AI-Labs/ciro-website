@@ -3,7 +3,8 @@ import { TrendingUp, Truck, Shield, Zap, Clock, DollarSign, Users, CheckCircle }
 const UseCases = () => {
   const useCases = [
     {
-      icon: TrendingUp,
+      image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+      imageAlt: "Industrial safety monitoring with computer vision cameras and protective equipment",
       iconBg: "bg-green-500/20",
       iconColor: "text-green-400",
       gradient: "from-green-600/20 to-emerald-600/20",
@@ -20,7 +21,8 @@ const UseCases = () => {
       color: "green"
     },
     {
-      icon: Truck,
+      image: "https://images.unsplash.com/photo-1553413077-190dd305871c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+      imageAlt: "Modern logistics warehouse with automated sorting and robotics systems",
       iconBg: "bg-blue-500/20",
       iconColor: "text-blue-400",
       gradient: "from-blue-600/20 to-indigo-600/20",
@@ -37,7 +39,8 @@ const UseCases = () => {
       color: "blue"
     },
     {
-      icon: Shield,
+      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+      imageAlt: "Modern food processing facility with automated production lines",
       iconBg: "bg-purple-500/20",
       iconColor: "text-purple-400",
       gradient: "from-purple-600/20 to-violet-600/20",
@@ -94,14 +97,14 @@ const UseCases = () => {
             {useCases.map((useCase, index) => (
               <div key={index} className="group relative">
                 <div className="bg-card/80 border border-border/50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02]">
-                  {/* Header with Icon */}
-                  <div className={`h-48 bg-gradient-to-br ${useCase.gradient} relative overflow-hidden`}>
-                    <div className="absolute inset-0 bg-black/20"></div>
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className={`w-24 h-24 ${useCase.iconBg} rounded-2xl flex items-center justify-center backdrop-blur-sm border border-white/10 group-hover:scale-110 transition-transform duration-500`}>
-                        <useCase.icon className={`w-12 h-12 ${useCase.iconColor}`} />
-                      </div>
-                    </div>
+                  {/* Header with Image */}
+                  <div className="h-48 relative overflow-hidden">
+                    <img 
+                      src={useCase.image} 
+                      alt={useCase.imageAlt}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/40"></div>
                     
                     {/* Floating Elements */}
                     <div className="absolute top-4 left-4 bg-white/10 backdrop-blur-sm rounded-lg px-3 py-1">

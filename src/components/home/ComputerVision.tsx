@@ -134,34 +134,55 @@ const ComputerVision = () => {
 
           {/* Use Cases Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            <div className="bg-card/50 border border-border/30 rounded-xl p-6 text-center hover:shadow-purple-500/10 transition-all duration-300">
-              <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <CheckCircle className="w-6 h-6 text-green-400" />
+            <div className="bg-card/50 border border-border/30 rounded-xl overflow-hidden hover:shadow-purple-500/10 transition-all duration-300">
+              <div className="h-32 relative">
+                <img 
+                  src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                  alt="Modern food processing facility with automated production lines"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black/30"></div>
               </div>
-              <h4 className="font-semibold text-white mb-3">Manufacturing</h4>
-              <p className="text-gray-400 text-sm">
-                Detect defects, monitor assembly lines, and ensure quality standards across production processes.
-              </p>
+              <div className="p-6 text-center">
+                <h4 className="font-semibold text-white mb-3">Manufacturing</h4>
+                <p className="text-gray-400 text-sm">
+                  Detect defects, monitor assembly lines, and ensure quality standards across production processes.
+                </p>
+              </div>
             </div>
             
-            <div className="bg-card/50 border border-border/30 rounded-xl p-6 text-center hover:shadow-blue-500/10 transition-all duration-300">
-              <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Shield className="w-6 h-6 text-blue-400" />
+            <div className="bg-card/50 border border-border/30 rounded-xl overflow-hidden hover:shadow-blue-500/10 transition-all duration-300">
+              <div className="h-32 relative">
+                <img 
+                  src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                  alt="Industrial safety monitoring with computer vision cameras and protective equipment"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black/30"></div>
               </div>
-              <h4 className="font-semibold text-white mb-3">Workplace Safety</h4>
-              <p className="text-gray-400 text-sm">
-                Monitor safety compliance, detect hazards, and prevent accidents with real-time alerts.
-              </p>
+              <div className="p-6 text-center">
+                <h4 className="font-semibold text-white mb-3">Workplace Safety</h4>
+                <p className="text-gray-400 text-sm">
+                  Monitor safety compliance, detect hazards, and prevent accidents with real-time alerts.
+                </p>
+              </div>
             </div>
             
-            <div className="bg-card/50 border border-border/30 rounded-xl p-6 text-center hover:shadow-purple-500/10 transition-all duration-300">
-              <div className="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <TrendingUp className="w-6 h-6 text-purple-400" />
+            <div className="bg-card/50 border border-border/30 rounded-xl overflow-hidden hover:shadow-purple-500/10 transition-all duration-300">
+              <div className="h-32 relative">
+                <img 
+                  src="https://images.unsplash.com/photo-1553413077-190dd305871c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                  alt="Modern logistics warehouse with automated sorting and robotics systems"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black/30"></div>
               </div>
-              <h4 className="font-semibold text-white mb-3">Logistics & Warehousing</h4>
-              <p className="text-gray-400 text-sm">
-                Track inventory, monitor loading operations, and optimize warehouse workflows.
-              </p>
+              <div className="p-6 text-center">
+                <h4 className="font-semibold text-white mb-3">Logistics & Warehousing</h4>
+                <p className="text-gray-400 text-sm">
+                  Track inventory, monitor loading operations, and optimize warehouse workflows.
+                </p>
+              </div>
             </div>
           </div>
 
