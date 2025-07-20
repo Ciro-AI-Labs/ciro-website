@@ -198,12 +198,12 @@ const Hero = () => {
                   backgroundSize: "200% 100%" // Larger background size for animation
                 }}
               >
-                Real-Time AI for Smarter Decisions,
+                Your Operations'
               </motion.span>
-              <span className="block">Streamlined Operations, and Scalable{' '}
-                {/* Wrapper for Automation + Underline */}
+              <span className="block">AI{' '}
+                {/* Wrapper for Co-Pilot + Underline */}
                 <span className="relative inline-block">
-                  Automation
+                  Co-Pilot
                   {/* Animated SVG Underline */}
                   <motion.svg 
                     className="absolute bottom-[-6px] left-[-2px] w-[calc(100%+4px)] h-[15px] overflow-visible pointer-events-none"
@@ -233,15 +233,11 @@ const Hero = () => {
             </h1>
             <div className="max-w-2xl mx-auto xl:mx-0 space-y-3 sm:space-y-4 mb-6 sm:mb-10">
               <p className="text-lg sm:text-xl md:text-2xl lg:text-lg xl:text-lg 2xl:text-xl text-gray-300 font-medium">
-                What if the next industrial breakthrough isn't about{' '}
-                <span className="text-orange-400 font-semibold">more data</span>...
-              </p>
-              <p className="text-lg sm:text-xl md:text-2xl lg:text-lg xl:text-lg 2xl:text-xl text-transparent bg-gradient-to-r from-purple-400 via-orange-400 to-blue-400 bg-clip-text font-bold">
-                But about faster decisions?
+                See everything. Predict everything. Decide everything.{' '}
+                <span className="text-orange-400 font-semibold">Together.</span>
               </p>
               <p className="text-base sm:text-lg md:text-xl lg:text-base xl:text-base 2xl:text-lg text-gray-400 mt-4 sm:mt-6">
-                Every factory has the same challenge: <span className="text-orange-400 font-semibold">too much information, not enough action.</span> 
-                Sensors firing, cameras recording, ERPs logging thousands of events—yet most decisions still happen on gut instinct.
+                AI that amplifies human intelligence across manufacturing, logistics, energy, and beyond—giving your teams superhuman insights to make perfect decisions, instantly.
               </p>
             </div>
 
