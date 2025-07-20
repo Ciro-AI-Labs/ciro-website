@@ -110,14 +110,14 @@ const Footer = () => {
                 </div>
                 <div className="flex items-center gap-3">
                   <MapPin className="w-4 h-4 text-purple-400" />
-                  <span className="text-gray-300">San Francisco, CA</span>
+                  <span className="text-gray-300">El Salvador and California</span>
                 </div>
               </div>
 
               {/* Social Links */}
               <div className="flex gap-4">
                 <a 
-                  href="https://linkedin.com/company/ciro-ai-labs" 
+                  href="https://www.linkedin.com/company/cirolabs/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-10 h-10 bg-gradient-to-br from-purple-500/20 to-blue-500/20 border border-purple-500/30 rounded-lg flex items-center justify-center text-purple-400 hover:text-purple-300 hover:border-purple-400/50 transition-all duration-300"
@@ -125,7 +125,7 @@ const Footer = () => {
                   <Linkedin className="w-5 h-5" />
                 </a>
                 <a 
-                  href="https://twitter.com/ciro_ai_labs" 
+                  href="https://x.com/cirolabs" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-10 h-10 bg-gradient-to-br from-purple-500/20 to-blue-500/20 border border-purple-500/30 rounded-lg flex items-center justify-center text-purple-400 hover:text-purple-300 hover:border-purple-400/50 transition-all duration-300"
@@ -133,7 +133,7 @@ const Footer = () => {
                   <Twitter className="w-5 h-5" />
                 </a>
                 <a 
-                  href="https://github.com/Ciro-AI-Labs" 
+                  href="https://github.com/orgs/Ciro-AI-Labs/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-10 h-10 bg-gradient-to-br from-purple-500/20 to-blue-500/20 border border-purple-500/30 rounded-lg flex items-center justify-center text-purple-400 hover:text-purple-300 hover:border-purple-400/50 transition-all duration-300"

@@ -392,7 +392,7 @@ const Partners = () => {
                       </div>
                       <div>
                         <h4 className="text-lg font-semibold text-white">Visit Us</h4>
-                        <p className="text-gray-300">San Francisco, CA</p>
+                        <p className="text-gray-300">El Salvador and California</p>
                       </div>
                     </div>
                   </div>

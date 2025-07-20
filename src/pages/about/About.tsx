@@ -3,64 +3,140 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import { Users, Award, Shield, TrendingUp, Clock, CheckCircle, Target, Eye, Brain, Cpu, Zap, Camera, Sparkles } from "lucide-react";
 
 const About = () => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       <Navbar />
       <main className="flex-grow pt-20">
-        {/* Hero section */}
-        <section className="pt-20 pb-16 md:py-28">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                About{" "}
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500">
-                  Ciro Labs
-                </span>
+        {/* Hero */}
+        <section className="relative pt-24 pb-16 md:py-32 overflow-hidden">
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute top-0 left-0 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl animate-pulse" />
+            <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}} />
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-purple-600/5 via-blue-600/5 to-cyan-600/5 rounded-full blur-3xl animate-pulse" style={{animationDelay: '4s'}} />
+          </div>
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-5xl mx-auto text-center">
+              <h1 className="text-6xl md:text-7xl font-black mb-8 leading-tight">
+                <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">Ciro Labs</span>
               </h1>
-              <p className="text-xl mb-8 text-muted-foreground">
-                We're building the AI Engine for Industry 4.0
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Innovation • Research • Development</h2>
+              <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+                Exploring the boundaries of human intelligence through deep tech, computer vision, and AI research. 
+                Building the future where robots and AI overlays seamlessly integrate with human operations.
               </p>
+              <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-400">
+                <span className="flex items-center gap-2">
+                  <Brain className="w-4 h-4 text-purple-400" />
+                  Deep Tech Research
+                </span>
+                <span className="flex items-center gap-2">
+                  <Eye className="w-4 h-4 text-blue-400" />
+                  Computer Vision
+                </span>
+                <span className="flex items-center gap-2">
+                  <Cpu className="w-4 h-4 text-cyan-400" />
+                  AI Innovation
+                </span>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Mission section */}
-        <section className="py-16 bg-muted/30">
+        {/* Mission & Vision */}
+        <section className="py-16">
           <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto">
-              <h2 className="text-3xl font-bold mb-6 text-center">Our Mission</h2>
-              <p className="text-lg text-center mb-8">
-                Ciro Labs builds intelligent platforms that turn fragmented streams of industrial data into automated decisions, 
-                helping manufacturers and logistics operators achieve real-time operational excellence.
+            <div className="max-w-5xl mx-auto text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">Our Mission</h2>
+              <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+                To push the boundaries of human intelligence by developing cutting-edge AI systems that see, understand, 
+                and act in the real world—bridging the gap between human intuition and machine precision.
               </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                { 
+                  title: 'Explore', 
+                  description: 'Research the frontiers of computer vision, AI, and human-machine interaction.',
+                  icon: Brain,
+                  color: 'from-purple-500 to-violet-500'
+                },
+                { 
+                  title: 'Innovate', 
+                  description: 'Develop breakthrough technologies that redefine what\'s possible in industrial AI.',
+                  icon: Sparkles,
+                  color: 'from-blue-500 to-cyan-500'
+                },
+                { 
+                  title: 'Transform', 
+                  description: 'Deploy AI solutions that revolutionize how humans and machines collaborate.',
+                  icon: Zap,
+                  color: 'from-cyan-500 to-teal-500'
+                }
+              ].map((pillar, index) => (
+                <div key={index} className="group relative">
+                  <div className={`absolute inset-0 bg-gradient-to-r ${pillar.color} opacity-20 rounded-2xl blur-xl group-hover:opacity-30 transition-opacity duration-300`}></div>
+                  <div className="relative bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl p-8 text-center shadow-xl group-hover:border-white/20 transition-all duration-300">
+                    <div className={`mx-auto w-16 h-16 bg-gradient-to-r ${pillar.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                      <pillar.icon className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-2xl font-bold mb-4 text-white">{pillar.title}</h3>
+                    <p className="text-gray-300 leading-relaxed">{pillar.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Why Ciro / The Real Cost of Latency */}
+        <section className="py-16 bg-slate-800/50">
+          <div className="container mx-auto px-4">
+            <div className="max-w-5xl mx-auto text-center">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+                Why <span className="bg-gradient-to-r from-orange-400 via-red-400 to-pink-400 bg-clip-text text-transparent">Deep Tech</span> Matters
+              </h2>
+              <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+                The next industrial revolution isn't about faster machines—it's about intelligent systems that can see, 
+                think, and adapt in real-time. The cost of staying behind isn't just inefficiency...
+              </p>
+              <p className="text-2xl font-bold bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent mb-12">
+                It's obsolescence.
+              </p>
+              
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {[
-                  {
-                    title: "Unify",
-                    description: "Connect disparate data sources to create a single source of truth for industrial operations."
+                  { 
+                    stat: '60%', 
+                    label: 'Manual Processes Still Dominate', 
+                    color: 'text-red-400', 
+                    icon: Users,
+                    description: 'Most industrial operations rely on human decision-making for critical processes'
                   },
-                  {
-                    title: "Analyze",
-                    description: "Apply AI to extract meaningful insights and patterns from complex operational data."
+                  { 
+                    stat: '90%', 
+                    label: 'Data Never Analyzed in Time', 
+                    color: 'text-orange-400', 
+                    icon: Clock,
+                    description: 'Valuable insights are discovered too late to prevent problems or capture opportunities'
                   },
-                  {
-                    title: "Automate",
-                    description: "Turn insights into action with intelligent workflows that reduce manual effort."
+                  { 
+                    stat: '24hr', 
+                    label: 'Average Detection Delay', 
+                    color: 'text-yellow-400', 
+                    icon: Target,
+                    description: 'By the time problems are detected, significant damage has already occurred'
                   }
-                ].map((pillar, index) => (
-                  <div
-                    key={index}
-                    className="bg-card border border-border/50 rounded-lg p-6 text-center shadow-sm"
-                  >
-                    <div className="mx-auto w-12 h-12 bg-purple-500/10 rounded-full flex items-center justify-center mb-4">
-                      <div className="text-xl font-bold text-purple-500">
-                        {index + 1}
-                      </div>
+                ].map((item, index) => (
+                  <div key={index} className="group">
+                    <div className="bg-card/30 backdrop-blur-sm border border-border/30 rounded-2xl p-8 text-center shadow-xl group-hover:border-white/20 transition-all duration-300">
+                      <item.icon className={`w-12 h-12 mb-4 ${item.color} mx-auto group-hover:scale-110 transition-transform duration-300`} />
+                      <div className={`text-4xl font-black ${item.color} mb-2`}>{item.stat}</div>
+                      <div className="text-lg font-semibold text-white mb-3">{item.label}</div>
+                      <p className="text-sm text-gray-400 leading-relaxed">{item.description}</p>
                     </div>
-                    <h3 className="text-xl font-bold mb-2">{pillar.title}</h3>
-                    <p className="text-muted-foreground">{pillar.description}</p>
                   </div>
                 ))}
               </div>
@@ -68,77 +144,143 @@ const About = () => {
           </div>
         </section>
 
-        {/* Story section */}
-        <section className="py-16">
+        {/* Innovation Story */}
+        <section className="py-20">
           <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto">
-              <h2 className="text-3xl font-bold mb-6 text-center">Our Story</h2>
-              <div className="bg-card border border-border/50 rounded-lg p-8 shadow-md">
-                <p className="text-lg mb-6">
-                  Ciro Labs was founded by a team of industrial automation experts and AI engineers who saw a critical gap in the market:
-                  despite the promise of Industry 4.0, most manufacturers and logistics operators were struggling with fragmented data,
-                  slow response times, and missed optimization opportunities.
-                </p>
-                <p className="text-lg mb-6">
-                  Our founders had experienced these challenges firsthand while working at leading manufacturing and technology companies.
-                  They understood that the key to unlocking operational excellence wasn't just more data—it was the ability to unify,
-                  understand, and act on that data in real time.
-                </p>
-                <p className="text-lg">
-                  Today, Ciro Labs is building the industrial command center that empowers operations teams with instant visibility,
-                  AI-driven insights, and automated workflows. Our mission is to help industrial companies thrive in an era of increasing
-                  complexity by making their operations more transparent, intelligent, and efficient.
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-16">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">Innovation Labs</h2>
+                <p className="text-xl text-gray-300 leading-relaxed">
+                  Where breakthrough research meets real-world application
                 </p>
               </div>
               
-              <div className="mt-12 text-center">
-                <h3 className="text-2xl font-bold mb-4">Join Us on Our Journey</h3>
-                <p className="text-lg text-muted-foreground mb-6">
-                  We're always looking for talented individuals who share our passion for industrial innovation.
-                </p>
-                <Button asChild>
-                  <a href="mailto:careers@cirolabs.com">Explore Careers</a>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
+              <div className="space-y-12">
+                <div className="bg-gradient-to-r from-slate-800/50 to-slate-700/50 backdrop-blur-sm border border-slate-600/30 rounded-2xl p-10 shadow-2xl">
+                  <h3 className="text-2xl font-bold text-white mb-6">Deep Tech Foundation</h3>
+                  <p className="text-lg text-gray-300 mb-6 leading-relaxed">
+                    Ciro Labs emerged from a simple but profound realization: the gap between cutting-edge AI research 
+                    and practical industrial applications was growing wider every day. While academia pushed the boundaries 
+                    of what's possible, industry remained stuck with legacy systems and incremental improvements.
+                  </p>
+                  <p className="text-lg text-gray-300 leading-relaxed">
+                    We founded Ciro Labs as a bridge—a place where theoretical breakthroughs in computer vision, 
+                    machine learning, and robotics could be transformed into practical solutions that solve real problems 
+                    in manufacturing, logistics, and industrial operations.
+                  </p>
+                </div>
 
-        {/* Video section */}
-        <section className="py-16 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-3xl font-bold mb-6">Watch an Overview</h2>
-              <p className="text-lg text-muted-foreground mb-8">
-                See how Ciro Labs is transforming industrial operations with AI and real-time analytics.
-              </p>
-              <div className="relative bg-card border border-border/50 rounded-lg aspect-video overflow-hidden shadow-md">
-                <div className="absolute inset-0 flex items-center justify-center bg-black/20">
-                  <div className="rounded-full h-16 w-16 bg-white/90 flex items-center justify-center shadow-lg">
-                    <div className="w-0 h-0 border-t-[10px] border-t-transparent border-l-[18px] border-l-purple-500 border-b-[10px] border-b-transparent ml-1"></div>
-                  </div>
-                  <div className="absolute bottom-4 left-4 text-white font-medium">
-                    Ciro Labs: AI for Industrial Intelligence
-                  </div>
+                <div className="bg-gradient-to-r from-slate-700/50 to-slate-800/50 backdrop-blur-sm border border-slate-600/30 rounded-2xl p-10 shadow-2xl">
+                  <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                    <Camera className="w-8 h-8 text-blue-400" />
+                    Computer Vision Pioneers
+                  </h3>
+                  <p className="text-lg text-gray-300 mb-6 leading-relaxed">
+                    Our core focus on computer vision isn't just about seeing—it's about understanding. We develop 
+                    AI systems that can interpret complex industrial environments, detect anomalies invisible to human eyes, 
+                    and make split-second decisions that prevent disasters before they happen.
+                  </p>
+                  <p className="text-lg text-gray-300 leading-relaxed">
+                    From thermal imaging analysis to real-time quality control, our computer vision systems don't just observe—they comprehend, 
+                    predict, and act with superhuman precision and speed.
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* CTA section */}
+        {/* Future Vision */}
+        <section className="py-20 bg-gradient-to-br from-slate-800/50 via-purple-900/20 to-blue-900/20">
+          <div className="container mx-auto px-4">
+            <div className="max-w-5xl mx-auto text-center">
+              <h2 className="text-4xl md:text-6xl font-bold mb-8 text-white">
+                The Future is <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">Intelligent</span>
+              </h2>
+              <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+                We're not just building software—we're crafting the neural pathways of tomorrow's industrial landscape, 
+                where AI overlays enhance human capability and robotic systems work in perfect harmony with human intuition.
+              </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                <div className="group">
+                  <div className="bg-gradient-to-br from-purple-500/10 to-pink-500/10 backdrop-blur-sm border border-purple-400/20 rounded-2xl p-8 shadow-xl group-hover:border-purple-400/40 transition-all duration-300">
+                    <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
+                      <Eye className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-white mb-4">AI Overlays</h3>
+                    <p className="text-gray-300 leading-relaxed">
+                      Augmented reality interfaces that overlay real-time AI insights directly onto physical environments, 
+                      giving workers superhuman perception and decision-making capabilities.
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="group">
+                  <div className="bg-gradient-to-br from-cyan-500/10 to-blue-500/10 backdrop-blur-sm border border-cyan-400/20 rounded-2xl p-8 shadow-xl group-hover:border-cyan-400/40 transition-all duration-300">
+                    <div className="w-16 h-16 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
+                      <Cpu className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-white mb-4">Collaborative Robotics</h3>
+                    <p className="text-gray-300 leading-relaxed">
+                      Robots that don't replace humans but amplify their capabilities, working alongside operators 
+                      with seamless coordination and shared intelligence.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <blockquote className="text-2xl text-gray-300 font-medium italic leading-relaxed max-w-4xl mx-auto">
+                "The future doesn't belong to humans or machines alone—it belongs to the synthesis of human creativity 
+                and artificial intelligence, working together to solve problems we never thought possible."
+              </blockquote>
+            </div>
+          </div>
+        </section>
+
+        {/* Video section */}
         <section className="py-16">
           <div className="container mx-auto px-4">
-            <div className="bg-card border border-border/50 rounded-lg p-8 md:p-12 shadow-md text-center max-w-3xl mx-auto">
-              <h2 className="text-3xl font-bold mb-6">
-                Ready to see Ciro in action?
-              </h2>
-              <p className="text-xl text-muted-foreground mb-8">
-                Schedule a demo with our team and discover how our platform can transform your operations.
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">See Our Vision in Action</h2>
+              <p className="text-lg text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+                Watch how Ciro Labs is pioneering the future of industrial intelligence through deep tech research and practical AI applications.
               </p>
-              <Button size="lg" asChild>
-                <Link to="/contact">Book a Demo</Link>
-              </Button>
+              <div className="relative bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl aspect-video overflow-hidden shadow-2xl">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/cyxpYPvdhL0?autoplay=0&rel=0"
+                  title="Ciro Labs: Innovation in Industrial AI"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA section */}
+        <section className="py-20">
+          <div className="container mx-auto px-4">
+            <div className="relative max-w-4xl mx-auto">
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 via-blue-500/20 to-cyan-500/20 rounded-3xl blur-xl"></div>
+              <div className="relative bg-gradient-to-r from-purple-500/80 to-cyan-500/80 backdrop-blur-sm border border-white/10 rounded-3xl p-12 shadow-2xl text-center">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">Ready to Explore the Future?</h2>
+                <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed">
+                  Join us on the frontier of industrial AI research. Let's push the boundaries of what's possible together.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button size="lg" className="bg-white text-purple-600 hover:bg-gray-100 font-semibold px-8 py-4 text-lg" asChild>
+                    <Link to="/contact">Start a Collaboration</Link>
+                  </Button>
+                  <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 font-semibold px-8 py-4 text-lg">
+                    Research Partnerships
+                  </Button>
+                </div>
+              </div>
             </div>
           </div>
         </section>

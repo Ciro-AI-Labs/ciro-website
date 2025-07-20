@@ -30,10 +30,9 @@ import {
   CheckCircle,
   ArrowRight,
   Play,
-  Zap,
-  Database
+  Zap
 } from "lucide-react";
-import HubSpotMeetingScheduler from "./HubSpotMeetingScheduler";
+
 import { EmailService } from "@/lib/emailService";
 import { logVisitorEvent } from "@/lib/analytics";
 
@@ -59,7 +58,7 @@ const formSchema = z.object({
   message: z.string().optional(),
 });
 
-type FormType = 'custom' | 'calendly' | 'hubspot';
+type FormType = 'custom' | 'calendly';
 
 const Contact = () => {
   const [formType, setFormType] = useState<FormType>('custom');
@@ -234,27 +233,7 @@ const Contact = () => {
           </div>
         );
       
-      case 'hubspot':
-        return (
-          <div className="bg-card/80 border border-border/50 rounded-2xl p-8 shadow-xl">
-            <div className="flex items-center justify-between mb-6">
-              <h3 className="text-2xl font-bold text-white">Schedule Your Demo</h3>
-              <Button
-                onClick={() => setFormType('custom')}
-                variant="ghost"
-                size="sm"
-                className="text-gray-400 hover:text-white"
-              >
-                ← Back to Custom Form
-              </Button>
-            </div>
-            <HubSpotMeetingScheduler 
-              portalId="49257214"
-              meetingId="victor-amaya1" // Your real meeting ID from HubSpot
-              className="min-h-[600px]"
-            />
-          </div>
-        );
+
       
       default:
         return (
@@ -393,7 +372,7 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex justify-center">
                 <Button
                   onClick={() => setFormType('calendly')}
                   variant="outline"
@@ -402,16 +381,6 @@ const Contact = () => {
                 >
                   <Calendar className="w-5 h-5 mr-2" />
                   Schedule with Calendly
-                </Button>
-                
-                <Button
-                  onClick={() => setFormType('hubspot')}
-                  variant="outline"
-                  size="lg"
-                  className="border-orange-500/30 text-orange-400 hover:bg-orange-500/10 hover:border-orange-500/50 font-semibold py-3"
-                >
-                  <Database className="w-5 h-5 mr-2" />
-                  Use HubSpot Scheduler
                 </Button>
               </div>
             </div>
