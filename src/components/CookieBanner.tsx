@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { X, Settings, Check, AlertCircle, Info } from 'lucide-react';
 import { CookieManager, CookieConsent } from '../lib/cookieManager';
 
@@ -7,6 +8,7 @@ interface CookieBannerProps {
 }
 
 export const CookieBanner: React.FC<CookieBannerProps> = ({ onConsentChange }) => {
+  const { t } = useTranslation();
   const [showBanner, setShowBanner] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const [consent, setConsent] = useState<CookieConsent>({
@@ -77,13 +79,11 @@ export const CookieBanner: React.FC<CookieBannerProps> = ({ onConsentChange }) =
                 <div className="flex items-center gap-2 mb-2">
                   <AlertCircle className="w-5 h-5 text-blue-600" />
                   <h3 className="text-lg font-semibold text-gray-900">
-                    We use cookies to enhance your experience
+                    {t('cookieBanner.title')}
                   </h3>
                 </div>
                 <p className="text-gray-600 text-sm">
-                  We use cookies and similar technologies to help personalize content, 
-                  provide a better user experience, and analyze our traffic. 
-                  By clicking "Accept All", you consent to our use of cookies.
+                  {t('cookieBanner.description')}
                 </p>
               </div>
               
@@ -93,19 +93,19 @@ export const CookieBanner: React.FC<CookieBannerProps> = ({ onConsentChange }) =
                   className="flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
                 >
                   <Settings className="w-4 h-4" />
-                  Customize
+                  {t('cookieBanner.customize')}
                 </button>
                 <button
                   onClick={handleRejectAll}
                   className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
                 >
-                  Reject All
+                  {t('cookieBanner.rejectAll')}
                 </button>
                 <button
                   onClick={handleAcceptAll}
                   className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors"
                 >
-                  Accept All
+                  {t('cookieBanner.acceptAll')}
                 </button>
               </div>
             </div>
@@ -119,7 +119,7 @@ export const CookieBanner: React.FC<CookieBannerProps> = ({ onConsentChange }) =
           <div className="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             <div className="p-6">
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-bold text-gray-900">Cookie Settings</h2>
+                <h2 className="text-2xl font-bold text-gray-900">{t('cookieBanner.settingsTitle')}</h2>
                 <button
                   onClick={() => setShowSettings(false)}
                   className="text-gray-400 hover:text-gray-600 transition-colors"
@@ -137,17 +137,16 @@ export const CookieBanner: React.FC<CookieBannerProps> = ({ onConsentChange }) =
                         <Check className="w-3 h-3 text-white" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-gray-900">Necessary Cookies</h3>
-                        <p className="text-sm text-gray-600">Essential for the website to function properly</p>
+                        <h3 className="font-semibold text-gray-900">{t('cookieBanner.necessary.title')}</h3>
+                        <p className="text-sm text-gray-600">{t('cookieBanner.necessary.desc')}</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="text-sm text-gray-500">Always Active</span>
+                      <span className="text-sm text-gray-500">{t('cookieBanner.necessary.alwaysActive')}</span>
                     </div>
                   </div>
                   <p className="text-sm text-gray-600">
-                    These cookies are essential for the website to function and cannot be disabled. 
-                    They include session management, security, and basic functionality.
+                    {t('cookieBanner.necessary.detail')}
                   </p>
                 </div>
 
@@ -159,8 +158,8 @@ export const CookieBanner: React.FC<CookieBannerProps> = ({ onConsentChange }) =
                         <Info className="w-3 h-3 text-white" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-gray-900">Analytics Cookies</h3>
-                        <p className="text-sm text-gray-600">Help us understand how visitors interact with our website</p>
+                        <h3 className="font-semibold text-gray-900">{t('cookieBanner.analytics.title')}</h3>
+                        <p className="text-sm text-gray-600">{t('cookieBanner.analytics.desc')}</p>
                       </div>
                     </div>
                     <label className="relative inline-flex items-center cursor-pointer">
@@ -174,8 +173,7 @@ export const CookieBanner: React.FC<CookieBannerProps> = ({ onConsentChange }) =
                     </label>
                   </div>
                   <p className="text-sm text-gray-600">
-                    These cookies help us understand how visitors interact with our website by collecting 
-                    and reporting information anonymously. This helps us improve our website and services.
+                    {t('cookieBanner.analytics.detail')}
                   </p>
                 </div>
 
@@ -187,8 +185,8 @@ export const CookieBanner: React.FC<CookieBannerProps> = ({ onConsentChange }) =
                         <Info className="w-3 h-3 text-white" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-gray-900">Marketing Cookies</h3>
-                        <p className="text-sm text-gray-600">Used to track visitors across websites for marketing purposes</p>
+                        <h3 className="font-semibold text-gray-900">{t('cookieBanner.marketing.title')}</h3>
+                        <p className="text-sm text-gray-600">{t('cookieBanner.marketing.desc')}</p>
                       </div>
                     </div>
                     <label className="relative inline-flex items-center cursor-pointer">
@@ -202,8 +200,7 @@ export const CookieBanner: React.FC<CookieBannerProps> = ({ onConsentChange }) =
                     </label>
                   </div>
                   <p className="text-sm text-gray-600">
-                    These cookies are used to track visitors across websites to display relevant 
-                    advertisements and measure the effectiveness of marketing campaigns.
+                    {t('cookieBanner.marketing.detail')}
                   </p>
                 </div>
 
@@ -215,8 +212,8 @@ export const CookieBanner: React.FC<CookieBannerProps> = ({ onConsentChange }) =
                         <Info className="w-3 h-3 text-white" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-gray-900">Preferences Cookies</h3>
-                        <p className="text-sm text-gray-600">Allow the website to remember your preferences</p>
+                        <h3 className="font-semibold text-gray-900">{t('cookieBanner.preferences.title')}</h3>
+                        <p className="text-sm text-gray-600">{t('cookieBanner.preferences.desc')}</p>
                       </div>
                     </div>
                     <label className="relative inline-flex items-center cursor-pointer">
@@ -230,8 +227,7 @@ export const CookieBanner: React.FC<CookieBannerProps> = ({ onConsentChange }) =
                     </label>
                   </div>
                   <p className="text-sm text-gray-600">
-                    These cookies allow the website to remember choices you make and provide 
-                    enhanced, more personal features.
+                    {t('cookieBanner.preferences.detail')}
                   </p>
                 </div>
               </div>
@@ -241,19 +237,19 @@ export const CookieBanner: React.FC<CookieBannerProps> = ({ onConsentChange }) =
                   onClick={handleRejectAll}
                   className="flex-1 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
                 >
-                  Reject All
+                  {t('cookieBanner.rejectAll')}
                 </button>
                 <button
                   onClick={handleAcceptAll}
                   className="flex-1 px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors"
                 >
-                  Accept All
+                  {t('cookieBanner.acceptAll')}
                 </button>
                 <button
                   onClick={handleSaveSettings}
                   className="flex-1 px-4 py-2 text-sm font-medium text-white bg-green-600 rounded-lg hover:bg-green-700 transition-colors"
                 >
-                  Save Settings
+                  {t('cookieBanner.saveSettings')}
                 </button>
               </div>
             </div>

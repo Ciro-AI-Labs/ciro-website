@@ -1,20 +1,17 @@
-
 import { Link } from "react-router-dom";
-import { 
-  Mail, 
-  MapPin, 
-  Linkedin, 
-  Twitter, 
-  Github, 
+import {
+  Mail,
+  MapPin,
+  Linkedin,
+  Twitter,
+  Github,
   ArrowRight,
-  Zap,
+  BarChart3,
   Database,
+  Smartphone,
+  Factory,
   Eye,
-  Users,
-  FileText,
   Shield,
-  Clock,
-  CheckCircle
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -22,150 +19,143 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { EmailService } from "@/lib/emailService";
 import { logVisitorEvent } from "@/lib/analytics";
-import { CookieManager } from "@/lib/cookieManager";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { t } = useTranslation();
 
   const handleCookieSettings = () => {
-    // Clear current consent to trigger the cookie banner again
     localStorage.removeItem('ciro_cookie_consent');
     window.location.reload();
   };
 
   const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!email) {
-      toast.error("Please enter your email address");
+      toast.error(t('footer.emailRequired'));
       return;
     }
 
     setIsSubmitting(true);
-    
+
     try {
-      // Subscribe to newsletter using Supabase
       const result = await EmailService.subscribeToNewsletter(email);
-      
-      // Log analytics event
-      await logVisitorEvent({
-        event_type: "newsletter_signup",
-        email: email
-      });
-      
-      // Show success message
-      toast.success("Successfully subscribed to newsletter!");
+      await logVisitorEvent({ event_type: "newsletter_signup", email: email });
+      toast.success(t('footer.newsletterSuccess'));
       setEmail("");
-      
     } catch (error) {
       console.error('Newsletter signup error:', error);
-      toast.error("Something went wrong. Please try again later.");
+      toast.error(t('footer.newsletterError'));
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <footer className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 border-t border-border/20 relative overflow-hidden">
+    <footer className="bg-black border-t border-white/5 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-purple-600/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl" />
+        <div className="absolute top-0 left-0 w-96 h-96 bg-blue-600/3 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-600/3 rounded-full blur-3xl" />
       </div>
 
       <div className="container mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 relative z-10">
-        {/* Main Footer Content */}
         <div className="py-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-12">
-            
+
             {/* Company Info */}
             <div className="lg:col-span-2 xl:col-span-1 space-y-6">
               <Link to="/" className="block">
-                <div className="flex items-center gap-2">
-                  <img 
-                    src="/images/Ciro Blanco.png" 
-                    alt="CIRO Logo" 
-                    className="h-10 w-auto"
-                  />
-                  <span className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-                    CIRO
-                  </span>
-                </div>
+                <img
+                  src="/logos/Ciro Logo Full White.svg"
+                  alt="CIRO"
+                  className="h-10 w-auto"
+                />
               </Link>
-              
-              <p className="text-gray-300 leading-relaxed max-w-md">
-                Building the future of industrial intelligence with real-time AI platforms that transform operations, 
-                enhance productivity, and drive innovation across manufacturing and logistics.
+
+              <p className="text-gray-400 leading-relaxed max-w-md">
+                {t('footer.companyDesc')}
               </p>
-              
-              {/* Contact Info */}
+
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
-                  <Mail className="w-4 h-4 text-purple-400" />
-                  <a href="mailto:hola@ciroai.us" className="text-gray-300 hover:text-purple-400 transition-colors">
+                  <Mail className="w-4 h-4 text-blue-400" />
+                  <a href="mailto:hola@ciroai.us" className="text-gray-400 hover:text-blue-400 transition-colors">
                     hola@ciroai.us
                   </a>
                 </div>
                 <div className="flex items-center gap-3">
-                  <MapPin className="w-4 h-4 text-purple-400" />
-                  <span className="text-gray-300">El Salvador and California</span>
+                  <MapPin className="w-4 h-4 text-blue-400" />
+                  <span className="text-gray-400">{t('footer.location')}</span>
                 </div>
               </div>
 
-              {/* Social Links */}
-              <div className="flex gap-4">
-                <a 
-                  href="https://www.linkedin.com/company/cirolabs/" 
-                  target="_blank" 
+              <div className="flex gap-3">
+                <a
+                  href="https://www.linkedin.com/company/cirolabs/"
+                  target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 bg-gradient-to-br from-purple-500/20 to-blue-500/20 border border-purple-500/30 rounded-lg flex items-center justify-center text-purple-400 hover:text-purple-300 hover:border-purple-400/50 transition-all duration-300"
+                  className="w-9 h-9 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center text-gray-400 hover:text-blue-400 hover:border-blue-400/30 transition-all duration-300"
                 >
-                  <Linkedin className="w-5 h-5" />
+                  <Linkedin className="w-4 h-4" />
                 </a>
-                <a 
-                  href="https://x.com/cirolabs" 
-                  target="_blank" 
+                <a
+                  href="https://x.com/cirolabs"
+                  target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 bg-gradient-to-br from-purple-500/20 to-blue-500/20 border border-purple-500/30 rounded-lg flex items-center justify-center text-purple-400 hover:text-purple-300 hover:border-purple-400/50 transition-all duration-300"
+                  className="w-9 h-9 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center text-gray-400 hover:text-blue-400 hover:border-blue-400/30 transition-all duration-300"
                 >
-                  <Twitter className="w-5 h-5" />
+                  <Twitter className="w-4 h-4" />
                 </a>
-                <a 
-                  href="https://github.com/orgs/Ciro-AI-Labs/" 
-                  target="_blank" 
+                <a
+                  href="https://github.com/orgs/Ciro-AI-Labs/"
+                  target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 bg-gradient-to-br from-purple-500/20 to-blue-500/20 border border-purple-500/30 rounded-lg flex items-center justify-center text-purple-400 hover:text-purple-300 hover:border-purple-400/50 transition-all duration-300"
+                  className="w-9 h-9 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center text-gray-400 hover:text-blue-400 hover:border-blue-400/30 transition-all duration-300"
                 >
-                  <Github className="w-5 h-5" />
+                  <Github className="w-4 h-4" />
                 </a>
               </div>
             </div>
 
             {/* Products */}
             <div className="space-y-6">
-              <h3 className="text-lg font-semibold text-white flex items-center gap-2">
-                <Zap className="w-5 h-5 text-purple-400" />
-                Products
+              <h3 className="text-sm font-semibold text-white uppercase tracking-wider">
+                {t('footer.products')}
               </h3>
               <ul className="space-y-3">
                 <li>
-                  <Link
-                    to="/products/ai-analytics"
-                    className="text-gray-300 hover:text-purple-400 transition-colors flex items-center gap-2 group"
-                  >
-                    <Database className="w-4 h-4 text-purple-400 group-hover:scale-110 transition-transform" />
-                    Ciro AI Analytics
+                  <Link to="/products/ai-analytics" className="text-gray-400 hover:text-blue-400 transition-colors flex items-center gap-2 text-sm">
+                    <BarChart3 className="w-3.5 h-3.5" />
+                    CIRO AI
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to="/products/vision"
-                    className="text-gray-300 hover:text-purple-400 transition-colors flex items-center gap-2 group"
-                  >
-                    <Eye className="w-4 h-4 text-purple-400 group-hover:scale-110 transition-transform" />
-                    Ciro Vision
+                  <Link to="/products/erp" className="text-gray-400 hover:text-blue-400 transition-colors flex items-center gap-2 text-sm">
+                    <Factory className="w-3.5 h-3.5" />
+                    CIRO ERP
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/products/sales" className="text-gray-400 hover:text-blue-400 transition-colors flex items-center gap-2 text-sm">
+                    <Smartphone className="w-3.5 h-3.5" />
+                    CIRO SALES
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/products/lake" className="text-gray-400 hover:text-blue-400 transition-colors flex items-center gap-2 text-sm">
+                    <Database className="w-3.5 h-3.5" />
+                    CIRO LAKE
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/products/vision" className="text-gray-400 hover:text-blue-400 transition-colors flex items-center gap-2 text-sm">
+                    <Eye className="w-3.5 h-3.5" />
+                    CIRO LABS
                   </Link>
                 </li>
               </ul>
@@ -173,143 +163,102 @@ const Footer = () => {
 
             {/* Resources */}
             <div className="space-y-6">
-              <h3 className="text-lg font-semibold text-white flex items-center gap-2">
-                <FileText className="w-5 h-5 text-purple-400" />
-                Resources
+              <h3 className="text-sm font-semibold text-white uppercase tracking-wider">
+                {t('footer.resources')}
               </h3>
               <ul className="space-y-3">
                 <li>
-                  <Link
-                    to="/blog"
-                    className="text-gray-300 hover:text-purple-400 transition-colors flex items-center gap-2 group"
-                  >
-                    <FileText className="w-4 h-4 text-purple-400 group-hover:scale-110 transition-transform" />
-                    Blog
+                  <Link to="/blog" className="text-gray-400 hover:text-blue-400 transition-colors text-sm">
+                    {t('footer.blog')}
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to="/news"
-                    className="text-gray-300 hover:text-purple-400 transition-colors flex items-center gap-2 group"
-                  >
-                    <FileText className="w-4 h-4 text-purple-400 group-hover:scale-110 transition-transform" />
-                    News
+                  <Link to="/news" className="text-gray-400 hover:text-blue-400 transition-colors text-sm">
+                    {t('footer.news')}
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/about" className="text-gray-400 hover:text-blue-400 transition-colors text-sm">
+                    {t('footer.aboutUs')}
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/careers" className="text-gray-400 hover:text-blue-400 transition-colors text-sm">
+                    {t('footer.careers')}
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/contact" className="text-gray-400 hover:text-blue-400 transition-colors text-sm">
+                    {t('footer.contact')}
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/partners" className="text-gray-400 hover:text-blue-400 transition-colors text-sm">
+                    {t('footer.partners')}
                   </Link>
                 </li>
               </ul>
             </div>
 
-            {/* Company & Newsletter */}
+            {/* Newsletter */}
             <div className="space-y-6">
-              <h3 className="text-lg font-semibold text-white flex items-center gap-2">
-                <Users className="w-5 h-5 text-purple-400" />
-                Company
+              <h3 className="text-sm font-semibold text-white uppercase tracking-wider">
+                {t('footer.stayUpdated')}
               </h3>
-              <ul className="space-y-3">
-                <li>
-                  <Link
-                    to="/about"
-                    className="text-gray-300 hover:text-purple-400 transition-colors flex items-center gap-2 group"
-                  >
-                    <Users className="w-4 h-4 text-purple-400 group-hover:scale-110 transition-transform" />
-                    About Us
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/careers"
-                    className="text-gray-300 hover:text-purple-400 transition-colors flex items-center gap-2 group"
-                  >
-                    <Clock className="w-4 h-4 text-purple-400 group-hover:scale-110 transition-transform" />
-                    Careers
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/contact"
-                    className="text-gray-300 hover:text-purple-400 transition-colors flex items-center gap-2 group"
-                  >
-                    <Mail className="w-4 h-4 text-purple-400 group-hover:scale-110 transition-transform" />
-                    Contact
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/partners"
-                    className="text-gray-300 hover:text-purple-400 transition-colors flex items-center gap-2 group"
-                  >
-                    <CheckCircle className="w-4 h-4 text-purple-400 group-hover:scale-110 transition-transform" />
-                    Partners
-                  </Link>
-                </li>
-              </ul>
-
-              {/* Newsletter Signup */}
-              <div className="pt-4">
-                <h4 className="text-sm font-semibold text-white mb-3">Stay Updated</h4>
-                <form onSubmit={handleNewsletterSubmit} className="space-y-3">
-                  <Input
-                    type="email"
-                    placeholder="Enter your email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="bg-card/50 border-border/50 text-white placeholder:text-gray-400 focus:border-purple-500"
-                    required
-                    disabled={isSubmitting}
-                  />
-                  <Button 
-                    type="submit" 
-                    size="sm" 
-                    className="w-full bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                        Subscribing...
-                      </>
-                    ) : (
-                      <>
-                        Subscribe
-                        <ArrowRight className="w-4 h-4 ml-2" />
-                      </>
-                    )}
-                  </Button>
-                </form>
-              </div>
+              <p className="text-gray-400 text-sm">{t('footer.newsletterDesc')}</p>
+              <form onSubmit={handleNewsletterSubmit} className="space-y-3">
+                <Input
+                  type="email"
+                  placeholder={t('footer.emailPlaceholder')}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="bg-white/5 border-white/10 text-white placeholder:text-gray-500 focus:border-blue-500 h-10"
+                  required
+                  disabled={isSubmitting}
+                />
+                <Button
+                  type="submit"
+                  size="sm"
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <>
+                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                      {t('footer.subscribing')}
+                    </>
+                  ) : (
+                    <>
+                      {t('footer.subscribe')}
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </>
+                  )}
+                </Button>
+              </form>
             </div>
           </div>
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-border/20 py-8">
+        <div className="border-t border-white/5 py-8">
           <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
-            <div className="flex flex-col sm:flex-row items-center gap-6 text-sm text-gray-400">
-              <p>&copy; {currentYear} Ciro Labs. All rights reserved.</p>
+            <div className="flex flex-col sm:flex-row items-center gap-6 text-sm text-gray-500">
+              <p>&copy; {currentYear} CIRO AI. {t('footer.copyright')}</p>
               <div className="flex items-center gap-1">
                 <Shield className="w-4 h-4" />
-                <span>ISO 27001 Certified</span>
+                <span>SOC 2 Type II</span>
               </div>
             </div>
-            
+
             <div className="flex flex-wrap gap-6 text-sm">
-              <Link 
-                to="/privacy-policy" 
-                className="text-gray-400 hover:text-purple-400 transition-colors"
-              >
-                Privacy Policy
+              <Link to="/privacy-policy" className="text-gray-500 hover:text-blue-400 transition-colors">
+                {t('footer.privacyPolicy')}
               </Link>
-              <Link 
-                to="/cookie-policy" 
-                className="text-gray-400 hover:text-purple-400 transition-colors"
-              >
-                Cookie Policy
+              <Link to="/cookie-policy" className="text-gray-500 hover:text-blue-400 transition-colors">
+                {t('footer.cookiePolicy')}
               </Link>
-              <button
-                onClick={handleCookieSettings}
-                className="text-gray-400 hover:text-purple-400 transition-colors"
-              >
-                Cookie Settings
+              <button onClick={handleCookieSettings} className="text-gray-500 hover:text-blue-400 transition-colors">
+                {t('footer.cookieSettings')}
               </button>
             </div>
           </div>

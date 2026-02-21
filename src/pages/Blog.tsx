@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
@@ -36,6 +37,8 @@ import { logVisitorEvent } from "@/lib/analytics";
 import { Link } from "react-router-dom";
 
 const Blog = () => {
+  const { t } = useTranslation();
+
   const handleNewsletterSignup = async (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -124,22 +127,21 @@ const Blog = () => {
             <div className="text-center max-w-4xl mx-auto">
               <div className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-purple-400 bg-gradient-to-r from-purple-500/10 to-blue-500/10 border border-purple-500/20 rounded-full mb-6">
                 <Rocket className="w-4 h-4" />
-                <span>CIRO Blog</span>
+                <span>{t('pages.blog.badge')}</span>
               </div>
               
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                 <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                  AI Insights
+                  {t('pages.blog.heading1')}
                 </span>
                 <br />
                 <span className="text-white">
-                  & Industry Knowledge
+                  {t('pages.blog.heading2')}
                 </span>
               </h1>
               
               <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
-                Deep dive into the latest AI trends, technical insights, case studies, 
-                and industry knowledge from CIRO's team of experts and thought leaders.
+                {t('pages.blog.description')}
               </p>
 
               {/* Search and Filter */}
@@ -147,13 +149,13 @@ const Blog = () => {
                 <div className="relative mb-6">
                   <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                   <Input
-                    placeholder="Search articles..."
+                    placeholder={t('pages.blog.searchPlaceholder')}
                     className="pl-12 bg-card/50 border-border/50 text-white placeholder:text-gray-400 focus:border-purple-500"
                   />
                 </div>
                 
                 <div className="flex flex-wrap gap-2 justify-center">
-                  {categories.slice(1).map((category) => (
+                  {(t('pages.blog.categories', { returnObjects: true }) as string[]).slice(1).map((category) => (
                     <Button
                       key={category}
                       variant="outline"
@@ -177,7 +179,7 @@ const Blog = () => {
                 <div>
                   <div className="flex items-center gap-2 mb-4">
                     <span className="px-3 py-1 bg-purple-500/20 text-purple-400 text-sm rounded-full">
-                      Featured
+                      {t('pages.blog.featured')}
                     </span>
                     <span className="px-3 py-1 bg-blue-500/20 text-blue-400 text-sm rounded-full">
                       {blogPosts[0].category}
@@ -219,7 +221,7 @@ const Blog = () => {
                   
                   <Link to={`/blog/${blogPosts[0].slug}`}>
                     <Button className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white">
-                      Read Full Article
+                      {t('pages.blog.readFullArticle')}
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
                   </Link>
@@ -246,36 +248,28 @@ const Blog = () => {
                 <div className="max-w-2xl mx-auto">
                   <div className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-purple-400 bg-gradient-to-r from-purple-500/20 to-blue-500/20 border border-purple-500/30 rounded-full mb-6">
                     <Lightbulb className="w-4 h-4" />
-                    <span>More Content Coming Soon</span>
+                    <span>{t('pages.blog.comingSoonBadge')}</span>
                   </div>
                   
                   <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                    Stay Tuned for More Insights
+                    {t('pages.blog.comingSoonTitle')}
                   </h2>
                   
                   <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-                    We're working on bringing you more valuable content about AI trends, 
-                    technical insights, case studies, and industry knowledge. Subscribe to 
-                    our newsletter to be the first to know when new articles are published.
+                    {t('pages.blog.comingSoonDesc')}
                   </p>
                   
                   <div className="flex flex-wrap gap-4 justify-center mb-8">
-                    <div className="flex items-center gap-2 text-sm text-gray-400">
-                      <Brain className="w-4 h-4" />
-                      <span>AI Trends & Insights</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-gray-400">
-                      <Code className="w-4 h-4" />
-                      <span>Technical Deep Dives</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-gray-400">
-                      <Target className="w-4 h-4" />
-                      <span>Case Studies</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-gray-400">
-                      <Users className="w-4 h-4" />
-                      <span>Industry Knowledge</span>
-                    </div>
+                    {(t('pages.blog.comingSoonTags', { returnObjects: true }) as string[]).map((tag, index) => {
+                      const icons = [Brain, Code, Target, Users];
+                      const Icon = icons[index % icons.length];
+                      return (
+                        <div key={index} className="flex items-center gap-2 text-sm text-gray-400">
+                          <Icon className="w-4 h-4" />
+                          <span>{tag}</span>
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
@@ -288,10 +282,10 @@ const Blog = () => {
           <div className="container mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-white mb-6">
-                Popular Topics
+                {t('pages.blog.popularTopics')}
               </h2>
               <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-                Explore articles by topic and discover insights in your areas of interest.
+                {t('pages.blog.popularTopicsDesc')}
               </p>
             </div>
             
@@ -315,11 +309,10 @@ const Blog = () => {
           <div className="container mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16">
             <div className="bg-gradient-to-r from-purple-500/10 to-blue-500/10 border border-purple-500/20 rounded-2xl p-12 text-center">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Stay Informed
+                {t('pages.blog.stayInformed')}
               </h2>
               <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                Get the latest AI insights, technical articles, and industry knowledge 
-                delivered directly to your inbox. Join thousands of professionals.
+                {t('pages.blog.stayInformedDesc')}
               </p>
               
               <form onSubmit={handleNewsletterSignup} className="max-w-md mx-auto">
@@ -335,14 +328,14 @@ const Blog = () => {
                     type="submit" 
                     className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white"
                   >
-                    Subscribe
+                    {t('pages.blog.subscribe')}
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
                 </div>
               </form>
               
               <p className="text-sm text-gray-400 mt-4">
-                We respect your privacy. Unsubscribe at any time.
+                {t('pages.blog.privacyNote')}
               </p>
             </div>
           </div>

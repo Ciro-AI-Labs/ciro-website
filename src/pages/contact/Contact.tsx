@@ -3,6 +3,7 @@ import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -80,6 +81,7 @@ const Contact = () => {
     },
   });
 
+  const { t } = useTranslation();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
@@ -89,25 +91,25 @@ const Contact = () => {
       const result = await submitDemoRequest(values);
 
       if (result.success) {
-        toast.success(result.message || "Demo request submitted successfully! We'll contact you within 24 hours.");
+        toast.success(result.message || t('pages.contactPage.successMessage'));
         form.reset();
-        
+
         // Show Calendly scheduling option
         setTimeout(() => {
-          toast.info("Would you like to schedule your demo now?", {
+          toast.info(t('pages.contactPage.scheduleNow'), {
             action: {
-              label: "Schedule Demo",
+              label: t('pages.contactPage.scheduleDemoButton'),
               onClick: () => openCalendly(values)
             },
             duration: 10000
           });
         }, 2000);
       } else {
-        toast.error(result.error || "Failed to submit demo request. Please try again.");
+        toast.error(result.error || t('pages.contactPage.errorMessage'));
       }
     } catch (error) {
       console.error("Error submitting form:", error);
-      toast.error("Network error. Please check your connection and try again.");
+      toast.error(t('pages.contactPage.networkError'));
     } finally {
       setIsSubmitting(false);
     }
@@ -119,46 +121,46 @@ const Contact = () => {
   }
 
   const industries = [
-    { value: "manufacturing", label: "Manufacturing" },
-    { value: "logistics", label: "Logistics & Distribution" },
-    { value: "food", label: "Food & Beverage Processing" },
-    { value: "energy", label: "Energy & Utilities" },
-    { value: "automotive", label: "Automotive" },
-    { value: "pharmaceutical", label: "Pharmaceutical" },
-    { value: "chemical", label: "Chemical Processing" },
-    { value: "mining", label: "Mining & Metals" },
-    { value: "oil-gas", label: "Oil & Gas" },
-    { value: "aerospace", label: "Aerospace & Defense" },
-    { value: "other", label: "Other" }
+    { value: "manufacturing", label: t('pages.contactPage.industries.manufacturing') },
+    { value: "logistics", label: t('pages.contactPage.industries.logistics') },
+    { value: "food", label: t('pages.contactPage.industries.food') },
+    { value: "energy", label: t('pages.contactPage.industries.energy') },
+    { value: "automotive", label: t('pages.contactPage.industries.automotive') },
+    { value: "pharmaceutical", label: t('pages.contactPage.industries.pharmaceutical') },
+    { value: "chemical", label: t('pages.contactPage.industries.chemical') },
+    { value: "mining", label: t('pages.contactPage.industries.mining') },
+    { value: "oil-gas", label: t('pages.contactPage.industries.oilGas') },
+    { value: "aerospace", label: t('pages.contactPage.industries.aerospace') },
+    { value: "other", label: t('pages.contactPage.industries.other') }
   ];
 
   const companySizes = [
-    { value: "1-50", label: "1-50 employees" },
-    { value: "51-200", label: "51-200 employees" },
-    { value: "201-500", label: "201-500 employees" },
-    { value: "501-1000", label: "501-1,000 employees" },
-    { value: "1001-5000", label: "1,001-5,000 employees" },
-    { value: "5000+", label: "5,000+ employees" }
+    { value: "1-50", label: t('pages.contactPage.companySizes.1_50') },
+    { value: "51-200", label: t('pages.contactPage.companySizes.51_200') },
+    { value: "201-500", label: t('pages.contactPage.companySizes.201_500') },
+    { value: "501-1000", label: t('pages.contactPage.companySizes.501_1000') },
+    { value: "1001-5000", label: t('pages.contactPage.companySizes.1001_5000') },
+    { value: "5000+", label: t('pages.contactPage.companySizes.5000plus') }
   ];
 
   const useCases = [
-    { value: "real-time-monitoring", label: "Real-time Operations Monitoring" },
-    { value: "predictive-maintenance", label: "Predictive Maintenance" },
-    { value: "quality-control", label: "Quality Control & Assurance" },
-    { value: "supply-chain", label: "Supply Chain Optimization" },
-    { value: "energy-efficiency", label: "Energy Efficiency" },
-    { value: "safety-compliance", label: "Safety & Compliance" },
-    { value: "process-optimization", label: "Process Optimization" },
-    { value: "data-integration", label: "Data Integration & Analytics" },
-    { value: "other", label: "Other" }
+    { value: "real-time-monitoring", label: t('pages.contactPage.useCases.realTimeMonitoring') },
+    { value: "predictive-maintenance", label: t('pages.contactPage.useCases.predictiveMaintenance') },
+    { value: "quality-control", label: t('pages.contactPage.useCases.qualityControl') },
+    { value: "supply-chain", label: t('pages.contactPage.useCases.supplyChain') },
+    { value: "energy-efficiency", label: t('pages.contactPage.useCases.energyEfficiency') },
+    { value: "safety-compliance", label: t('pages.contactPage.useCases.safetyCompliance') },
+    { value: "process-optimization", label: t('pages.contactPage.useCases.processOptimization') },
+    { value: "data-integration", label: t('pages.contactPage.useCases.dataIntegration') },
+    { value: "other", label: t('pages.contactPage.useCases.other') }
   ];
 
   const timelines = [
-    { value: "immediate", label: "Immediate (within 30 days)" },
-    { value: "quarter", label: "This quarter" },
-    { value: "year", label: "This year" },
-    { value: "planning", label: "Planning phase" },
-    { value: "research", label: "Researching options" }
+    { value: "immediate", label: t('pages.contactPage.timelines.immediate') },
+    { value: "quarter", label: t('pages.contactPage.timelines.quarter') },
+    { value: "year", label: t('pages.contactPage.timelines.year') },
+    { value: "planning", label: t('pages.contactPage.timelines.planning') },
+    { value: "research", label: t('pages.contactPage.timelines.research') }
   ];
 
   return (
@@ -177,15 +179,14 @@ const Contact = () => {
             >
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-orange-500 to-blue-500">
-                  Let's Transform Your Operations
+                  {t('pages.contactPage.heading')}
                 </span>
               </h1>
               <p className="text-xl md:text-2xl text-gray-300 mb-4">
-                Schedule your personalized demo and see how Ciro AI can revolutionize your business
+                {t('pages.contactPage.subtitle')}
               </p>
               <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-                Get a hands-on demonstration of our enterprise AI platform powered by Apache technologies, 
-                custom LLMs, and 50+ connectors tailored to your specific use case.
+                {t('pages.contactPage.description')}
               </p>
             </motion.div>
           </div>
@@ -208,8 +209,8 @@ const Contact = () => {
                       <Calendar className="w-6 h-6 text-purple-400" />
                     </div>
                     <div>
-                      <h2 className="text-2xl font-bold text-white">Schedule Your Demo</h2>
-                      <p className="text-gray-400">Tell us about your needs and we'll customize the demo for you</p>
+                      <h2 className="text-2xl font-bold text-white">{t('pages.contactPage.scheduleTitle')}</h2>
+                      <p className="text-gray-400">{t('pages.contactPage.scheduleDesc')}</p>
                     </div>
                   </div>
 
@@ -222,7 +223,7 @@ const Contact = () => {
                           name="firstName"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel className="text-gray-300">First Name *</FormLabel>
+                              <FormLabel className="text-gray-300">{t('pages.contactPage.firstName')} *</FormLabel>
                               <FormControl>
                                 <Input 
                                   placeholder="John" 
@@ -240,7 +241,7 @@ const Contact = () => {
                           name="lastName"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel className="text-gray-300">Last Name *</FormLabel>
+                              <FormLabel className="text-gray-300">{t('pages.contactPage.lastName')} *</FormLabel>
                               <FormControl>
                                 <Input 
                                   placeholder="Doe" 
@@ -260,7 +261,7 @@ const Contact = () => {
                           name="email"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel className="text-gray-300">Work Email *</FormLabel>
+                              <FormLabel className="text-gray-300">{t('pages.contactPage.workEmail')} *</FormLabel>
                               <FormControl>
                                 <Input
                                   type="email"
@@ -279,7 +280,7 @@ const Contact = () => {
                           name="phone"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel className="text-gray-300">Phone (Optional)</FormLabel>
+                              <FormLabel className="text-gray-300">{t('pages.contactPage.phone')}</FormLabel>
                               <FormControl>
                                 <Input
                                   placeholder="+1 (555) 123-4567"
@@ -300,7 +301,7 @@ const Contact = () => {
                           name="company"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel className="text-gray-300">Company *</FormLabel>
+                              <FormLabel className="text-gray-300">{t('pages.contactPage.company')} *</FormLabel>
                               <FormControl>
                                 <Input 
                                   placeholder="Your Company Inc." 
@@ -318,7 +319,7 @@ const Contact = () => {
                           name="jobTitle"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel className="text-gray-300">Job Title *</FormLabel>
+                              <FormLabel className="text-gray-300">{t('pages.contactPage.jobTitle')} *</FormLabel>
                               <FormControl>
                                 <Input 
                                   placeholder="Operations Manager" 
@@ -338,11 +339,11 @@ const Contact = () => {
                           name="industry"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel className="text-gray-300">Industry *</FormLabel>
+                              <FormLabel className="text-gray-300">{t('pages.contactPage.industry')} *</FormLabel>
                               <Select onValueChange={field.onChange} defaultValue={field.value}>
                                 <FormControl>
                                   <SelectTrigger className="bg-slate-700/50 border-gray-600 text-white focus:border-purple-500">
-                                    <SelectValue placeholder="Select your industry" />
+                                    <SelectValue placeholder={t('pages.contactPage.selectIndustry')} />
                                   </SelectTrigger>
                                 </FormControl>
                                 <SelectContent className="bg-slate-800 border-gray-600">
@@ -363,11 +364,11 @@ const Contact = () => {
                           name="companySize"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel className="text-gray-300">Company Size *</FormLabel>
+                              <FormLabel className="text-gray-300">{t('pages.contactPage.companySize')} *</FormLabel>
                               <Select onValueChange={field.onChange} defaultValue={field.value}>
                                 <FormControl>
                                   <SelectTrigger className="bg-slate-700/50 border-gray-600 text-white focus:border-purple-500">
-                                    <SelectValue placeholder="Select company size" />
+                                    <SelectValue placeholder={t('pages.contactPage.selectCompanySize')} />
                                   </SelectTrigger>
                                 </FormControl>
                                 <SelectContent className="bg-slate-800 border-gray-600">
@@ -390,11 +391,11 @@ const Contact = () => {
                           name="useCase"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel className="text-gray-300">Primary Use Case *</FormLabel>
+                              <FormLabel className="text-gray-300">{t('pages.contactPage.primaryUseCase')} *</FormLabel>
                               <Select onValueChange={field.onChange} defaultValue={field.value}>
                                 <FormControl>
                                   <SelectTrigger className="bg-slate-700/50 border-gray-600 text-white focus:border-purple-500">
-                                    <SelectValue placeholder="Select primary use case" />
+                                    <SelectValue placeholder={t('pages.contactPage.selectUseCase')} />
                                   </SelectTrigger>
                                 </FormControl>
                                 <SelectContent className="bg-slate-800 border-gray-600">
@@ -415,11 +416,11 @@ const Contact = () => {
                           name="timeline"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel className="text-gray-300">Implementation Timeline *</FormLabel>
+                              <FormLabel className="text-gray-300">{t('pages.contactPage.implementationTimeline')} *</FormLabel>
                               <Select onValueChange={field.onChange} defaultValue={field.value}>
                                 <FormControl>
                                   <SelectTrigger className="bg-slate-700/50 border-gray-600 text-white focus:border-purple-500">
-                                    <SelectValue placeholder="Select timeline" />
+                                    <SelectValue placeholder={t('pages.contactPage.selectTimeline')} />
                                   </SelectTrigger>
                                 </FormControl>
                                 <SelectContent className="bg-slate-800 border-gray-600">
@@ -441,10 +442,10 @@ const Contact = () => {
                         name="message"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-gray-300">Additional Details (Optional)</FormLabel>
+                            <FormLabel className="text-gray-300">{t('pages.contactPage.additionalDetails')}</FormLabel>
                             <FormControl>
                               <Textarea
-                                placeholder="Tell us about your specific challenges, current systems, or any questions you have..."
+                                placeholder={t('pages.contactPage.additionalPlaceholder')}
                                 className="resize-none bg-slate-700/50 border-gray-600 text-white placeholder:text-gray-400 focus:border-purple-500"
                                 rows={4}
                                 {...field}
@@ -470,7 +471,7 @@ const Contact = () => {
                               </FormControl>
                               <div className="space-y-1 leading-none">
                                 <FormLabel className="text-gray-300 text-sm">
-                                  Subscribe to our newsletter for industry insights and product updates
+                                  {t('pages.contactPage.newsletterConsent')}
                                 </FormLabel>
                               </div>
                             </FormItem>
@@ -491,11 +492,11 @@ const Contact = () => {
                               </FormControl>
                               <div className="space-y-1 leading-none">
                                 <FormLabel className="text-gray-300 text-sm">
-                                  I agree to the{" "}
+                                  {t('pages.contactPage.privacyConsent')}{" "}
                                   <a href="/privacy-policy" className="text-purple-400 hover:text-purple-300 underline">
                                     Privacy Policy
                                   </a>{" "}
-                                  and consent to being contacted about this demo request *
+                                  {t('pages.contactPage.privacyConsentEnd')} *
                                 </FormLabel>
                                 <FormMessage />
                               </div>
@@ -513,11 +514,11 @@ const Contact = () => {
                         {isSubmitting ? (
                           <>
                             <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
-                            Submitting...
+                            {t('pages.contactPage.submitting')}
                           </>
                         ) : (
                           <>
-                            Schedule My Demo
+                            {t('pages.contactPage.scheduleMyDemo')}
                             <ArrowRight className="w-5 h-5 ml-2" />
                           </>
                         )}
@@ -538,7 +539,7 @@ const Contact = () => {
                 <div className="bg-slate-800/50 border border-gray-700 rounded-xl p-6 backdrop-blur-sm">
                   <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
                     <MessageSquare className="w-5 h-5 text-purple-400" />
-                    Get in Touch
+                    {t('pages.contactPage.getInTouch')}
                   </h3>
                   
                   <div className="space-y-6">
@@ -547,11 +548,11 @@ const Contact = () => {
                         <Mail className="w-5 h-5 text-purple-400" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-white mb-1">Email Us</h4>
+                        <h4 className="font-semibold text-white mb-1">{t('pages.contactPage.emailUs')}</h4>
                         <a href="mailto:hola@ciroai.us" className="text-purple-400 hover:text-purple-300 transition-colors">
                           hola@ciroai.us
                         </a>
-                        <p className="text-sm text-gray-400 mt-1">We'll respond within 24 hours</p>
+                        <p className="text-sm text-gray-400 mt-1">{t('pages.contactPage.respondTime')}</p>
                       </div>
                     </div>
 
@@ -560,9 +561,9 @@ const Contact = () => {
                         <MapPin className="w-5 h-5 text-blue-400" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-white mb-1">Visit Us</h4>
+                        <h4 className="font-semibold text-white mb-1">{t('pages.contactPage.visitUs')}</h4>
                         <p className="text-gray-300">El Salvador and California</p>
-                        <p className="text-sm text-gray-400 mt-1">Global operations</p>
+                        <p className="text-sm text-gray-400 mt-1">{t('pages.contactPage.globalOps')}</p>
                       </div>
                     </div>
 
@@ -571,9 +572,9 @@ const Contact = () => {
                         <Clock className="w-5 h-5 text-green-400" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-white mb-1">Demo Schedule</h4>
-                        <p className="text-gray-300">30-60 minutes</p>
-                        <p className="text-sm text-gray-400 mt-1">Customized to your needs</p>
+                        <h4 className="font-semibold text-white mb-1">{t('pages.contactPage.demoSchedule')}</h4>
+                        <p className="text-gray-300">{t('pages.contactPage.demoLength')}</p>
+                        <p className="text-sm text-gray-400 mt-1">{t('pages.contactPage.customized')}</p>
                       </div>
                     </div>
                   </div>
@@ -583,39 +584,39 @@ const Contact = () => {
                 <div className="bg-slate-800/50 border border-gray-700 rounded-xl p-6 backdrop-blur-sm">
                   <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
                     <Sparkles className="w-5 h-5 text-orange-400" />
-                    What to Expect
+                    {t('pages.contactPage.whatToExpect')}
                   </h3>
                   
                   <div className="space-y-4">
                     <div className="flex items-start gap-3">
                       <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
                       <div>
-                        <h4 className="font-semibold text-white text-sm">Personalized Demo</h4>
-                        <p className="text-sm text-gray-400">Tailored to your industry and use case</p>
+                        <h4 className="font-semibold text-white text-sm">{t('pages.contactPage.personalizedDemo')}</h4>
+                        <p className="text-sm text-gray-400">{t('pages.contactPage.personalizedDemoDesc')}</p>
                       </div>
                     </div>
                     
                     <div className="flex items-start gap-3">
                       <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
                       <div>
-                        <h4 className="font-semibold text-white text-sm">Technical Deep Dive</h4>
-                        <p className="text-sm text-gray-400">See Apache technologies in action</p>
+                        <h4 className="font-semibold text-white text-sm">{t('pages.contactPage.technicalDeepDive')}</h4>
+                        <p className="text-sm text-gray-400">{t('pages.contactPage.technicalDeepDiveDesc')}</p>
                       </div>
                     </div>
                     
                     <div className="flex items-start gap-3">
                       <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
                       <div>
-                        <h4 className="font-semibold text-white text-sm">ROI Discussion</h4>
-                        <p className="text-sm text-gray-400">Understand potential business impact</p>
+                        <h4 className="font-semibold text-white text-sm">{t('pages.contactPage.roiDiscussion')}</h4>
+                        <p className="text-sm text-gray-400">{t('pages.contactPage.roiDiscussionDesc')}</p>
                       </div>
                     </div>
                     
                     <div className="flex items-start gap-3">
                       <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
                       <div>
-                        <h4 className="font-semibold text-white text-sm">Next Steps</h4>
-                        <p className="text-sm text-gray-400">Implementation roadmap and timeline</p>
+                        <h4 className="font-semibold text-white text-sm">{t('pages.contactPage.nextSteps')}</h4>
+                        <p className="text-sm text-gray-400">{t('pages.contactPage.nextStepsDesc')}</p>
                       </div>
                     </div>
                   </div>
@@ -625,24 +626,24 @@ const Contact = () => {
                 <div className="bg-slate-800/50 border border-gray-700 rounded-xl p-6 backdrop-blur-sm">
                   <div className="flex items-center gap-3 mb-4">
                     <Shield className="w-6 h-6 text-green-400" />
-                    <h3 className="text-lg font-semibold text-white">Enterprise Security</h3>
+                    <h3 className="text-lg font-semibold text-white">{t('pages.contactPage.enterpriseSecurity')}</h3>
                   </div>
                   <div className="space-y-2 text-sm">
                     <div className="flex items-center gap-2 text-gray-300">
                       <CheckCircle className="w-4 h-4 text-green-400" />
-                      SOC 2 Type II Certified
+                      {t('pages.contactPage.soc2')}
                     </div>
                     <div className="flex items-center gap-2 text-gray-300">
                       <CheckCircle className="w-4 h-4 text-green-400" />
-                      ISO 27001 Compliant
+                      {t('pages.contactPage.iso27001')}
                     </div>
                     <div className="flex items-center gap-2 text-gray-300">
                       <CheckCircle className="w-4 h-4 text-green-400" />
-                      End-to-end Encryption
+                      {t('pages.contactPage.e2e')}
                     </div>
                     <div className="flex items-center gap-2 text-gray-300">
                       <CheckCircle className="w-4 h-4 text-green-400" />
-                      GDPR Compliant
+                      {t('pages.contactPage.gdpr')}
                     </div>
                   </div>
                 </div>

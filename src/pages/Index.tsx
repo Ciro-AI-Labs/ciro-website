@@ -2,7 +2,7 @@ import React from "react";
 import Hero from "@/components/home/Hero";
 import LogoCloud from "@/components/home/LogoCloud";
 import Products from "@/components/home/Products";
-import ComputerVision from "@/components/home/ComputerVision";
+import PlatformOverview from "@/components/home/PlatformOverview";
 import UseCases from "@/components/home/UseCases";
 import Testimonials from "@/components/home/Testimonials";
 import Challenges from "@/components/home/Challenges";
@@ -20,7 +20,7 @@ const Index = () => {
         <Hero />
         <LogoCloud />
         <Products />
-        <ComputerVision />
+        <PlatformOverview />
         <Challenges />
         <UseCases />
         <HowItWorks />

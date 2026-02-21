@@ -5,9 +5,11 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import { useTranslation } from "react-i18next";
 
 const NotFound = () => {
   const location = useLocation();
+  const { t } = useTranslation();
 
   useEffect(() => {
     console.error(
@@ -23,14 +25,14 @@ const NotFound = () => {
         <div className="container px-4 py-16 text-center">
           <div className="max-w-md mx-auto">
             <h1 className="text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500">
-              404
+              {t('notFound.title')}
             </h1>
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">Page Not Found</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">{t('notFound.subtitle')}</h2>
             <p className="text-muted-foreground mb-8">
-              The page you are looking for doesn't exist or has been moved.
+              {t('notFound.message')}
             </p>
             <Button asChild>
-              <Link to="/">Return to Home</Link>
+              <Link to="/">{t('notFound.action')}</Link>
             </Button>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -41,26 +42,27 @@ import { EmailService } from "@/lib/emailService";
 import { logVisitorEvent } from "@/lib/analytics";
 
 const Careers = () => {
+  const { t } = useTranslation();
   const [selectedJob, setSelectedJob] = useState<string>("");
   const [isApplying, setIsApplying] = useState(false);
 
   const handleJobApplication = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!selectedJob) {
-      toast.error("Please select a position");
+      toast.error(t('pages.careers.selectPosition'));
       return;
     }
 
     setIsApplying(true);
-    
+
     try {
       const formData = new FormData(e.target as HTMLFormElement);
       const email = formData.get('email') as string;
       const name = formData.get('name') as string;
       const department = formData.get('department') as string;
       const coverLetter = formData.get('coverLetter') as string;
-      
+
       // Submit to Supabase
       await EmailService.submitEmail({
         email,
@@ -70,7 +72,7 @@ const Careers = () => {
         message: `Position: ${selectedJob}\nDepartment: ${department}\n\nCover Letter:\n${coverLetter}`,
         type: 'career'
       });
-      
+
       // Log analytics event
       await logVisitorEvent({
         event_type: "form_submission",
@@ -83,16 +85,16 @@ const Careers = () => {
           coverLetter: coverLetter
         }
       });
-      
+
       // Show success message
-      toast.success("Application submitted successfully! We'll review your application and contact you soon.");
-      
+      toast.success(t('pages.careers.successMessage'));
+
       // Reset form and close
       setSelectedJob("");
-      
+
     } catch (error) {
       console.error('Application error:', error);
-      toast.error("Something went wrong. Please try again later.");
+      toast.error(t('pages.careers.errorMessage'));
     } finally {
       setIsApplying(false);
     }
@@ -101,127 +103,103 @@ const Careers = () => {
   const jobOpenings = [
     {
       id: "senior-ai-engineer",
-      title: "Senior AI Engineer",
-      department: "Engineering",
-      location: "El Salvador and California",
-      type: "Full-time",
-      experience: "5+ years",
-      salary: "$150K - $200K",
-      description: "Lead the development of cutting-edge AI models for industrial applications.",
-      requirements: [
-        "Strong background in machine learning and deep learning",
-        "Experience with PyTorch, TensorFlow, or similar frameworks",
-        "Knowledge of computer vision and NLP",
-        "Experience with cloud platforms (AWS, GCP, Azure)",
-        "Strong software engineering principles"
-      ]
+      title: t('pages.careers.jobs.seniorAi.title'),
+      department: t('pages.careers.jobs.seniorAi.dept'),
+      location: t('pages.careers.jobs.seniorAi.location'),
+      type: t('pages.careers.jobs.seniorAi.type'),
+      experience: t('pages.careers.jobs.seniorAi.experience'),
+      salary: t('pages.careers.jobs.seniorAi.salary'),
+      description: t('pages.careers.jobs.seniorAi.desc'),
+      requirements: t('pages.careers.jobs.seniorAi.requirements', { returnObjects: true }) as string[]
     },
     {
       id: "full-stack-developer",
-      title: "Full Stack Developer",
-      department: "Engineering",
-      location: "Remote",
-      type: "Full-time",
-      experience: "3+ years",
-      salary: "$120K - $160K",
-      description: "Build scalable web applications and APIs for our AI platform.",
-      requirements: [
-        "Proficiency in React, TypeScript, and Node.js",
-        "Experience with cloud services and databases",
-        "Knowledge of API design and microservices",
-        "Experience with DevOps and CI/CD",
-        "Strong problem-solving skills"
-      ]
+      title: t('pages.careers.jobs.fullStack.title'),
+      department: t('pages.careers.jobs.fullStack.dept'),
+      location: t('pages.careers.jobs.fullStack.location'),
+      type: t('pages.careers.jobs.fullStack.type'),
+      experience: t('pages.careers.jobs.fullStack.experience'),
+      salary: t('pages.careers.jobs.fullStack.salary'),
+      description: t('pages.careers.jobs.fullStack.desc'),
+      requirements: t('pages.careers.jobs.fullStack.requirements', { returnObjects: true }) as string[]
     },
     {
       id: "product-manager",
-      title: "Product Manager",
-      department: "Product",
-      location: "El Salvador and California",
-      type: "Full-time",
-      experience: "4+ years",
-      salary: "$140K - $180K",
-      description: "Drive product strategy and execution for our AI solutions.",
-      requirements: [
-        "Experience in B2B SaaS product management",
-        "Strong analytical and strategic thinking",
-        "Experience with industrial/manufacturing sector",
-        "Excellent communication and leadership skills",
-        "Data-driven decision making"
-      ]
+      title: t('pages.careers.jobs.productManager.title'),
+      department: t('pages.careers.jobs.productManager.dept'),
+      location: t('pages.careers.jobs.productManager.location'),
+      type: t('pages.careers.jobs.productManager.type'),
+      experience: t('pages.careers.jobs.productManager.experience'),
+      salary: t('pages.careers.jobs.productManager.salary'),
+      description: t('pages.careers.jobs.productManager.desc'),
+      requirements: t('pages.careers.jobs.productManager.requirements', { returnObjects: true }) as string[]
     },
     {
       id: "sales-engineer",
-      title: "Sales Engineer",
-      department: "Sales",
-      location: "Remote",
-      type: "Full-time",
-      experience: "3+ years",
-      salary: "$100K - $140K + Commission",
-      description: "Bridge the gap between technical capabilities and business value.",
-      requirements: [
-        "Technical background in software or engineering",
-        "Experience in B2B sales or technical consulting",
-        "Strong presentation and communication skills",
-        "Knowledge of manufacturing/logistics industry",
-        "Ability to travel 30-40%"
-      ]
+      title: t('pages.careers.jobs.salesEngineer.title'),
+      department: t('pages.careers.jobs.salesEngineer.dept'),
+      location: t('pages.careers.jobs.salesEngineer.location'),
+      type: t('pages.careers.jobs.salesEngineer.type'),
+      experience: t('pages.careers.jobs.salesEngineer.experience'),
+      salary: t('pages.careers.jobs.salesEngineer.salary'),
+      description: t('pages.careers.jobs.salesEngineer.desc'),
+      requirements: t('pages.careers.jobs.salesEngineer.requirements', { returnObjects: true }) as string[]
     }
   ];
 
   const benefits = [
     {
       icon: DollarSign,
-      title: "Competitive Salary",
-      description: "Above-market compensation with equity options"
+      title: t('pages.careers.benefits.salary.title'),
+      description: t('pages.careers.benefits.salary.desc')
     },
     {
       icon: Heart,
-      title: "Health & Wellness",
-      description: "Comprehensive health, dental, and vision coverage"
+      title: t('pages.careers.benefits.health.title'),
+      description: t('pages.careers.benefits.health.desc')
     },
     {
       icon: Clock,
-      title: "Flexible PTO",
-      description: "Unlimited vacation days and flexible work hours"
+      title: t('pages.careers.benefits.pto.title'),
+      description: t('pages.careers.benefits.pto.desc')
     },
     {
       icon: Home,
-      title: "Remote Work",
-      description: "Work from anywhere with home office stipend"
+      title: t('pages.careers.benefits.remote.title'),
+      description: t('pages.careers.benefits.remote.desc')
     },
     {
       icon: GraduationCap,
-      title: "Learning Budget",
-      description: "$5,000 annual budget for courses and conferences"
+      title: t('pages.careers.benefits.learning.title'),
+      description: t('pages.careers.benefits.learning.desc')
     },
     {
       icon: Users,
-      title: "Team Events",
-      description: "Regular team building and social activities"
+      title: t('pages.careers.benefits.team.title'),
+      description: t('pages.careers.benefits.team.desc')
     }
   ];
 
   const values = [
     {
       icon: Lightbulb,
-      title: "Innovation First",
-      description: "We push boundaries and embrace new technologies"
+      title: t('pages.careers.values.innovation.title'),
+      description: t('pages.careers.values.innovation.desc')
     },
     {
       icon: Users,
-      title: "Collaboration",
-      description: "Great ideas come from working together"
+      title: t('pages.careers.values.collaboration.title'),
+      description: t('pages.careers.values.collaboration.desc')
     },
     {
       icon: Shield,
-      title: "Trust & Integrity",
-      description: "We build trust through transparency and honesty"
+      title: t('pages.careers.values.trust.title'),
+      description: t('pages.careers.values.trust.desc')
     },
     {
       icon: Star,
-      title: "Excellence",
-      description: "We strive for excellence in everything we do"
+      title: t('pages.careers.values.excellence.title'),
+      description: t('pages.careers.values.excellence.desc')
     }
   ];
 
@@ -243,22 +221,21 @@ const Careers = () => {
             <div className="text-center max-w-4xl mx-auto">
               <div className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-purple-400 bg-gradient-to-r from-purple-500/10 to-blue-500/10 border border-purple-500/20 rounded-full mb-6">
                 <Users className="w-4 h-4" />
-                <span>Join Our Team</span>
+                <span>{t('pages.careers.badge')}</span>
               </div>
               
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                 <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                  Build the Future
+                  {t('pages.careers.heading1')}
                 </span>
                 <br />
                 <span className="text-white">
-                  of Industrial AI
+                  {t('pages.careers.heading2')}
                 </span>
               </h1>
               
               <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
-                Join a team of passionate innovators working to transform industries through 
-                cutting-edge AI technology. Help us build solutions that make a real impact.
+                {t('pages.careers.description')}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -267,14 +244,14 @@ const Careers = () => {
                   className="px-8 py-3 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
                 >
                   <Briefcase className="w-5 h-5 mr-2" />
-                  View Openings
+                  {t('pages.careers.viewOpenings')}
                 </Button>
                 <Button 
                   variant="outline"
                   className="px-8 py-3 border-purple-500/30 text-purple-400 hover:bg-purple-500/10 hover:border-purple-500/50 rounded-lg font-semibold transition-all duration-300"
                 >
                   <Play className="w-5 h-5 mr-2" />
-                  Watch Culture Video
+                  {t('pages.careers.watchCultureVideo')}
                 </Button>
               </div>
             </div>
@@ -286,11 +263,10 @@ const Careers = () => {
           <div className="container mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Our Culture & Values
+                {t('pages.careers.cultureTitle')}
               </h2>
               <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-                We're building more than just technology – we're building a culture of innovation, 
-                collaboration, and impact that drives everything we do.
+                {t('pages.careers.cultureDesc')}
               </p>
             </div>
 
@@ -313,11 +289,10 @@ const Careers = () => {
           <div className="container mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Why Work With Us
+                {t('pages.careers.benefitsTitle')}
               </h2>
               <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-                We believe in taking care of our team with comprehensive benefits and a 
-                supportive environment that helps you thrive both personally and professionally.
+                {t('pages.careers.benefitsDesc')}
               </p>
             </div>
 
@@ -342,11 +317,10 @@ const Careers = () => {
           <div className="container mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Open Positions
+                {t('pages.careers.openPositionsTitle')}
               </h2>
               <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-                Ready to make an impact? Explore our current openings and find the perfect 
-                role for your skills and career goals.
+                {t('pages.careers.openPositionsDesc')}
               </p>
             </div>
 
@@ -382,7 +356,7 @@ const Careers = () => {
                   </div>
 
                   <div className="mb-6">
-                    <h4 className="text-sm font-semibold text-white mb-3">Requirements:</h4>
+                    <h4 className="text-sm font-semibold text-white mb-3">{t('pages.careers.requirements')}</h4>
                     <ul className="space-y-2">
                       {job.requirements.map((req, index) => (
                         <li key={index} className="flex items-start gap-2">
@@ -397,7 +371,7 @@ const Careers = () => {
                     onClick={() => setSelectedJob(job.title)}
                     className="w-full bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white"
                   >
-                    Apply Now
+                    {t('pages.careers.applyNow')}
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
                 </div>
@@ -408,14 +382,14 @@ const Careers = () => {
             {selectedJob && (
               <div className="bg-card/80 border border-border/50 rounded-2xl p-8 max-w-2xl mx-auto">
                 <h3 className="text-2xl font-bold text-white mb-6">
-                  Apply for {selectedJob}
+                  {t('pages.careers.applyFor')} {selectedJob}
                 </h3>
                 
                 <form onSubmit={handleJobApplication} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-medium text-gray-300 mb-2">
-                        Position
+                        {t('pages.careers.position')}
                       </label>
                       <Input
                         value={selectedJob}
@@ -425,17 +399,17 @@ const Careers = () => {
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-gray-300 mb-2">
-                        Department
+                        {t('pages.careers.department')}
                       </label>
                       <Select>
                         <SelectTrigger className="bg-card/50 border-border/50 text-white">
-                          <SelectValue placeholder="Select department" />
+                          <SelectValue placeholder={t('pages.careers.selectDepartment')} />
                         </SelectTrigger>
                         <SelectContent className="bg-card border-border">
-                          <SelectItem value="engineering">Engineering</SelectItem>
-                          <SelectItem value="product">Product</SelectItem>
-                          <SelectItem value="sales">Sales</SelectItem>
-                          <SelectItem value="marketing">Marketing</SelectItem>
+                          <SelectItem value="engineering">{t('pages.careers.departments.engineering')}</SelectItem>
+                          <SelectItem value="product">{t('pages.careers.departments.product')}</SelectItem>
+                          <SelectItem value="sales">{t('pages.careers.departments.sales')}</SelectItem>
+                          <SelectItem value="marketing">{t('pages.careers.departments.marketing')}</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
@@ -443,10 +417,10 @@ const Careers = () => {
 
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-2">
-                      Cover Letter
+                      {t('pages.careers.coverLetter')}
                     </label>
                     <Textarea
-                      placeholder="Tell us why you're interested in this position and what you can bring to the team..."
+                      placeholder={t('pages.careers.coverLetterPlaceholder')}
                       className="resize-none bg-card/50 border-border/50 text-white placeholder:text-gray-400 focus:border-purple-500"
                       rows={6}
                     />
@@ -461,11 +435,11 @@ const Careers = () => {
                       {isApplying ? (
                         <>
                           <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                          Preparing Application...
+                          {t('pages.careers.preparingApplication')}
                         </>
                       ) : (
                         <>
-                          Submit Application
+                          {t('pages.careers.submitApplication')}
                           <ArrowRight className="w-4 h-4 ml-2" />
                         </>
                       )}
@@ -476,7 +450,7 @@ const Careers = () => {
                       onClick={() => setSelectedJob("")}
                       className="border-purple-500/30 text-purple-400 hover:bg-purple-500/10 hover:border-purple-500/50"
                     >
-                      Cancel
+                      {t('pages.careers.cancel')}
                     </Button>
                   </div>
                 </form>
@@ -490,11 +464,10 @@ const Careers = () => {
           <div className="container mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16">
             <div className="bg-gradient-to-r from-purple-500/10 to-blue-500/10 border border-purple-500/20 rounded-2xl p-12 text-center">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Don't See the Right Fit?
+                {t('pages.careers.noFitTitle')}
               </h2>
               <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                We're always looking for talented individuals to join our team. 
-                Send us your resume and let's start a conversation about how you can contribute to our mission.
+                {t('pages.careers.noFitDesc')}
               </p>
               <Button 
                 onClick={() => {
@@ -516,7 +489,7 @@ Best regards,
                 className="px-8 py-3 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 <Mail className="w-5 h-5 mr-2" />
-                Send General Application
+                {t('pages.careers.sendGeneralApplication')}
               </Button>
             </div>
           </div>

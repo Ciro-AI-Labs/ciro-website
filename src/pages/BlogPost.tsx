@@ -1,4 +1,5 @@
 import { useParams, Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { 
   ArrowLeft,
@@ -28,6 +29,7 @@ import Contact from "@/components/home/Contact";
 import { useEffect } from "react";
 
 const BlogPost = () => {
+  const { t } = useTranslation();
   const { slug } = useParams();
 
   // Mock data - in real app this would come from Supabase
@@ -356,12 +358,12 @@ const BlogPost = () => {
         <Navbar />
         <div className="flex items-center justify-center min-h-screen">
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-white mb-4">Blog Post Not Found</h1>
-            <p className="text-gray-300 mb-8">The blog post you're looking for doesn't exist.</p>
+            <h1 className="text-4xl font-bold text-white mb-4">{t('pages.blogPost.postNotFound')}</h1>
+            <p className="text-gray-300 mb-8">{t('pages.blogPost.postNotFoundDesc')}</p>
             <Link to="/blog">
               <Button className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white">
                 <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Blog
+                {t('pages.blogPost.backToBlog')}
               </Button>
             </Link>
           </div>
@@ -404,7 +406,7 @@ const BlogPost = () => {
                   </span>
                   {post.featured && (
                     <span className="px-3 py-1 bg-blue-500/20 text-blue-400 text-sm rounded-full">
-                      Featured
+                      {t('pages.blogPost.featured')}
                     </span>
                   )}
                 </div>
@@ -446,7 +448,7 @@ const BlogPost = () => {
                 <div className="flex items-center gap-4">
                   <Button variant="outline" size="sm" className="border-purple-500/30 text-purple-400 hover:bg-purple-500/10 hover:border-purple-500/50">
                     <Share2 className="w-4 h-4 mr-2" />
-                    Share
+                    {t('pages.blogPost.share')}
                   </Button>
                 </div>
               </div>
@@ -478,14 +480,14 @@ const BlogPost = () => {
                    <div className="flex items-center gap-4">
                      <Button variant="outline" size="sm" className="border-purple-500/30 text-purple-400 hover:bg-purple-500/10 hover:border-purple-500/50">
                        <MessageCircle className="w-4 h-4 mr-2" />
-                       Comment
+                       {t('pages.blogPost.comment')}
                      </Button>
                    </div>
                    
                    <Link to="/blog">
                      <Button variant="outline" className="border-purple-500/30 text-purple-400 hover:bg-purple-500/10 hover:border-purple-500/50">
                        <ArrowLeft className="w-4 h-4 mr-2" />
-                       Back to Blog
+                       {t('pages.blogPost.backToBlog')}
                      </Button>
                    </Link>
                  </div>

@@ -9,14 +9,14 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { toast } from "sonner";
-import { 
-  Handshake, 
-  Zap, 
-  Users, 
-  Globe, 
-  TrendingUp, 
-  Award, 
-  Shield, 
+import {
+  Handshake,
+  Zap,
+  Users,
+  Globe,
+  TrendingUp,
+  Award,
+  Shield,
   Star,
   ArrowRight,
   Mail,
@@ -32,6 +32,7 @@ import {
   Lightbulb,
   Heart
 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Contact from "@/components/home/Contact";
@@ -39,6 +40,8 @@ import { EmailService } from "@/lib/emailService";
 import { logVisitorEvent } from "@/lib/analytics";
 
 const Partners = () => {
+  const { t } = useTranslation();
+
   const handlePartnershipInquiry = async (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -76,61 +79,41 @@ const Partners = () => {
       });
       
       // Show success message
-      toast.success("Partnership inquiry submitted successfully! We'll contact you within one business day.");
+      toast.success(t('pages.partners.successMessage'));
       
       // Reset form
       (e.target as HTMLFormElement).reset();
       
     } catch (error) {
       console.error('Partnership inquiry error:', error);
-      toast.error("Something went wrong. Please try again later.");
+      toast.error(t('pages.partners.errorMessage'));
     }
   };
 
   const partnershipTypes = [
     {
       icon: Code,
-      title: "Technology Partners",
-      description: "Integrate our AI solutions into your platforms and applications",
-      benefits: [
-        "API access and technical support",
-        "Co-marketing opportunities",
-        "Revenue sharing programs",
-        "Joint product development"
-      ]
+      title: t('pages.partners.types.technology.title'),
+      description: t('pages.partners.types.technology.desc'),
+      benefits: t('pages.partners.types.technology.benefits', { returnObjects: true }) as string[]
     },
     {
       icon: Building,
-      title: "Channel Partners",
-      description: "Resell and implement CIRO solutions for your customers",
-      benefits: [
-        "Competitive margins and incentives",
-        "Sales and technical training",
-        "Marketing materials and support",
-        "Dedicated partner success manager"
-      ]
+      title: t('pages.partners.types.channel.title'),
+      description: t('pages.partners.types.channel.desc'),
+      benefits: t('pages.partners.types.channel.benefits', { returnObjects: true }) as string[]
     },
     {
       icon: Target,
-      title: "Strategic Partners",
-      description: "Deep collaboration on industry-specific solutions",
-      benefits: [
-        "Exclusive market access",
-        "Joint go-to-market strategies",
-        "Shared R&D initiatives",
-        "Strategic investment opportunities"
-      ]
+      title: t('pages.partners.types.strategic.title'),
+      description: t('pages.partners.types.strategic.desc'),
+      benefits: t('pages.partners.types.strategic.benefits', { returnObjects: true }) as string[]
     },
     {
       icon: Globe,
-      title: "Global Partners",
-      description: "Expand CIRO's reach in international markets",
-      benefits: [
-        "Territory exclusivity",
-        "Local market expertise",
-        "Cultural adaptation support",
-        "Global expansion resources"
-      ]
+      title: t('pages.partners.types.global.title'),
+      description: t('pages.partners.types.global.desc'),
+      benefits: t('pages.partners.types.global.benefits', { returnObjects: true }) as string[]
     }
   ];
 
@@ -138,64 +121,53 @@ const Partners = () => {
     {
       name: "Microsoft",
       logo: "Microsoft",
-      type: "Technology Partner",
-      description: "Azure integration and cloud infrastructure"
+      type: t('pages.partners.existingPartners.microsoft.type'),
+      description: t('pages.partners.existingPartners.microsoft.desc')
     },
     {
       name: "AWS",
       logo: "AWS",
-      type: "Technology Partner", 
-      description: "Cloud services and AI infrastructure"
+      type: t('pages.partners.existingPartners.aws.type'),
+      description: t('pages.partners.existingPartners.aws.desc')
     },
     {
       name: "Snowflake",
       logo: "Snowflake",
-      type: "Data Partner",
-      description: "Data warehousing and analytics"
+      type: t('pages.partners.existingPartners.snowflake.type'),
+      description: t('pages.partners.existingPartners.snowflake.desc')
     },
     {
       name: "NVIDIA",
       logo: "NVIDIA",
-      type: "Technology Partner",
-      description: "GPU acceleration and AI computing"
+      type: t('pages.partners.existingPartners.nvidia.type'),
+      description: t('pages.partners.existingPartners.nvidia.desc')
     }
   ];
 
   const benefits = [
     {
       icon: TrendingUp,
-      title: "Revenue Growth",
-      description: "Access new markets and revenue streams with proven AI solutions"
+      title: t('pages.partners.whyPartner.revenue.title'),
+      description: t('pages.partners.whyPartner.revenue.desc')
     },
     {
       icon: Shield,
-      title: "Risk Mitigation",
-      description: "Reduce development costs and time-to-market with ready solutions"
+      title: t('pages.partners.whyPartner.risk.title'),
+      description: t('pages.partners.whyPartner.risk.desc')
     },
     {
       icon: Users,
-      title: "Customer Success",
-      description: "Enhance your offerings with cutting-edge AI capabilities"
+      title: t('pages.partners.whyPartner.customer.title'),
+      description: t('pages.partners.whyPartner.customer.desc')
     },
     {
       icon: Award,
-      title: "Competitive Advantage",
-      description: "Differentiate your business with innovative AI technology"
+      title: t('pages.partners.whyPartner.competitive.title'),
+      description: t('pages.partners.whyPartner.competitive.desc')
     }
   ];
 
-  const industries = [
-    "Manufacturing",
-    "Logistics & Supply Chain",
-    "Energy & Utilities",
-    "Healthcare",
-    "Retail",
-    "Financial Services",
-    "Technology",
-    "Consulting",
-    "System Integration",
-    "Other"
-  ];
+  const industries = t('pages.partners.industries', { returnObjects: true }) as string[];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
@@ -215,23 +187,21 @@ const Partners = () => {
             <div className="text-center max-w-4xl mx-auto">
               <div className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-purple-400 bg-gradient-to-r from-purple-500/10 to-blue-500/10 border border-purple-500/20 rounded-full mb-6">
                 <Handshake className="w-4 h-4" />
-                <span>Partnership Program</span>
+                <span>{t('pages.partners.badge')}</span>
               </div>
               
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                 <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                  Partner With Us
+                  {t('pages.partners.heading1')}
                 </span>
                 <br />
                 <span className="text-white">
-                  to Transform Industries
+                  {t('pages.partners.heading2')}
                 </span>
               </h1>
               
               <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
-                Join our ecosystem of partners and help bring the power of industrial AI 
-                to organizations worldwide. Together, we can create solutions that drive 
-                real business transformation.
+                {t('pages.partners.description')}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -240,7 +210,7 @@ const Partners = () => {
                   className="px-8 py-3 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
                 >
                   <Handshake className="w-5 h-5 mr-2" />
-                  Explore Partnerships
+                  {t('pages.partners.explorePartnerships')}
                 </Button>
                 <Button 
                   variant="outline"
@@ -248,7 +218,7 @@ const Partners = () => {
                   className="px-8 py-3 border-purple-500/30 text-purple-400 hover:bg-purple-500/10 hover:border-purple-500/50 rounded-lg font-semibold transition-all duration-300"
                 >
                   <Mail className="w-5 h-5 mr-2" />
-                  Get in Touch
+                  {t('pages.partners.getInTouch')}
                 </Button>
               </div>
             </div>
@@ -260,11 +230,10 @@ const Partners = () => {
           <div className="container mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Partnership Opportunities
+                {t('pages.partners.typesTitle')}
               </h2>
               <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-                We offer multiple partnership models to fit your business needs and goals. 
-                Choose the partnership type that aligns with your strategy and capabilities.
+                {t('pages.partners.typesDesc')}
               </p>
             </div>
 
@@ -278,7 +247,7 @@ const Partners = () => {
                   <h3 className="text-2xl font-semibold text-white mb-4">{type.title}</h3>
                   <p className="text-gray-300 mb-6 leading-relaxed">{type.description}</p>
                   
-                  <h4 className="text-sm font-semibold text-white mb-3">Key Benefits:</h4>
+                  <h4 className="text-sm font-semibold text-white mb-3">{t('pages.partners.keyBenefits')}</h4>
                   <ul className="space-y-2">
                     {type.benefits.map((benefit, benefitIndex) => (
                       <li key={benefitIndex} className="flex items-start gap-2">
@@ -298,11 +267,10 @@ const Partners = () => {
           <div className="container mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Why Partner With CIRO
+                {t('pages.partners.whyPartnerTitle')}
               </h2>
               <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-                Our partners benefit from cutting-edge AI technology, comprehensive support, 
-                and a proven track record of delivering value to customers.
+                {t('pages.partners.whyPartnerDesc')}
               </p>
             </div>
 
@@ -325,11 +293,10 @@ const Partners = () => {
           <div className="container mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Our Trusted Partners
+                {t('pages.partners.trustedTitle')}
               </h2>
               <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-                We're proud to work with industry leaders who share our vision of 
-                transforming industries through AI innovation.
+                {t('pages.partners.trustedDesc')}
               </p>
             </div>
 
@@ -354,11 +321,10 @@ const Partners = () => {
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-16">
                 <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                  Ready to Partner?
+                  {t('pages.partners.formTitle')}
                 </h2>
                 <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-                  Let's discuss how we can work together to bring AI innovation to your customers. 
-                  Our partnership team is ready to explore opportunities with you.
+                  {t('pages.partners.formDesc')}
                 </p>
               </div>
 
@@ -366,10 +332,9 @@ const Partners = () => {
                 {/* Contact Info */}
                 <div className="space-y-8">
                   <div>
-                    <h3 className="text-2xl font-bold text-white mb-6">Get in Touch</h3>
+                    <h3 className="text-2xl font-bold text-white mb-6">{t('pages.partners.contactTitle')}</h3>
                     <p className="text-gray-300 mb-8 leading-relaxed">
-                      Our partnership team is here to help you understand our programs, 
-                      answer questions, and explore collaboration opportunities.
+                      {t('pages.partners.contactDesc')}
                     </p>
                   </div>
 
@@ -379,7 +344,7 @@ const Partners = () => {
                         <Mail className="w-6 h-6 text-purple-400" />
                       </div>
                       <div>
-                        <h4 className="text-lg font-semibold text-white">Email Us</h4>
+                        <h4 className="text-lg font-semibold text-white">{t('pages.partners.emailUs')}</h4>
                         <a href="mailto:partners@ciroai.us" className="text-purple-400 hover:text-purple-300 transition-colors">
                           partners@ciroai.us
                         </a>
@@ -391,66 +356,50 @@ const Partners = () => {
                         <MapPin className="w-6 h-6 text-purple-400" />
                       </div>
                       <div>
-                        <h4 className="text-lg font-semibold text-white">Visit Us</h4>
-                        <p className="text-gray-300">El Salvador and California</p>
+                        <h4 className="text-lg font-semibold text-white">{t('pages.partners.visitUs')}</h4>
+                        <p className="text-gray-300">{t('pages.partners.location')}</p>
                       </div>
                     </div>
                   </div>
 
                   <div className="bg-gradient-to-r from-purple-500/10 to-blue-500/10 border border-purple-500/20 rounded-2xl p-6">
-                    <h4 className="text-lg font-semibold text-white mb-3">Partnership Process</h4>
+                    <h4 className="text-lg font-semibold text-white mb-3">{t('pages.partners.processTitle')}</h4>
                     <div className="space-y-3">
-                      <div className="flex items-center gap-3">
-                        <div className="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">1</span>
+                      {(t('pages.partners.processSteps', { returnObjects: true }) as string[]).map((step, index) => (
+                        <div key={index} className="flex items-center gap-3">
+                          <div className="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">{index + 1}</span>
+                          </div>
+                          <span className="text-sm text-gray-300">{step}</span>
                         </div>
-                        <span className="text-sm text-gray-300">Initial consultation</span>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <div className="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">2</span>
-                        </div>
-                        <span className="text-sm text-gray-300">Partnership agreement</span>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <div className="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">3</span>
-                        </div>
-                        <span className="text-sm text-gray-300">Training and enablement</span>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <div className="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">4</span>
-                        </div>
-                        <span className="text-sm text-gray-300">Go-to-market launch</span>
-                      </div>
+                      ))}
                     </div>
                   </div>
                 </div>
 
                 {/* Inquiry Form */}
                 <div className="bg-card/80 border border-border/50 rounded-2xl p-8">
-                  <h3 className="text-2xl font-bold text-white mb-6">Partnership Inquiry</h3>
+                  <h3 className="text-2xl font-bold text-white mb-6">{t('pages.partners.inquiryTitle')}</h3>
                   
                   <form onSubmit={handlePartnershipInquiry} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
                         <label className="block text-sm font-medium text-gray-300 mb-2">
-                          Company Name
+                          {t('pages.partners.companyName')}
                         </label>
                         <Input
-                          placeholder="Your company"
+                          placeholder={t('pages.partners.companyPlaceholder')}
                           className="bg-card/50 border-border/50 text-white placeholder:text-gray-400 focus:border-purple-500"
                           required
                         />
                       </div>
                       <div>
                         <label className="block text-sm font-medium text-gray-300 mb-2">
-                          Industry
+                          {t('pages.partners.industry')}
                         </label>
                         <Select>
                           <SelectTrigger className="bg-card/50 border-border/50 text-white">
-                            <SelectValue placeholder="Select industry" />
+                            <SelectValue placeholder={t('pages.partners.selectIndustry')} />
                           </SelectTrigger>
                           <SelectContent className="bg-card border-border">
                             {industries.map((industry) => (
@@ -466,21 +415,21 @@ const Partners = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
                         <label className="block text-sm font-medium text-gray-300 mb-2">
-                          Contact Name
+                          {t('pages.partners.contactName')}
                         </label>
                         <Input
-                          placeholder="Your name"
+                          placeholder={t('pages.partners.namePlaceholder')}
                           className="bg-card/50 border-border/50 text-white placeholder:text-gray-400 focus:border-purple-500"
                           required
                         />
                       </div>
                       <div>
                         <label className="block text-sm font-medium text-gray-300 mb-2">
-                          Email
+                          {t('pages.partners.email')}
                         </label>
                         <Input
                           type="email"
-                          placeholder="your@company.com"
+                          placeholder={t('pages.partners.emailPlaceholder')}
                           className="bg-card/50 border-border/50 text-white placeholder:text-gray-400 focus:border-purple-500"
                           required
                         />
@@ -489,27 +438,27 @@ const Partners = () => {
 
                     <div>
                       <label className="block text-sm font-medium text-gray-300 mb-2">
-                        Partnership Type of Interest
+                        {t('pages.partners.partnershipType')}
                       </label>
                       <Select>
                         <SelectTrigger className="bg-card/50 border-border/50 text-white">
-                          <SelectValue placeholder="Select partnership type" />
+                          <SelectValue placeholder={t('pages.partners.selectPartnershipType')} />
                         </SelectTrigger>
                         <SelectContent className="bg-card border-border">
-                          <SelectItem value="technology">Technology Partner</SelectItem>
-                          <SelectItem value="channel">Channel Partner</SelectItem>
-                          <SelectItem value="strategic">Strategic Partner</SelectItem>
-                          <SelectItem value="global">Global Partner</SelectItem>
+                          <SelectItem value="technology">{t('pages.partners.partnershipOptions.technology')}</SelectItem>
+                          <SelectItem value="channel">{t('pages.partners.partnershipOptions.channel')}</SelectItem>
+                          <SelectItem value="strategic">{t('pages.partners.partnershipOptions.strategic')}</SelectItem>
+                          <SelectItem value="global">{t('pages.partners.partnershipOptions.global')}</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
 
                     <div>
                       <label className="block text-sm font-medium text-gray-300 mb-2">
-                        Message
+                        {t('pages.partners.message')}
                       </label>
                       <Textarea
-                        placeholder="Tell us about your partnership goals and how we can work together..."
+                        placeholder={t('pages.partners.messagePlaceholder')}
                         className="resize-none bg-card/50 border-border/50 text-white placeholder:text-gray-400 focus:border-purple-500"
                         rows={4}
                       />
@@ -520,7 +469,7 @@ const Partners = () => {
                       className="w-full bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white"
                     >
                       <Handshake className="w-5 h-5 mr-2" />
-                      Send Partnership Inquiry
+                      {t('pages.partners.sendInquiry')}
                     </Button>
                   </form>
                 </div>

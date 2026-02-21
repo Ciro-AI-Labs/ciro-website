@@ -1,11 +1,12 @@
 
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { cn } from "@/lib/utils";
-import { 
-  Quote, 
-  Star, 
-  TrendingUp, 
-  TrendingDown, 
+import {
+  Quote,
+  Star,
+  TrendingUp,
+  TrendingDown,
   DollarSign,
   Award,
   Users,
@@ -27,7 +28,7 @@ const testimonials = [
   },
   {
     id: 2,
-    quote: "Thanks to CIRO Vision, our safety incidents have plummeted by 85%. It's like having an extra supervisor 24/7. The computer vision capabilities caught issues we never would have noticed.",
+    quote: "Thanks to CIRO LABS Vision, our safety incidents have plummeted by 85%. It's like having an extra supervisor 24/7. The computer vision capabilities caught issues we never would have noticed.",
     name: "Michael Rodriguez",
     title: "Safety & Compliance Manager",
     company: "Industrial Safety Tech",
@@ -59,36 +60,36 @@ const testimonials = [
 
 const metrics = [
   {
-    value: "↓70%",
-    label: "Manual Tasks",
-    description: "Workflow automation eliminated routine manual processes, freeing engineers to focus on high-value strategic work.",
+    valueKey: "testimonials.metrics.manualTasks.value",
+    labelKey: "testimonials.metrics.manualTasks.label",
+    descriptionKey: "testimonials.metrics.manualTasks.description",
     icon: TrendingDown,
     color: "from-green-500 to-emerald-500",
     bgColor: "from-green-500/10 to-emerald-500/10",
     borderColor: "border-green-500/20"
   },
   {
-    value: "↑15%",
-    label: "Output Quality",
-    description: "Real-time monitoring and AI optimization led to significant improvement in product quality compliance and consistency.",
+    valueKey: "testimonials.metrics.outputQuality.value",
+    labelKey: "testimonials.metrics.outputQuality.label",
+    descriptionKey: "testimonials.metrics.outputQuality.description",
     icon: TrendingUp,
     color: "from-blue-500 to-cyan-500",
     bgColor: "from-blue-500/10 to-cyan-500/10",
     borderColor: "border-blue-500/20"
   },
   {
-    value: "$2.5M",
-    label: "Annual Savings",
-    description: "Predictive maintenance prevented downtime and optimized operations, saving an estimated $2.5M annually.",
+    valueKey: "testimonials.metrics.savings.value",
+    labelKey: "testimonials.metrics.savings.label",
+    descriptionKey: "testimonials.metrics.savings.description",
     icon: DollarSign,
     color: "from-purple-500 to-pink-500",
     bgColor: "from-purple-500/10 to-pink-500/10",
     borderColor: "border-purple-500/20"
   },
   {
-    value: "99.7%",
-    label: "Equipment Uptime",
-    description: "Proactive maintenance and real-time monitoring achieved unprecedented equipment reliability and availability.",
+    valueKey: "testimonials.metrics.uptime.value",
+    labelKey: "testimonials.metrics.uptime.label",
+    descriptionKey: "testimonials.metrics.uptime.description",
     icon: CheckCircle,
     color: "from-orange-500 to-red-500",
     bgColor: "from-orange-500/10 to-red-500/10",
@@ -106,6 +107,7 @@ const companies = [
 ];
 
 const Testimonials = () => {
+  const { t } = useTranslation();
   const [activeTestimonial, setActiveTestimonial] = useState(0);
 
   const nextTestimonial = () => {
@@ -131,28 +133,28 @@ const Testimonials = () => {
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-purple-400 bg-gradient-to-r from-purple-500/10 to-blue-500/10 border border-purple-500/20 rounded-full mb-6">
               <Award className="w-4 h-4" />
-              <span>Customer Success</span>
+              <span>{t('testimonials.badge')}</span>
             </div>
             
             <h2 className="text-4xl md:text-5xl lg:text-4xl xl:text-4xl 2xl:text-5xl font-bold mb-6 leading-tight">
               <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                Trusted by Industry
+                {t('testimonials.heading1')}
               </span>
               <br />
               <span className="text-white">
-                Leaders Worldwide
+                {t('testimonials.heading2')}
               </span>
             </h2>
             
             <p className="text-lg md:text-xl lg:text-lg xl:text-lg 2xl:text-xl text-gray-300 mb-8 leading-relaxed max-w-4xl mx-auto">
-              See how leading companies are achieving breakthrough results with CIRO's intelligent automation platform.
+              {t('testimonials.description')}
             </p>
           </div>
 
           {/* Company Logos */}
           <div className="mb-16">
             <div className="text-center mb-8">
-              <p className="text-sm text-gray-400 mb-4">TRUSTED BY LEADING COMPANIES</p>
+              <p className="text-sm text-gray-400 mb-4">{t('testimonials.trustedBy')}</p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
               {companies.map((company, index) => (
@@ -215,7 +217,7 @@ const Testimonials = () => {
                       className="flex items-center gap-2 px-4 py-2 bg-card/50 border border-border/30 rounded-lg text-gray-300 hover:text-white hover:bg-card/70 transition-all duration-300"
                     >
                       <ArrowLeft className="w-4 h-4" />
-                      <span className="text-sm">Previous</span>
+                      <span className="text-sm">{t('testimonials.previous')}</span>
                     </button>
                     
                     <div className="flex gap-2">
@@ -237,7 +239,7 @@ const Testimonials = () => {
                       onClick={nextTestimonial}
                       className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
                     >
-                      <span className="text-sm">Next</span>
+                      <span className="text-sm">{t('testimonials.next')}</span>
                       <ArrowRight className="w-4 h-4" />
                     </button>
                   </div>
@@ -248,8 +250,8 @@ const Testimonials = () => {
             {/* Metrics */}
             <div className="space-y-6">
               <div className="text-center lg:text-left mb-8">
-                <h3 className="text-2xl font-bold text-white mb-2">Proven Results</h3>
-                <p className="text-gray-400">Real metrics from our customers' success stories</p>
+                <h3 className="text-2xl font-bold text-white mb-2">{t('testimonials.provenResults')}</h3>
+                <p className="text-gray-400">{t('testimonials.provenResultsDesc')}</p>
               </div>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -264,13 +266,13 @@ const Testimonials = () => {
                       </div>
                       <div>
                         <div className={`text-2xl font-bold bg-gradient-to-r ${metric.color} bg-clip-text text-transparent`}>
-                          {metric.value}
+                          {t(metric.valueKey)}
                         </div>
-                        <div className="text-sm font-semibold text-white">{metric.label}</div>
+                        <div className="text-sm font-semibold text-white">{t(metric.labelKey)}</div>
                       </div>
                     </div>
                     <p className="text-sm text-gray-300 leading-relaxed">
-                      {metric.description}
+                      {t(metric.descriptionKey)}
                     </p>
                   </div>
                 ))}
@@ -281,16 +283,16 @@ const Testimonials = () => {
           {/* Bottom CTA */}
           <div className="text-center mt-16">
             <div className="bg-gradient-to-r from-purple-500/10 to-blue-500/10 border border-purple-500/20 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-white mb-4">Ready to Transform Your Operations?</h3>
+              <h3 className="text-2xl font-bold text-white mb-4">{t('testimonials.ctaHeading')}</h3>
               <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-                Join industry leaders who are already achieving breakthrough results with CIRO's intelligent automation platform.
+                {t('testimonials.ctaDescription')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="/contact" className="px-8 py-3 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl">
-                  Schedule a Demo
+                  {t('testimonials.ctaDemo')}
                 </a>
                 <a href="/use-cases" className="px-8 py-3 bg-card/50 border border-border/30 text-gray-300 hover:text-white hover:bg-card/70 rounded-lg font-semibold transition-all duration-300">
-                  View Case Studies
+                  {t('testimonials.ctaCases')}
                 </a>
               </div>
             </div>

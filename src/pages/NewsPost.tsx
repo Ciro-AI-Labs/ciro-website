@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { 
+import {
   ArrowLeft,
   Calendar,
   User,
@@ -20,8 +20,10 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Contact from "@/components/home/Contact";
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 const NewsPost = () => {
+  const { t } = useTranslation();
   const { slug } = useParams();
 
   // Mock data - in real app this would come from Supabase
@@ -398,12 +400,12 @@ const NewsPost = () => {
       <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
         <Navbar />
         <div className="container mx-auto px-4 py-24 text-center">
-          <h1 className="text-4xl font-bold text-white mb-4">Article Not Found</h1>
-          <p className="text-gray-300 mb-8">The article you're looking for doesn't exist.</p>
+          <h1 className="text-4xl font-bold text-white mb-4">{t('pages.newsPost.articleNotFound')}</h1>
+          <p className="text-gray-300 mb-8">{t('pages.newsPost.articleNotFoundDesc')}</p>
           <Link to="/news">
             <Button className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white">
               <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to News
+              {t('pages.newsPost.backToNews')}
             </Button>
           </Link>
         </div>
@@ -431,7 +433,7 @@ const NewsPost = () => {
               <div className="mb-8">
                 <Link to="/news" className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors">
                   <ArrowLeft className="w-4 h-4" />
-                  <span>Back to News</span>
+                  <span>{t('pages.newsPost.backToNews')}</span>
                 </Link>
               </div>
 
@@ -465,7 +467,7 @@ const NewsPost = () => {
                 <div className="flex items-center gap-4">
                   <div className="flex items-center gap-2 text-sm text-gray-400">
                     <User className="w-4 h-4" />
-                    <span>By {article.author}</span>
+                    <span>{t('pages.newsPost.by')} {article.author}</span>
                   </div>
                   <div className="flex items-center gap-2 text-sm text-gray-400">
                     <Calendar className="w-4 h-4" />
@@ -475,7 +477,7 @@ const NewsPost = () => {
                 
                 <Button variant="outline" size="sm" className="border-purple-500/30 text-purple-400 hover:bg-purple-500/10 hover:border-purple-500/50">
                   <Share2 className="w-4 h-4 mr-2" />
-                  Share
+                  {t('pages.newsPost.share')}
                 </Button>
               </div>
             </div>
@@ -538,7 +540,7 @@ const NewsPost = () => {
               <div className="lg:col-span-1 space-y-8">
                 {/* About the Author */}
                 <div className="bg-card/80 border border-border/50 rounded-2xl p-6">
-                  <h3 className="text-lg font-semibold text-white mb-4">About the Author</h3>
+                  <h3 className="text-lg font-semibold text-white mb-4">{t('pages.newsPost.aboutAuthor')}</h3>
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center">
                       <User className="w-6 h-6 text-purple-400" />
@@ -549,13 +551,13 @@ const NewsPost = () => {
                     </div>
                   </div>
                   <p className="text-sm text-gray-300">
-                    Expert insights on industrial AI, manufacturing technology, and digital transformation.
+                    {t('pages.newsPost.authorDesc')}
                   </p>
                 </div>
 
                 {/* Related Articles */}
                 <div className="bg-card/80 border border-border/50 rounded-2xl p-6">
-                  <h3 className="text-lg font-semibold text-white mb-4">Related Articles</h3>
+                  <h3 className="text-lg font-semibold text-white mb-4">{t('pages.newsPost.relatedArticles')}</h3>
                   <div className="space-y-4">
                     {newsArticles.filter(a => a.id !== article.id).slice(0, 2).map((relatedArticle) => (
                       <Link 
@@ -627,26 +629,25 @@ const NewsPost = () => {
           <div className="container mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16">
             <div className="bg-gradient-to-r from-purple-500/10 to-blue-500/10 border border-purple-500/20 rounded-2xl p-12 text-center max-w-4xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Stay Updated with CIRO
+                {t('pages.newsPost.stayUpdated')}
               </h2>
               <p className="text-lg text-gray-300 mb-8">
-                Get the latest news, product updates, and industry insights delivered 
-                directly to your inbox. Never miss an important update from CIRO.
+                {t('pages.newsPost.stayUpdatedDesc')}
               </p>
               
               <div className="flex gap-4 max-w-md mx-auto">
                 <input
                   type="email"
-                  placeholder="Enter your email"
+                  placeholder={t('pages.newsPost.enterEmail')}
                   className="flex-1 px-4 py-3 bg-card/50 border border-border/50 text-white placeholder:text-gray-400 focus:border-purple-500 rounded-lg focus:outline-none"
                 />
                 <Button className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white">
-                  Subscribe
+                  {t('pages.newsPost.subscribe')}
                 </Button>
               </div>
               
               <p className="text-sm text-gray-400 mt-4">
-                We respect your privacy. Unsubscribe at any time.
+                {t('pages.newsPost.privacyNote')}
               </p>
             </div>
           </div>

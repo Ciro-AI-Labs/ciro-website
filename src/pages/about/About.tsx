@@ -1,11 +1,59 @@
 
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Users, Award, Shield, TrendingUp, Clock, CheckCircle, Target, Eye, Brain, Cpu, Zap, Camera, Sparkles } from "lucide-react";
 
 const About = () => {
+  const { t } = useTranslation();
+
+  const pillars = [
+    {
+      title: t('pages.about.pillars.explore.title'),
+      description: t('pages.about.pillars.explore.desc'),
+      icon: Brain,
+      color: 'from-purple-500 to-violet-500'
+    },
+    {
+      title: t('pages.about.pillars.innovate.title'),
+      description: t('pages.about.pillars.innovate.desc'),
+      icon: Sparkles,
+      color: 'from-blue-500 to-cyan-500'
+    },
+    {
+      title: t('pages.about.pillars.transform.title'),
+      description: t('pages.about.pillars.transform.desc'),
+      icon: Zap,
+      color: 'from-cyan-500 to-teal-500'
+    }
+  ];
+
+  const stats = [
+    {
+      stat: t('pages.about.stats.manual.stat'),
+      label: t('pages.about.stats.manual.label'),
+      color: 'text-red-400',
+      icon: Users,
+      description: t('pages.about.stats.manual.desc')
+    },
+    {
+      stat: t('pages.about.stats.data.stat'),
+      label: t('pages.about.stats.data.label'),
+      color: 'text-orange-400',
+      icon: Clock,
+      description: t('pages.about.stats.data.desc')
+    },
+    {
+      stat: t('pages.about.stats.delay.stat'),
+      label: t('pages.about.stats.delay.label'),
+      color: 'text-yellow-400',
+      icon: Target,
+      description: t('pages.about.stats.delay.desc')
+    }
+  ];
+
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       <Navbar />
@@ -20,26 +68,24 @@ const About = () => {
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-5xl mx-auto text-center">
               <h1 className="text-6xl md:text-7xl font-black mb-8 leading-tight">
-                <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">Ciro Labs</span>
+                <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">{t('pages.about.heading')}</span>
               </h1>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Innovation • Research • Development</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">{t('pages.about.subtitle')}</h2>
               <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-                Exploring the boundaries of human intelligence through deep tech, computer vision, and AI research. 
-                Building the future where robots and AI overlays seamlessly integrate with human operations.
+                {t('pages.about.description')}
               </p>
               <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-400">
-                <span className="flex items-center gap-2">
-                  <Brain className="w-4 h-4 text-purple-400" />
-                  Deep Tech Research
-                </span>
-                <span className="flex items-center gap-2">
-                  <Eye className="w-4 h-4 text-blue-400" />
-                  Computer Vision
-                </span>
-                <span className="flex items-center gap-2">
-                  <Cpu className="w-4 h-4 text-cyan-400" />
-                  AI Innovation
-                </span>
+                {(t('pages.about.tags', { returnObjects: true }) as string[]).map((tag, index) => {
+                  const icons = [Brain, Eye, Cpu];
+                  const colors = ['text-purple-400', 'text-blue-400', 'text-cyan-400'];
+                  const Icon = icons[index];
+                  return (
+                    <span key={index} className="flex items-center gap-2">
+                      <Icon className={`w-4 h-4 ${colors[index]}`} />
+                      {tag}
+                    </span>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -49,33 +95,13 @@ const About = () => {
         <section className="py-16">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">Our Mission</h2>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">{t('pages.about.missionTitle')}</h2>
               <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-                To push the boundaries of human intelligence by developing cutting-edge AI systems that see, understand, 
-                and act in the real world—bridging the gap between human intuition and machine precision.
+                {t('pages.about.missionDesc')}
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[
-                { 
-                  title: 'Explore', 
-                  description: 'Research the frontiers of computer vision, AI, and human-machine interaction.',
-                  icon: Brain,
-                  color: 'from-purple-500 to-violet-500'
-                },
-                { 
-                  title: 'Innovate', 
-                  description: 'Develop breakthrough technologies that redefine what\'s possible in industrial AI.',
-                  icon: Sparkles,
-                  color: 'from-blue-500 to-cyan-500'
-                },
-                { 
-                  title: 'Transform', 
-                  description: 'Deploy AI solutions that revolutionize how humans and machines collaborate.',
-                  icon: Zap,
-                  color: 'from-cyan-500 to-teal-500'
-                }
-              ].map((pillar, index) => (
+              {pillars.map((pillar, index) => (
                 <div key={index} className="group relative">
                   <div className={`absolute inset-0 bg-gradient-to-r ${pillar.color} opacity-20 rounded-2xl blur-xl group-hover:opacity-30 transition-opacity duration-300`}></div>
                   <div className="relative bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl p-8 text-center shadow-xl group-hover:border-white/20 transition-all duration-300">
@@ -96,40 +122,19 @@ const About = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto text-center">
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-                Why <span className="bg-gradient-to-r from-orange-400 via-red-400 to-pink-400 bg-clip-text text-transparent">Deep Tech</span> Matters
+                {(t('pages.about.whyDeepTech') as string).split('Deep Tech')[0]}
+                <span className="bg-gradient-to-r from-orange-400 via-red-400 to-pink-400 bg-clip-text text-transparent">Deep Tech</span>
+                {(t('pages.about.whyDeepTech') as string).split('Deep Tech')[1]}
               </h2>
               <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-                The next industrial revolution isn't about faster machines—it's about intelligent systems that can see, 
-                think, and adapt in real-time. The cost of staying behind isn't just inefficiency...
+                {t('pages.about.whyDeepTechDesc')}
               </p>
               <p className="text-2xl font-bold bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent mb-12">
-                It's obsolescence.
+                {t('pages.about.obsolescence')}
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {[
-                  { 
-                    stat: '60%', 
-                    label: 'Manual Processes Still Dominate', 
-                    color: 'text-red-400', 
-                    icon: Users,
-                    description: 'Most industrial operations rely on human decision-making for critical processes'
-                  },
-                  { 
-                    stat: '90%', 
-                    label: 'Data Never Analyzed in Time', 
-                    color: 'text-orange-400', 
-                    icon: Clock,
-                    description: 'Valuable insights are discovered too late to prevent problems or capture opportunities'
-                  },
-                  { 
-                    stat: '24hr', 
-                    label: 'Average Detection Delay', 
-                    color: 'text-yellow-400', 
-                    icon: Target,
-                    description: 'By the time problems are detected, significant damage has already occurred'
-                  }
-                ].map((item, index) => (
+                {stats.map((item, index) => (
                   <div key={index} className="group">
                     <div className="bg-card/30 backdrop-blur-sm border border-border/30 rounded-2xl p-8 text-center shadow-xl group-hover:border-white/20 transition-all duration-300">
                       <item.icon className={`w-12 h-12 mb-4 ${item.color} mx-auto group-hover:scale-110 transition-transform duration-300`} />
@@ -149,40 +154,33 @@ const About = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">Innovation Labs</h2>
+                <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">{t('pages.about.labsTitle')}</h2>
                 <p className="text-xl text-gray-300 leading-relaxed">
-                  Where breakthrough research meets real-world application
+                  {t('pages.about.labsDesc')}
                 </p>
               </div>
               
               <div className="space-y-12">
                 <div className="bg-gradient-to-r from-slate-800/50 to-slate-700/50 backdrop-blur-sm border border-slate-600/30 rounded-2xl p-10 shadow-2xl">
-                  <h3 className="text-2xl font-bold text-white mb-6">Deep Tech Foundation</h3>
+                  <h3 className="text-2xl font-bold text-white mb-6">{t('pages.about.deepTechTitle')}</h3>
                   <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-                    Ciro Labs emerged from a simple but profound realization: the gap between cutting-edge AI research 
-                    and practical industrial applications was growing wider every day. While academia pushed the boundaries 
-                    of what's possible, industry remained stuck with legacy systems and incremental improvements.
+                    {t('pages.about.deepTechP1')}
                   </p>
                   <p className="text-lg text-gray-300 leading-relaxed">
-                    We founded Ciro Labs as a bridge—a place where theoretical breakthroughs in computer vision, 
-                    machine learning, and robotics could be transformed into practical solutions that solve real problems 
-                    in manufacturing, logistics, and industrial operations.
+                    {t('pages.about.deepTechP2')}
                   </p>
                 </div>
 
                 <div className="bg-gradient-to-r from-slate-700/50 to-slate-800/50 backdrop-blur-sm border border-slate-600/30 rounded-2xl p-10 shadow-2xl">
                   <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
                     <Camera className="w-8 h-8 text-blue-400" />
-                    Computer Vision Pioneers
+                    {t('pages.about.cvTitle')}
                   </h3>
                   <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-                    Our core focus on computer vision isn't just about seeing—it's about understanding. We develop 
-                    AI systems that can interpret complex industrial environments, detect anomalies invisible to human eyes, 
-                    and make split-second decisions that prevent disasters before they happen.
+                    {t('pages.about.cvP1')}
                   </p>
                   <p className="text-lg text-gray-300 leading-relaxed">
-                    From thermal imaging analysis to real-time quality control, our computer vision systems don't just observe—they comprehend, 
-                    predict, and act with superhuman precision and speed.
+                    {t('pages.about.cvP2')}
                   </p>
                 </div>
               </div>
@@ -195,11 +193,10 @@ const About = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto text-center">
               <h2 className="text-4xl md:text-6xl font-bold mb-8 text-white">
-                The Future is <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">Intelligent</span>
+                {t('pages.about.futureTitle')} <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">{t('pages.about.futureHighlight')}</span>
               </h2>
               <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-                We're not just building software—we're crafting the neural pathways of tomorrow's industrial landscape, 
-                where AI overlays enhance human capability and robotic systems work in perfect harmony with human intuition.
+                {t('pages.about.futureDesc')}
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
@@ -208,10 +205,9 @@ const About = () => {
                     <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
                       <Eye className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="text-2xl font-bold text-white mb-4">AI Overlays</h3>
+                    <h3 className="text-2xl font-bold text-white mb-4">{t('pages.about.aiOverlays.title')}</h3>
                     <p className="text-gray-300 leading-relaxed">
-                      Augmented reality interfaces that overlay real-time AI insights directly onto physical environments, 
-                      giving workers superhuman perception and decision-making capabilities.
+                      {t('pages.about.aiOverlays.desc')}
                     </p>
                   </div>
                 </div>
@@ -221,18 +217,16 @@ const About = () => {
                     <div className="w-16 h-16 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
                       <Cpu className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="text-2xl font-bold text-white mb-4">Collaborative Robotics</h3>
+                    <h3 className="text-2xl font-bold text-white mb-4">{t('pages.about.robotics.title')}</h3>
                     <p className="text-gray-300 leading-relaxed">
-                      Robots that don't replace humans but amplify their capabilities, working alongside operators 
-                      with seamless coordination and shared intelligence.
+                      {t('pages.about.robotics.desc')}
                     </p>
                   </div>
                 </div>
               </div>
 
               <blockquote className="text-2xl text-gray-300 font-medium italic leading-relaxed max-w-4xl mx-auto">
-                "The future doesn't belong to humans or machines alone—it belongs to the synthesis of human creativity 
-                and artificial intelligence, working together to solve problems we never thought possible."
+                {t('pages.about.quote')}
               </blockquote>
             </div>
           </div>
@@ -242,9 +236,9 @@ const About = () => {
         <section className="py-16">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">See Our Vision in Action</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">{t('pages.about.videoTitle')}</h2>
               <p className="text-lg text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-                Watch how Ciro Labs is pioneering the future of industrial intelligence through deep tech research and practical AI applications.
+                {t('pages.about.videoDesc')}
               </p>
               <div className="relative bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl aspect-video overflow-hidden shadow-2xl">
                 <iframe
@@ -268,16 +262,16 @@ const About = () => {
             <div className="relative max-w-4xl mx-auto">
               <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 via-blue-500/20 to-cyan-500/20 rounded-3xl blur-xl"></div>
               <div className="relative bg-gradient-to-r from-purple-500/80 to-cyan-500/80 backdrop-blur-sm border border-white/10 rounded-3xl p-12 shadow-2xl text-center">
-                <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">Ready to Explore the Future?</h2>
+                <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">{t('pages.about.ctaTitle')}</h2>
                 <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed">
-                  Join us on the frontier of industrial AI research. Let's push the boundaries of what's possible together.
+                  {t('pages.about.ctaDesc')}
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button size="lg" className="bg-white text-purple-600 hover:bg-gray-100 font-semibold px-8 py-4 text-lg" asChild>
-                    <Link to="/contact">Start a Collaboration</Link>
+                    <Link to="/contact">{t('pages.about.ctaCollaboration')}</Link>
                   </Button>
                   <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 font-semibold px-8 py-4 text-lg">
-                    Research Partnerships
+                    {t('pages.about.ctaPartnerships')}
                   </Button>
                 </div>
               </div>

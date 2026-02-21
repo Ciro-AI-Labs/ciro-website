@@ -1,6 +1,7 @@
 import React from 'react';
 import Marquee from "react-fast-marquee";
 import { motion } from 'framer-motion';
+import { useTranslation } from "react-i18next";
 
 // Updated list of logos based on files found in /public/logos/
 const logos = [
@@ -21,6 +22,7 @@ const logos = [
 ];
 
 const LogoCloud = () => {
+  const { t } = useTranslation();
   return (
     // Match background, add border, add relative positioning for decorators
     <div className="relative overflow-hidden bg-[#06070a] py-16 sm:py-20 border-t border-b border-gray-800/50">
@@ -71,7 +73,7 @@ const LogoCloud = () => {
       {/* Content Container - Ensure it's above decorators and hides marquee overflow */}
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 overflow-hidden">
         <h2 className="text-center text-base font-semibold leading-7 text-gray-400 mb-8 sm:mb-10">
-          Integrating seamlessly with your existing ecosystem
+          {t('logoCloud.heading')}
         </h2>
         {/* Marquee Component */}
         <Marquee 

@@ -13,7 +13,9 @@ import UseCases from "./pages/use-cases/UseCases";
 import Products from "./pages/Products";
 import AIAnalytics from "./pages/products/AIAnalytics";
 import Vision from "./pages/products/Vision";
-import NewDesign from "./pages/NewDesign";
+import Singularity from "./pages/products/Singularity";
+import Orbita from "./pages/products/Orbita";
+import ERP from "./pages/products/ERP";
 import Careers from "./pages/Careers";
 import Partners from "./pages/Partners";
 import News from "./pages/News";
@@ -39,9 +41,6 @@ const AnalyticsTracker = () => {
 };
 
 const App = () => {
-  // Clear any saved language preferences
-  localStorage.removeItem('i18nextLng');
-
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
@@ -58,7 +57,11 @@ const App = () => {
             <Route path="/products" element={<Products />} />
             <Route path="/products/ai-analytics" element={<AIAnalytics />} />
             <Route path="/products/vision" element={<Vision />} />
-            <Route path="/new-design" element={<NewDesign />} />
+            <Route path="/products/singularity" element={<Singularity />} />
+            <Route path="/products/lake" element={<Singularity />} />
+            <Route path="/products/orbita" element={<Orbita />} />
+            <Route path="/products/sales" element={<Orbita />} />
+            <Route path="/products/erp" element={<ERP />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/partners" element={<Partners />} />
             <Route path="/news" element={<News />} />

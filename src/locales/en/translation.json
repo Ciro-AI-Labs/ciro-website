@@ -4,185 +4,1421 @@
     "products": "Products",
     "useCases": "Use Cases",
     "about": "About",
-    "newDesign": "New Design",
     "bookDemo": "Book a Demo",
-    "language": "Language"
+    "login": "Login",
+    "viewAllProducts": "View all products",
+    "productDesc": {
+      "ai": "Enterprise AI analytics platform",
+      "erp": "Industrial ERP & manufacturing",
+      "sales": "Field sales & mobile CRM",
+      "lake": "Unified data lakehouse",
+      "labs": "Computer vision & AI research"
+    }
   },
   "hero": {
-    "title": "Where Industrial Data Becomes Real-Time Action",
-    "subtitle": "Ciro Labs unifies your plant's data and vision streams into a single AI command center—predict, automate, and optimize operations in milliseconds."
-  },
-  "about": {
-    "title": "About Ciro Labs",
-    "subtitle": "We're building the AI Engine for Industry 4.0",
-    "mission": "Our Mission",
-    "missionText": "Ciro Labs builds intelligent platforms that turn fragmented streams of industrial data into automated decisions, helping manufacturers and logistics operators achieve real-time operational excellence."
-  },
-  "contact": {
-    "title": "Get in Touch",
-    "subtitle": "Schedule a demo or reach out with any questions about Ciro Labs.",
-    "cta": "Ready to See Ciro in Action?",
-    "ctaText": "Experience the power of real-time industrial AI in your operations. Schedule a personalized demo with our team."
-  },
-  "communication": {
-    "title": "Ask Ciro",
-    "subtitle": "Get real-time insights with natural language",
-    "inputPlaceholder": "Ask a question about your data...",
-    "askButton": "Ask",
-    "questions": {
-      "deliveryRate": "What was our on-time delivery rate last quarter?",
-      "downtimes": "Show me production line downtimes by cause this month",
-      "defectRates": "Where are our highest quality defect rates?",
-      "safetyIncidents": "Show recent workplace safety incidents"
-    },
-    "answers": {
-      "deliveryRate": "94.3% on-time delivery rate in Q3, up 5.7% from previous quarter.",
-      "downtimes": "SELECT cause, SUM(duration) FROM downtimes WHERE date >= '2023-10-01' GROUP BY cause ORDER BY SUM(duration) DESC",
-      "defectRates": "Facility #3 has the highest defect rate at 2.7%, which is 0.9% above average.",
-      "safetyIncidents": "3 minor incidents reported in September, all in Zone B. 0 major incidents this quarter."
-    },
-    "chart": {
-      "deliveryRate": "On-time Delivery Rate",
-      "lastQuarters": "Last 4 Quarters",
-      "forecast": "Forecast",
-      "prodLineDowntimes": "Production Line Downtimes",
-      "october": "October 2023",
-      "equipment": "Equipment",
-      "material": "Material",
-      "staff": "Staff",
-      "other": "Other",
-      "defectRatesByFacility": "Quality Defect Rates by Facility",
-      "currentMonth": "Current Month",
-      "facility": "Facility",
-      "avgAllFacilities": "Avg. All Facilities",
-      "safetyIncidentsByZone": "Safety Incidents by Zone",
-      "zoneA": "Zone A",
-      "zoneB": "Zone B",
-      "zoneC": "Zone C",
-      "zoneD": "Zone D",
-      "noIncidents": "0 incidents",
-      "minorIncidents": "{{count}} minor incident",
-      "minorIncidents_plural": "{{count}} minor incidents"
+    "badge": "CIRO AI Analytics",
+    "heading1": "Enterprise AI",
+    "heading2": "Analytics Platform",
+    "subtitle": "One platform to connect, analyze, and act on all your data.",
+    "description": "Connect 50+ data sources, build real-time dashboards, and query your data in natural language — from the data lake to the plant floor.",
+    "bookDemo": "Book a Demo",
+    "loginCta": "Login to Get Started",
+    "dashboard": {
+      "title": "CIRO AI Analytics Dashboard",
+      "activeConnections": "Active Connections",
+      "thisWeek": "+12.3% this week",
+      "aiPredictions": "AI Predictions",
+      "accuracyRate": "accuracy rate",
+      "realTimeAnalytics": "Real-time Analytics",
+      "systemStatus": "System Status",
+      "live": "Live",
+      "allSystemsOperational": "All systems operational"
     }
   },
   "products": {
-    "title": "Our Products",
-    "subtitle": "Powerful AI solutions for industrial intelligence",
-    "capabilitiesTitle": "Capabilities",
-    "aiAnalytics": "AI Analytics Engine",
-    "aiAnalyticsDesc": "Connect your data systems for real-time visibility, insights, and automated workflows",
-    "nlAnalytics": "Natural-Language Analytics",
-    "nlAnalyticsDesc": "Ask questions (or speak them) and CIRO instantly scans billions of rows, returning answers, KPIs, or SQL you can tweak.",
-    "aiAgents": "Autonomous AI Agents",
-    "aiAgentsDesc": "Continuous anomaly detection, predictive models, and maintenance triggers that fire workflows in Slack, Teams, or WhatsApp—before issues escalate.",
-    "aiAgentsActive": "AI Agents Active",
-    "workflowAutomation": "workflow_automation",
-    "rtDashboards": "Real-Time Dashboards",
-    "rtDashboardsDesc": "Drag charts into live, multi-tab boards; connect Power BI or Looker; and watch every metric update the moment your data changes.",
-    "vision": "Vision AI Platform",
-    "visionDesc": "Turn security cameras into 24/7 industrial monitors that detect events, safety issues, and opportunities",
-    "capabilities": {
-      "visualizations": {
-        "title": "Advanced Visualizations",
-        "description": "Generate bar, heat-map, or geospatial charts from a single prompt—then polish them in CIRO Studio à la Canva."
+    "badge": "One Platform, Five Products",
+    "heading1": "The CIRO",
+    "heading2": "Ecosystem",
+    "description": "From data ingestion to field execution — five products working together to give you complete visibility and control across your enterprise.",
+    "flagshipBadge": "Flagship Product",
+    "ciroAiTitle": "CIRO AI Analytics",
+    "ciroAiDesc": "The enterprise AI analytics platform that connects 50+ data sources, powers real-time dashboards, and lets anyone query data in natural language. Built on Apache Kafka, Airflow, and Flink.",
+    "ciroAiBullets": [
+      "Natural language queries & AI agents",
+      "Real-time streaming analytics",
+      "Custom LLM integration",
+      "50+ enterprise connectors"
+    ],
+    "exploreCiroAi": "Explore CIRO AI",
+    "ecosystem": {
+      "erp": {
+        "tagline": "From planning to fulfillment",
+        "points": [
+          "Full lot traceability",
+          "11 integrated business modules",
+          "Electronic invoicing (DTE)"
+        ]
       },
-      "templates": {
-        "title": "Template Gallery",
-        "description": "Kick-start storytelling with pre-built KPI boards and industry templates you can inject with your own data in seconds."
+      "sales": {
+        "tagline": "Field sales, always in sync",
+        "points": [
+          "Offline-first mobile application",
+          "Smart route optimization",
+          "SAP & ERP integration"
+        ]
       },
-      "alerts": {
-        "title": "Omnichannel Alerts",
-        "description": "Insight triggers push to email, SMS, Slack, Teams, webhooks—anywhere your team lives—so nothing slips through the cracks."
+      "lake": {
+        "tagline": "Your data universe, unified",
+        "points": [
+          "50+ enterprise connectors",
+          "S3 + Parquet + DuckDB lakehouse",
+          "Apache Kafka real-time streaming"
+        ]
       },
-      "dataScience": {
-        "title": "Data Science & Forecasts",
-        "description": "Run cleaning, feature engineering, and time-series forecasts without writing Python; export models or schedule automated reports."
+      "labs": {
+        "tagline": "Every frame, an insight",
+        "points": [
+          "Real-time CV at 40 FPS",
+          "YOLOv8 cascade detection",
+          "Privacy-first (face blurring)"
+        ]
       }
-    }
-  },
-  "dataHub": {
-    "iot": "IoT",
-    "cloud": "Cloud",
-    "supply": "Supply",
-    "agri": "Agri",
-    "food": "Food",
-    "vision": "Vision",
-    "db": "DB",
-    "docs": "Docs"
-  },
-  "dashboard": {
-    "businessOverview": "Business Overview",
-    "supplyChain": "Supply Chain",
-    "financialKPIs": "Financial KPIs",
-    "marketing": "Marketing",
-    "live": "Live",
-    "revenue": "Revenue",
-    "newUsers": "New Users",
-    "avgSession": "Avg. Session",
-    "bounceRate": "Bounce Rate",
-    "revenueTrend": "Revenue Trend (7-day)",
-    "salesByCategory": "Sales by Category",
-    "hardware": "Hardware",
-    "software": "Software",
-    "services": "Services",
-    "other": "Other",
-    "trafficSources": "Traffic Sources",
-    "organic": "Organic",
-    "direct": "Direct",
-    "referral": "Referral",
-    "social": "Social",
-    "recentActivity": "Recent Activity",
-    "viewAll": "View all",
-    "activities": {
-      "createdDashboard": "created a new dashboard",
-      "updatedForecast": "updated sales forecast",
-      "triggeredAlert": "triggered alert: Server CPU > 90%",
-      "sharedReport": "shared report with Finance team"
     },
-    "timeAgo": {
-      "minutes": "{{count}} min ago",
-      "hours": "{{count}} hour ago",
-      "hours_plural": "{{count}} hours ago"
-    }
+    "learnMore": "Learn more",
+    "viewAll": "View all products"
   },
-  "days": {
-    "monday": "Monday",
-    "tuesday": "Tuesday",
-    "wednesday": "Wednesday",
-    "thursday": "Thursday",
-    "friday": "Friday",
-    "saturday": "Saturday",
-    "sunday": "Sunday"
+  "platform": {
+    "badge": "Data Architecture",
+    "heading1": "From raw data to",
+    "heading2": "automated action",
+    "description": "Watch your data flow through four stages — ingested in milliseconds, analyzed by AI, and turned into actions across your entire operation.",
+    "stages": {
+      "dataSources": {
+        "label": "Data Sources",
+        "items": ["IoT Sensors", "ERPs & CRMs", "Databases", "Cloud Apps", "Files & APIs"]
+      },
+      "lake": {
+        "label": "CIRO LAKE",
+        "items": ["Ingest & Clean", "Stream Processing", "Lakehouse Storage", "Schema Enforcement"]
+      },
+      "ai": {
+        "label": "CIRO AI",
+        "items": ["NL Queries", "Anomaly Detection", "Dashboards", "Predictive Models"]
+      },
+      "action": {
+        "label": "Action Layer",
+        "items": ["CIRO ERP — Production", "CIRO SALES — Field Ops", "CIRO LABS — Vision QC", "Alerts & Webhooks"]
+      }
+    },
+    "stats": {
+      "sources": "50+ sources",
+      "events": "500K events/sec",
+      "latency": "<12ms latency",
+      "actions": "Real-time actions"
+    },
+    "liveActivity": "Live Platform Activity",
+    "liveEvents": [
+      { "text": "Kafka ingested 12.4K events", "time": "2s ago" },
+      { "text": "Anomaly detected: Line 3 temp spike", "time": "8s ago" },
+      { "text": "CIRO SALES synced 47 orders to ERP", "time": "15s ago" },
+      { "text": "CIRO LABS flagged defect on Camera 7", "time": "22s ago" },
+      { "text": "Dashboard refreshed: OEE at 94.2%", "time": "30s ago" }
+    ],
+    "cta": "See the full architecture"
+  },
+  "challenges": {
+    "badge": "Industry Pain Points",
+    "heading1": "The Hidden Cost of",
+    "heading2": "Industrial Inefficiency",
+    "description": "While manufacturers collect terabytes of data, most decisions still happen on gut instinct. The gap between data and action costs billions annually.",
+    "painPoints": {
+      "silos": {
+        "title": "Data Silos",
+        "loss": "$2.3B Annual Loss",
+        "desc": "of industrial data remains trapped in isolated systems, creating blind spots that lead to costly inefficiencies and missed opportunities.",
+        "stat": "87%",
+        "bullets": [
+          "ERP, MES, and IoT systems don't communicate",
+          "Real-time insights buried in disconnected databases",
+          "Cross-functional teams work with incomplete data"
+        ],
+        "barLabel": "Data Utilization",
+        "barValue": "13%"
+      },
+      "slow": {
+        "title": "Slow Response",
+        "loss": "$5.2B Annual Loss",
+        "descPre": "Legacy systems create",
+        "descDelay": "45-minute delays",
+        "descPost": "between events and decisions, costing enterprises up to $5M annually in preventable losses.",
+        "bullets": [
+          "Manual data processing takes hours, not seconds",
+          "Alerts arrive too late to prevent issues",
+          "Decision-makers wait for reports instead of acting"
+        ],
+        "barLabel": "Average Response Time",
+        "barValue": "45 min"
+      },
+      "integration": {
+        "title": "Integration Chaos",
+        "loss": "$3.8B Annual Loss",
+        "descPre": "of companies struggle to integrate IoT and ERP data in real-time, driving operational costs up 30% and reducing efficiency.",
+        "stat": "73%",
+        "bullets": [
+          "Complex API integrations take months to implement",
+          "Data quality issues from mismatched formats",
+          "Scalability limitations with legacy connectors"
+        ],
+        "barLabel": "Integration Success Rate",
+        "barValue": "27%"
+      }
+    },
+    "whyCiro": {
+      "badge": "Why Choose CIRO?",
+      "heading1": "Turn Data Chaos into",
+      "heading2": "Competitive Advantage",
+      "descPre": "While others struggle with data silos and slow responses, CIRO delivers",
+      "descHighlight1": " real-time intelligence",
+      "descMid": " that drives",
+      "descHighlight2": " immediate action",
+      "differentiators": {
+        "latency": {
+          "title": "Sub-12ms Latency",
+          "desc": "While competitors take minutes, CIRO delivers insights in milliseconds, enabling real-time decision making."
+        },
+        "cost": {
+          "title": "70% Cost Reduction",
+          "desc": "AI-driven automation reduces manual effort by 70%, freeing teams to focus on strategic initiatives."
+        },
+        "sources": {
+          "title": "50+ Data Sources",
+          "desc": "Unified platform connects ERP, IoT, cameras, and cloud apps without complex integrations."
+        },
+        "savings": {
+          "title": "$11.3B Savings",
+          "desc": "Combined annual savings from eliminating the three major pain points that plague manufacturers."
+        }
+      },
+      "ctaAction": "See CIRO in Action",
+      "ctaRoi": "Calculate Your ROI"
+    }
   },
   "howItWorks": {
-    "title": "How Ciro Delivers Real-Time Intelligence",
-    "subtitle": "From data ingestion to automated action, see how our platform functions under the hood.",
-    "dataIntegration": "Data Integration",
-    "aiProcessing": "AI Processing",
-    "insightsEngine": "Insights Engine",
-    "automatedAction": "Automated Action"
+    "badge": "Platform Architecture",
+    "heading1": "How CIRO delivers",
+    "heading2": "real-time intelligence",
+    "description": "From data ingestion to continuous learning — a four-step cycle that makes your operation smarter every day.",
+    "steps": {
+      "connect": {
+        "title": "Connect",
+        "subtitle": "Ingest from 50+ sources into CIRO LAKE",
+        "description": "CIRO LAKE connects to your databases, IoT sensors, ERPs, cloud platforms, and file systems — creating a unified data stream that processes 500K events per second with sub-12ms latency.",
+        "features": [
+          "50+ enterprise connectors",
+          "Real-time Kafka streaming",
+          "Zero-downtime integration",
+          "Automatic schema detection"
+        ]
+      },
+      "analyze": {
+        "title": "Analyze",
+        "subtitle": "AI analytics & natural language queries",
+        "description": "Ask questions in plain English and get instant answers. CIRO AI runs analytics, detects anomalies, and generates visualizations — no SQL or data science degree required.",
+        "features": [
+          "Natural language queries",
+          "Real-time dashboards",
+          "Anomaly detection",
+          "Predictive forecasting"
+        ]
+      },
+      "act": {
+        "title": "Act",
+        "subtitle": "CIRO SALES, ERP, and LABS trigger actions",
+        "description": "Insights become action. CIRO SALES dispatches field teams, CIRO ERP adjusts production, and CIRO LABS flags quality issues — all in real time, automatically.",
+        "features": [
+          "Automated workflows",
+          "Field team dispatch",
+          "Production adjustments",
+          "Quality alerts"
+        ]
+      },
+      "learn": {
+        "title": "Learn",
+        "subtitle": "Feedback loop & continuous improvement",
+        "description": "Every action feeds data back into CIRO LAKE, creating a continuous improvement loop. The platform gets smarter with every interaction — predicting issues before they happen.",
+        "features": [
+          "Continuous learning",
+          "Predictive models",
+          "Performance benchmarks",
+          "ROI tracking"
+        ]
+      }
+    },
+    "stepLabel": "Step"
+  },
+  "useCases": {
+    "badge": "Real-World Impact",
+    "heading1": "Transforming Industries",
+    "heading2": "with Real Results",
+    "description": "See how leading companies across industries are using CIRO technology to achieve breakthrough results and gain competitive advantages.",
+    "cases": {
+      "manufacturing": {
+        "title": "Manufacturing Excellence",
+        "subtitle": "Improving Uptime & Quality",
+        "description": "A leading food manufacturer transformed their operations with CIRO's real-time analytics, achieving unprecedented efficiency gains.",
+        "industry": "Food Processing",
+        "keyBenefit": "Operational Efficiency",
+        "metrics": {
+          "downtime": { "label": "Downtime Reduction", "value": "20%" },
+          "quality": { "label": "Quality Compliance", "value": "+15%" },
+          "roi": { "label": "ROI Period", "value": "4 months" }
+        }
+      },
+      "logistics": {
+        "title": "Logistics & Distribution",
+        "subtitle": "Streamlining Supply Chains",
+        "description": "A major 3PL logistics provider revolutionized their supply chain operations with CIRO's predictive intelligence.",
+        "industry": "3PL Logistics",
+        "keyBenefit": "Supply Chain Optimization",
+        "metrics": {
+          "delays": { "label": "Delivery Delays", "value": "-25%" },
+          "accuracy": { "label": "Inventory Accuracy", "value": "+30%" },
+          "implementation": { "label": "Implementation", "value": "3 months" }
+        }
+      },
+      "safety": {
+        "title": "Safety & Compliance",
+        "subtitle": "Enhancing Workplace Safety",
+        "description": "An industrial manufacturer achieved breakthrough safety improvements through CIRO's computer vision technology.",
+        "industry": "Industrial Manufacturing",
+        "keyBenefit": "Safety Monitoring",
+        "metrics": {
+          "incidents": { "label": "Incident Reduction", "value": "65%" },
+          "compliance": { "label": "Compliance Rate", "value": "99.8%" },
+          "response": { "label": "Response Time", "value": "<2s" }
+        }
+      }
+    },
+    "successfullyImplemented": "Successfully Implemented",
+    "impactTitle": "Combined Impact Across All Industries",
+    "impactDescription": "These success stories represent just a fraction of the transformative impact CIRO is delivering across global industries.",
+    "impactStats": {
+      "savings": { "value": "$2.3B+", "label": "Annual Savings Generated" },
+      "companies": { "value": "500+", "label": "Companies Transformed" },
+      "success": { "value": "99.7%", "label": "Average Success Rate" },
+      "roiPeriod": { "value": "4.2mo", "label": "Average ROI Period" }
+    },
+    "ctaStories": "See More Success Stories",
+    "ctaImpact": "Calculate Your Impact"
+  },
+  "aboutSection": {
+    "badge": "About CIRO",
+    "heading1": "Building the future of",
+    "heading2": "enterprise intelligence",
+    "description": "CIRO is an enterprise AI company on a mission to make real-time intelligence accessible to every organization — from the data lake to the plant floor.",
+    "missionTitle": "Our Mission",
+    "missionP1": "To democratize enterprise AI by building a unified platform that connects every data source, every process, and every team — making real-time intelligence the default, not the exception.",
+    "missionP2": "We believe the next wave of enterprise transformation will be driven by platforms that don't just analyze data — they see, predict, and act on it. Our CIRO LABS RESEARCH division pushes the boundaries of what's possible with AI and computer vision.",
+    "visionTitle": "Our Vision",
+    "visionP1": "A world where every enterprise operates with the precision of real-time data and the intelligence of AI — where insights arrive before problems, and decisions are informed by data, not guesses.",
+    "visionP2": "Where data flows seamlessly across systems, teams collaborate with AI as a partner, and continuous improvement is automatic.",
+    "stats": {
+      "team": "Team Members",
+      "nvidia": "Inception Program",
+      "products": "Products Shipped",
+      "countries": "Countries"
+    },
+    "ctaHeading": "Join us in building the future of enterprise AI",
+    "ctaDescription": "Whether you're looking to transform your operations or join our team, we'd love to hear from you.",
+    "ctaContact": "Get in Touch",
+    "ctaCareers": "View Careers"
   },
   "testimonials": {
-    "title": "What Our Clients Say",
-    "subtitle": "Learn how Ciro is transforming operations for industry leaders",
+    "badge": "Customer Success",
+    "heading1": "Trusted by Industry",
+    "heading2": "Leaders Worldwide",
+    "description": "See how leading companies are achieving breakthrough results with CIRO's intelligent automation platform.",
+    "trustedBy": "TRUSTED BY LEADING COMPANIES",
+    "previous": "Previous",
+    "next": "Next",
+    "provenResults": "Proven Results",
+    "provenResultsDesc": "Real metrics from our customers' success stories",
     "metrics": {
-      "manualTasks": "Manual Tasks",
-      "outputQuality": "Output Quality",
-      "savings": "Savings"
-    }
+      "manualTasks": {
+        "value": "↓70%",
+        "label": "Manual Tasks",
+        "description": "Workflow automation eliminated routine manual processes, freeing engineers to focus on high-value strategic work."
+      },
+      "outputQuality": {
+        "value": "↑15%",
+        "label": "Output Quality",
+        "description": "Real-time monitoring and AI optimization led to significant improvement in product quality compliance and consistency."
+      },
+      "savings": {
+        "value": "$2.5M",
+        "label": "Annual Savings",
+        "description": "Predictive maintenance prevented downtime and optimized operations, saving an estimated $2.5M annually."
+      },
+      "uptime": {
+        "value": "99.7%",
+        "label": "Equipment Uptime",
+        "description": "Proactive maintenance and real-time monitoring achieved unprecedented equipment reliability and availability."
+      }
+    },
+    "ctaHeading": "Ready to Transform Your Operations?",
+    "ctaDescription": "Join industry leaders who are already achieving breakthrough results with CIRO's intelligent automation platform.",
+    "ctaDemo": "Schedule a Demo",
+    "ctaCases": "View Case Studies"
   },
   "footer": {
-    "company": "Company",
+    "companyDesc": "The enterprise AI platform that connects your entire operation — from the data lake to the plant floor — with AI that sees, predicts, and acts in real time.",
+    "location": "El Salvador and California",
     "products": "Products",
     "resources": "Resources",
-    "legal": "Legal",
-    "copyright": "© 2024 Ciro Labs, Inc. All rights reserved.",
-    "address": "El Salvador and California"
+    "blog": "Blog",
+    "news": "News",
+    "aboutUs": "About Us",
+    "careers": "Careers",
+    "contact": "Contact",
+    "partners": "Partners",
+    "stayUpdated": "Stay Updated",
+    "newsletterDesc": "Get the latest on CIRO product updates and AI insights.",
+    "emailPlaceholder": "Enter your email",
+    "subscribe": "Subscribe",
+    "subscribing": "Subscribing...",
+    "copyright": "All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "cookiePolicy": "Cookie Policy",
+    "cookieSettings": "Cookie Settings",
+    "newsletterSuccess": "Successfully subscribed to newsletter!",
+    "newsletterError": "Something went wrong. Please try again later.",
+    "emailRequired": "Please enter your email address"
+  },
+  "logoCloud": {
+    "heading": "Integrating seamlessly with your existing ecosystem"
   },
   "notFound": {
     "title": "404",
     "subtitle": "Page Not Found",
     "message": "The page you are looking for doesn't exist or has been moved.",
     "action": "Return to Home"
+  },
+  "common": {
+    "bookDemo": "Book a Demo",
+    "learnMore": "Learn more",
+    "login": "Login",
+    "getStarted": "Get Started",
+    "contactUs": "Contact Us"
+  },
+  "pages": {
+    "aiAnalytics": {
+      "badge": "Flagship Product",
+      "heading1": "CIRO AI",
+      "heading2": "Analytics",
+      "description": "The enterprise AI platform that connects 50+ data sources, powers real-time dashboards, and lets anyone query data in natural language — built on Apache Kafka, Airflow, and Flink.",
+      "stats": {
+        "events": { "value": "500K+", "label": "Events/sec" },
+        "latency": { "value": "<12ms", "label": "Latency" },
+        "connectors": { "value": "50+", "label": "Connectors" },
+        "uptime": { "value": "99.97%", "label": "Uptime" }
+      },
+      "bookDemo": "Book a Demo",
+      "loginPlatform": "Login to Platform",
+      "poweredBy": "Powered by",
+      "capabilitiesTitle": "Enterprise-grade capabilities",
+      "capabilitiesDesc": "Everything you need to turn raw data into real-time intelligence at scale.",
+      "capabilities": {
+        "streaming": { "title": "Real-Time Streaming", "desc": "Apache Kafka-powered ingestion at 500K+ events/sec with sub-12ms latency. Stream processing via Apache Flink for instant analytics.", "statsValue": "500K+", "statsLabel": "events/sec" },
+        "nlAi": { "title": "Natural Language AI", "desc": "Ask questions in plain English. CIRO AI translates queries into analytics, generates visualizations, and surfaces anomalies — no SQL required.", "statsValue": "<2s", "statsLabel": "query response" },
+        "workflow": { "title": "Workflow Orchestration", "desc": "Apache Airflow-driven automation with custom DAGs. Trigger actions based on real-time events and predictive analytics.", "statsValue": "1000+", "statsLabel": "daily DAG runs" },
+        "connectors": { "title": "50+ Connectors", "desc": "Universal integration with databases, cloud services, enterprise systems, IoT protocols, and file formats. Zero-downtime onboarding.", "statsValue": "50+", "statsLabel": "integrations" },
+        "private": { "title": "Private Deployment", "desc": "Deploy on your infrastructure with full data isolation. On-premise, hybrid, or multi-cloud — your data never leaves your perimeter.", "statsValue": "100%", "statsLabel": "data sovereignty" },
+        "security": { "title": "Enterprise Security", "desc": "SOC 2 Type II and ISO 27001 certified. End-to-end encryption, RBAC, audit logging, and compliance with industry standards.", "statsValue": "SOC 2", "statsLabel": "certified" }
+      },
+      "architectureTitle": "Built for the enterprise stack",
+      "architectureDesc": "Four layers working together — from ingestion to action — with every component battle-tested at scale.",
+      "layers": {
+        "ingestion": { "title": "Ingestion Layer", "items": ["50+ Connectors", "Apache Kafka", "CDC Streams", "Batch Import"] },
+        "processing": { "title": "Processing Layer", "items": ["Apache Flink", "Apache Airflow", "Custom DAGs", "Schema Registry"] },
+        "intelligence": { "title": "Intelligence Layer", "items": ["Custom LLMs", "RAG Pipeline", "Anomaly Detection", "Predictions"] },
+        "action": { "title": "Action Layer", "items": ["Dashboards", "Alerts", "Webhooks", "API Gateway"] }
+      },
+      "flowLabels": ["Data Sources", "Stream Processing", "AI Models", "Real-time Actions"],
+      "connectorsTitle": "Connect to everything",
+      "connectorsDesc": "50+ pre-built connectors with auto-discovery, schema sync, and zero-downtime onboarding.",
+      "connectorCategories": {
+        "databases": "Databases",
+        "cloud": "Cloud",
+        "enterprise": "Enterprise",
+        "iot": "IoT & Industrial",
+        "streaming": "Streaming",
+        "files": "Files & APIs"
+      },
+      "deployTitle": "Deploy your way",
+      "deployDesc": "Cloud, on-premise, or hybrid — with full data sovereignty and enterprise security.",
+      "deployOptions": {
+        "cloud": { "title": "Cloud (SaaS)", "desc": "Fully managed platform with auto-scaling, global CDN, and 99.97% SLA.", "items": ["Auto-scaling", "Global CDN", "Managed upgrades", "24/7 monitoring"] },
+        "private": { "title": "Private Nodes", "desc": "Deploy on your infrastructure. Your data never leaves your perimeter.", "items": ["On-premise", "Air-gapped option", "Custom LLM hosting", "Full data isolation"], "badge": "Most Secure" },
+        "hybrid": { "title": "Hybrid / Multi-Cloud", "desc": "Split workloads across environments with unified governance.", "items": ["Cross-cloud sync", "Unified governance", "Disaster recovery", "Edge processing"] }
+      },
+      "ctaTitle": "Ready to see CIRO AI in action?",
+      "ctaDesc": "Get a personalized demo tailored to your data stack, use cases, and security requirements.",
+      "scheduleDemo": "Schedule a Demo",
+      "tryPlatform": "Try the Platform",
+      "dashboard": {
+        "eventsPerSec": "Events/sec",
+        "latency": "Latency",
+        "modelsActive": "Models Active",
+        "uptime": "Uptime",
+        "throughput": "Throughput — Last 24h",
+        "nlQuery": "\"What caused the throughput spike at 14:00?\""
+      }
+    },
+    "erp": {
+      "badge": "CIRO ERP",
+      "heading1": "From planning to",
+      "heading2": "fulfillment",
+      "description": "The ERP built specifically for modern manufacturers — with lot traceability, QC workflows, formula IP protection, and regulatory compliance from day one.",
+      "stats": {
+        "modules": { "value": "11", "label": "Modules" },
+        "traceability": { "value": "100%", "label": "Traceability" },
+        "invoicing": { "value": "DTE", "label": "E-Invoicing" },
+        "compliant": { "value": "ISA", "label": "Compliant" }
+      },
+      "bookDemo": "Book a Demo",
+      "allProducts": "All Products",
+      "modulesTitle": "11 Integrated Modules",
+      "modulesDesc": "Every aspect of manufacturing, connected in one system.",
+      "modules": {
+        "sales": { "title": "Sales", "desc": "Quotes, orders, invoicing, and CRM" },
+        "purchasing": { "title": "Purchasing", "desc": "Supplier management and POs" },
+        "inventory": { "title": "Inventory", "desc": "Lot tracking and warehouse ops" },
+        "production": { "title": "Production", "desc": "Work orders and BOM management" },
+        "qc": { "title": "Quality Control", "desc": "QC workflows and lab results" },
+        "formulas": { "title": "Formulas", "desc": "R&D with IP protection" },
+        "accounting": { "title": "Accounting", "desc": "GL, AP, AR, and cost accounting" },
+        "hr": { "title": "Human Resources", "desc": "Payroll, attendance, and compliance" },
+        "maintenance": { "title": "Maintenance", "desc": "Preventive and corrective maintenance" },
+        "logistics": { "title": "Logistics", "desc": "Shipping, routing, and delivery" },
+        "analytics": { "title": "Analytics", "desc": "Dashboards and business intelligence" }
+      },
+      "traceabilityTitle": "Complete Lot Traceability",
+      "traceabilityDesc": "Track every raw material, batch, and finished product through every stage. When a quality issue arises, trace it back to the exact lot, supplier, and production run in seconds.",
+      "traceabilityItems": [
+        "Forward and backward lot tracking",
+        "QC hold and release workflows",
+        "Certificate of Analysis (COA) generation",
+        "Supplier qualification management",
+        "OSHA/EPA compliance tracking",
+        "Automatic recall identification"
+      ],
+      "qcWorkflow": "QC Workflow",
+      "qcSteps": [
+        { "label": "Raw Material Received", "status": "Passed" },
+        { "label": "In-Process QC Check", "status": "Passed" },
+        { "label": "Lab Analysis", "status": "In Review" },
+        { "label": "Final Release", "status": "Pending" }
+      ],
+      "formulaTitle": "Formula IP Protection",
+      "formulaDesc": "Your formulas are your competitive advantage. CIRO ERP protects them with granular role-based access control — R&D sees full formulations, production sees only what they need, and warehouse staff sees nothing proprietary.",
+      "formulaItems": [
+        "Column-level access control on formulas",
+        "Audit trail for every formula view",
+        "Version control with approval workflows",
+        "Encrypted storage for proprietary data"
+      ],
+      "accessControl": "Access Control",
+      "accessRoles": [
+        { "role": "Plant Manager", "access": "Full Access" },
+        { "role": "Production Lead", "access": "Formulas (Read)" },
+        { "role": "QC Analyst", "access": "QC & Lab Only" },
+        { "role": "Warehouse Staff", "access": "Inventory Only" }
+      ],
+      "ctaTitle": "Ready to modernize your manufacturing?",
+      "ctaDesc": "See how CIRO ERP can streamline your manufacturing operations.",
+      "scheduleDemo": "Schedule a Demo"
+    },
+    "sales": {
+      "badge": "CIRO SALES",
+      "heading1": "Keep your sales",
+      "heading2": "in orbit",
+      "description": "An offline-first mobile app that empowers field sales teams with route optimization, order management, and real-time ERP integration — even without connectivity.",
+      "stats": {
+        "travel": { "value": "30%", "label": "Less Travel Time" },
+        "offline": { "value": "100%", "label": "Offline Capable" },
+        "visits": { "value": "2x", "label": "More Visits/Day" },
+        "sap": { "value": "SAP", "label": "Integrated" }
+      },
+      "bookDemo": "Book a Demo",
+      "allProducts": "All Products",
+      "featuresTitle": "Built for the Field",
+      "featuresDesc": "Everything your sales reps need, designed for real-world conditions.",
+      "features": {
+        "offline": { "title": "Offline-First", "desc": "Full functionality without internet. Auto-sync when connectivity returns — never lose a sale." },
+        "routes": { "title": "Route Optimization", "desc": "AI-optimized routes that reduce travel time by 30%. GPS tracking and visit verification built in." },
+        "orders": { "title": "Orders & Collections", "desc": "Create orders, process collections, handle returns and credits — all from one mobile interface." },
+        "sap": { "title": "SAP Integration", "desc": "Real-time bidirectional sync with SAP and major ERPs. Inventory, pricing, and customer data always current." },
+        "whiteLabel": { "title": "White-Label Ready", "desc": "Multi-tenant architecture with custom branding. Deploy under your brand for each client." },
+        "portfolio": { "title": "Customer Portfolio", "desc": "360-degree customer view with visit history, credit status, payment behavior, and purchase patterns." }
+      },
+      "modulesTitle": "Complete Sales Toolkit",
+      "modulesDesc": "Every module your field team needs in one app.",
+      "modules": {
+        "routePlanning": { "title": "Route Planning", "desc": "AI-optimized daily routes with real-time adjustments" },
+        "orderEntry": { "title": "Order Entry", "desc": "Quick order creation with product catalog and pricing rules" },
+        "collections": { "title": "Collections", "desc": "Payment collection with receipt generation and reconciliation" },
+        "returns": { "title": "Returns & Credits", "desc": "Streamlined returns processing with approval workflows" },
+        "inventoryCheck": { "title": "Inventory Check", "desc": "Real-time warehouse inventory visibility from the field" },
+        "visitTracking": { "title": "Visit Tracking", "desc": "GPS-verified check-in/out with photo evidence" },
+        "customerInsights": { "title": "Customer Insights", "desc": "Purchase history, credit limits, and payment patterns" },
+        "promotions": { "title": "Promotions", "desc": "Configure and apply promotions and volume discounts" }
+      },
+      "offlineTitle": "Offline-First Architecture",
+      "offlineDesc": "In LATAM distribution, connectivity is unreliable. CIRO SALES works fully offline — orders, collections, and customer data are stored locally and synced automatically when connectivity returns.",
+      "offlineItems": [
+        "Local SQLite database for instant access",
+        "Conflict resolution with server-side merge",
+        "Background sync with retry logic",
+        "Works in rural and low-signal areas",
+        "No data loss — ever"
+      ],
+      "offlineVisual": {
+        "offlineMode": "Offline Mode",
+        "offlineAvailable": "Full functionality available",
+        "ordersQueued": "3 orders queued",
+        "willSync": "Will sync when online",
+        "collectionsPending": "2 collections pending",
+        "receiptsSaved": "Receipts saved locally",
+        "connectedSyncing": "Connected — Syncing...",
+        "itemsSynced": "5 items synced to SAP"
+      },
+      "ctaTitle": "Ready to supercharge your field sales?",
+      "ctaDesc": "See how CIRO SALES can double your team's visits and eliminate lost orders.",
+      "scheduleDemo": "Schedule a Demo"
+    },
+    "lake": {
+      "badge": "CIRO LAKE",
+      "heading1": "Your data universe,",
+      "heading2": "unified",
+      "description": "A modern lakehouse that ingests from 50+ sources, processes 500K events per second, and lets anyone query data in plain English.",
+      "stats": {
+        "connectors": { "value": "50+", "label": "Connectors" },
+        "events": { "value": "500K", "label": "Events/sec" },
+        "latency": { "value": "<12ms", "label": "Latency" },
+        "uptime": { "value": "99.9%", "label": "Uptime" }
+      },
+      "bookDemo": "Book a Demo",
+      "allProducts": "All Products",
+      "architectureTitle": "Medallion Lakehouse Architecture",
+      "architectureDesc": "Built on S3 + Parquet + DuckDB with Apache Kafka streaming — your data flows through four layers of progressive refinement.",
+      "layers": {
+        "bronze": { "name": "Bronze", "subtitle": "Raw Ingestion", "desc": "Ingest raw data from 50+ sources in any format — streaming or batch." },
+        "silver": { "name": "Silver", "subtitle": "Cleaned & Enriched", "desc": "Automated cleansing, deduplication, schema enforcement, and enrichment." },
+        "gold": { "name": "Gold", "subtitle": "Business-Ready", "desc": "Curated datasets, materialized views, and aggregations ready for analytics." },
+        "intelligence": { "name": "Intelligence", "subtitle": "AI & Insights", "desc": "Natural language queries, ML models, predictive analytics, and dashboards." }
+      },
+      "capabilitiesTitle": "Platform Capabilities",
+      "capabilitiesDesc": "Everything you need to build a world-class data infrastructure.",
+      "capabilities": {
+        "nlQueries": { "title": "Natural Language Queries", "desc": "Ask questions in plain English. CIRO LAKE translates to SQL, runs it, and returns visualizations instantly." },
+        "streaming": { "title": "Real-Time Streaming", "desc": "Apache Kafka-powered ingestion processes 500K events/sec with exactly-once semantics and sub-12ms latency." },
+        "orchestration": { "title": "Workflow Orchestration", "desc": "Apache Airflow pipelines automate ETL, data quality checks, and ML model training on schedule." },
+        "analytics": { "title": "AI-Powered Analytics", "desc": "Built-in ML models for anomaly detection, forecasting, and classification — no data science degree required." },
+        "governance": { "title": "Data Governance", "desc": "Fine-grained role-based access, column-level encryption, audit logging, and GDPR compliance built in." },
+        "connectors": { "title": "50+ Connectors", "desc": "Connect databases, cloud services, IoT devices, ERPs, CRMs, and file systems in minutes, not months." }
+      },
+      "connectorsTitle": "50+ Enterprise Connectors",
+      "connectorsDesc": "Connect to anything. Ingest everything.",
+      "connectorCategories": {
+        "databases": "Databases",
+        "cloud": "Cloud & Storage",
+        "enterprise": "Enterprise",
+        "iot": "IoT & Streaming"
+      },
+      "securityTitle": "Enterprise-Grade Security",
+      "securityDesc": "Your data is protected at every layer.",
+      "securityBadges": {
+        "soc2": { "title": "SOC 2 Type II", "desc": "Audited security controls" },
+        "iso": { "title": "ISO 27001", "desc": "Information security certified" },
+        "encryption": { "title": "Encryption", "desc": "AES-256 at rest & in transit" }
+      },
+      "ctaTitle": "Ready to unify your data?",
+      "ctaDesc": "See how CIRO LAKE can transform your data infrastructure with a personalized demo.",
+      "scheduleDemo": "Schedule a Demo"
+    },
+    "productsHub": {
+      "heading": "CIRO AI Products",
+      "description": "Transform your industrial operations with AI that turns fragmented data streams into automated decisions in milliseconds.",
+      "demoBadge": "Live Product Demo Available",
+      "ciroAi": {
+        "title": "CIRO AI Analytics",
+        "subtitle": "Real-time industrial intelligence",
+        "desc": "Connect your data systems for real-time visibility, insights, and automated workflows. Ask questions in natural language and get instant SQL, KPIs, and actionable insights.",
+        "explore": "Explore CIRO AI"
+      },
+      "ciroLabs": {
+        "title": "CIRO LABS RESEARCH",
+        "subtitle": "Computer vision for industrial automation",
+        "desc": "Advanced computer vision and real-time monitoring that transforms your cameras into intelligent sensors for quality control and operational excellence.",
+        "explore": "Explore CIRO LABS"
+      },
+      "capabilitiesTitle": "Platform Capabilities",
+      "capabilitiesDesc": "Comprehensive features that power both AI Analytics and Vision Intelligence",
+      "capabilities": {
+        "visualizations": { "title": "Advanced Visualizations", "desc": "Generate bar, heat-map, or geospatial charts from a single prompt—then polish them in CIRO Studio à la Canva." },
+        "templates": { "title": "Template Gallery", "desc": "Kick-start storytelling with pre-built KPI boards and industry templates you can inject with your own data in seconds." },
+        "alerts": { "title": "Omnichannel Alerts", "desc": "Insight triggers push to email, SMS, Slack, Teams, webhooks—anywhere your team lives—so nothing slips through the cracks." },
+        "forecasts": { "title": "Data Science & Forecasts", "desc": "Run cleaning, feature engineering, and time-series forecasts without writing Python; export models or schedule automated reports." }
+      },
+      "lakeTitle": "CIRO LAKE",
+      "lakeDesc": "Ingest PDFs, Excel, live Kafka streams, ERPs, CRMs, and cloud apps—then enforce fine-grained org, team, and role permissions in one place.",
+      "aiTitle": "CIRO AI",
+      "aiDesc": "Ask questions (or speak them) and CIRO instantly scans billions of rows, returning answers, KPIs, or SQL you can tweak.",
+      "aiFeatures": [
+        "Instant geospatial visualization generation",
+        "Interactive maps and heatmaps",
+        "Real-time location-based insights",
+        "Exportable map visualizations"
+      ],
+      "tryGeo": "Try Geospatial Query",
+      "labsTitle": "CIRO LABS",
+      "labsDesc": "Transform your cameras into intelligent sensors that detect defects, monitor processes, and ensure quality control in real-time.",
+      "labsFeatures": [
+        "Real-time defect detection and classification",
+        "Process monitoring and optimization",
+        "Automated quality control workflows",
+        "Predictive maintenance alerts"
+      ],
+      "exploreLabs": "Explore CIRO LABS",
+      "labsUseCasesTitle": "CIRO LABS Use Cases",
+      "labsUseCasesDesc": "From manufacturing to agriculture, CIRO LABS powers intelligent automation across industries",
+      "labsUseCases": {
+        "manufacturing": { "title": "Manufacturing QC", "desc": "Detect surface defects, measure dimensions, and ensure product quality in real-time production lines.", "tags": ["Defect Detection", "Dimensional Analysis"] },
+        "agriculture": { "title": "Agricultural Monitoring", "desc": "Monitor crop health, detect pests, and optimize irrigation using drone and ground-based cameras.", "tags": ["Crop Health", "Pest Detection"] },
+        "food": { "title": "Food Safety", "desc": "Ensure food quality, detect contamination, and monitor processing conditions in food production.", "tags": ["Contamination Detection", "Quality Assessment"] },
+        "supplyChain": { "title": "Supply Chain", "desc": "Track packages, monitor warehouse operations, and ensure proper handling throughout the supply chain.", "tags": ["Package Tracking", "Warehouse Monitoring"] },
+        "iot": { "title": "IoT Monitoring", "desc": "Monitor IoT devices, detect malfunctions, and predict maintenance needs using visual inspection.", "tags": ["Device Health", "Predictive Maintenance"] },
+        "safety": { "title": "Safety & Security", "desc": "Monitor workplace safety, detect security threats, and ensure compliance with safety protocols.", "tags": ["Safety Compliance", "Threat Detection"] }
+      },
+      "ctaTitle": "Ready to Transform Your Operations?",
+      "ctaDesc": "See CIRO AI in action with a personalized demo of your industrial use case.",
+      "ctaButton": "Book Live Demo"
+    },
+    "about": {
+      "heading": "Ciro Labs",
+      "subtitle": "Innovation • Research • Development",
+      "description": "Exploring the boundaries of human intelligence through deep tech, computer vision, and AI research. Building the future where robots and AI overlays seamlessly integrate with human operations.",
+      "tags": ["Deep Tech Research", "Computer Vision", "AI Innovation"],
+      "missionTitle": "Our Mission",
+      "missionDesc": "To push the boundaries of human intelligence by developing cutting-edge AI systems that see, understand, and act in the real world—bridging the gap between human intuition and machine precision.",
+      "pillars": {
+        "explore": { "title": "Explore", "desc": "Research the frontiers of computer vision, AI, and human-machine interaction." },
+        "innovate": { "title": "Innovate", "desc": "Develop breakthrough technologies that redefine what's possible in industrial AI." },
+        "transform": { "title": "Transform", "desc": "Deploy AI solutions that revolutionize how humans and machines collaborate." }
+      },
+      "whyDeepTech": "Why Deep Tech Matters",
+      "whyDeepTechDesc": "The next industrial revolution isn't about faster machines—it's about intelligent systems that can see, think, and adapt in real-time. The cost of staying behind isn't just inefficiency...",
+      "obsolescence": "It's obsolescence.",
+      "stats": {
+        "manual": { "stat": "60%", "label": "Manual Processes Still Dominate", "desc": "Most industrial operations rely on human decision-making for critical processes" },
+        "data": { "stat": "90%", "label": "Data Never Analyzed in Time", "desc": "Valuable insights are discovered too late to prevent problems or capture opportunities" },
+        "delay": { "stat": "24hr", "label": "Average Detection Delay", "desc": "By the time problems are detected, significant damage has already occurred" }
+      },
+      "labsTitle": "Innovation Labs",
+      "labsDesc": "Where breakthrough research meets real-world application",
+      "deepTechTitle": "Deep Tech Foundation",
+      "deepTechP1": "Ciro Labs emerged from a simple but profound realization: the gap between cutting-edge AI research and practical industrial applications was growing wider every day. While academia pushed the boundaries of what's possible, industry remained stuck with legacy systems and incremental improvements.",
+      "deepTechP2": "We founded Ciro Labs as a bridge—a place where theoretical breakthroughs in computer vision, machine learning, and robotics could be transformed into practical solutions that solve real problems in manufacturing, logistics, and industrial operations.",
+      "cvTitle": "Computer Vision Pioneers",
+      "cvP1": "Our core focus on computer vision isn't just about seeing—it's about understanding. We develop AI systems that can interpret complex industrial environments, detect anomalies invisible to human eyes, and make split-second decisions that prevent disasters before they happen.",
+      "cvP2": "From thermal imaging analysis to real-time quality control, our computer vision systems don't just observe—they comprehend, predict, and act with superhuman precision and speed.",
+      "futureTitle": "The Future is",
+      "futureHighlight": "Intelligent",
+      "futureDesc": "We're not just building software—we're crafting the neural pathways of tomorrow's industrial landscape, where AI overlays enhance human capability and robotic systems work in perfect harmony with human intuition.",
+      "aiOverlays": { "title": "AI Overlays", "desc": "Augmented reality interfaces that overlay real-time AI insights directly onto physical environments, giving workers superhuman perception and decision-making capabilities." },
+      "robotics": { "title": "Collaborative Robotics", "desc": "Robots that don't replace humans but amplify their capabilities, working alongside operators with seamless coordination and shared intelligence." },
+      "quote": "\"The future doesn't belong to humans or machines alone—it belongs to the synthesis of human creativity and artificial intelligence, working together to solve problems we never thought possible.\"",
+      "videoTitle": "See Our Vision in Action",
+      "videoDesc": "Watch how Ciro Labs is pioneering the future of industrial intelligence through deep tech research and practical AI applications.",
+      "ctaTitle": "Ready to Explore the Future?",
+      "ctaDesc": "Join us on the frontier of industrial AI research. Let's push the boundaries of what's possible together.",
+      "ctaCollaboration": "Start a Collaboration",
+      "ctaPartnerships": "Research Partnerships"
+    },
+    "useCasesPage": {
+      "badge": "Real-World Impact",
+      "heading1": "Success Stories",
+      "heading2": "That Drive Results",
+      "description": "Discover how leading companies across industries are using CIRO technology to achieve breakthrough results and gain competitive advantages in their markets.",
+      "viewCaseStudies": "View Case Studies",
+      "watchDemo": "Watch Demo",
+      "impactTitle": "Global Impact Across Industries",
+      "impactDesc": "These success stories represent just a fraction of the transformative impact CIRO is delivering across global industries.",
+      "impactStats": {
+        "savings": { "value": "$2.3B+", "label": "Annual Savings Generated" },
+        "companies": { "value": "500+", "label": "Companies Transformed" },
+        "success": { "value": "99.7%", "label": "Average Success Rate" },
+        "roi": { "value": "4.2mo", "label": "Average ROI Period" }
+      },
+      "caseStudiesTitle": "Detailed Case Studies",
+      "caseStudiesDesc": "Explore comprehensive case studies showing how CIRO technology delivers measurable results across different industries and use cases.",
+      "company": "Company",
+      "implementation": "Implementation",
+      "challengeAndSolution": "Challenge & Solution",
+      "challenge": "Challenge",
+      "solution": "Solution",
+      "keyResults": "Key Results",
+      "productsUsed": "CIRO Products Used",
+      "cases": {
+        "manufacturing": {
+          "industry": "Manufacturing",
+          "title": "Improving Uptime & Quality",
+          "subtitle": "Food Processing Excellence",
+          "description": "A leading food manufacturer achieved breakthrough operational improvements by deploying CIRO's real-time analytics platform.",
+          "challenge": "Facing 15% unplanned downtime and quality compliance issues affecting 8% of production batches.",
+          "solution": "Implemented CIRO AI Analytics with real-time monitoring, predictive maintenance algorithms, and automated quality control systems.",
+          "results": [
+            { "metric": "20%", "label": "Reduction in unplanned downtime" },
+            { "metric": "15%", "label": "Improvement in quality compliance" },
+            { "metric": "4 months", "label": "ROI achievement period" },
+            { "metric": "$2.1M", "label": "Annual cost savings" }
+          ],
+          "company": "Global Food Corp",
+          "implementation": "6 months"
+        },
+        "logistics": {
+          "industry": "Logistics & Distribution",
+          "title": "Streamlining Supply Chains",
+          "subtitle": "3PL Network Optimization",
+          "description": "A major 3PL logistics provider revolutionized their supply chain operations by implementing CIRO across their network of 12 facilities.",
+          "challenge": "Managing complex supply chain across 12 facilities with 25% delivery delays and limited visibility.",
+          "solution": "Deployed CIRO's unified platform with predictive analytics, real-time tracking, and automated alert systems.",
+          "results": [
+            { "metric": "25%", "label": "Reduction in supply chain delays" },
+            { "metric": "18%", "label": "Improvement in on-time delivery" },
+            { "metric": "3 months", "label": "Implementation timeline" },
+            { "metric": "30%", "label": "Increase in inventory accuracy" }
+          ],
+          "company": "LogiTech Solutions",
+          "implementation": "3 months"
+        },
+        "safety": {
+          "industry": "Safety & Compliance",
+          "title": "Enhancing Workplace Safety",
+          "subtitle": "Industrial Safety Monitoring",
+          "description": "An industrial manufacturer achieved breakthrough safety improvements through CIRO Vision's computer vision technology.",
+          "challenge": "Experiencing 12 safety incidents monthly with 90% response time to violations taking over 5 minutes.",
+          "solution": "Implemented CIRO Vision with edge AI processing, real-time monitoring, and automated alert systems.",
+          "results": [
+            { "metric": "65%", "label": "Reduction in workplace incidents" },
+            { "metric": "90%", "label": "Faster response to violations" },
+            { "metric": "99.8%", "label": "Compliance documentation rate" },
+            { "metric": "<2s", "label": "Average response time" }
+          ],
+          "company": "Industrial Manufacturing Co",
+          "implementation": "4 months"
+        },
+        "energy": {
+          "industry": "Energy & Utilities",
+          "title": "Optimizing Resource Usage",
+          "subtitle": "Distributed Energy Management",
+          "description": "An energy company transformed their distributed energy resources management using CIRO's predictive analytics.",
+          "challenge": "Managing distributed energy resources with 15% waste and inefficient demand forecasting.",
+          "solution": "Deployed CIRO with predictive analytics, IoT integration, and automated optimization algorithms.",
+          "results": [
+            { "metric": "12%", "label": "Reduction in resource waste" },
+            { "metric": "8%", "label": "Increase in energy efficiency" },
+            { "metric": "$1.2M", "label": "Annual savings identified" },
+            { "metric": "24/7", "label": "Automated monitoring" }
+          ],
+          "company": "Green Energy Solutions",
+          "implementation": "5 months"
+        },
+        "aerospace": {
+          "industry": "Aerospace & Defense",
+          "title": "Precision Manufacturing",
+          "subtitle": "Quality Assurance Excellence",
+          "description": "A leading aerospace manufacturer implemented CIRO to enhance their precision manufacturing processes.",
+          "challenge": "Maintaining 99.99% quality standards with complex manufacturing processes and strict compliance requirements.",
+          "solution": "Integrated CIRO's precision monitoring, automated quality control, and compliance management systems.",
+          "results": [
+            { "metric": "99.99%", "label": "Quality compliance rate" },
+            { "metric": "40%", "label": "Faster inspection process" },
+            { "metric": "100%", "label": "Compliance documentation" },
+            { "metric": "Zero", "label": "Defects in final assembly" }
+          ],
+          "company": "AeroTech Industries",
+          "implementation": "8 months"
+        },
+        "pharma": {
+          "industry": "Pharmaceuticals",
+          "title": "Regulatory Compliance",
+          "subtitle": "GMP Manufacturing Excellence",
+          "description": "A pharmaceutical company achieved unprecedented regulatory compliance and operational efficiency using CIRO's integrated platform.",
+          "challenge": "Managing complex GMP requirements with manual processes causing 20% documentation delays.",
+          "solution": "Implemented CIRO's automated compliance system with real-time monitoring and predictive analytics.",
+          "results": [
+            { "metric": "100%", "label": "Regulatory compliance rate" },
+            { "metric": "60%", "label": "Faster documentation process" },
+            { "metric": "Zero", "label": "Compliance violations" },
+            { "metric": "24/7", "label": "Automated monitoring" }
+          ],
+          "company": "PharmaCorp International",
+          "implementation": "7 months"
+        }
+      },
+      "ctaTitle": "Ready to Create Your Own Success Story?",
+      "ctaDesc": "Schedule a personalized demo to see how CIRO can transform your operations and deliver measurable results for your business.",
+      "ctaDemo": "Book a Demo",
+      "ctaProducts": "View Products"
+    },
+    "contactPage": {
+      "heading": "Let's Transform Your Operations",
+      "subtitle": "Schedule your personalized demo and see how Ciro AI can revolutionize your business",
+      "description": "Get a hands-on demonstration of our enterprise AI platform powered by Apache technologies, custom LLMs, and 50+ connectors tailored to your specific use case.",
+      "scheduleTitle": "Schedule Your Demo",
+      "scheduleDesc": "Tell us about your needs and we'll customize the demo for you",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "workEmail": "Work Email",
+      "phone": "Phone (Optional)",
+      "company": "Company",
+      "jobTitle": "Job Title",
+      "industry": "Industry",
+      "selectIndustry": "Select your industry",
+      "companySize": "Company Size",
+      "selectCompanySize": "Select company size",
+      "primaryUseCase": "Primary Use Case",
+      "selectUseCase": "Select primary use case",
+      "implementationTimeline": "Implementation Timeline",
+      "selectTimeline": "Select timeline",
+      "additionalDetails": "Additional Details (Optional)",
+      "additionalPlaceholder": "Tell us about your specific challenges, current systems, or any questions you have...",
+      "newsletterConsent": "Subscribe to our newsletter for industry insights and product updates",
+      "privacyConsent": "I agree to the",
+      "privacyLink": "Privacy Policy",
+      "privacyConsentEnd": "and consent to being contacted about this demo request",
+      "submitting": "Submitting...",
+      "scheduleMyDemo": "Schedule My Demo",
+      "successMessage": "Demo request submitted successfully! We'll contact you within 24 hours.",
+      "scheduleNow": "Would you like to schedule your demo now?",
+      "scheduleDemoButton": "Schedule Demo",
+      "errorMessage": "Failed to submit demo request. Please try again.",
+      "networkError": "Network error. Please check your connection and try again.",
+      "getInTouch": "Get in Touch",
+      "emailUs": "Email Us",
+      "respondTime": "We'll respond within 24 hours",
+      "visitUs": "Visit Us",
+      "globalOps": "Global operations",
+      "demoSchedule": "Demo Schedule",
+      "demoLength": "30-60 minutes",
+      "customized": "Customized to your needs",
+      "whatToExpect": "What to Expect",
+      "personalizedDemo": "Personalized Demo",
+      "personalizedDemoDesc": "Tailored to your industry and use case",
+      "technicalDeepDive": "Technical Deep Dive",
+      "technicalDeepDiveDesc": "See Apache technologies in action",
+      "roiDiscussion": "ROI Discussion",
+      "roiDiscussionDesc": "Understand potential business impact",
+      "nextSteps": "Next Steps",
+      "nextStepsDesc": "Implementation roadmap and timeline",
+      "enterpriseSecurity": "Enterprise Security",
+      "soc2": "SOC 2 Type II Certified",
+      "iso27001": "ISO 27001 Compliant",
+      "e2e": "End-to-end Encryption",
+      "gdpr": "GDPR Compliant",
+      "industries": {
+        "manufacturing": "Manufacturing",
+        "logistics": "Logistics & Distribution",
+        "food": "Food & Beverage Processing",
+        "energy": "Energy & Utilities",
+        "automotive": "Automotive",
+        "pharmaceutical": "Pharmaceutical",
+        "chemical": "Chemical Processing",
+        "mining": "Mining & Metals",
+        "oilGas": "Oil & Gas",
+        "aerospace": "Aerospace & Defense",
+        "other": "Other"
+      },
+      "companySizes": {
+        "1-50": "1-50 employees",
+        "51-200": "51-200 employees",
+        "201-500": "201-500 employees",
+        "501-1000": "501-1,000 employees",
+        "1001-5000": "1,001-5,000 employees",
+        "5000+": "5,000+ employees"
+      },
+      "useCases": {
+        "realTimeMonitoring": "Real-time Operations Monitoring",
+        "predictiveMaintenance": "Predictive Maintenance",
+        "qualityControl": "Quality Control & Assurance",
+        "supplyChain": "Supply Chain Optimization",
+        "energyEfficiency": "Energy Efficiency",
+        "safetyCompliance": "Safety & Compliance",
+        "processOptimization": "Process Optimization",
+        "dataIntegration": "Data Integration & Analytics",
+        "other": "Other"
+      },
+      "timelines": {
+        "immediate": "Immediate (within 30 days)",
+        "quarter": "This quarter",
+        "year": "This year",
+        "planning": "Planning phase",
+        "research": "Researching options"
+      }
+    },
+    "blog": {
+      "badge": "CIRO Blog",
+      "heading1": "AI Insights",
+      "heading2": "& Industry Knowledge",
+      "description": "Deep dive into the latest AI trends, technical insights, case studies, and industry knowledge from CIRO's team of experts and thought leaders.",
+      "searchPlaceholder": "Search articles...",
+      "featured": "Featured",
+      "readFullArticle": "Read Full Article",
+      "comingSoonBadge": "More Content Coming Soon",
+      "comingSoonTitle": "Stay Tuned for More Insights",
+      "comingSoonDesc": "We're working on bringing you more valuable content about AI trends, technical insights, case studies, and industry knowledge. Subscribe to our newsletter to be the first to know when new articles are published.",
+      "comingSoonTags": ["AI Trends & Insights", "Technical Deep Dives", "Case Studies", "Industry Knowledge"],
+      "popularTopics": "Popular Topics",
+      "popularTopicsDesc": "Explore articles by topic and discover insights in your areas of interest.",
+      "stayInformed": "Stay Informed",
+      "stayInformedDesc": "Get the latest AI insights, technical articles, and industry knowledge delivered directly to your inbox. Join thousands of professionals.",
+      "subscribe": "Subscribe",
+      "privacyNote": "We respect your privacy. Unsubscribe at any time.",
+      "categories": ["All Posts", "Company News", "AI Trends", "Technical Insights", "Case Studies"]
+    },
+    "homeContact": {
+      "badge": "Get Started",
+      "heading1": "Ready to See CIRO",
+      "heading2": "in Action?",
+      "description": "Experience the power of real-time industrial AI in your operations. Schedule a personalized demo with our team and see how CIRO can transform your business.",
+      "whatToExpect": "What to Expect",
+      "benefits": {
+        "walkthrough": { "title": "Personalized Walkthrough", "desc": "We'll tailor the demo to your industry and specific operational challenges." },
+        "qa": { "title": "Live Q&A Session", "desc": "Get all your questions answered by our product specialists." },
+        "noObligation": { "title": "No Obligation", "desc": "Just a friendly conversation to see if CIRO is right for you." }
+      },
+      "otherWays": "Other Ways to Connect",
+      "emailDirectly": "Email us directly",
+      "bookYourDemo": "Book Your Demo",
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "workEmail": "Work Email",
+      "emailPlaceholder": "you@company.com",
+      "company": "Company",
+      "companyPlaceholder": "Your company",
+      "industry": "Industry",
+      "selectIndustry": "Select your industry",
+      "message": "Message (Optional)",
+      "messagePlaceholder": "Tell us about your specific needs or challenges",
+      "bookMyDemo": "Book My Demo",
+      "responseTime": "We typically respond within one business day.",
+      "orChoose": "or choose another option",
+      "scheduleCalendly": "Schedule with Calendly",
+      "scheduleYourDemo": "Schedule Your Demo",
+      "backToForm": "\u2190 Back to Form",
+      "loadingCalendar": "Loading calendar...",
+      "successMessage": "Demo request submitted successfully! We'll contact you within one business day.",
+      "errorMessage": "Something went wrong. Please try again later.",
+      "ctaTitle": "Ready to Transform Your Operations?",
+      "ctaDesc": "Join hundreds of companies already achieving breakthrough results with CIRO's intelligent automation platform.",
+      "scheduleDemo": "Schedule Demo",
+      "viewCaseStudies": "View Case Studies"
+    },
+    "vision": {
+      "badge": "Computer Vision Platform",
+      "heading": "Ciro Vision",
+      "subtitle1": "AI That Sees Everything,",
+      "subtitle2": "Misses Nothing",
+      "description": "Revolutionary computer vision platform that transforms any camera into an intelligent monitoring system. Detect safety violations, quality defects, and operational anomalies with superhuman precision—",
+      "descHighlight": " 15× faster than human inspection.",
+      "stats": {
+        "accuracy": { "value": "99.8%", "label": "Accuracy" },
+        "cameras": { "value": "200+", "label": "Cameras" },
+        "response": { "value": "<50ms", "label": "Response" }
+      },
+      "requestDemo": "Request Live Demo",
+      "seeInAction": "See It In Action",
+      "dashboard": {
+        "title": "Ciro Vision Control Center",
+        "liveMonitoring": "Live Monitoring",
+        "productionLineA": "Production Line A",
+        "safetyZoneB": "Safety Zone B",
+        "qualityOk": "Quality OK",
+        "noPPE": "No PPE",
+        "normal": "Normal",
+        "alert": "Alert",
+        "aiAnalysis": "AI Analysis",
+        "realTimeProcessing": "Real-time Processing",
+        "objectsDetected": "Objects Detected",
+        "warnings": "Warnings",
+        "critical": "Critical",
+        "liveAlerts": "Live Alerts",
+        "camerasActive": "12 Cameras Active",
+        "ppeViolation": "PPE violation detected - Zone B",
+        "justNow": "Just now",
+        "qualityCheck": "Quality check needed - Line A",
+        "twoMinAgo": "2m ago"
+      },
+      "techTitle": "Powered by",
+      "techHighlight": "Deep Learning",
+      "techDesc": "Our computer vision platform combines cutting-edge AI models with industrial-grade hardware to deliver unmatched accuracy and reliability in the most demanding environments.",
+      "tech": {
+        "neuralNetworks": { "title": "Neural Networks", "desc": "Advanced deep learning models trained on millions of industrial images for maximum accuracy.", "stats": "99.8% accuracy" },
+        "edgeComputing": { "title": "Edge Computing", "desc": "Process AI models locally with NVIDIA Jetson and specialized hardware for real-time performance.", "stats": "<50ms latency" },
+        "computerVision": { "title": "Computer Vision", "desc": "Multi-modal visual AI that understands context, identifies objects, and predicts behaviors.", "stats": "200+ cameras" }
+      },
+      "capabilitiesTitle": "AI Models & Capabilities",
+      "capabilitiesDesc": "Specialized AI models trained for industrial environments, delivering superhuman perception and decision-making in real-time operations.",
+      "capabilities": {
+        "safety": { "title": "Safety Compliance", "desc": "Detect PPE violations, zone intrusions, and unsafe behaviors with 99.8% accuracy.", "features": ["PPE Detection", "Zone Monitoring", "Behavior Analysis", "Real-time Alerts"] },
+        "quality": { "title": "Quality Assurance", "desc": "Identify defects, packaging errors, and quality issues before they reach customers.", "features": ["Defect Detection", "Packaging Inspection", "Dimension Analysis", "Color Matching"] },
+        "process": { "title": "Process Monitoring", "desc": "Optimize workflows by identifying bottlenecks and inefficiencies in real-time.", "features": ["Flow Analysis", "Bottleneck Detection", "Efficiency Tracking", "Performance KPIs"] },
+        "security": { "title": "Security & Access", "desc": "Monitor unauthorized access, theft prevention, and asset protection systems.", "features": ["Access Control", "Theft Detection", "Perimeter Security", "Asset Tracking"] },
+        "multiCamera": { "title": "Multi-Camera Fusion", "desc": "Coordinate insights across hundreds of cameras for comprehensive monitoring.", "features": ["Multi-view Analysis", "3D Reconstruction", "Object Tracking", "Centralized Control"] },
+        "customAi": { "title": "Custom AI Training", "desc": "Train specialized models for your unique detection needs and requirements.", "features": ["Custom Models", "Transfer Learning", "Domain Adaptation", "Continuous Improvement"] }
+      },
+      "impactTitle": "Real-World Impact",
+      "impactDesc": "See how Ciro Vision transforms operations across industries with measurable results and quantifiable improvements in safety, quality, and efficiency.",
+      "impact": {
+        "manufacturing": {
+          "title": "Manufacturing Excellence",
+          "desc": "A food processing facility reduced safety incidents by 65% and improved quality metrics by 15% within 6 months of deployment.",
+          "metrics": [
+            { "label": "Safety Incidents", "value": "65%", "trend": "decrease" },
+            { "label": "Quality Improvements", "value": "15%", "trend": "increase" },
+            { "label": "Detection Speed", "value": "15x", "trend": "faster" }
+          ]
+        },
+        "logistics": {
+          "title": "Logistics Optimization",
+          "desc": "A distribution center achieved 30% reduction in inventory shrinkage and 20% improvement in operational efficiency.",
+          "metrics": [
+            { "label": "Inventory Shrinkage", "value": "30%", "trend": "decrease" },
+            { "label": "Operational Efficiency", "value": "20%", "trend": "increase" },
+            { "label": "Response Time", "value": "90%", "trend": "faster" }
+          ]
+        },
+        "security": {
+          "title": "Warehouse Security",
+          "desc": "Enhanced security monitoring with real-time threat detection, preventing unauthorized access and protecting valuable assets.",
+          "metrics": [
+            { "label": "Security Breaches", "value": "95%", "trend": "decrease" },
+            { "label": "False Alarms", "value": "80%", "trend": "reduction" },
+            { "label": "Asset Protection", "value": "99.9%", "trend": "uptime" }
+          ]
+        },
+        "qualityControl": {
+          "title": "Quality Control",
+          "desc": "Automated quality inspection systems catching defects 15x faster than manual processes with 99.8% accuracy.",
+          "metrics": [
+            { "label": "Defect Detection", "value": "99.8%", "trend": "accuracy" },
+            { "label": "Inspection Speed", "value": "15x", "trend": "faster" },
+            { "label": "Customer Complaints", "value": "40%", "trend": "decrease" }
+          ]
+        }
+      },
+      "integrationTitle1": "Easy Integration,",
+      "integrationTitle2": "Powerful Results",
+      "integrationDesc": "Deploy Ciro Vision with your existing camera infrastructure in days, not months. Our platform adapts to your environment and scales with your operations.",
+      "steps": {
+        "s1": { "step": "01", "title": "Camera Integration", "desc": "Connect existing IP cameras or install new ones with our recommended hardware." },
+        "s2": { "step": "02", "title": "AI Model Deployment", "desc": "Deploy pre-trained models or customize AI for your specific detection needs." },
+        "s3": { "step": "03", "title": "Dashboard Setup", "desc": "Configure monitoring dashboards and alert systems for your team." },
+        "s4": { "step": "04", "title": "Live Monitoring", "desc": "Start receiving real-time insights and alerts across all your operations." }
+      },
+      "ctaTitle": "Ready to Transform Your Operations?",
+      "ctaDesc": "See Ciro Vision in action with a personalized demo tailored to your industry and use cases.",
+      "scheduleLiveDemo": "Schedule Live Demo",
+      "talkToExpert": "Talk to Expert"
+    },
+    "careers": {
+      "badge": "Join Our Team",
+      "heading1": "Build the Future",
+      "heading2": "of Industrial AI",
+      "description": "Join a team of passionate innovators working to transform industries through cutting-edge AI technology. Help us build solutions that make a real impact.",
+      "viewOpenings": "View Openings",
+      "watchCultureVideo": "Watch Culture Video",
+      "cultureTitle": "Our Culture & Values",
+      "cultureDesc": "We're building more than just technology – we're building a culture of innovation, collaboration, and impact that drives everything we do.",
+      "values": {
+        "innovation": { "title": "Innovation First", "desc": "We push boundaries and embrace new technologies" },
+        "collaboration": { "title": "Collaboration", "desc": "Great ideas come from working together" },
+        "trust": { "title": "Trust & Integrity", "desc": "We build trust through transparency and honesty" },
+        "excellence": { "title": "Excellence", "desc": "We strive for excellence in everything we do" }
+      },
+      "benefitsTitle": "Why Work With Us",
+      "benefitsDesc": "We believe in taking care of our team with comprehensive benefits and a supportive environment that helps you thrive both personally and professionally.",
+      "benefits": {
+        "salary": { "title": "Competitive Salary", "desc": "Above-market compensation with equity options" },
+        "health": { "title": "Health & Wellness", "desc": "Comprehensive health, dental, and vision coverage" },
+        "pto": { "title": "Flexible PTO", "desc": "Unlimited vacation days and flexible work hours" },
+        "remote": { "title": "Remote Work", "desc": "Work from anywhere with home office stipend" },
+        "learning": { "title": "Learning Budget", "desc": "$5,000 annual budget for courses and conferences" },
+        "team": { "title": "Team Events", "desc": "Regular team building and social activities" }
+      },
+      "openPositionsTitle": "Open Positions",
+      "openPositionsDesc": "Ready to make an impact? Explore our current openings and find the perfect role for your skills and career goals.",
+      "requirements": "Requirements:",
+      "applyNow": "Apply Now",
+      "applyFor": "Apply for",
+      "position": "Position",
+      "department": "Department",
+      "selectDepartment": "Select department",
+      "departments": { "engineering": "Engineering", "product": "Product", "sales": "Sales", "marketing": "Marketing" },
+      "coverLetter": "Cover Letter",
+      "coverLetterPlaceholder": "Tell us why you're interested in this position and what you can bring to the team...",
+      "preparingApplication": "Preparing Application...",
+      "submitApplication": "Submit Application",
+      "cancel": "Cancel",
+      "noFitTitle": "Don't See the Right Fit?",
+      "noFitDesc": "We're always looking for talented individuals to join our team. Send us your resume and let's start a conversation about how you can contribute to our mission.",
+      "sendGeneralApplication": "Send General Application",
+      "successMessage": "Application submitted successfully! We'll review your application and contact you soon.",
+      "errorMessage": "Something went wrong. Please try again later.",
+      "selectPosition": "Please select a position",
+      "jobs": {
+        "seniorAi": { "title": "Senior AI Engineer", "dept": "Engineering", "location": "El Salvador and California", "type": "Full-time", "experience": "5+ years", "salary": "$150K - $200K", "desc": "Lead the development of cutting-edge AI models for industrial applications.", "requirements": ["Strong background in machine learning and deep learning", "Experience with PyTorch, TensorFlow, or similar frameworks", "Knowledge of computer vision and NLP", "Experience with cloud platforms (AWS, GCP, Azure)", "Strong software engineering principles"] },
+        "fullStack": { "title": "Full Stack Developer", "dept": "Engineering", "location": "Remote", "type": "Full-time", "experience": "3+ years", "salary": "$120K - $160K", "desc": "Build scalable web applications and APIs for our AI platform.", "requirements": ["Proficiency in React, TypeScript, and Node.js", "Experience with cloud services and databases", "Knowledge of API design and microservices", "Experience with DevOps and CI/CD", "Strong problem-solving skills"] },
+        "productManager": { "title": "Product Manager", "dept": "Product", "location": "El Salvador and California", "type": "Full-time", "experience": "4+ years", "salary": "$140K - $180K", "desc": "Drive product strategy and execution for our AI solutions.", "requirements": ["Experience in B2B SaaS product management", "Strong analytical and strategic thinking", "Experience with industrial/manufacturing sector", "Excellent communication and leadership skills", "Data-driven decision making"] },
+        "salesEngineer": { "title": "Sales Engineer", "dept": "Sales", "location": "Remote", "type": "Full-time", "experience": "3+ years", "salary": "$100K - $140K + Commission", "desc": "Bridge the gap between technical capabilities and business value.", "requirements": ["Technical background in software or engineering", "Experience in B2B sales or technical consulting", "Strong presentation and communication skills", "Knowledge of manufacturing/logistics industry", "Ability to travel 30-40%"] }
+      }
+    },
+    "partners": {
+      "badge": "Partnership Program",
+      "heading1": "Partner With Us",
+      "heading2": "to Transform Industries",
+      "description": "Join our ecosystem of partners and help bring the power of industrial AI to organizations worldwide. Together, we can create solutions that drive real business transformation.",
+      "explorePartnerships": "Explore Partnerships",
+      "getInTouch": "Get in Touch",
+      "typesTitle": "Partnership Opportunities",
+      "typesDesc": "We offer multiple partnership models to fit your business needs and goals. Choose the partnership type that aligns with your strategy and capabilities.",
+      "keyBenefits": "Key Benefits:",
+      "types": {
+        "technology": { "title": "Technology Partners", "desc": "Integrate our AI solutions into your platforms and applications", "benefits": ["API access and technical support", "Co-marketing opportunities", "Revenue sharing programs", "Joint product development"] },
+        "channel": { "title": "Channel Partners", "desc": "Resell and implement CIRO solutions for your customers", "benefits": ["Competitive margins and incentives", "Sales and technical training", "Marketing materials and support", "Dedicated partner success manager"] },
+        "strategic": { "title": "Strategic Partners", "desc": "Deep collaboration on industry-specific solutions", "benefits": ["Exclusive market access", "Joint go-to-market strategies", "Shared R&D initiatives", "Strategic investment opportunities"] },
+        "global": { "title": "Global Partners", "desc": "Expand CIRO's reach in international markets", "benefits": ["Territory exclusivity", "Local market expertise", "Cultural adaptation support", "Global expansion resources"] }
+      },
+      "whyPartnerTitle": "Why Partner With CIRO",
+      "whyPartnerDesc": "Our partners benefit from cutting-edge AI technology, comprehensive support, and a proven track record of delivering value to customers.",
+      "whyPartner": {
+        "revenue": { "title": "Revenue Growth", "desc": "Access new markets and revenue streams with proven AI solutions" },
+        "risk": { "title": "Risk Mitigation", "desc": "Reduce development costs and time-to-market with ready solutions" },
+        "customer": { "title": "Customer Success", "desc": "Enhance your offerings with cutting-edge AI capabilities" },
+        "competitive": { "title": "Competitive Advantage", "desc": "Differentiate your business with innovative AI technology" }
+      },
+      "trustedTitle": "Our Trusted Partners",
+      "trustedDesc": "We're proud to work with industry leaders who share our vision of transforming industries through AI innovation.",
+      "existingPartners": {
+        "microsoft": { "type": "Technology Partner", "desc": "Azure integration and cloud infrastructure" },
+        "aws": { "type": "Technology Partner", "desc": "Cloud services and AI infrastructure" },
+        "snowflake": { "type": "Data Partner", "desc": "Data warehousing and analytics" },
+        "nvidia": { "type": "Technology Partner", "desc": "GPU acceleration and AI computing" }
+      },
+      "formTitle": "Ready to Partner?",
+      "formDesc": "Let's discuss how we can work together to bring AI innovation to your customers. Our partnership team is ready to explore opportunities with you.",
+      "contactTitle": "Get in Touch",
+      "contactDesc": "Our partnership team is here to help you understand our programs, answer questions, and explore collaboration opportunities.",
+      "emailUs": "Email Us",
+      "visitUs": "Visit Us",
+      "location": "El Salvador and California",
+      "processTitle": "Partnership Process",
+      "processSteps": ["Initial consultation", "Partnership agreement", "Training and enablement", "Go-to-market launch"],
+      "inquiryTitle": "Partnership Inquiry",
+      "companyName": "Company Name",
+      "companyPlaceholder": "Your company",
+      "industry": "Industry",
+      "selectIndustry": "Select industry",
+      "contactName": "Contact Name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "your@company.com",
+      "partnershipType": "Partnership Type of Interest",
+      "selectPartnershipType": "Select partnership type",
+      "partnershipOptions": { "technology": "Technology Partner", "channel": "Channel Partner", "strategic": "Strategic Partner", "global": "Global Partner" },
+      "message": "Message",
+      "messagePlaceholder": "Tell us about your partnership goals and how we can work together...",
+      "sendInquiry": "Send Partnership Inquiry",
+      "successMessage": "Partnership inquiry submitted successfully! We'll contact you within one business day.",
+      "errorMessage": "Something went wrong. Please try again later.",
+      "industries": ["Manufacturing", "Logistics & Supply Chain", "Energy & Utilities", "Healthcare", "Retail", "Financial Services", "Technology", "Consulting", "System Integration", "Other"]
+    },
+    "news": {
+      "heading": "Latest News & Updates",
+      "description": "Stay informed about the latest developments in industrial AI, product launches, partnerships, and industry insights from CIRO.",
+      "readFullArticle": "Read Full Article",
+      "readMore": "Read More",
+      "loadMore": "Load More Articles",
+      "stayUpdated": "Stay Updated",
+      "stayUpdatedDesc": "Get the latest news, product updates, and industry insights delivered directly to your inbox. Never miss an important update from CIRO.",
+      "enterEmail": "Enter your email",
+      "subscribe": "Subscribe",
+      "privacyNote": "We respect your privacy. Unsubscribe at any time.",
+      "newsletterSuccess": "Successfully subscribed to news newsletter!",
+      "emailRequired": "Please enter your email address",
+      "newsletterError": "Something went wrong. Please try again later.",
+      "pressTitle": "Press Resources",
+      "pressDesc": "Journalists and media professionals can find press releases, company information, and media assets here.",
+      "pressReleases": "Press Releases",
+      "pressReleasesDesc": "Official press releases and company announcements",
+      "viewReleases": "View Releases",
+      "companyInfo": "Company Info",
+      "companyInfoDesc": "Company facts, leadership team, and corporate information",
+      "companyDetails": "Company Details",
+      "mediaAssets": "Media Assets",
+      "mediaAssetsDesc": "Logos, images, and other media resources for press use",
+      "downloadAssets": "Download Assets"
+    },
+    "newsPost": {
+      "articleNotFound": "Article Not Found",
+      "articleNotFoundDesc": "The article you're looking for doesn't exist.",
+      "backToNews": "Back to News",
+      "share": "Share",
+      "by": "By",
+      "aboutAuthor": "About the Author",
+      "authorDesc": "Expert insights on industrial AI, manufacturing technology, and digital transformation.",
+      "relatedArticles": "Related Articles",
+      "stayUpdated": "Stay Updated with CIRO",
+      "stayUpdatedDesc": "Get the latest news, product updates, and industry insights delivered directly to your inbox. Never miss an important update from CIRO.",
+      "enterEmail": "Enter your email",
+      "subscribe": "Subscribe",
+      "privacyNote": "We respect your privacy. Unsubscribe at any time."
+    },
+    "blogPost": {
+      "postNotFound": "Blog Post Not Found",
+      "postNotFoundDesc": "The blog post you're looking for doesn't exist.",
+      "backToBlog": "Back to Blog",
+      "featured": "Featured",
+      "share": "Share",
+      "comment": "Comment"
+    },
+    "privacyPolicy": {
+      "title": "Privacy Policy",
+      "subtitle": "Your privacy is important to us. This policy explains how we collect, use, and protect your information.",
+      "lastUpdated": "Last updated:",
+      "introTitle": "Introduction",
+      "introP1": "Ciro AI (\"we,\" \"our,\" or \"us\") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, use our services, or interact with us in any way.",
+      "introP2": "By using our services, you agree to the collection and use of information in accordance with this policy. If you do not agree with our policies and practices, please do not use our services.",
+      "collectTitle": "Information We Collect",
+      "personalInfo": "Personal Information",
+      "personalItems": ["Name and contact information", "Email address", "Company or organization", "Job title or role", "Communication preferences"],
+      "usageInfo": "Usage Information",
+      "usageItems": ["Website usage and analytics", "Device and browser information", "IP address and location data", "Session and interaction data", "Form submissions and preferences"],
+      "useTitle": "How We Use Your Information",
+      "useItems": {
+        "provide": { "title": "Provide Services", "desc": "To deliver our AI-powered analytics and business intelligence services" },
+        "communication": { "title": "Communication", "desc": "To respond to inquiries and provide customer support" },
+        "improve": { "title": "Improve Services", "desc": "To analyze usage patterns and enhance our platform" },
+        "marketing": { "title": "Marketing", "desc": "To send relevant updates and promotional materials (with consent)" },
+        "security": { "title": "Security", "desc": "To protect against fraud and ensure platform security" },
+        "legal": { "title": "Legal Compliance", "desc": "To comply with applicable laws and regulations" }
+      },
+      "sharingTitle": "Information Sharing and Disclosure",
+      "sharingDesc": "We do not sell, trade, or otherwise transfer your personal information to third parties without your consent, except in the following circumstances:",
+      "limitedSharing": "Limited Sharing",
+      "sharingLabels": {
+        "providers": "Service Providers:",
+        "legal": "Legal Requirements:",
+        "transfers": "Business Transfers:",
+        "consent": "Consent:"
+      },
+      "sharingItems": {
+        "providers": "Trusted partners who help us operate our services",
+        "legal": "When required by law or to protect our rights",
+        "transfers": "In connection with a merger or acquisition",
+        "consent": "When you explicitly authorize us to share your information"
+      },
+      "dpoLabel": "Data Protection Officer:",
+      "securityTitle": "Data Security",
+      "securitySubtitle": "Security Measures",
+      "securityDesc": "We implement appropriate technical and organizational security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.",
+      "securityItems": ["Encryption of data in transit and at rest", "Regular security assessments and updates", "Access controls and authentication", "Employee training on data protection"],
+      "rightsTitle": "Your Rights and Choices",
+      "rights": {
+        "access": { "title": "Access and Update", "desc": "Request access to or update your personal information" },
+        "portability": { "title": "Data Portability", "desc": "Request a copy of your data in a portable format" },
+        "marketing": { "title": "Marketing Preferences", "desc": "Opt out of marketing communications" },
+        "deletion": { "title": "Deletion", "desc": "Request deletion of your personal information" }
+      },
+      "cookiesTitle": "Cookies and Tracking Technologies",
+      "cookiesDesc": "We use cookies and similar technologies to enhance your experience, analyze usage, and provide personalized content. You can control cookie settings through your browser or our cookie preferences.",
+      "cookieCategories": "Cookie Categories:",
+      "cookieCategoriesDesc": "Necessary, Analytics, Marketing, and Preferences.",
+      "cookiePolicyLinkPrefix": "See our",
+      "cookiePolicyLink": "Cookie Policy",
+      "cookieDetailedInfo": "for detailed information.",
+      "transfersTitle": "International Data Transfers",
+      "transfersDesc": "Your information may be transferred to and processed in countries other than your own. We ensure appropriate safeguards are in place to protect your data in accordance with this Privacy Policy and applicable laws.",
+      "childrenTitle": "Children's Privacy",
+      "childrenDesc": "Our services are not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13. If you believe we have collected information from a child under 13, please contact us immediately.",
+      "changesTitle": "Changes to This Privacy Policy",
+      "changesDesc": "We may update this Privacy Policy from time to time. We will notify you of any material changes by posting the new policy on this page and updating the \"Last updated\" date. Your continued use of our services after such changes constitutes acceptance of the updated policy.",
+      "contactTitle": "Contact Us",
+      "contactDesc": "If you have any questions about this Privacy Policy or our data practices, please contact us:",
+      "emailLabel": "Email",
+      "phoneLabel": "Phone",
+      "dpoNote": "For GDPR-related inquiries, you may also contact our Data Protection Officer at dpo@ciroai.us"
+    },
+    "cookiePolicy": {
+      "title": "Cookie Policy",
+      "subtitle": "Learn about how we use cookies and similar technologies to enhance your experience.",
+      "lastUpdated": "Last updated:",
+      "tabs": { "overview": "Overview", "categories": "Cookie Categories", "details": "Detailed List", "manage": "Manage Cookies" },
+      "whatAreCookies": "What Are Cookies?",
+      "whatAreCookiesDesc": "Cookies are small text files that are stored on your device when you visit a website. They help websites remember information about your visit, such as your preferred language and other settings, which can make your next visit easier and the site more useful to you.",
+      "howWeUse": "How We Use Cookies",
+      "howWeUseItems": {
+        "essential": { "title": "Essential Functionality", "desc": "Keep you signed in and maintain your session" },
+        "performance": { "title": "Performance & Analytics", "desc": "Understand how visitors use our website" },
+        "personalization": { "title": "Personalization", "desc": "Remember your preferences and settings" },
+        "marketing": { "title": "Marketing", "desc": "Show relevant advertisements and content" }
+      },
+      "yourChoices": "Your Cookie Choices",
+      "controlPreferences": "Control Your Preferences",
+      "controlDesc": "You have several options for managing cookies on our website:",
+      "controlItems": {
+        "browser": "Most browsers allow you to control cookies through their settings",
+        "banner": "Use our cookie consent banner to manage preferences",
+        "optout": "Use third-party opt-out tools for advertising cookies",
+        "contact": "Reach out if you need help managing your preferences"
+      },
+      "categoriesTitle": "Cookie Categories",
+      "categories": {
+        "necessary": { "name": "Necessary Cookies", "desc": "Essential for the website to function properly", "alwaysActive": "Always Active", "purpose": "These cookies are essential for the website to function and cannot be disabled." },
+        "analytics": { "name": "Analytics Cookies", "desc": "Help us understand how visitors interact with our website", "purpose": "These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously." },
+        "marketing": { "name": "Marketing Cookies", "desc": "Used to track visitors across websites for marketing purposes", "purpose": "These cookies are used to track visitors across websites to display relevant advertisements and measure marketing effectiveness." },
+        "preferences": { "name": "Preferences Cookies", "desc": "Allow the website to remember your preferences", "purpose": "These cookies allow the website to remember choices you make and provide enhanced, more personal features." }
+      },
+      "purpose": "Purpose",
+      "examples": "Examples",
+      "andMore": "And {{count}} more...",
+      "detailedList": "Detailed Cookie List",
+      "duration": "Duration:",
+      "provider": "Provider:",
+      "manageTitle": "Manage Your Cookie Preferences",
+      "cookieSettings": "Cookie Settings",
+      "cookieSettingsDesc": "You can manage your cookie preferences at any time. Click the button below to open our cookie settings panel.",
+      "openCookieSettings": "Open Cookie Settings",
+      "browserSettings": "Browser Settings",
+      "browserSettingsDesc": "You can also control cookies through your browser settings:",
+      "thirdPartyOptOut": "Third-Party Opt-Out",
+      "thirdPartyDesc": "For advertising cookies, you can use these opt-out tools:",
+      "importantNote": "Important Note",
+      "importantNoteDesc": "Disabling certain cookies may affect the functionality of our website. Necessary cookies cannot be disabled as they are essential for the website to function properly."
+    }
+  },
+  "cookieBanner": {
+    "title": "We use cookies to enhance your experience",
+    "description": "We use cookies and similar technologies to help personalize content, provide a better user experience, and analyze our traffic. By clicking \"Accept All\", you consent to our use of cookies.",
+    "customize": "Customize",
+    "rejectAll": "Reject All",
+    "acceptAll": "Accept All",
+    "settingsTitle": "Cookie Settings",
+    "necessary": { "title": "Necessary Cookies", "desc": "Essential for the website to function properly", "alwaysActive": "Always Active", "detail": "These cookies are essential for the website to function and cannot be disabled. They include session management, security, and basic functionality." },
+    "analytics": { "title": "Analytics Cookies", "desc": "Help us understand how visitors interact with our website", "detail": "These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously. This helps us improve our website and services." },
+    "marketing": { "title": "Marketing Cookies", "desc": "Used to track visitors across websites for marketing purposes", "detail": "These cookies are used to track visitors across websites to display relevant advertisements and measure the effectiveness of marketing campaigns." },
+    "preferences": { "title": "Preferences Cookies", "desc": "Allow the website to remember your preferences", "detail": "These cookies allow the website to remember choices you make and provide enhanced, more personal features." },
+    "saveSettings": "Save Settings"
   }
-} 
+}

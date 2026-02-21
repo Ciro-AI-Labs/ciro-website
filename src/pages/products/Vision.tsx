@@ -1,11 +1,159 @@
 
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Eye, Shield, CheckCircle, Camera, Cpu, Zap, Brain, Target, AlertTriangle, TrendingUp, Users, Layers, Monitor, Settings, Lock, Sparkles } from "lucide-react";
 
 const Vision = () => {
+  const { t } = useTranslation();
+
+  const techItems = [
+    {
+      title: t('pages.vision.tech.neuralNetworks.title'),
+      description: t('pages.vision.tech.neuralNetworks.desc'),
+      icon: Brain,
+      gradient: "from-purple-500 to-violet-500",
+      stats: t('pages.vision.tech.neuralNetworks.stats')
+    },
+    {
+      title: t('pages.vision.tech.edgeComputing.title'),
+      description: t('pages.vision.tech.edgeComputing.desc'),
+      icon: Cpu,
+      gradient: "from-blue-500 to-cyan-500",
+      stats: t('pages.vision.tech.edgeComputing.stats')
+    },
+    {
+      title: t('pages.vision.tech.computerVision.title'),
+      description: t('pages.vision.tech.computerVision.desc'),
+      icon: Eye,
+      gradient: "from-cyan-500 to-teal-500",
+      stats: t('pages.vision.tech.computerVision.stats')
+    }
+  ];
+
+  const capabilityItems = [
+    {
+      title: t('pages.vision.capabilities.safety.title'),
+      description: t('pages.vision.capabilities.safety.desc'),
+      icon: Shield,
+      color: "text-red-400",
+      bgColor: "bg-red-500/10",
+      borderColor: "border-red-500/20",
+      features: t('pages.vision.capabilities.safety.features', { returnObjects: true }) as string[],
+      image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      title: t('pages.vision.capabilities.quality.title'),
+      description: t('pages.vision.capabilities.quality.desc'),
+      icon: CheckCircle,
+      color: "text-green-400",
+      bgColor: "bg-green-500/10",
+      borderColor: "border-green-500/20",
+      features: t('pages.vision.capabilities.quality.features', { returnObjects: true }) as string[],
+      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      title: t('pages.vision.capabilities.process.title'),
+      description: t('pages.vision.capabilities.process.desc'),
+      icon: TrendingUp,
+      color: "text-blue-400",
+      bgColor: "bg-blue-500/10",
+      borderColor: "border-blue-500/20",
+      features: t('pages.vision.capabilities.process.features', { returnObjects: true }) as string[],
+      image: "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      title: t('pages.vision.capabilities.security.title'),
+      description: t('pages.vision.capabilities.security.desc'),
+      icon: Lock,
+      color: "text-purple-400",
+      bgColor: "bg-purple-500/10",
+      borderColor: "border-purple-500/20",
+      features: t('pages.vision.capabilities.security.features', { returnObjects: true }) as string[],
+      image: "https://images.unsplash.com/photo-1464983953574-0892a716854b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      title: t('pages.vision.capabilities.multiCamera.title'),
+      description: t('pages.vision.capabilities.multiCamera.desc'),
+      icon: Layers,
+      color: "text-cyan-400",
+      bgColor: "bg-cyan-500/10",
+      borderColor: "border-cyan-500/20",
+      features: t('pages.vision.capabilities.multiCamera.features', { returnObjects: true }) as string[],
+      image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      title: t('pages.vision.capabilities.customAi.title'),
+      description: t('pages.vision.capabilities.customAi.desc'),
+      icon: Sparkles,
+      color: "text-orange-400",
+      bgColor: "bg-orange-500/10",
+      borderColor: "border-orange-500/20",
+      features: t('pages.vision.capabilities.customAi.features', { returnObjects: true }) as string[],
+      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    }
+  ];
+
+  const impactItems = [
+    {
+      title: t('pages.vision.impact.manufacturing.title'),
+      description: t('pages.vision.impact.manufacturing.desc'),
+      icon: Target,
+      gradient: "from-orange-500 to-red-500",
+      metrics: t('pages.vision.impact.manufacturing.metrics', { returnObjects: true }) as Array<{ label: string; value: string; trend: string }>
+    },
+    {
+      title: t('pages.vision.impact.logistics.title'),
+      description: t('pages.vision.impact.logistics.desc'),
+      icon: TrendingUp,
+      gradient: "from-blue-500 to-cyan-500",
+      metrics: t('pages.vision.impact.logistics.metrics', { returnObjects: true }) as Array<{ label: string; value: string; trend: string }>
+    },
+    {
+      title: t('pages.vision.impact.security.title'),
+      description: t('pages.vision.impact.security.desc'),
+      icon: Shield,
+      gradient: "from-purple-500 to-violet-500",
+      metrics: t('pages.vision.impact.security.metrics', { returnObjects: true }) as Array<{ label: string; value: string; trend: string }>
+    },
+    {
+      title: t('pages.vision.impact.qualityControl.title'),
+      description: t('pages.vision.impact.qualityControl.desc'),
+      icon: CheckCircle,
+      gradient: "from-green-500 to-emerald-500",
+      metrics: t('pages.vision.impact.qualityControl.metrics', { returnObjects: true }) as Array<{ label: string; value: string; trend: string }>
+    }
+  ];
+
+  const stepItems = [
+    {
+      step: t('pages.vision.steps.s1.step'),
+      title: t('pages.vision.steps.s1.title'),
+      description: t('pages.vision.steps.s1.desc'),
+      icon: Camera
+    },
+    {
+      step: t('pages.vision.steps.s2.step'),
+      title: t('pages.vision.steps.s2.title'),
+      description: t('pages.vision.steps.s2.desc'),
+      icon: Brain
+    },
+    {
+      step: t('pages.vision.steps.s3.step'),
+      title: t('pages.vision.steps.s3.title'),
+      description: t('pages.vision.steps.s3.desc'),
+      icon: Monitor
+    },
+    {
+      step: t('pages.vision.steps.s4.step'),
+      title: t('pages.vision.steps.s4.title'),
+      description: t('pages.vision.steps.s4.desc'),
+      icon: Zap
+    }
+  ];
+
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       <Navbar />
@@ -25,7 +173,7 @@ const Vision = () => {
                   <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-2xl flex items-center justify-center">
                     <Eye className="w-6 h-6 text-white" />
                   </div>
-                  <span className="text-sm font-semibold text-purple-400 tracking-wider uppercase">Computer Vision Platform</span>
+                  <span className="text-sm font-semibold text-purple-400 tracking-wider uppercase">{t('pages.vision.badge')}</span>
                 </div>
                 
                 <h1 className="text-5xl md:text-7xl font-black mb-8 leading-tight">
@@ -35,38 +183,37 @@ const Vision = () => {
                 </h1>
                 
                 <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 leading-tight">
-                  AI That Sees Everything,<br />
-                  <span className="text-gray-300">Misses Nothing</span>
+                  {t('pages.vision.subtitle1')}<br />
+                  <span className="text-gray-300">{t('pages.vision.subtitle2')}</span>
                 </h2>
                 
                 <p className="text-lg text-gray-300 mb-8 leading-relaxed max-w-xl">
-                  Revolutionary computer vision platform that transforms any camera into an intelligent monitoring system. 
-                  Detect safety violations, quality defects, and operational anomalies with superhuman precision—
-                  <span className="text-blue-400 font-semibold"> 15× faster than human inspection.</span>
+                  {t('pages.vision.description')}
+                  <span className="text-blue-400 font-semibold">{t('pages.vision.descHighlight')}</span>
                 </p>
                 
                 <div className="flex items-center gap-6 mb-8">
                   <div className="text-center">
-                    <div className="text-3xl font-black text-purple-400">99.8%</div>
-                    <div className="text-sm text-gray-400">Accuracy</div>
+                    <div className="text-3xl font-black text-purple-400">{t('pages.vision.stats.accuracy.value')}</div>
+                    <div className="text-sm text-gray-400">{t('pages.vision.stats.accuracy.label')}</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-black text-blue-400">200+</div>
-                    <div className="text-sm text-gray-400">Cameras</div>
+                    <div className="text-3xl font-black text-blue-400">{t('pages.vision.stats.cameras.value')}</div>
+                    <div className="text-sm text-gray-400">{t('pages.vision.stats.cameras.label')}</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-black text-cyan-400">&lt;50ms</div>
-                    <div className="text-sm text-gray-400">Response</div>
+                    <div className="text-3xl font-black text-cyan-400">{t('pages.vision.stats.response.value')}</div>
+                    <div className="text-sm text-gray-400">{t('pages.vision.stats.response.label')}</div>
                   </div>
                 </div>
                 
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button size="lg" className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white font-semibold px-8 py-4 text-lg" asChild>
-                    <Link to="/contact">Request Live Demo</Link>
+                    <Link to="/contact">{t('pages.vision.requestDemo')}</Link>
                   </Button>
                   <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 font-semibold px-8 py-4 text-lg">
                     <Camera className="w-5 h-5 mr-2" />
-                    See It In Action
+                    {t('pages.vision.seeInAction')}
                   </Button>
                 </div>
               </div>
@@ -82,11 +229,11 @@ const Vision = () => {
                         <div className="w-3 h-3 bg-yellow-500 rounded-full" />
                         <div className="w-3 h-3 bg-green-500 rounded-full" />
                       </div>
-                      <div className="text-white font-medium">Ciro Vision Control Center</div>
+                      <div className="text-white font-medium">{t('pages.vision.dashboard.title')}</div>
                     </div>
                     <div className="flex items-center gap-2 text-green-400 text-sm">
                       <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                      Live Monitoring
+                      {t('pages.vision.dashboard.liveMonitoring')}
                     </div>
                   </div>
                   
@@ -96,7 +243,7 @@ const Vision = () => {
                     <div className="grid grid-cols-2 gap-4 mb-6">
                       <div className="bg-slate-700/30 p-4 rounded-xl relative group hover:bg-slate-700/50 transition-all duration-300">
                         <div className="absolute top-3 left-3 text-xs bg-slate-900/70 px-2 py-1 rounded text-white">
-                          Production Line A
+                          {t('pages.vision.dashboard.productionLineA')}
                         </div>
                         <div className="aspect-video bg-slate-600/30 rounded-lg flex items-center justify-center mb-3 relative overflow-hidden">
                           <img 
@@ -107,7 +254,7 @@ const Vision = () => {
                           <div className="absolute inset-0 bg-gradient-to-br from-blue-500/30 to-cyan-500/30 flex items-center justify-center">
                             <div className="border-2 border-dashed border-blue-400 w-20 h-16 relative">
                               <div className="absolute -top-2 -left-2 w-4 h-4 rounded-full bg-blue-400 animate-pulse"></div>
-                              <div className="text-xs text-blue-400 text-center mt-2">Quality OK</div>
+                              <div className="text-xs text-blue-400 text-center mt-2">{t('pages.vision.dashboard.qualityOk')}</div>
                             </div>
                           </div>
                         </div>
@@ -115,14 +262,14 @@ const Vision = () => {
                           <div className="text-xs text-gray-300">Cam #1</div>
                           <div className="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded flex items-center gap-1">
                             <div className="w-1.5 h-1.5 rounded-full bg-green-400"></div>
-                            Normal
+                            {t('pages.vision.dashboard.normal')}
                           </div>
                         </div>
                       </div>
                       
                       <div className="bg-slate-700/30 p-4 rounded-xl relative group hover:bg-slate-700/50 transition-all duration-300">
                         <div className="absolute top-3 left-3 text-xs bg-slate-900/70 px-2 py-1 rounded text-white">
-                          Safety Zone B
+                          {t('pages.vision.dashboard.safetyZoneB')}
                         </div>
                         <div className="aspect-video bg-slate-600/30 rounded-lg flex items-center justify-center mb-3 relative overflow-hidden">
                           <img 
@@ -133,7 +280,7 @@ const Vision = () => {
                           <div className="absolute inset-0 bg-gradient-to-br from-red-500/30 to-orange-500/30 flex items-center justify-center">
                             <div className="border-2 border-dashed border-red-400 w-20 h-16 relative">
                               <div className="absolute top-2 left-2 w-4 h-4 rounded-full bg-red-400 animate-pulse"></div>
-                              <div className="text-xs text-red-400 text-center mt-2">No PPE</div>
+                              <div className="text-xs text-red-400 text-center mt-2">{t('pages.vision.dashboard.noPPE')}</div>
                             </div>
                           </div>
                         </div>
@@ -141,7 +288,7 @@ const Vision = () => {
                           <div className="text-xs text-gray-300">Cam #2</div>
                           <div className="text-xs bg-red-500/20 text-red-400 px-2 py-1 rounded flex items-center gap-1">
                             <AlertTriangle className="w-3 h-3" />
-                            Alert
+                            {t('pages.vision.dashboard.alert')}
                           </div>
                         </div>
                       </div>
@@ -152,22 +299,22 @@ const Vision = () => {
                       <div className="flex items-center justify-between mb-3">
                         <div className="flex items-center gap-2">
                           <Brain className="w-4 h-4 text-purple-400" />
-                          <span className="text-white font-medium">AI Analysis</span>
+                          <span className="text-white font-medium">{t('pages.vision.dashboard.aiAnalysis')}</span>
                         </div>
-                        <div className="text-xs text-purple-400">Real-time Processing</div>
+                        <div className="text-xs text-purple-400">{t('pages.vision.dashboard.realTimeProcessing')}</div>
                       </div>
                       <div className="grid grid-cols-3 gap-2 mb-3">
                         <div className="text-center">
                           <div className="text-lg font-bold text-green-400">47</div>
-                          <div className="text-xs text-gray-400">Objects Detected</div>
+                          <div className="text-xs text-gray-400">{t('pages.vision.dashboard.objectsDetected')}</div>
                         </div>
                         <div className="text-center">
                           <div className="text-lg font-bold text-yellow-400">2</div>
-                          <div className="text-xs text-gray-400">Warnings</div>
+                          <div className="text-xs text-gray-400">{t('pages.vision.dashboard.warnings')}</div>
                         </div>
                         <div className="text-center">
                           <div className="text-lg font-bold text-red-400">1</div>
-                          <div className="text-xs text-gray-400">Critical</div>
+                          <div className="text-xs text-gray-400">{t('pages.vision.dashboard.critical')}</div>
                         </div>
                       </div>
                     </div>
@@ -175,26 +322,26 @@ const Vision = () => {
                     {/* Live Alerts */}
                     <div className="bg-slate-700/30 rounded-xl p-4">
                       <div className="flex justify-between items-center mb-3">
-                        <div className="text-white font-medium">Live Alerts</div>
+                        <div className="text-white font-medium">{t('pages.vision.dashboard.liveAlerts')}</div>
                         <div className="text-xs text-green-400 flex items-center gap-1">
                           <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
-                          12 Cameras Active
+                          {t('pages.vision.dashboard.camerasActive')}
                         </div>
                       </div>
                       <div className="space-y-2">
                         <div className="p-3 bg-red-500/10 rounded-lg border border-red-500/20 text-xs flex items-center justify-between">
                           <div className="flex items-center gap-2">
                             <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
-                            <span className="text-red-400">PPE violation detected - Zone B</span>
+                            <span className="text-red-400">{t('pages.vision.dashboard.ppeViolation')}</span>
                           </div>
-                          <span className="text-gray-400">Just now</span>
+                          <span className="text-gray-400">{t('pages.vision.dashboard.justNow')}</span>
                         </div>
                         <div className="p-3 bg-yellow-500/10 rounded-lg border border-yellow-500/20 text-xs flex items-center justify-between">
                           <div className="flex items-center gap-2">
                             <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
-                            <span className="text-yellow-400">Quality check needed - Line A</span>
+                            <span className="text-yellow-400">{t('pages.vision.dashboard.qualityCheck')}</span>
                           </div>
-                          <span className="text-gray-400">2m ago</span>
+                          <span className="text-gray-400">{t('pages.vision.dashboard.twoMinAgo')}</span>
                         </div>
                       </div>
                     </div>
@@ -213,38 +360,15 @@ const Vision = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-                Powered by <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">Deep Learning</span>
+                {t('pages.vision.techTitle')} <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">{t('pages.vision.techHighlight')}</span>
               </h2>
               <p className="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
-                Our computer vision platform combines cutting-edge AI models with industrial-grade hardware 
-                to deliver unmatched accuracy and reliability in the most demanding environments.
+                {t('pages.vision.techDesc')}
               </p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[
-                {
-                  title: "Neural Networks",
-                  description: "Advanced deep learning models trained on millions of industrial images for maximum accuracy.",
-                  icon: Brain,
-                  gradient: "from-purple-500 to-violet-500",
-                  stats: "99.8% accuracy"
-                },
-                {
-                  title: "Edge Computing",
-                  description: "Process AI models locally with NVIDIA Jetson and specialized hardware for real-time performance.",
-                  icon: Cpu,
-                  gradient: "from-blue-500 to-cyan-500",
-                  stats: "<50ms latency"
-                },
-                {
-                  title: "Computer Vision",
-                  description: "Multi-modal visual AI that understands context, identifies objects, and predicts behaviors.",
-                  icon: Eye,
-                  gradient: "from-cyan-500 to-teal-500",
-                  stats: "200+ cameras"
-                }
-              ].map((tech, index) => (
+              {techItems.map((tech, index) => (
                 <div key={index} className="group relative">
                   <div className={`absolute inset-0 bg-gradient-to-r ${tech.gradient} opacity-20 rounded-2xl blur-xl group-hover:opacity-30 transition-opacity duration-300`}></div>
                   <div className="relative bg-slate-800/50 backdrop-blur-sm border border-slate-600/30 rounded-2xl p-8 text-center shadow-xl group-hover:border-white/20 transition-all duration-300">
@@ -268,76 +392,14 @@ const Vision = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">AI Models & Capabilities</h2>
+                <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">{t('pages.vision.capabilitiesTitle')}</h2>
                 <p className="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
-                  Specialized AI models trained for industrial environments, delivering superhuman perception 
-                  and decision-making in real-time operations.
+                  {t('pages.vision.capabilitiesDesc')}
                 </p>
               </div>
               
                              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                 {[
-                   {
-                     title: "Safety Compliance",
-                     description: "Detect PPE violations, zone intrusions, and unsafe behaviors with 99.8% accuracy.",
-                     icon: Shield,
-                     color: "text-red-400",
-                     bgColor: "bg-red-500/10",
-                     borderColor: "border-red-500/20",
-                     features: ["PPE Detection", "Zone Monitoring", "Behavior Analysis", "Real-time Alerts"],
-                     image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                   },
-                                     {
-                     title: "Quality Assurance",
-                     description: "Identify defects, packaging errors, and quality issues before they reach customers.",
-                     icon: CheckCircle,
-                     color: "text-green-400",
-                     bgColor: "bg-green-500/10",
-                     borderColor: "border-green-500/20",
-                     features: ["Defect Detection", "Packaging Inspection", "Dimension Analysis", "Color Matching"],
-                     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                   },
-                                     {
-                     title: "Process Monitoring",
-                     description: "Optimize workflows by identifying bottlenecks and inefficiencies in real-time.",
-                     icon: TrendingUp,
-                     color: "text-blue-400",
-                     bgColor: "bg-blue-500/10",
-                     borderColor: "border-blue-500/20",
-                     features: ["Flow Analysis", "Bottleneck Detection", "Efficiency Tracking", "Performance KPIs"],
-                     image: "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                   },
-                                     {
-                     title: "Security & Access",
-                     description: "Monitor unauthorized access, theft prevention, and asset protection systems.",
-                     icon: Lock,
-                     color: "text-purple-400",
-                     bgColor: "bg-purple-500/10",
-                     borderColor: "border-purple-500/20",
-                     features: ["Access Control", "Theft Detection", "Perimeter Security", "Asset Tracking"],
-                     image: "https://images.unsplash.com/photo-1464983953574-0892a716854b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" // Security camera image
-                   },
-                   {
-                     title: "Multi-Camera Fusion",
-                     description: "Coordinate insights across hundreds of cameras for comprehensive monitoring.",
-                     icon: Layers,
-                     color: "text-cyan-400",
-                     bgColor: "bg-cyan-500/10",
-                     borderColor: "border-cyan-500/20",
-                     features: ["Multi-view Analysis", "3D Reconstruction", "Object Tracking", "Centralized Control"],
-                     image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                   },
-                   {
-                     title: "Custom AI Training",
-                     description: "Train specialized models for your unique detection needs and requirements.",
-                     icon: Sparkles,
-                     color: "text-orange-400",
-                     bgColor: "bg-orange-500/10",
-                     borderColor: "border-orange-500/20",
-                     features: ["Custom Models", "Transfer Learning", "Domain Adaptation", "Continuous Improvement"],
-                     image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                   }
-                                 ].map((capability, index) => (
+                 {capabilityItems.map((capability, index) => (
                    <div key={index} className={`group ${capability.bgColor} backdrop-blur-sm border ${capability.borderColor} rounded-2xl overflow-hidden shadow-xl hover:border-white/20 transition-all duration-300`}>
                      {/* Image Header */}
                      <div className="relative h-32 overflow-hidden">
@@ -379,60 +441,14 @@ const Vision = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">Real-World Impact</h2>
+                <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">{t('pages.vision.impactTitle')}</h2>
                 <p className="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
-                  See how Ciro Vision transforms operations across industries with measurable results 
-                  and quantifiable improvements in safety, quality, and efficiency.
+                  {t('pages.vision.impactDesc')}
                 </p>
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {[
-                  {
-                    title: "Manufacturing Excellence",
-                    description: "A food processing facility reduced safety incidents by 65% and improved quality metrics by 15% within 6 months of deployment.",
-                    icon: Target,
-                    gradient: "from-orange-500 to-red-500",
-                    metrics: [
-                      { label: "Safety Incidents", value: "65%", trend: "decrease" },
-                      { label: "Quality Improvements", value: "15%", trend: "increase" },
-                      { label: "Detection Speed", value: "15x", trend: "faster" }
-                    ]
-                  },
-                  {
-                    title: "Logistics Optimization",
-                    description: "A distribution center achieved 30% reduction in inventory shrinkage and 20% improvement in operational efficiency.",
-                    icon: TrendingUp,
-                    gradient: "from-blue-500 to-cyan-500",
-                    metrics: [
-                      { label: "Inventory Shrinkage", value: "30%", trend: "decrease" },
-                      { label: "Operational Efficiency", value: "20%", trend: "increase" },
-                      { label: "Response Time", value: "90%", trend: "faster" }
-                    ]
-                  },
-                  {
-                    title: "Warehouse Security",
-                    description: "Enhanced security monitoring with real-time threat detection, preventing unauthorized access and protecting valuable assets.",
-                    icon: Shield,
-                    gradient: "from-purple-500 to-violet-500",
-                    metrics: [
-                      { label: "Security Breaches", value: "95%", trend: "decrease" },
-                      { label: "False Alarms", value: "80%", trend: "reduction" },
-                      { label: "Asset Protection", value: "99.9%", trend: "uptime" }
-                    ]
-                  },
-                  {
-                    title: "Quality Control",
-                    description: "Automated quality inspection systems catching defects 15x faster than manual processes with 99.8% accuracy.",
-                    icon: CheckCircle,
-                    gradient: "from-green-500 to-emerald-500",
-                    metrics: [
-                      { label: "Defect Detection", value: "99.8%", trend: "accuracy" },
-                      { label: "Inspection Speed", value: "15x", trend: "faster" },
-                      { label: "Customer Complaints", value: "40%", trend: "decrease" }
-                    ]
-                  }
-                ].map((impact, index) => (
+                {impactItems.map((impact, index) => (
                                      <div key={index} className="group relative">
                      <div className={`absolute inset-0 bg-gradient-to-r ${impact.gradient} opacity-10 rounded-2xl blur-xl group-hover:opacity-20 transition-opacity duration-300`}></div>
                      <div className="relative bg-slate-800/50 backdrop-blur-sm border border-slate-600/30 rounded-2xl overflow-hidden shadow-xl group-hover:border-white/20 transition-all duration-300">
@@ -495,41 +511,15 @@ const Vision = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto text-center">
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-                Easy Integration,<br />
-                <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">Powerful Results</span>
+                {t('pages.vision.integrationTitle1')}<br />
+                <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">{t('pages.vision.integrationTitle2')}</span>
               </h2>
               <p className="text-xl text-gray-300 leading-relaxed mb-12 max-w-3xl mx-auto">
-                Deploy Ciro Vision with your existing camera infrastructure in days, not months. 
-                Our platform adapts to your environment and scales with your operations.
+                {t('pages.vision.integrationDesc')}
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-                {[
-                  {
-                    step: "01",
-                    title: "Camera Integration",
-                    description: "Connect existing IP cameras or install new ones with our recommended hardware.",
-                    icon: Camera
-                  },
-                  {
-                    step: "02", 
-                    title: "AI Model Deployment",
-                    description: "Deploy pre-trained models or customize AI for your specific detection needs.",
-                    icon: Brain
-                  },
-                  {
-                    step: "03",
-                    title: "Dashboard Setup",
-                    description: "Configure monitoring dashboards and alert systems for your team.",
-                    icon: Monitor
-                  },
-                  {
-                    step: "04",
-                    title: "Live Monitoring",
-                    description: "Start receiving real-time insights and alerts across all your operations.",
-                    icon: Zap
-                  }
-                ].map((step, index) => (
+                {stepItems.map((step, index) => (
                   <div key={index} className="group">
                     <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-600/30 rounded-2xl p-6 text-center shadow-xl group-hover:border-white/20 transition-all duration-300">
                       <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
@@ -544,17 +534,17 @@ const Vision = () => {
               </div>
               
               <div className="bg-gradient-to-r from-purple-500/10 to-blue-500/10 backdrop-blur-sm border border-purple-400/20 rounded-2xl p-8 text-center">
-                <h3 className="text-2xl font-bold text-white mb-4">Ready to Transform Your Operations?</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">{t('pages.vision.ctaTitle')}</h3>
                 <p className="text-gray-300 mb-6 leading-relaxed">
-                  See Ciro Vision in action with a personalized demo tailored to your industry and use cases.
+                  {t('pages.vision.ctaDesc')}
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button size="lg" className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white font-semibold px-8 py-4 text-lg" asChild>
-                    <Link to="/contact">Schedule Live Demo</Link>
+                    <Link to="/contact">{t('pages.vision.scheduleLiveDemo')}</Link>
                   </Button>
                   <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 font-semibold px-8 py-4 text-lg">
                     <Users className="w-5 h-5 mr-2" />
-                    Talk to Expert
+                    {t('pages.vision.talkToExpert')}
                   </Button>
                 </div>
               </div>

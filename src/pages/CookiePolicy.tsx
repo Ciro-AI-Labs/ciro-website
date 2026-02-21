@@ -1,38 +1,40 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Cookie, Settings, Info, Shield, Clock, Database, Users, Target } from 'lucide-react';
 import { CookieManager } from '../lib/cookieManager';
 
 const CookiePolicy: React.FC = () => {
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState('overview');
   const cookieSettings = CookieManager.getCookieSettings();
 
   const categories = [
     {
       id: 'necessary',
-      name: 'Necessary Cookies',
-      description: 'Essential for the website to function properly',
+      name: t('pages.cookiePolicy.categories.necessary.name'),
+      description: t('pages.cookiePolicy.categories.necessary.desc'),
       color: 'red',
       icon: Shield,
       alwaysActive: true
     },
     {
       id: 'analytics',
-      name: 'Analytics Cookies',
-      description: 'Help us understand how visitors interact with our website',
+      name: t('pages.cookiePolicy.categories.analytics.name'),
+      description: t('pages.cookiePolicy.categories.analytics.desc'),
       color: 'blue',
       icon: Database
     },
     {
       id: 'marketing',
-      name: 'Marketing Cookies',
-      description: 'Used to track visitors across websites for marketing purposes',
+      name: t('pages.cookiePolicy.categories.marketing.name'),
+      description: t('pages.cookiePolicy.categories.marketing.desc'),
       color: 'green',
       icon: Target
     },
     {
       id: 'preferences',
-      name: 'Preferences Cookies',
-      description: 'Allow the website to remember your preferences',
+      name: t('pages.cookiePolicy.categories.preferences.name'),
+      description: t('pages.cookiePolicy.categories.preferences.desc'),
       color: 'purple',
       icon: Settings
     }
@@ -50,13 +52,13 @@ const CookiePolicy: React.FC = () => {
           <div className="bg-gradient-to-r from-green-600 to-blue-600 px-8 py-12 text-white">
             <div className="flex items-center gap-4 mb-4">
               <Cookie className="w-12 h-12" />
-              <h1 className="text-4xl font-bold">Cookie Policy</h1>
+              <h1 className="text-4xl font-bold">{t('pages.cookiePolicy.title')}</h1>
             </div>
             <p className="text-xl text-green-100">
-              Learn about how we use cookies and similar technologies to enhance your experience.
+              {t('pages.cookiePolicy.subtitle')}
             </p>
             <p className="text-sm text-green-200 mt-4">
-              Last updated: {new Date().toLocaleDateString()}
+              {t('pages.cookiePolicy.lastUpdated')} {new Date().toLocaleDateString()}
             </p>
           </div>
 
@@ -64,10 +66,10 @@ const CookiePolicy: React.FC = () => {
           <div className="border-b border-gray-200">
             <nav className="flex space-x-8 px-8">
               {[
-                { id: 'overview', name: 'Overview' },
-                { id: 'categories', name: 'Cookie Categories' },
-                { id: 'details', name: 'Detailed List' },
-                { id: 'manage', name: 'Manage Cookies' }
+                { id: 'overview', name: t('pages.cookiePolicy.tabs.overview') },
+                { id: 'categories', name: t('pages.cookiePolicy.tabs.categories') },
+                { id: 'details', name: t('pages.cookiePolicy.tabs.details') },
+                { id: 'manage', name: t('pages.cookiePolicy.tabs.manage') }
               ].map((tab) => (
                 <button
                   key={tab.id}
@@ -90,15 +92,13 @@ const CookiePolicy: React.FC = () => {
             {activeTab === 'overview' && (
               <div className="space-y-8">
                 <section>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">What Are Cookies?</h2>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4">{t('pages.cookiePolicy.whatAreCookies')}</h2>
                   <div className="bg-blue-50 rounded-lg p-6">
                     <div className="flex items-start gap-4">
                       <Info className="w-6 h-6 text-blue-600 mt-1" />
                       <div>
                         <p className="text-gray-700 leading-relaxed">
-                          Cookies are small text files that are stored on your device when you visit a website. 
-                          They help websites remember information about your visit, such as your preferred language 
-                          and other settings, which can make your next visit easier and the site more useful to you.
+                          {t('pages.cookiePolicy.whatAreCookiesDesc')}
                         </p>
                       </div>
                     </div>
@@ -106,22 +106,22 @@ const CookiePolicy: React.FC = () => {
                 </section>
 
                 <section>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-6">How We Use Cookies</h2>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('pages.cookiePolicy.howWeUse')}</h2>
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-4">
                       <div className="flex items-start gap-3">
                         <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
                         <div>
-                          <h4 className="font-semibold text-gray-900">Essential Functionality</h4>
-                          <p className="text-gray-600 text-sm">Keep you signed in and maintain your session</p>
+                          <h4 className="font-semibold text-gray-900">{t('pages.cookiePolicy.howWeUseItems.essential.title')}</h4>
+                          <p className="text-gray-600 text-sm">{t('pages.cookiePolicy.howWeUseItems.essential.desc')}</p>
                         </div>
                       </div>
                       
                       <div className="flex items-start gap-3">
                         <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
                         <div>
-                          <h4 className="font-semibold text-gray-900">Performance & Analytics</h4>
-                          <p className="text-gray-600 text-sm">Understand how visitors use our website</p>
+                          <h4 className="font-semibold text-gray-900">{t('pages.cookiePolicy.howWeUseItems.performance.title')}</h4>
+                          <p className="text-gray-600 text-sm">{t('pages.cookiePolicy.howWeUseItems.performance.desc')}</p>
                         </div>
                       </div>
                     </div>
@@ -130,16 +130,16 @@ const CookiePolicy: React.FC = () => {
                       <div className="flex items-start gap-3">
                         <div className="w-2 h-2 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
                         <div>
-                          <h4 className="font-semibold text-gray-900">Personalization</h4>
-                          <p className="text-gray-600 text-sm">Remember your preferences and settings</p>
+                          <h4 className="font-semibold text-gray-900">{t('pages.cookiePolicy.howWeUseItems.personalization.title')}</h4>
+                          <p className="text-gray-600 text-sm">{t('pages.cookiePolicy.howWeUseItems.personalization.desc')}</p>
                         </div>
                       </div>
                       
                       <div className="flex items-start gap-3">
                         <div className="w-2 h-2 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
                         <div>
-                          <h4 className="font-semibold text-gray-900">Marketing</h4>
-                          <p className="text-gray-600 text-sm">Show relevant advertisements and content</p>
+                          <h4 className="font-semibold text-gray-900">{t('pages.cookiePolicy.howWeUseItems.marketing.title')}</h4>
+                          <p className="text-gray-600 text-sm">{t('pages.cookiePolicy.howWeUseItems.marketing.desc')}</p>
                         </div>
                       </div>
                     </div>
@@ -147,20 +147,20 @@ const CookiePolicy: React.FC = () => {
                 </section>
 
                 <section>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Your Cookie Choices</h2>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4">{t('pages.cookiePolicy.yourChoices')}</h2>
                   <div className="bg-green-50 border border-green-200 rounded-lg p-6">
                     <div className="flex items-start gap-4">
                       <Settings className="w-6 h-6 text-green-600 mt-1" />
                       <div>
-                        <h3 className="font-semibold text-gray-900 mb-2">Control Your Preferences</h3>
+                        <h3 className="font-semibold text-gray-900 mb-2">{t('pages.cookiePolicy.controlPreferences')}</h3>
                         <p className="text-gray-700 mb-4">
-                          You have several options for managing cookies on our website:
+                          {t('pages.cookiePolicy.controlDesc')}
                         </p>
                         <ul className="text-gray-700 space-y-2">
-                          <li>• <strong>Browser Settings:</strong> Most browsers allow you to control cookies through their settings</li>
-                          <li>• <strong>Cookie Banner:</strong> Use our cookie consent banner to manage preferences</li>
-                          <li>• <strong>Opt-out Tools:</strong> Use third-party opt-out tools for advertising cookies</li>
-                          <li>• <strong>Contact Us:</strong> Reach out if you need help managing your preferences</li>
+                          <li>• <strong>Browser Settings:</strong> {t('pages.cookiePolicy.controlItems.browser')}</li>
+                          <li>• <strong>Cookie Banner:</strong> {t('pages.cookiePolicy.controlItems.banner')}</li>
+                          <li>• <strong>Opt-out Tools:</strong> {t('pages.cookiePolicy.controlItems.optout')}</li>
+                          <li>• <strong>Contact Us:</strong> {t('pages.cookiePolicy.controlItems.contact')}</li>
                         </ul>
                       </div>
                     </div>
@@ -172,7 +172,7 @@ const CookiePolicy: React.FC = () => {
             {/* Categories Tab */}
             {activeTab === 'categories' && (
               <div className="space-y-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Cookie Categories</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('pages.cookiePolicy.categoriesTitle')}</h2>
                 
                 {categories.map((category) => {
                   const IconComponent = category.icon;
@@ -193,7 +193,7 @@ const CookiePolicy: React.FC = () => {
                           </div>
                           {category.alwaysActive && (
                             <span className="px-3 py-1 bg-red-100 text-red-800 text-sm font-medium rounded-full">
-                              Always Active
+                              {t('pages.cookiePolicy.categories.necessary.alwaysActive')}
                             </span>
                           )}
                         </div>
@@ -202,23 +202,20 @@ const CookiePolicy: React.FC = () => {
                       <div className="p-6">
                         <div className="grid md:grid-cols-2 gap-6">
                           <div>
-                            <h4 className="font-semibold text-gray-900 mb-3">Purpose</h4>
+                            <h4 className="font-semibold text-gray-900 mb-3">{t('pages.cookiePolicy.purpose')}</h4>
                             <p className="text-gray-600 text-sm">
-                              {category.id === 'necessary' && 'These cookies are essential for the website to function and cannot be disabled.'}
-                              {category.id === 'analytics' && 'These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously.'}
-                              {category.id === 'marketing' && 'These cookies are used to track visitors across websites to display relevant advertisements and measure marketing effectiveness.'}
-                              {category.id === 'preferences' && 'These cookies allow the website to remember choices you make and provide enhanced, more personal features.'}
+                              {t(`pages.cookiePolicy.categories.${category.id}.purpose`)}
                             </p>
                           </div>
                           
                           <div>
-                            <h4 className="font-semibold text-gray-900 mb-3">Examples</h4>
+                            <h4 className="font-semibold text-gray-900 mb-3">{t('pages.cookiePolicy.examples')}</h4>
                             <ul className="text-gray-600 text-sm space-y-1">
                               {categoryCookies.slice(0, 3).map(([name, setting]) => (
                                 <li key={name}>• {setting.name}</li>
                               ))}
                               {categoryCookies.length > 3 && (
-                                <li>• And {categoryCookies.length - 3} more...</li>
+                                <li>• {t('pages.cookiePolicy.andMore', { count: categoryCookies.length - 3 })}</li>
                               )}
                             </ul>
                           </div>
@@ -233,7 +230,7 @@ const CookiePolicy: React.FC = () => {
             {/* Details Tab */}
             {activeTab === 'details' && (
               <div className="space-y-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Detailed Cookie List</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('pages.cookiePolicy.detailedList')}</h2>
                 
                 {categories.map((category) => {
                   const categoryCookies = getCategoryCookies(category.id);
@@ -254,11 +251,11 @@ const CookiePolicy: React.FC = () => {
                                 <div className="flex items-center gap-4 mt-2 text-xs text-gray-500">
                                   <span className="flex items-center gap-1">
                                     <Clock className="w-3 h-3" />
-                                    Duration: {setting.duration}
+                                    {t('pages.cookiePolicy.duration')} {setting.duration}
                                   </span>
                                   <span className="flex items-center gap-1">
                                     <Users className="w-3 h-3" />
-                                    Provider: {setting.provider}
+                                    {t('pages.cookiePolicy.provider')} {setting.provider}
                                   </span>
                                 </div>
                               </div>
@@ -278,15 +275,15 @@ const CookiePolicy: React.FC = () => {
             {/* Manage Tab */}
             {activeTab === 'manage' && (
               <div className="space-y-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Manage Your Cookie Preferences</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('pages.cookiePolicy.manageTitle')}</h2>
                 
                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
                   <div className="flex items-start gap-4">
                     <Settings className="w-6 h-6 text-blue-600 mt-1" />
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-2">Cookie Settings</h3>
+                      <h3 className="font-semibold text-gray-900 mb-2">{t('pages.cookiePolicy.cookieSettings')}</h3>
                       <p className="text-gray-700 mb-4">
-                        You can manage your cookie preferences at any time. Click the button below to open our cookie settings panel.
+                        {t('pages.cookiePolicy.cookieSettingsDesc')}
                       </p>
                       <button
                         onClick={() => {
@@ -295,7 +292,7 @@ const CookiePolicy: React.FC = () => {
                         }}
                         className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
                       >
-                        Open Cookie Settings
+                        {t('pages.cookiePolicy.openCookieSettings')}
                       </button>
                     </div>
                   </div>
@@ -303,9 +300,9 @@ const CookiePolicy: React.FC = () => {
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="bg-gray-50 rounded-lg p-6">
-                    <h3 className="font-semibold text-gray-900 mb-3">Browser Settings</h3>
+                    <h3 className="font-semibold text-gray-900 mb-3">{t('pages.cookiePolicy.browserSettings')}</h3>
                     <p className="text-gray-600 text-sm mb-4">
-                      You can also control cookies through your browser settings:
+                      {t('pages.cookiePolicy.browserSettingsDesc')}
                     </p>
                     <ul className="text-gray-600 text-sm space-y-2">
                       <li>• <strong>Chrome:</strong> Settings → Privacy and security → Cookies and other site data</li>
@@ -316,9 +313,9 @@ const CookiePolicy: React.FC = () => {
                   </div>
 
                   <div className="bg-gray-50 rounded-lg p-6">
-                    <h3 className="font-semibold text-gray-900 mb-3">Third-Party Opt-Out</h3>
+                    <h3 className="font-semibold text-gray-900 mb-3">{t('pages.cookiePolicy.thirdPartyOptOut')}</h3>
                     <p className="text-gray-600 text-sm mb-4">
-                      For advertising cookies, you can use these opt-out tools:
+                      {t('pages.cookiePolicy.thirdPartyDesc')}
                     </p>
                     <ul className="text-gray-600 text-sm space-y-2">
                       <li>• <a href="https://optout.aboutads.info/" className="text-blue-600 hover:underline">Digital Advertising Alliance</a></li>
@@ -332,10 +329,9 @@ const CookiePolicy: React.FC = () => {
                   <div className="flex items-start gap-4">
                     <Info className="w-6 h-6 text-yellow-600 mt-1" />
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-2">Important Note</h3>
+                      <h3 className="font-semibold text-gray-900 mb-2">{t('pages.cookiePolicy.importantNote')}</h3>
                       <p className="text-gray-700">
-                        Disabling certain cookies may affect the functionality of our website. 
-                        Necessary cookies cannot be disabled as they are essential for the website to function properly.
+                        {t('pages.cookiePolicy.importantNoteDesc')}
                       </p>
                     </div>
                   </div>

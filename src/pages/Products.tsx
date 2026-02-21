@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { motion, useAnimation } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -15,6 +16,7 @@ import {
 
 const Products = () => {
   const controls = useAnimation();
+  const { t } = useTranslation();
 
   React.useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -59,29 +61,38 @@ const Products = () => {
 
   const capabilities = [
     {
-      title: "Advanced Visualizations",
-      description: "Generate bar, heat-map, or geospatial charts from a single prompt—then polish them in CIRO Studio à la Canva.",
+      title: t('pages.productsHub.capabilities.visualizations.title'),
+      description: t('pages.productsHub.capabilities.visualizations.desc'),
       icon: Palette,
       color: "purple"
     },
     {
-      title: "Template Gallery",
-      description: "Kick-start storytelling with pre-built KPI boards and industry templates you can inject with your own data in seconds.",
+      title: t('pages.productsHub.capabilities.templates.title'),
+      description: t('pages.productsHub.capabilities.templates.desc'),
       icon: Layers,
       color: "blue"
     },
     {
-      title: "Omnichannel Alerts",
-      description: "Insight triggers push to email, SMS, Slack, Teams, webhooks—anywhere your team lives—so nothing slips through the cracks.",
+      title: t('pages.productsHub.capabilities.alerts.title'),
+      description: t('pages.productsHub.capabilities.alerts.desc'),
       icon: Bell,
       color: "green"
     },
     {
-      title: "Data Science & Forecasts",
-      description: "Run cleaning, feature engineering, and time-series forecasts without writing Python; export models or schedule automated reports.",
+      title: t('pages.productsHub.capabilities.forecasts.title'),
+      description: t('pages.productsHub.capabilities.forecasts.desc'),
       icon: TrendingUp,
       color: "orange"
     }
+  ];
+
+  const visionUseCases = [
+    { key: 'manufacturing', icon: Settings, color: 'blue' },
+    { key: 'agriculture', icon: Leaf, color: 'green' },
+    { key: 'food', icon: ChefHat, color: 'orange' },
+    { key: 'supplyChain', icon: Truck, color: 'purple' },
+    { key: 'iot', icon: Cpu, color: 'cyan' },
+    { key: 'safety', icon: Shield, color: 'red' },
   ];
 
   const dataSources = [
@@ -117,20 +128,19 @@ const Products = () => {
               variants={itemVariants}
             >
               <span className="bg-gradient-to-r from-purple-400 via-orange-400 to-blue-400 bg-clip-text text-transparent">
-                CIRO AI Products
+                {t('pages.productsHub.heading')}
               </span>
             </motion.h1>
             <motion.p 
               className="text-xl text-gray-300 mb-8"
               variants={itemVariants}
             >
-              Transform your industrial operations with AI that turns fragmented data streams 
-              into automated decisions in milliseconds.
+              {t('pages.productsHub.description')}
             </motion.p>
             <motion.div variants={itemVariants}>
               <Badge variant="secondary" className="mb-8 bg-gradient-to-r from-orange-500/20 to-red-500/20 border-orange-400/30 text-orange-300">
                 <Sparkles className="h-3 w-3 mr-1" />
-                Live Product Demo Available
+                {t('pages.productsHub.demoBadge')}
               </Badge>
             </motion.div>
           </div>
@@ -153,9 +163,9 @@ const Products = () => {
                       <BarChart3 className="h-8 w-8 text-purple-400" />
                     </div>
                     <div>
-                      <CardTitle className="text-2xl text-white">AI Analytics Engine</CardTitle>
+                      <CardTitle className="text-2xl text-white">{t('pages.productsHub.ciroAi.title')}</CardTitle>
                       <CardDescription className="text-gray-300">
-                        Real-time industrial intelligence
+                        {t('pages.productsHub.ciroAi.subtitle')}
                       </CardDescription>
                     </div>
                   </div>
@@ -163,13 +173,12 @@ const Products = () => {
                 <CardContent>
                   <div className="space-y-4">
                     <p className="text-gray-300">
-                      Connect your data systems for real-time visibility, insights, and automated workflows. 
-                      Ask questions in natural language and get instant SQL, KPIs, and actionable insights.
+                      {t('pages.productsHub.ciroAi.desc')}
                     </p>
                     
                     <div className="flex flex-wrap gap-2 mb-4">
                       <Badge variant="outline" className="border-purple-400/30 text-purple-300">
-                        <Zap className="h-3 w-3 mr-1" /> Natural Language Analytics
+                        <Zap className="h-3 w-3 mr-1" /> CIRO AI Analytics
                       </Badge>
                       <Badge variant="outline" className="border-purple-400/30 text-purple-300">
                         <Brain className="h-3 w-3 mr-1" /> AI Agents
@@ -181,7 +190,7 @@ const Products = () => {
                     
                     <Button asChild className="w-full bg-purple-600 hover:bg-purple-700">
                       <Link to="/products/ai-analytics" className="flex items-center justify-center gap-2">
-                        Explore AI Analytics
+                        {t('pages.productsHub.ciroAi.explore')}
                         <ArrowRight className="h-4 w-4" />
                       </Link>
                     </Button>
@@ -199,9 +208,9 @@ const Products = () => {
                       <Eye className="h-8 w-8 text-blue-400" />
                     </div>
                     <div>
-                      <CardTitle className="text-2xl text-white">Vision Intelligence</CardTitle>
+                      <CardTitle className="text-2xl text-white">{t('pages.productsHub.ciroLabs.title')}</CardTitle>
                       <CardDescription className="text-gray-300">
-                        Computer vision for industrial automation
+                        {t('pages.productsHub.ciroLabs.subtitle')}
                       </CardDescription>
                     </div>
                   </div>
@@ -209,8 +218,7 @@ const Products = () => {
                 <CardContent>
                   <div className="space-y-4">
                     <p className="text-gray-300">
-                      Advanced computer vision and real-time monitoring that transforms your cameras 
-                      into intelligent sensors for quality control and operational excellence.
+                      {t('pages.productsHub.ciroLabs.desc')}
                     </p>
                     
                     <div className="flex flex-wrap gap-2 mb-4">
@@ -227,7 +235,7 @@ const Products = () => {
                     
                     <Button asChild className="w-full bg-blue-600 hover:bg-blue-700">
                       <Link to="/products/vision" className="flex items-center justify-center gap-2">
-                        Explore Vision System
+                        {t('pages.productsHub.ciroLabs.explore')}
                         <ArrowRight className="h-4 w-4" />
                       </Link>
                     </Button>
@@ -250,13 +258,13 @@ const Products = () => {
               className="text-3xl md:text-4xl font-bold mb-6 text-white"
               variants={itemVariants}
             >
-              Platform Capabilities
+              {t('pages.productsHub.capabilitiesTitle')}
             </motion.h2>
             <motion.p 
               className="text-lg text-gray-300"
               variants={itemVariants}
             >
-              Comprehensive features that power both AI Analytics and Vision Intelligence
+              {t('pages.productsHub.capabilitiesDesc')}
             </motion.p>
           </div>
           
@@ -298,10 +306,10 @@ const Products = () => {
           <div className="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto items-center">
             <motion.div variants={itemVariants}>
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
-                Unified Data Hub
+                CIRO LAKE
               </h2>
               <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-                Ingest PDFs, Excel, live Kafka streams, ERPs, CRMs, and cloud apps—then enforce fine-grained org, team, and role permissions in one place.
+                {t('pages.productsHub.lakeDesc')}
               </p>
               <div className="flex flex-wrap gap-3">
                 <Badge variant="outline" className="border-purple-400/30 text-purple-300">
@@ -389,7 +397,7 @@ const Products = () => {
           </div>
         </motion.section>
 
-        {/* Natural Language Analytics - Focus Section */}
+        {/* CIRO AI - Focus Section */}
         <motion.section 
           className="container mx-auto px-4 py-16 animate-on-scroll"
           initial={{ opacity: 0 }}
@@ -399,35 +407,25 @@ const Products = () => {
           <div className="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto items-center">
             <motion.div variants={itemVariants}>
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
-                Natural-Language Analytics
+                CIRO AI
               </h2>
               <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-                Ask questions (or speak them) and CIRO instantly scans billions of rows, returning answers, KPIs, or SQL you can tweak.
+                {t('pages.productsHub.aiDesc')}
               </p>
               
               <div className="space-y-4 mb-8">
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
-                  <span className="text-gray-300">Instant geospatial visualization generation</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
-                  <span className="text-gray-300">Interactive maps and heatmaps</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
-                  <span className="text-gray-300">Real-time location-based insights</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
-                  <span className="text-gray-300">Exportable map visualizations</span>
-                </div>
+                {(t('pages.productsHub.aiFeatures', { returnObjects: true }) as string[]).map((feature, idx) => (
+                  <div key={idx} className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
+                    <span className="text-gray-300">{feature}</span>
+                  </div>
+                ))}
               </div>
               
               <Button size="lg" asChild className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600">
                 <Link to="/products/ai-analytics" className="flex items-center gap-2">
                   <MessageSquare className="h-4 w-4" />
-                  Try Geospatial Query
+                  {t('pages.productsHub.tryGeo')}
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
@@ -587,29 +585,19 @@ const Products = () => {
           <div className="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto items-center">
             <motion.div variants={itemVariants}>
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
-                Computer Vision Intelligence
+                CIRO LABS
               </h2>
               <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-                Transform your cameras into intelligent sensors that detect defects, monitor processes, and ensure quality control in real-time.
+                {t('pages.productsHub.labsDesc')}
               </p>
               
               <div className="space-y-4 mb-8">
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                  <span className="text-gray-300">Real-time defect detection and classification</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                  <span className="text-gray-300">Process monitoring and optimization</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                  <span className="text-gray-300">Automated quality control workflows</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                  <span className="text-gray-300">Predictive maintenance alerts</span>
-                </div>
+                {(t('pages.productsHub.labsFeatures', { returnObjects: true }) as string[]).map((feature, idx) => (
+                  <div key={idx} className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                    <span className="text-gray-300">{feature}</span>
+                  </div>
+                ))}
               </div>
               
               <div className="flex flex-wrap gap-3 mb-8">
@@ -630,13 +618,13 @@ const Products = () => {
               <Button size="lg" asChild className="bg-gradient-to-r from-blue-500 to-teal-500 hover:from-blue-600 hover:to-teal-600">
                 <Link to="/products/vision" className="flex items-center gap-2">
                   <Camera className="h-4 w-4" />
-                  Explore Vision System
+                  {t('pages.productsHub.exploreLabs')}
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
             </motion.div>
-            
-            <motion.div 
+
+            <motion.div
               className="relative"
               variants={itemVariants}
             >
@@ -644,7 +632,7 @@ const Products = () => {
               <div className="bg-gray-900/50 border border-gray-700/50 rounded-2xl p-6 backdrop-blur-sm">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-3 h-3 bg-blue-500 rounded-full animate-pulse"></div>
-                  <span className="text-blue-400 text-sm font-medium">CIRO Vision System</span>
+                  <span className="text-blue-400 text-sm font-medium">CIRO LABS Vision</span>
                 </div>
                 
                 {/* Camera Feed Mockup */}
@@ -742,202 +730,48 @@ const Products = () => {
               className="text-3xl md:text-4xl font-bold mb-6 text-white"
               variants={itemVariants}
             >
-              Computer Vision Use Cases
+              {t('pages.productsHub.labsUseCasesTitle')}
             </motion.h2>
             <motion.p 
               className="text-lg text-gray-300"
               variants={itemVariants}
             >
-              From manufacturing to agriculture, CIRO's computer vision powers intelligent automation across industries
+              {t('pages.productsHub.labsUseCasesDesc')}
             </motion.p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-            {/* Manufacturing Quality Control */}
-            <motion.div
-              variants={itemVariants}
-              whileHover={{ y: -5, scale: 1.02 }}
-              className="group"
-            >
-              <Card className="bg-gradient-to-br from-blue-900/20 to-indigo-900/20 border-blue-500/20 hover:border-blue-400/40 transition-all duration-300 backdrop-blur-sm">
-                <CardHeader className="pb-4">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="p-2 bg-blue-500/20 rounded-lg group-hover:bg-blue-500/30 transition-colors duration-300">
-                      <Settings className="h-6 w-6 text-blue-400" />
+            {visionUseCases.map((uc) => (
+              <motion.div
+                key={uc.key}
+                variants={itemVariants}
+                whileHover={{ y: -5, scale: 1.02 }}
+                className="group"
+              >
+                <Card className={`bg-gradient-to-br from-${uc.color}-900/20 to-${uc.color}-800/10 border-${uc.color}-500/20 hover:border-${uc.color}-400/40 transition-all duration-300 backdrop-blur-sm`}>
+                  <CardHeader className="pb-4">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className={`p-2 bg-${uc.color}-500/20 rounded-lg group-hover:bg-${uc.color}-500/30 transition-colors duration-300`}>
+                        <uc.icon className={`h-6 w-6 text-${uc.color}-400`} />
+                      </div>
+                      <CardTitle className="text-lg text-white">{t(`pages.productsHub.labsUseCases.${uc.key}.title`)}</CardTitle>
                     </div>
-                    <CardTitle className="text-lg text-white">Manufacturing QC</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-gray-300 text-sm leading-relaxed mb-4">
-                    Detect surface defects, measure dimensions, and ensure product quality in real-time production lines.
-                  </CardDescription>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="outline" className="border-blue-400/20 text-blue-300 text-xs">
-                      Defect Detection
-                    </Badge>
-                    <Badge variant="outline" className="border-blue-400/20 text-blue-300 text-xs">
-                      Dimensional Analysis
-                    </Badge>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            {/* Agricultural Monitoring */}
-            <motion.div
-              variants={itemVariants}
-              whileHover={{ y: -5, scale: 1.02 }}
-              className="group"
-            >
-              <Card className="bg-gradient-to-br from-green-900/20 to-emerald-900/20 border-green-500/20 hover:border-green-400/40 transition-all duration-300 backdrop-blur-sm">
-                <CardHeader className="pb-4">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="p-2 bg-green-500/20 rounded-lg group-hover:bg-green-500/30 transition-colors duration-300">
-                      <Leaf className="h-6 w-6 text-green-400" />
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription className="text-gray-300 text-sm leading-relaxed mb-4">
+                      {t(`pages.productsHub.labsUseCases.${uc.key}.desc`)}
+                    </CardDescription>
+                    <div className="flex flex-wrap gap-2">
+                      {(t(`pages.productsHub.labsUseCases.${uc.key}.tags`, { returnObjects: true }) as string[]).map((tag, idx) => (
+                        <Badge key={idx} variant="outline" className={`border-${uc.color}-400/20 text-${uc.color}-300 text-xs`}>
+                          {tag}
+                        </Badge>
+                      ))}
                     </div>
-                    <CardTitle className="text-lg text-white">Agricultural Monitoring</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-gray-300 text-sm leading-relaxed mb-4">
-                    Monitor crop health, detect pests, and optimize irrigation using drone and ground-based cameras.
-                  </CardDescription>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="outline" className="border-green-400/20 text-green-300 text-xs">
-                      Crop Health
-                    </Badge>
-                    <Badge variant="outline" className="border-green-400/20 text-green-300 text-xs">
-                      Pest Detection
-                    </Badge>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            {/* Food Safety */}
-            <motion.div
-              variants={itemVariants}
-              whileHover={{ y: -5, scale: 1.02 }}
-              className="group"
-            >
-              <Card className="bg-gradient-to-br from-orange-900/20 to-red-900/20 border-orange-500/20 hover:border-orange-400/40 transition-all duration-300 backdrop-blur-sm">
-                <CardHeader className="pb-4">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="p-2 bg-orange-500/20 rounded-lg group-hover:bg-orange-500/30 transition-colors duration-300">
-                      <ChefHat className="h-6 w-6 text-orange-400" />
-                    </div>
-                    <CardTitle className="text-lg text-white">Food Safety</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-gray-300 text-sm leading-relaxed mb-4">
-                    Ensure food quality, detect contamination, and monitor processing conditions in food production.
-                  </CardDescription>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="outline" className="border-orange-400/20 text-orange-300 text-xs">
-                      Contamination Detection
-                    </Badge>
-                    <Badge variant="outline" className="border-orange-400/20 text-orange-300 text-xs">
-                      Quality Assessment
-                    </Badge>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            {/* Supply Chain Monitoring */}
-            <motion.div
-              variants={itemVariants}
-              whileHover={{ y: -5, scale: 1.02 }}
-              className="group"
-            >
-              <Card className="bg-gradient-to-br from-purple-900/20 to-violet-900/20 border-purple-500/20 hover:border-purple-400/40 transition-all duration-300 backdrop-blur-sm">
-                <CardHeader className="pb-4">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="p-2 bg-purple-500/20 rounded-lg group-hover:bg-purple-500/30 transition-colors duration-300">
-                      <Truck className="h-6 w-6 text-purple-400" />
-                    </div>
-                    <CardTitle className="text-lg text-white">Supply Chain</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-gray-300 text-sm leading-relaxed mb-4">
-                    Track packages, monitor warehouse operations, and ensure proper handling throughout the supply chain.
-                  </CardDescription>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="outline" className="border-purple-400/20 text-purple-300 text-xs">
-                      Package Tracking
-                    </Badge>
-                    <Badge variant="outline" className="border-purple-400/20 text-purple-300 text-xs">
-                      Warehouse Monitoring
-                    </Badge>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            {/* IoT Device Monitoring */}
-            <motion.div
-              variants={itemVariants}
-              whileHover={{ y: -5, scale: 1.02 }}
-              className="group"
-            >
-              <Card className="bg-gradient-to-br from-cyan-900/20 to-blue-900/20 border-cyan-500/20 hover:border-cyan-400/40 transition-all duration-300 backdrop-blur-sm">
-                <CardHeader className="pb-4">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="p-2 bg-cyan-500/20 rounded-lg group-hover:bg-cyan-500/30 transition-colors duration-300">
-                      <Cpu className="h-6 w-6 text-cyan-400" />
-                    </div>
-                    <CardTitle className="text-lg text-white">IoT Monitoring</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-gray-300 text-sm leading-relaxed mb-4">
-                    Monitor IoT devices, detect malfunctions, and predict maintenance needs using visual inspection.
-                  </CardDescription>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="outline" className="border-cyan-400/20 text-cyan-300 text-xs">
-                      Device Health
-                    </Badge>
-                    <Badge variant="outline" className="border-cyan-400/20 text-cyan-300 text-xs">
-                      Predictive Maintenance
-                    </Badge>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            {/* Safety & Security */}
-            <motion.div
-              variants={itemVariants}
-              whileHover={{ y: -5, scale: 1.02 }}
-              className="group"
-            >
-              <Card className="bg-gradient-to-br from-red-900/20 to-pink-900/20 border-red-500/20 hover:border-red-400/40 transition-all duration-300 backdrop-blur-sm">
-                <CardHeader className="pb-4">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="p-2 bg-red-500/20 rounded-lg group-hover:bg-red-500/30 transition-colors duration-300">
-                      <Shield className="h-6 w-6 text-red-400" />
-                    </div>
-                    <CardTitle className="text-lg text-white">Safety & Security</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-gray-300 text-sm leading-relaxed mb-4">
-                    Monitor workplace safety, detect security threats, and ensure compliance with safety protocols.
-                  </CardDescription>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="outline" className="border-red-400/20 text-red-300 text-xs">
-                      Safety Compliance
-                    </Badge>
-                    <Badge variant="outline" className="border-red-400/20 text-red-300 text-xs">
-                      Threat Detection
-                    </Badge>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
           </div>
         </motion.section>
 
@@ -953,18 +787,18 @@ const Products = () => {
               className="text-3xl font-bold mb-6 text-white"
               variants={itemVariants}
             >
-              Ready to Transform Your Operations?
+              {t('pages.productsHub.ctaTitle')}
             </motion.h2>
             <motion.p 
               className="text-xl text-gray-300 mb-8"
               variants={itemVariants}
             >
-              See CIRO AI in action with a personalized demo of your industrial use case.
+              {t('pages.productsHub.ctaDesc')}
             </motion.p>
             <motion.div variants={itemVariants}>
               <Button size="lg" asChild className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700">
                 <Link to="/contact" className="flex items-center gap-2">
-                  Book Live Demo
+                  {t('pages.productsHub.ctaButton')}
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>

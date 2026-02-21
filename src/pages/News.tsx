@@ -1,10 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
-import { 
-  Newspaper, 
-  Calendar, 
-  User, 
+import {
+  Newspaper,
+  Calendar,
+  User,
   ArrowRight,
   ExternalLink,
   Search,
@@ -25,8 +25,11 @@ import Contact from "@/components/home/Contact";
 import { EmailService } from "@/lib/emailService";
 import { logVisitorEvent } from "@/lib/analytics";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const News = () => {
+  const { t } = useTranslation();
+
   const handleNewsletterSignup = async (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -34,7 +37,7 @@ const News = () => {
     const email = formData.get('email') as string;
     
     if (!email) {
-      toast.error("Please enter your email address");
+      toast.error(t('pages.news.emailRequired'));
       return;
     }
     
@@ -52,14 +55,14 @@ const News = () => {
       });
       
       // Show success message
-      toast.success("Successfully subscribed to news newsletter!");
+      toast.success(t('pages.news.newsletterSuccess'));
       
       // Reset form
       (e.target as HTMLFormElement).reset();
       
     } catch (error) {
       console.error('Newsletter signup error:', error);
-      toast.error("Something went wrong. Please try again later.");
+      toast.error(t('pages.news.newsletterError'));
     }
   };
 
@@ -123,11 +126,10 @@ const News = () => {
           <div className="container mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 max-w-7xl">
             <div className="text-center mb-16">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-                Latest News & Updates
+                {t('pages.news.heading')}
               </h1>
               <p className="text-xl text-gray-300 max-w-4xl mx-auto">
-                Stay informed about the latest developments in industrial AI, 
-                product launches, partnerships, and industry insights from CIRO.
+                {t('pages.news.description')}
               </p>
             </div>
 
@@ -167,7 +169,7 @@ const News = () => {
                   
                   <Link to={`/news/${newsArticles[0].slug}`}>
                     <Button className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white">
-                      Read Full Article
+                      {t('pages.news.readFullArticle')}
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
                   </Link>
@@ -276,7 +278,7 @@ const News = () => {
                       size="sm"
                       className="w-full border-purple-500/30 text-purple-400 hover:bg-purple-500/10 hover:border-purple-500/50"
                     >
-                      Read More
+                      {t('pages.news.readMore')}
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
                   </Link>
@@ -290,7 +292,7 @@ const News = () => {
                 variant="outline"
                 className="border-purple-500/30 text-purple-400 hover:bg-purple-500/10 hover:border-purple-500/50 px-8 py-3"
               >
-                Load More Articles
+                {t('pages.news.loadMore')}
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </div>
@@ -302,11 +304,10 @@ const News = () => {
           <div className="container mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 max-w-7xl">
             <div className="bg-gradient-to-r from-purple-500/10 to-blue-500/10 border border-purple-500/20 rounded-2xl p-12 text-center">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Stay Updated
+                {t('pages.news.stayUpdated')}
               </h2>
               <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                Get the latest news, product updates, and industry insights delivered 
-                directly to your inbox. Never miss an important update from CIRO.
+                {t('pages.news.stayUpdatedDesc')}
               </p>
               
               <form onSubmit={handleNewsletterSignup} className="max-w-md mx-auto">
@@ -314,7 +315,7 @@ const News = () => {
                   <Input
                     type="email"
                     name="email"
-                    placeholder="Enter your email"
+                    placeholder={t('pages.news.enterEmail')}
                     className="flex-1 bg-card/50 border-border/50 text-white placeholder:text-gray-400 focus:border-purple-500"
                     required
                   />
@@ -322,14 +323,14 @@ const News = () => {
                     type="submit" 
                     className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white"
                   >
-                    Subscribe
+                    {t('pages.news.subscribe')}
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
                 </div>
               </form>
               
               <p className="text-sm text-gray-400 mt-4">
-                We respect your privacy. Unsubscribe at any time.
+                {t('pages.news.privacyNote')}
               </p>
             </div>
           </div>
@@ -340,56 +341,55 @@ const News = () => {
           <div className="container mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 max-w-7xl">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Press Resources
+                {t('pages.news.pressTitle')}
               </h2>
               <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-                Journalists and media professionals can find press releases, 
-                company information, and media assets here.
+                {t('pages.news.pressDesc')}
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="bg-card/80 border border-border/50 rounded-2xl p-8 text-center hover:border-purple-500/30 transition-all duration-300">
                 <Newspaper className="w-12 h-12 text-purple-400 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold text-white mb-4">Press Releases</h3>
+                <h3 className="text-xl font-semibold text-white mb-4">{t('pages.news.pressReleases')}</h3>
                 <p className="text-gray-300 mb-6">
-                  Official press releases and company announcements
+                  {t('pages.news.pressReleasesDesc')}
                 </p>
-                <Button 
+                <Button
                   variant="outline"
                   className="border-purple-500/30 text-purple-400 hover:bg-purple-500/10 hover:border-purple-500/50"
                 >
-                  View Releases
+                  {t('pages.news.viewReleases')}
                   <ExternalLink className="w-4 h-4 ml-2" />
                 </Button>
               </div>
 
               <div className="bg-card/80 border border-border/50 rounded-2xl p-8 text-center hover:border-purple-500/30 transition-all duration-300">
                 <Building className="w-12 h-12 text-purple-400 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold text-white mb-4">Company Info</h3>
+                <h3 className="text-xl font-semibold text-white mb-4">{t('pages.news.companyInfo')}</h3>
                 <p className="text-gray-300 mb-6">
-                  Company facts, leadership team, and corporate information
+                  {t('pages.news.companyInfoDesc')}
                 </p>
-                <Button 
+                <Button
                   variant="outline"
                   className="border-purple-500/30 text-purple-400 hover:bg-purple-500/10 hover:border-purple-500/50"
                 >
-                  Company Details
+                  {t('pages.news.companyDetails')}
                   <ExternalLink className="w-4 h-4 ml-2" />
                 </Button>
               </div>
 
               <div className="bg-card/80 border border-border/50 rounded-2xl p-8 text-center hover:border-purple-500/30 transition-all duration-300">
                 <Star className="w-12 h-12 text-purple-400 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold text-white mb-4">Media Assets</h3>
+                <h3 className="text-xl font-semibold text-white mb-4">{t('pages.news.mediaAssets')}</h3>
                 <p className="text-gray-300 mb-6">
-                  Logos, images, and other media resources for press use
+                  {t('pages.news.mediaAssetsDesc')}
                 </p>
-                <Button 
+                <Button
                   variant="outline"
                   className="border-purple-500/30 text-purple-400 hover:bg-purple-500/10 hover:border-purple-500/50"
                 >
-                  Download Assets
+                  {t('pages.news.downloadAssets')}
                   <ExternalLink className="w-4 h-4 ml-2" />
                 </Button>
               </div>

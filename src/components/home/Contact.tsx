@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -61,6 +62,7 @@ const formSchema = z.object({
 type FormType = 'custom' | 'calendly';
 
 const Contact = () => {
+  const { t } = useTranslation();
   const [formType, setFormType] = useState<FormType>('custom');
   const [isCalendlyLoaded, setIsCalendlyLoaded] = useState(false);
 
@@ -159,7 +161,7 @@ const Contact = () => {
       });
       
       // Show success message
-      toast.success("Demo request submitted successfully! We'll contact you within one business day.");
+      toast.success(t('pages.homeContact.successMessage'));
       form.reset();
       
       // Show Calendly after form submission
@@ -167,26 +169,26 @@ const Contact = () => {
       
     } catch (error) {
       console.error('Submission error:', error);
-      toast.error("Something went wrong. Please try again later.");
+      toast.error(t('pages.homeContact.errorMessage'));
     }
   }
 
   const benefits = [
     {
       icon: Calendar,
-      title: "Personalized Walkthrough",
-      description: "We'll tailor the demo to your industry and specific operational challenges."
+      title: t('pages.homeContact.benefits.walkthrough.title'),
+      description: t('pages.homeContact.benefits.walkthrough.desc'),
     },
     {
       icon: Users,
-      title: "Live Q&A Session",
-      description: "Get all your questions answered by our product specialists."
+      title: t('pages.homeContact.benefits.qa.title'),
+      description: t('pages.homeContact.benefits.qa.desc'),
     },
     {
       icon: CheckCircle,
-      title: "No Obligation",
-      description: "Just a friendly conversation to see if CIRO is right for you."
-    }
+      title: t('pages.homeContact.benefits.noObligation.title'),
+      description: t('pages.homeContact.benefits.noObligation.desc'),
+    },
   ];
 
   const industries = [
@@ -208,14 +210,14 @@ const Contact = () => {
         return (
           <div className="bg-card/80 border border-border/50 rounded-2xl p-8 shadow-xl">
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-2xl font-bold text-white">Schedule Your Demo</h3>
+              <h3 className="text-2xl font-bold text-white">{t('pages.homeContact.scheduleYourDemo')}</h3>
               <Button
                 onClick={() => setFormType('custom')}
                 variant="ghost"
                 size="sm"
                 className="text-gray-400 hover:text-white"
               >
-                ← Back to Form
+                {t('pages.homeContact.backToForm')}
               </Button>
             </div>
             <div 
@@ -226,7 +228,7 @@ const Contact = () => {
               <div className="flex items-center justify-center h-[700px]">
                 <div className="text-center">
                   <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-500 mx-auto mb-4"></div>
-                  <p className="text-gray-400">Loading calendar...</p>
+                  <p className="text-gray-400">{t('pages.homeContact.loadingCalendar')}</p>
                 </div>
               </div>
             )}
@@ -240,7 +242,7 @@ const Contact = () => {
           <>
             {/* Form */}
             <div className="bg-card/80 border border-border/50 rounded-2xl p-8 shadow-xl">
-              <h3 className="text-2xl font-bold text-white mb-6">Book Your Demo</h3>
+              <h3 className="text-2xl font-bold text-white mb-6">{t('pages.homeContact.bookYourDemo')}</h3>
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -249,10 +251,10 @@ const Contact = () => {
                       name="name"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-gray-300">Name</FormLabel>
+                          <FormLabel className="text-gray-300">{t('pages.homeContact.name')}</FormLabel>
                           <FormControl>
-                            <Input 
-                              placeholder="Your name" 
+                            <Input
+                              placeholder={t('pages.homeContact.namePlaceholder')}
                               className="bg-card/50 border-border/50 text-white placeholder:text-gray-400"
                               {...field} 
                             />
@@ -267,11 +269,11 @@ const Contact = () => {
                       name="email"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-gray-300">Work Email</FormLabel>
+                          <FormLabel className="text-gray-300">{t('pages.homeContact.workEmail')}</FormLabel>
                           <FormControl>
                             <Input
                               type="email"
-                              placeholder="you@company.com"
+                              placeholder={t('pages.homeContact.emailPlaceholder')}
                               className="bg-card/50 border-border/50 text-white placeholder:text-gray-400"
                               {...field}
                             />
@@ -288,10 +290,10 @@ const Contact = () => {
                       name="company"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-gray-300">Company</FormLabel>
+                          <FormLabel className="text-gray-300">{t('pages.homeContact.company')}</FormLabel>
                           <FormControl>
-                            <Input 
-                              placeholder="Your company" 
+                            <Input
+                              placeholder={t('pages.homeContact.companyPlaceholder')}
                               className="bg-card/50 border-border/50 text-white placeholder:text-gray-400"
                               {...field} 
                             />
@@ -306,11 +308,11 @@ const Contact = () => {
                       name="industry"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-gray-300">Industry</FormLabel>
+                          <FormLabel className="text-gray-300">{t('pages.homeContact.industry')}</FormLabel>
                           <Select onValueChange={field.onChange} defaultValue={field.value}>
                             <FormControl>
                               <SelectTrigger className="bg-card/50 border-border/50 text-white">
-                                <SelectValue placeholder="Select your industry" />
+                                <SelectValue placeholder={t('pages.homeContact.selectIndustry')} />
                               </SelectTrigger>
                             </FormControl>
                             <SelectContent className="bg-card border-border">
@@ -332,10 +334,10 @@ const Contact = () => {
                     name="message"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-gray-300">Message (Optional)</FormLabel>
+                        <FormLabel className="text-gray-300">{t('pages.homeContact.message')}</FormLabel>
                         <FormControl>
                           <Textarea
-                            placeholder="Tell us about your specific needs or challenges"
+                            placeholder={t('pages.homeContact.messagePlaceholder')}
                             className="resize-none bg-card/50 border-border/50 text-white placeholder:text-gray-400"
                             rows={4}
                             {...field}
@@ -352,12 +354,12 @@ const Contact = () => {
                     className="w-full bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white font-semibold py-3 shadow-lg hover:shadow-xl transition-all duration-300"
                   >
                     <Zap className="w-5 h-5 mr-2" />
-                    Book My Demo
+                    {t('pages.homeContact.bookMyDemo')}
                   </Button>
                 </form>
               </Form>
               <p className="text-sm text-gray-400 mt-6 text-center">
-                We typically respond within one business day.
+                {t('pages.homeContact.responseTime')}
               </p>
             </div>
 
@@ -368,7 +370,7 @@ const Contact = () => {
                   <div className="w-full border-t border-border/30" />
                 </div>
                 <div className="relative flex justify-center text-sm">
-                  <span className="px-4 bg-slate-900 text-gray-400">or choose another option</span>
+                  <span className="px-4 bg-slate-900 text-gray-400">{t('pages.homeContact.orChoose')}</span>
                 </div>
               </div>
 
@@ -380,7 +382,7 @@ const Contact = () => {
                   className="border-purple-500/30 text-purple-400 hover:bg-purple-500/10 hover:border-purple-500/50 font-semibold py-3"
                 >
                   <Calendar className="w-5 h-5 mr-2" />
-                  Schedule with Calendly
+                  {t('pages.homeContact.scheduleCalendly')}
                 </Button>
               </div>
             </div>
@@ -404,22 +406,21 @@ const Contact = () => {
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-purple-400 bg-gradient-to-r from-purple-500/10 to-blue-500/10 border border-purple-500/20 rounded-full mb-6">
               <Play className="w-4 h-4" />
-              <span>Get Started</span>
+              <span>{t('pages.homeContact.badge')}</span>
             </div>
             
             <h2 className="text-4xl md:text-5xl lg:text-4xl xl:text-4xl 2xl:text-5xl font-bold mb-6 leading-tight">
               <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                Ready to See CIRO
+                {t('pages.homeContact.heading1')}
               </span>
               <br />
               <span className="text-white">
-                in Action?
+                {t('pages.homeContact.heading2')}
               </span>
             </h2>
             
             <p className="text-lg md:text-xl lg:text-lg xl:text-lg 2xl:text-xl text-gray-300 mb-8 leading-relaxed max-w-4xl mx-auto">
-              Experience the power of real-time industrial AI in your operations. 
-              Schedule a personalized demo with our team and see how CIRO can transform your business.
+              {t('pages.homeContact.description')}
             </p>
           </div>
 
@@ -429,7 +430,7 @@ const Contact = () => {
             <div className="space-y-8">
               {/* Benefits */}
               <div className="bg-card/80 border border-border/50 rounded-2xl p-8 shadow-xl">
-                <h3 className="text-2xl font-bold text-white mb-6">What to Expect</h3>
+                <h3 className="text-2xl font-bold text-white mb-6">{t('pages.homeContact.whatToExpect')}</h3>
                 <div className="space-y-6">
                   {benefits.map((benefit, index) => (
                     <div key={index} className="flex gap-4">
@@ -447,12 +448,12 @@ const Contact = () => {
 
               {/* Contact Info */}
               <div className="bg-gradient-to-r from-purple-500/10 to-blue-500/10 border border-purple-500/20 rounded-2xl p-8">
-                <h3 className="text-xl font-bold text-white mb-6">Other Ways to Connect</h3>
+                <h3 className="text-xl font-bold text-white mb-6">{t('pages.homeContact.otherWays')}</h3>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
                     <Mail className="w-5 h-5 text-purple-400" />
                     <div>
-                      <p className="text-gray-300 text-sm">Email us directly</p>
+                      <p className="text-gray-300 text-sm">{t('pages.homeContact.emailDirectly')}</p>
                       <a 
                         href="mailto:hola@ciroai.us" 
                         className="text-purple-400 hover:text-purple-300 font-medium"
@@ -474,9 +475,9 @@ const Contact = () => {
           {/* Bottom CTA */}
           <div className="text-center mt-16">
             <div className="bg-gradient-to-r from-purple-500/10 to-blue-500/10 border border-purple-500/20 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-white mb-4">Ready to Transform Your Operations?</h3>
+              <h3 className="text-2xl font-bold text-white mb-4">{t('pages.homeContact.ctaTitle')}</h3>
               <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-                Join hundreds of companies already achieving breakthrough results with CIRO's intelligent automation platform.
+                {t('pages.homeContact.ctaDesc')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button 
@@ -484,14 +485,14 @@ const Contact = () => {
                   className="px-8 py-3 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
                 >
                   <Calendar className="w-5 h-5 mr-2" />
-                  Schedule Demo
+                  {t('pages.homeContact.scheduleDemo')}
                 </Button>
                 <Button 
                   variant="outline"
                   className="px-8 py-3 border-purple-500/30 text-purple-400 hover:bg-purple-500/10 hover:border-purple-500/50 rounded-lg font-semibold transition-all duration-300"
                 >
                   <ArrowRight className="w-5 h-5 mr-2" />
-                  View Case Studies
+                  {t('pages.homeContact.viewCaseStudies')}
                 </Button>
               </div>
             </div>
