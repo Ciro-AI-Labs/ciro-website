@@ -30,35 +30,58 @@ const mockData = {
 }
 
 // Create a simple mock client for fallback
-const createMockClient = () => ({
-  from: (table: string) => ({
-    insert: () => Promise.resolve({ data: null, error: null }),
-    select: () => ({
-      eq: () => ({
-        order: () => ({
-          limit: () => Promise.resolve({ data: mockData[table as keyof typeof mockData] || [], error: null })
-        })
-      }),
-      gte: () => ({
-        order: () => Promise.resolve({ data: mockData[table as keyof typeof mockData] || [], error: null })
-      }),
-      order: () => ({
-        limit: () => Promise.resolve({ data: mockData[table as keyof typeof mockData] || [], error: null })
-      }),
-      limit: () => Promise.resolve({ data: mockData[table as keyof typeof mockData] || [], error: null }),
-      not: () => ({
-        is: () => ({
-          null: () => Promise.resolve({ data: mockData[table as keyof typeof mockData] || [], error: null })
-        })
-      })
-    }),
-    update: () => Promise.resolve({ data: null, error: null }),
-    delete: () => Promise.resolve({ data: null, error: null })
-  }),
-  channel: () => ({
-    on: () => ({ subscribe: () => ({ unsubscribe: () => {} }) })
-  })
-})
+const createMockClient = () => {
+  const mockResult = { data: null, error: null };
+  // Chainable promise: acts as both a thenable and an object with query methods
+  const chainable = (): any => {
+    const promise = Promise.resolve(mockResult);
+    const chain: any = {
+      select: () => chainable(),
+      eq: () => chainable(),
+      gte: () => chainable(),
+      order: () => chainable(),
+      limit: () => chainable(),
+      single: () => promise,
+      not: () => chainable(),
+      is: () => chainable(),
+      then: promise.then.bind(promise),
+      catch: promise.catch.bind(promise),
+    };
+    return chain;
+  };
+
+  return {
+    from: (table: string) => {
+      const tableData = mockData[table as keyof typeof mockData] || [];
+      const selectResult = Promise.resolve({ data: tableData, error: null });
+      const selectChainable = (): any => {
+        const chain: any = {
+          eq: () => selectChainable(),
+          gte: () => selectChainable(),
+          order: () => selectChainable(),
+          limit: () => selectChainable(),
+          single: () => selectResult,
+          not: () => selectChainable(),
+          is: () => selectChainable(),
+          then: selectResult.then.bind(selectResult),
+          catch: selectResult.catch.bind(selectResult),
+        };
+        return chain;
+      };
+
+      return {
+        insert: () => chainable(),
+        upsert: () => chainable(),
+        update: () => chainable(),
+        delete: () => chainable(),
+        select: () => selectChainable(),
+      };
+    },
+    channel: () => ({
+      on: () => ({ subscribe: () => ({ unsubscribe: () => {} }) })
+    })
+  };
+}
 
 // Create the Supabase client
 let supabase: any

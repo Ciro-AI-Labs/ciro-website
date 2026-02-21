@@ -138,7 +138,22 @@ const Contact = () => {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      // Submit to Supabase
+      // Send via Lambda API (internal notification + confirmation email)
+      const nameParts = values.name.split(' ');
+      await fetch('https://c2jyevo11a.execute-api.us-west-2.amazonaws.com/demo-request', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName: nameParts[0] || values.name,
+          lastName: nameParts.slice(1).join(' ') || '',
+          email: values.email,
+          company: values.company,
+          industry: values.industry,
+          message: values.message,
+        }),
+      }).catch((err) => console.error('Email API error:', err));
+
+      // Also save to Supabase
       await EmailService.submitEmail({
         email: values.email,
         name: values.name,
@@ -147,7 +162,7 @@ const Contact = () => {
         message: values.message,
         type: 'contact'
       });
-      
+
       // Log analytics event
       trackEvent('form_submit_contact', {
         form_name: 'home_contact',

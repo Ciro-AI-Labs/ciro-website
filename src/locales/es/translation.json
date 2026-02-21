@@ -941,12 +941,12 @@
         "other": "Otro"
       },
       "companySizes": {
-        "1-50": "1-50 empleados",
-        "51-200": "51-200 empleados",
-        "201-500": "201-500 empleados",
-        "501-1000": "501-1,000 empleados",
-        "1001-5000": "1,001-5,000 empleados",
-        "5000+": "5,000+ empleados"
+        "1_50": "1-50 empleados",
+        "51_200": "51-200 empleados",
+        "201_500": "201-500 empleados",
+        "501_1000": "501-1,000 empleados",
+        "1001_5000": "1,001-5,000 empleados",
+        "5000plus": "5,000+ empleados"
       },
       "useCases": {
         "realTimeMonitoring": "Monitoreo de Operaciones en Tiempo Real",
