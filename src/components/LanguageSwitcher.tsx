@@ -1,11 +1,13 @@
 import { useTranslation } from "react-i18next";
 import { Globe } from "lucide-react";
+import { trackEvent } from "@/lib/gtag";
 
 const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
 
   const toggle = () => {
     const next = i18n.language?.startsWith("es") ? "en" : "es";
+    trackEvent('language_switch', { from: i18n.language, to: next, page: window.location.pathname });
     i18n.changeLanguage(next);
   };
 

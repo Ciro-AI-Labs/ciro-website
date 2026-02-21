@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import ParticlesBackground from "../ParticlesBackground";
 import { BarChart3, Database, Smartphone, Factory, Eye, ArrowRight } from 'lucide-react';
+import { trackEvent } from "@/lib/gtag";
 
 const Hero = () => {
   const controls = useAnimation();
@@ -121,6 +122,7 @@ const Hero = () => {
               size="lg"
               asChild
               className="bg-blue-600 hover:bg-blue-700 text-white font-semibold w-full sm:w-auto px-8"
+              onClick={() => trackEvent('cta_click_demo', { page: '/', location: 'hero' })}
             >
               <Link to="/contact">
                 {t('hero.bookDemo')}

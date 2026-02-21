@@ -19,12 +19,29 @@ import {
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Contact from "@/components/home/Contact";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { trackEvent } from "@/lib/gtag";
+import { EmailService } from "@/lib/emailService";
+import { toast } from "sonner";
 
 const NewsPost = () => {
   const { t } = useTranslation();
   const { slug } = useParams();
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+
+  const handleNewsletterSignup = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newsletterEmail) return;
+    try {
+      await EmailService.subscribeToNewsletter(newsletterEmail);
+      trackEvent('newsletter_signup', { form_name: 'newspost_newsletter', page: window.location.pathname, email: newsletterEmail });
+      toast.success(t('pages.newsPost.subscribeSuccess') || 'Subscribed!');
+      setNewsletterEmail('');
+    } catch {
+      toast.error(t('pages.newsPost.subscribeError') || 'Something went wrong.');
+    }
+  };
 
   // Mock data - in real app this would come from Supabase
   const newsArticles = [
@@ -635,16 +652,19 @@ const NewsPost = () => {
                 {t('pages.newsPost.stayUpdatedDesc')}
               </p>
               
-              <div className="flex gap-4 max-w-md mx-auto">
+              <form onSubmit={handleNewsletterSignup} className="flex gap-4 max-w-md mx-auto">
                 <input
                   type="email"
+                  value={newsletterEmail}
+                  onChange={(e) => setNewsletterEmail(e.target.value)}
                   placeholder={t('pages.newsPost.enterEmail')}
                   className="flex-1 px-4 py-3 bg-card/50 border border-border/50 text-white placeholder:text-gray-400 focus:border-purple-500 rounded-lg focus:outline-none"
+                  required
                 />
-                <Button className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white">
+                <Button type="submit" className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white">
                   {t('pages.newsPost.subscribe')}
                 </Button>
-              </div>
+              </form>
               
               <p className="text-sm text-gray-400 mt-4">
                 {t('pages.newsPost.privacyNote')}

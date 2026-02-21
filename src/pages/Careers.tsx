@@ -40,6 +40,7 @@ import Footer from "@/components/layout/Footer";
 import Contact from "@/components/home/Contact";
 import { EmailService } from "@/lib/emailService";
 import { logVisitorEvent } from "@/lib/analytics";
+import { trackEvent } from "@/lib/gtag";
 
 const Careers = () => {
   const { t } = useTranslation();
@@ -74,6 +75,11 @@ const Careers = () => {
       });
 
       // Log analytics event
+      trackEvent('form_submit_career', {
+        form_name: 'career_application',
+        page: window.location.pathname,
+        email,
+      });
       await logVisitorEvent({
         event_type: "form_submission",
         email: email,

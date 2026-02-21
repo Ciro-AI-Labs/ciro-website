@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { BarChart3, Database, Smartphone, Factory, Eye, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { trackEvent } from "@/lib/gtag";
 
 
 const ecosystemProducts = [
@@ -259,6 +260,7 @@ const Products = () => {
                 </ul>
                 <Link
                   to="/products/ai-analytics"
+                  onClick={() => trackEvent('cta_click_learn_more', { product: 'ciro_ai', page: '/' })}
                   className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-all"
                 >
                   {t('products.exploreCiroAi')}
@@ -282,6 +284,7 @@ const Products = () => {
               <Link
                 key={product.name}
                 to={product.href}
+                onClick={() => trackEvent('cta_click_learn_more', { product: product.name, page: '/' })}
                 className="group bg-gray-50 border border-gray-200 rounded-2xl p-8 hover:shadow-lg transition-all duration-300"
               >
                 {/* Icon & Title */}

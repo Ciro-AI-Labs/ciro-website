@@ -24,6 +24,7 @@ import Footer from "@/components/layout/Footer";
 import Contact from "@/components/home/Contact";
 import { EmailService } from "@/lib/emailService";
 import { logVisitorEvent } from "@/lib/analytics";
+import { trackEvent } from "@/lib/gtag";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
@@ -46,6 +47,7 @@ const News = () => {
       const result = await EmailService.subscribeToNewsletter(email);
       
       // Log analytics event
+      trackEvent('newsletter_signup', { form_name: 'news_newsletter', page: window.location.pathname, email });
       await logVisitorEvent({
         event_type: "newsletter_signup",
         email: email,

@@ -27,6 +27,7 @@ import { toast } from "sonner";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { submitDemoRequest, createCalendlyLink } from "@/lib/demoRequestService";
+import { trackEvent } from "@/lib/gtag";
 import { motion } from "framer-motion";
 import { 
   Mail, 
@@ -91,6 +92,11 @@ const Contact = () => {
       const result = await submitDemoRequest(values);
 
       if (result.success) {
+        trackEvent('form_submit_demo', {
+          form_name: 'demo_request',
+          page: window.location.pathname,
+          email: values.email,
+        });
         toast.success(result.message || t('pages.contactPage.successMessage'));
         form.reset();
 
@@ -116,6 +122,7 @@ const Contact = () => {
   }
 
   function openCalendly(formData: z.infer<typeof formSchema>) {
+    trackEvent('cta_click_calendly', { page: window.location.pathname });
     const calendlyUrl = createCalendlyLink(formData);
     window.open(calendlyUrl, '_blank');
   }

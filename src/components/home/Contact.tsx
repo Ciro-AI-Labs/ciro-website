@@ -36,6 +36,7 @@ import {
 
 import { EmailService } from "@/lib/emailService";
 import { logVisitorEvent } from "@/lib/analytics";
+import { trackEvent } from "@/lib/gtag";
 
 // Type declarations for Calendly
 declare global {
@@ -148,6 +149,11 @@ const Contact = () => {
       });
       
       // Log analytics event
+      trackEvent('form_submit_contact', {
+        form_name: 'home_contact',
+        page: window.location.pathname,
+        email: values.email,
+      });
       await logVisitorEvent({
         event_type: "form_submission",
         email: values.email,
@@ -376,7 +382,10 @@ const Contact = () => {
 
               <div className="flex justify-center">
                 <Button
-                  onClick={() => setFormType('calendly')}
+                  onClick={() => {
+                    trackEvent('cta_click_calendly', { page: window.location.pathname });
+                    setFormType('calendly');
+                  }}
                   variant="outline"
                   size="lg"
                   className="border-purple-500/30 text-purple-400 hover:bg-purple-500/10 hover:border-purple-500/50 font-semibold py-3"

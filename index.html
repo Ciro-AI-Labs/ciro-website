@@ -33,16 +33,19 @@
     <meta name="twitter:description" content="One platform. Four products. Every insight. Enterprise AI that sees, predicts, and acts in real time." />
     <meta name="twitter:image" content="/images/ciro-social-share.png" />
 
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G1Q76DWBDC"></script>
+    <!-- Google Analytics 4 with Consent Mode -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-G1Q76DWBDC', {
-        page_title: document.title,
-        page_location: window.location.href
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
       });
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G1Q76DWBDC"></script>
+    <script>
+      gtag('js', new Date());
+      gtag('config', 'G-G1Q76DWBDC', { send_page_view: true });
     </script>
   </head>
 

@@ -19,6 +19,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { EmailService } from "@/lib/emailService";
 import { logVisitorEvent } from "@/lib/analytics";
+import { trackEvent } from "@/lib/gtag";
 import { useTranslation } from "react-i18next";
 
 const Footer = () => {
@@ -44,6 +45,7 @@ const Footer = () => {
 
     try {
       const result = await EmailService.subscribeToNewsletter(email);
+      trackEvent('newsletter_signup', { form_name: 'footer_newsletter', page: window.location.pathname, email });
       await logVisitorEvent({ event_type: "newsletter_signup", email: email });
       toast.success(t('footer.newsletterSuccess'));
       setEmail("");
