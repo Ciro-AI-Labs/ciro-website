@@ -1,4 +1,4 @@
-import { Users, Award, Globe, Brain, Building2, Rocket } from "lucide-react";
+import { Users, Award, Globe, Brain, Building2, Rocket, Presentation } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const AboutUs = () => {
@@ -93,6 +93,10 @@ const AboutUs = () => {
               <a href="/careers" className="border border-gray-300 hover:border-blue-300 text-slate-600 hover:text-blue-600 font-semibold py-3 px-8 rounded-lg transition-all duration-300 flex items-center gap-2">
                 <Users className="w-4 h-4" />
                 {t('aboutSection.ctaCareers')}
+              </a>
+              <a href="https://pitch.ciroai.us" target="_blank" rel="noopener noreferrer" className="border border-gray-300 hover:border-blue-300 text-slate-600 hover:text-blue-600 font-semibold py-3 px-8 rounded-lg transition-all duration-300 flex items-center gap-2">
+                <Presentation className="w-4 h-4" />
+                {t('aboutSection.ctaPitchDeck')}
               </a>
             </div>
           </div>

@@ -199,6 +199,11 @@ const Footer = () => {
                     {t('footer.partners')}
                   </Link>
                 </li>
+                <li>
+                  <a href="https://pitch.ciroai.us" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition-colors text-sm">
+                    {t('footer.pitchDeck')}
+                  </a>
+                </li>
               </ul>
             </div>
 

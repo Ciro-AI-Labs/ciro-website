@@ -4,7 +4,7 @@ import { motion, useAnimation } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import ParticlesBackground from "../ParticlesBackground";
-import { BarChart3, Database, Smartphone, Factory, Eye, ArrowRight } from 'lucide-react';
+import { BarChart3, Database, Smartphone, Factory, Eye, ArrowRight, Presentation } from 'lucide-react';
 import { trackEvent } from "@/lib/gtag";
 
 const Hero = () => {
@@ -135,9 +135,11 @@ const Hero = () => {
               variant="outline"
               asChild
               className="border-white/10 hover:border-white/20 hover:bg-white/5 text-white w-full sm:w-auto"
+              onClick={() => trackEvent('cta_click_pitch_deck', { page: '/', location: 'hero' })}
             >
-              <a href="https://app.ciroai.us">
-                {t('hero.loginCta')}
+              <a href="https://pitch.ciroai.us" target="_blank" rel="noopener noreferrer">
+                <Presentation className="w-4 h-4 mr-2" />
+                {t('hero.pitchDeck')}
               </a>
             </Button>
           </motion.div>
